@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -13,6 +15,7 @@ public class User {
 	
 	@Id
 	@Column(name = "user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 	@Column(name = "user_name")
 	private String userName;
@@ -30,7 +33,7 @@ public class User {
 	private LocalDateTime updatedAt;
 	@Column(name = "role_id")
 	private int roleId;
-	
+
 	public User(String userName, String userSurname, String userEmail, String userPassword, String userPhone,
 			LocalDateTime createdAt, LocalDateTime updatedAt, int roleId) {
 		this.userName = userName;
