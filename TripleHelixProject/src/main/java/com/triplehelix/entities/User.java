@@ -41,8 +41,8 @@ public class User {
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
 		this.userPhone = userPhone;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+		this.createdAt = LocalDateTime.now();
+		this.updatedAt = LocalDateTime.now();
 		this.roleId = roleId;
 	}
 
