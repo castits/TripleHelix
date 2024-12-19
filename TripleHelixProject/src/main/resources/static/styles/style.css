@@ -1,0 +1,141 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Montserrat", serif;
+}
+header {
+  width: 100vw;
+  height: 10vh;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+header img {
+  width: 45px;
+  height: 45px;
+}
+
+main {
+  margin-top: 10vh;
+}
+
+#hero {
+  position: relative;
+  height: 90vh;
+}
+
+#hero-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  z-index: -1;
+  position: absolute;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+#main-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  width: 280px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 130%;
+  width: 280px;
+}
+
+#main-text p {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 160%;
+  text-align: center;
+  height: 100px;
+}
+
+button {
+  width: 250px;
+  height: 50px;
+}
+
+#cta-buttons {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  width: 250px;
+}
+
+#discover-more,
+#book-now {
+  border-radius: 1rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#discover-more {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #f19200;
+  border-radius: 1rem;
+  color: #f19200;
+}
+
+#book-now {
+  margin-top: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #f19200;
+  border: 2px solid #ff7f50;
+}
+
+#double-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
