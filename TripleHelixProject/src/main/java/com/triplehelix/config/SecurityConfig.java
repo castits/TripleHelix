@@ -19,14 +19,11 @@ public class SecurityConfig {
 		http
 			.csrf().disable()
 			.authorizeHttpRequests()
-			.requestMatchers("/login", "/register", "/").permitAll()
-			.anyRequest().authenticated()
+				.requestMatchers("/api/auth/**").permitAll()
+				.anyRequest().authenticated()
 			.and()
-			.formLogin()
-			.loginPage("/login")
-			.defaultSuccessUrl("/home", true)
-			.and()
-			.logout().logoutSuccessUrl("/login?logout");
+			.httpBasic().disable()
+			.formLogin().disable();
 		return http.build();
 	}
 	

@@ -1,5 +1,6 @@
 package com.triplehelix.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,10 @@ import com.triplehelix.repos.UserDAO;
 @Service
 public class UserService {
 	
+	@Autowired
 	private UserDAO userDao;
+	
+	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
     public User register(User user) {
@@ -18,7 +22,7 @@ public class UserService {
     }
 
     public User findUserByEmail(String email) {
-        return userDao.findUserByEmail(email).orElse(null);
+        return userDao.findUserByUserEmail(email).orElse(null);
     }
 
 }
