@@ -17,7 +17,7 @@ public class Request {
 	private int userId;
 	private String status;
 	private String institute;
-	@Column(name = "cerated_at")
+	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
