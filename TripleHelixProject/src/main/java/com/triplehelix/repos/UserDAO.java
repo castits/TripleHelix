@@ -10,6 +10,6 @@ import com.triplehelix.entities.User;
 @Repository
 public interface UserDAO extends JpaRepository<User, Integer> {
 	
-	Optional<User> findUserByEmail(String email);
+	Optional<User> findUserByUserEmail(String email);
 
 }

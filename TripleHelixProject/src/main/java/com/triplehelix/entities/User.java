@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,22 +29,32 @@ public class User {
 	private String userPassword;
 	@Column(name = "user_phone")
 	private String userPhone;
-	@Column(name = "cerated_at")
+	@Column(name = "created_at", updatable = false)
 	private LocalDateTime createdAt;
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 	@Column(name = "role_id")
 	private int roleId;
+	
+	@PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
 
-	public User(String userName, String userSurname, String userEmail, String userPassword, String userPhone,
-			LocalDateTime createdAt, LocalDateTime updatedAt, int roleId) {
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+	
+	public User() {}
+
+	public User(String userName, String userSurname, String userEmail, String userPassword, String userPhone, int roleId) {
 		this.userName = userName;
 		this.userSurname = userSurname;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
 		this.userPhone = userPhone;
-		this.createdAt = LocalDateTime.now();
-		this.updatedAt = LocalDateTime.now();
 		this.roleId = roleId;
 	}
 
