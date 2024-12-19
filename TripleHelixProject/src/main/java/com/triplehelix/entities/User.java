@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
 public class User {
-	
+
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class User {
 	private String userName;
 	@Column(name = "user_surname")
 	private String userSurname;
-	@Column(name = "user_email")
+	@Column(name = "user_email", unique = true)
 	private String userEmail;
 	@Column(name = "user_password")
 	private String userPassword;
