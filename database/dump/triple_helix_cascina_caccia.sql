@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 16, 2024 alle 10:23
+-- Creato il: Dic 19, 2024 alle 14:56
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -48,6 +48,7 @@ CREATE TABLE `bookings` (
 CREATE TABLE `feedbacks` (
   `feedback_id` int(11) NOT NULL,
   `booking_id` int(11) NOT NULL,
+  `rating` int(1) NOT NULL,
   `comment` text NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
