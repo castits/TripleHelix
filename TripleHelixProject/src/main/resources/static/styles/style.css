@@ -35,15 +35,15 @@ main {
 
 #hero {
   position: relative;
+  width: 100%;
   height: 90vh;
 }
 
 #hero-bg {
-  display: block;
   width: 100%;
   height: 100%;
   filter: blur(5px);
-  z-index: -1;
+  z-index: -2;
   position: absolute;
 }
 
@@ -58,16 +58,25 @@ main {
   z-index: -1;
 }
 
-#main-text {
+#hero-content {
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%, -15%);
+  transform: translateX(-50%);
+  width: 280px;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-text {
   width: 280px;
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 h1 {
@@ -83,7 +92,6 @@ h1 {
   font-size: 18px;
   line-height: 160%;
   text-align: center;
-  height: 100px;
 }
 
 button {
@@ -92,10 +100,6 @@ button {
 }
 
 #cta-buttons {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -80%);
   width: 250px;
 }
 
@@ -122,10 +126,6 @@ button {
 }
 
 #double-arrow {
-  position: absolute;
-  left: 50%;
-  bottom: 7%;
-  transform: translateX(-50%);
   animation: bounce 2s infinite;
   cursor: pointer;
 }
@@ -133,9 +133,9 @@ button {
 @keyframes bounce {
   0%,
   100% {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateY(-10px);
   }
 }
