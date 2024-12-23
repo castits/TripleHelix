@@ -146,3 +146,21 @@ button {
     transform: translateY(-10px);
   }
 }
+
+nav {
+  position: fixed;
+  top: 1%;
+  right: 2%;
+}
+.progress-bar {
+  background: #ff4163;
+  height: 10px;
+  width: 0%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.lorem {
+  font-size: 1000%;
+}
