@@ -15,8 +15,11 @@ html {
 }
 
 body {
-  font-family: "Montserrat", serif;
+  font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+  font-weight: 400;
+  line-height: 160%;
 }
+
 header {
   width: 100vw;
   height: 10vh;
@@ -28,6 +31,11 @@ header {
   align-items: center;
   padding: 2rem;
   z-index: 1000;
+}
+
+header nav {
+  width: 45px;
+  height: 45px;
 }
 
 header img {
@@ -89,6 +97,7 @@ main {
 h1 {
   color: var(--hero-text-color);
   font-size: 32px;
+  font-weight: 600;
   text-align: center;
   line-height: 130%;
   width: 280px;
@@ -97,7 +106,6 @@ h1 {
 #main-text p {
   color: var(--hero-text-color);
   font-size: 18px;
-  line-height: 160%;
   text-align: center;
 }
 
@@ -122,12 +130,13 @@ button {
   border: 2px solid #f19200;
   border-radius: 1rem;
   color: #f19200;
+  font-weight: 500;
 }
 
 #book-now {
   margin-top: 1rem;
   color: #ffffff;
-  font-weight: bold;
+  font-weight: 700;
   background-color: #f19200;
   border: 2px solid #ff7f50;
 }
@@ -145,4 +154,20 @@ button {
   50% {
     transform: translateY(-10px);
   }
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+#cascina-intro,
+#workshop,
+#faq {
+  margin: 5rem 2rem;
+}
+
+#cascina-intro p {
+  margin-top: 1.5rem;
+  font-size: 16px;
 }

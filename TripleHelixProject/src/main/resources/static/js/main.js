@@ -17,6 +17,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Esegui la funzione all'inizio per impostare l'altezza corretta
   updateHeroHeight();
-
-  window.addEventListener("resize", updateHeroHeight);
 });
