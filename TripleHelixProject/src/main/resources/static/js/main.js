@@ -4,11 +4,11 @@ window.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
     const hero = document.getElementById("hero");
     const heroBg = document.querySelector("#hero-bg");
-    const heroDarkness = window.getComputedStyle(heroBg, "::after");
+    const heroDarkness = window.getComputedStyle(hero, "::after");
     const heroContent = document.querySelector("#hero-content");
 
     // Sottrai l'altezza dell'header dall'altezza totale della finestra
-    const heroHeight = window.offsetHeight - header.offsetHeight;
+    const heroHeight = window.innerHeight - header.offsetHeight;
 
     // Imposta l'altezza di #hero
     hero.style.height = `${heroHeight}px`;
