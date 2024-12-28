@@ -1,6 +1,11 @@
 :root {
   --background-color: #ffffff;
   --hero-text-color: #ffffff;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
 }
 
 html {
@@ -16,7 +21,7 @@ html {
 
 body {
   font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: 160%;
 }
 
@@ -45,6 +50,7 @@ header img {
 
 main {
   margin-top: 10vh;
+  letter-spacing: 0.06rem;
 }
 
 #hero {
@@ -52,6 +58,7 @@ main {
   width: 100%;
   height: 90vh;
   z-index: 0;
+  letter-spacing: 0;
 }
 
 #hero-bg {
@@ -97,7 +104,7 @@ main {
 h1 {
   color: var(--hero-text-color);
   font-size: 32px;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   text-align: center;
   line-height: 130%;
   width: 280px;
@@ -130,13 +137,13 @@ button {
   border: 2px solid #f19200;
   border-radius: 1rem;
   color: #f19200;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 #book-now {
   margin-top: 1rem;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   background-color: #f19200;
   border: 2px solid #ff7f50;
 }
@@ -158,13 +165,13 @@ button {
 
 h2 {
   font-size: 22px;
-  font-weight: 600;
+  font-weight: var(--font-weight-semi-bold);
 }
 
 #cascina-intro,
 #workshop,
-#faq {
-  margin: 5rem 2rem;
+#faq-section {
+  margin: 5rem 1.3rem;
 }
 
 #cascina-intro p {
@@ -172,11 +179,43 @@ h2 {
   font-size: 16px;
 }
 
-nav {
+#faq-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.faq-container {
+  border-bottom: 1px solid #212121;
+}
+
+.faq-title {
+  height: 3.8rem;
+  color: #212121;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-title h3 {
+  font-size: 16px;
+  width: 90%;
+  font-weight: var(--font-weight-medium);
+  line-height: 150%;
+}
+
+.faq-title img {
+  transform: rotate(90deg);
+  width: 20px;
+  border: 1px solid #212121;
+  margin-left: 1.3rem;
+}
+
+/* nav {
   position: fixed;
   top: 1%;
   right: 2%;
-}
+} */
 .progress-bar {
   background: #ff4163;
   height: 10px;
