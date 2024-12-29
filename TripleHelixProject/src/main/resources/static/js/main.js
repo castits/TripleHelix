@@ -34,7 +34,19 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function ctaScroll() {
+    const ctas = document.querySelectorAll(".discover-more");
+    const heroHeight = document.getElementById("hero").offsetHeight;
+
+    ctas.forEach((cta) => {
+      cta.addEventListener("click", () => {
+        window.scrollTo({ top: heroHeight, behavior: "smooth" });
+      });
+    });
+  }
+
   // Esegui la funzione all'inizio per impostare l'altezza corretta
   updateHeroHeight();
+  ctaScroll();
   openAccordion();
 });
