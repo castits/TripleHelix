@@ -184,6 +184,7 @@ h2 {
 }
 
 .faq-container {
+  padding: 1.5rem 0;
   border-bottom: 1px solid #212121;
 }
 
@@ -207,8 +208,23 @@ h2 {
 .faq-title img {
   transform: rotate(90deg);
   width: 20px;
-  border: 1px solid #212121;
   margin-left: 1.3rem;
+  transition: transform 0.4s ease-out;
+}
+
+.faq-answer {
+  display: block; /* Cambia da none a block per gestire l'animazione */
+  max-height: 0; /* Nascondi l'elemento inizialmente */
+  overflow: hidden;
+  transition: max-height 0.4s ease-out; /* Aggiungi la transizione */
+}
+
+.faq-container.active .faq-title img {
+  transform: rotate(-90deg);
+}
+
+.faq-container.active .faq-answer {
+  max-height: 300px; /* Altezza massima visibile quando è aperto */
 }
 
 /* nav {
