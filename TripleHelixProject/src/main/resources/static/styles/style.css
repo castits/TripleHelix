@@ -1,6 +1,8 @@
 :root {
   --background-color: #ffffff;
   --hero-text-color: #ffffff;
+  --form-color: #f8c5da;
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -20,7 +22,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+  font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
   line-height: 160%;
 }
@@ -213,6 +215,9 @@ h2 {
 }
 
 .faq-answer {
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 160%;
   display: block; /* Cambia da none a block per gestire l'animazione */
   max-height: 0; /* Nascondi l'elemento inizialmente */
   overflow: hidden;
@@ -225,6 +230,77 @@ h2 {
 
 .faq-container.active .faq-answer {
   max-height: 300px; /* Altezza massima visibile quando è aperto */
+}
+
+form {
+  padding: 5rem 1.3rem;
+  background-color: var(--form-color);
+}
+
+form h2 {
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+}
+
+form p {
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: var(--font-weight-medium);
+  font-size: 16px;
+}
+
+input,
+textarea {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.7rem;
+  margin: 0.3rem 0 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+}
+
+textarea {
+  height: 8rem;
+  resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b3b3b3;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: 16px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #e0017a;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: #212121;
+}
+
+form button {
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
+  background-color: #e0017a;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: var(--font-weight-regular);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 /* nav {
