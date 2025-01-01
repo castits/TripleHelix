@@ -45,41 +45,44 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function carouselScroll() {
-    const track = document.getElementById("carouselTrack");
-    const slides = Array.from(track.children);
-    const indicators = document.querySelectorAll("#carouselIndicators button");
+  const dots = document.querySelectorAll(".dot");
+  const items = document.querySelectorAll(".carosello-item");
+  const container = document.querySelector(".carosello-container");
 
-    // Configura la larghezza del carosello
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    const gap = 16; // Spazio visibile tra immagini
+  let currentIndex = 0;
 
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener("click", () => {
-        // Aggiorna lo stato degli indicatori
-        indicators.forEach((ind) => ind.classList.remove("active"));
-        indicator.classList.add("active");
+  // Funzione per aggiornare i pallini
+  function updateDots() {
+    dots.forEach((dot) => dot.classList.remove("active")); // Rimuove l'attivo da tutti i pallini
+    dots[currentIndex].classList.add("active"); // Aggiunge l'attivo al pallino corrente
+  }
 
-        // Calcola la posizione del carosello
-        const translateX = index * (slideWidth + gap) - gap / 2;
-        track.style.transform = `translateX(-${translateX}px)`;
+  // Funzione per sincronizzare l'indice corrente con lo scroll
+  function updateCurrentIndex() {
+    const scrollPosition = container.scrollLeft;
+    const itemWidth = items[0].offsetWidth; // Larghezza di un singolo item
+    currentIndex = Math.round(scrollPosition / itemWidth);
+    updateDots();
+  }
+
+  // Aggiungere l'evento di scroll per sincronizzare i pallini
+  container.addEventListener("scroll", updateCurrentIndex);
+
+  // Gestire il clic sui pallini
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      container.scrollTo({
+        left: items[index].offsetLeft, // Scorrere fino alla posizione dell'immagine
+        behavior: "smooth", // Abilita lo scroll morbido
       });
     });
+  });
 
-    // Aggiungi evento di resize per garantire che il carosello sia responsivo
-    window.addEventListener("resize", () => {
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      const activeIndex = Array.from(indicators).findIndex((indicator) =>
-        indicator.classList.contains("active")
-      );
-      const translateX = activeIndex * (slideWidth + gap) - gap / 2;
-      track.style.transform = `translateX(-${translateX}px)`;
-    });
-  }
+  // Inizializzare lo stato dei pallini
+  updateCurrentIndex();
 
   // Esegui la funzione all'inizio per impostare l'altezza corretta
   updateHeroHeight();
   ctaScroll();
   openAccordion();
-  carouselScroll();
 });
