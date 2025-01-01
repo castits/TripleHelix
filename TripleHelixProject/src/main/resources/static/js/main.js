@@ -134,11 +134,11 @@ window.addEventListener("DOMContentLoaded", () => {
     // Controlla se il checkbox non è selezionato
     if (!hamburgerCheck.checked) {
       // Modifica l'immagine e il testo alternativo per indicare che il menu è aperto
-      hamburger.src = "./assets/img/closure.svg";
+      hamburger.src = "./assets/svg/closure.svg";
       hamburger.alt = "Chiusura menu di navigazione";
     } else {
       // Modifica l'immagine e il testo alternativo per indicare che il menu è chiuso
-      hamburger.src = "./assets/img/coloredHamburger.svg";
+      hamburger.src = "./assets/svg/coloredHamburger.svg";
       hamburger.alt = "Menu di navigazione";
     }
   }
