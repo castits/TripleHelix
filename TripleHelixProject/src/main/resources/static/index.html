@@ -26,11 +26,29 @@
   <body>
     <header>
       <!-- Chiedere significato del logo per attributo alt -->
+
       <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
       <nav>
-        <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" />
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="./assets/svg/coloredHamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
+        </label>
+        <div class="nav-mobile">
+          <a href="#">Chi siamo</a>
+          <a href="#">Laboratori</a>
+          <a href="#">Calendario</a>
+          <a href="#">Faq</a>
+          <a href="#">Contattaci</a>
+          <a href="#">Prenota visita</a>
+          <a href="#">Profilo</a>
+        </div>
       </nav>
     </header>
+    <div class="progress-bar" id="progressBar"></div>
     <main>
       <div id="hero">
         <img id="hero-bg" src="./assets/img/cascina_caccia_mobile.jpg" alt="" />

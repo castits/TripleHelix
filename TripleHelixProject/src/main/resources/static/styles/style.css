@@ -30,7 +30,7 @@ body {
 header {
   width: 100vw;
   height: 10vh;
-  background-color: var(--background-color);
+  background-color: #272727;
   position: fixed;
   top: 0;
   display: flex;
@@ -48,6 +48,43 @@ header nav {
 header img {
   width: 45px;
   height: 45px;
+}
+
+.progress-bar {
+  background: #ff8400;
+  height: 5px;
+  width: 0%;
+  position: fixed;
+  top: 9.3vh;
+  z-index: 1000;
+}
+
+#hamburger {
+  cursor: pointer;
+}
+.nav-mobile,
+#check {
+  display: none;
+}
+
+#check:checked ~ .nav-mobile {
+  display: block;
+}
+
+.nav-mobile {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  background: #272727;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+}
+.nav-mobile a {
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: block;
+  text-decoration: none;
 }
 
 main {
@@ -415,20 +452,7 @@ footer div:not(#footer-logo, #footer-socials) img {
   margin: 0 1.3rem 1.5rem;
 }
 
-/* nav {
-  position: fixed;
-  top: 1%;
-  right: 2%;
-} */
-.progress-bar {
-  background: #ff4163;
-  height: 10px;
-  width: 0%;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-}
-
-.lorem {
-  font-size: 1000%;
+.btn-backoffice {
+  height: 3rem;
+  width: 11rem;
 }
