@@ -1,7 +1,7 @@
 :root {
   --background-color: #ffffff;
   --hero-text-color: #ffffff;
-  --form-color: #f8c5da;
+  --form-color: #ffe9cc;
   --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -171,7 +171,6 @@ h2 {
 }
 
 #cascina-intro,
-#workshop,
 #faq-section {
   margin: 5rem 1.3rem;
 }
@@ -179,6 +178,58 @@ h2 {
 #cascina-intro p {
   margin-top: 1.5rem;
   font-size: 16px;
+}
+
+.carosello-container {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  margin-left: 1.3rem;
+  margin-right: 1.3rem;
+  width: calc(
+    100% - 2.6rem
+  ); /* La larghezza del carosello considerando i margini */
+}
+
+.carosello-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carosello-item {
+  flex-shrink: 0;
+  width: 100%; /* Ogni immagine occupa l'intera larghezza della viewport */
+  height: 70vh; /* Altezza al 70% della viewport */
+  scroll-snap-align: start;
+  background-size: cover;
+  background-position: center;
+}
+
+.carosello-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #f19200;
 }
 
 #faq-section h2 {
@@ -354,6 +405,14 @@ footer div:not(#footer-logo, #footer-socials) img {
 #footer-copyright {
   font-size: 12px;
   margin: 0 0 2rem;
+}
+
+#workshop {
+  margin: 0;
+}
+
+#workshop h2 {
+  margin: 0 1.3rem 1.5rem;
 }
 
 /* nav {
