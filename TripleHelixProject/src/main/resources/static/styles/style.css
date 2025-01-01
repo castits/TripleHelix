@@ -1,7 +1,7 @@
 :root {
   --background-color: #ffffff;
   --hero-text-color: #ffffff;
-  --form-color: #f8c5da;
+  --form-color: #ffe9cc;
   --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -171,7 +171,6 @@ h2 {
 }
 
 #cascina-intro,
-#workshop,
 #faq-section {
   margin: 5rem 1.3rem;
 }
@@ -179,6 +178,62 @@ h2 {
 #cascina-intro p {
   margin-top: 1.5rem;
   font-size: 16px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+  width: 60%; /* Le immagini centrali occupano il 60% del contenitore */
+  height: 400px;
+  position: relative;
+}
+
+.carousel-slide:first-child {
+  margin-left: 20%; /* Margine extra per centrare la prima immagine */
+}
+
+.carousel-slide:last-child {
+  margin-right: 20%; /* Margine extra per centrare l'ultima immagine */
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; /* Opzionale: aggiunge bordi arrotondati */
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background-color: #ff4081;
 }
 
 #faq-section h2 {
@@ -354,6 +409,14 @@ footer div:not(#footer-logo, #footer-socials) img {
 #footer-copyright {
   font-size: 12px;
   margin: 0 0 2rem;
+}
+
+#workshop {
+  margin: 0;
+}
+
+#workshop h2 {
+  margin: 0 1.3rem 1.5rem;
 }
 
 /* nav {

@@ -45,8 +45,41 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function carouselScroll() {
+    const track = document.getElementById("carouselTrack");
+    const slides = Array.from(track.children);
+    const indicators = document.querySelectorAll("#carouselIndicators button");
+
+    // Configura la larghezza del carosello
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const gap = 16; // Spazio visibile tra immagini
+
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => {
+        // Aggiorna lo stato degli indicatori
+        indicators.forEach((ind) => ind.classList.remove("active"));
+        indicator.classList.add("active");
+
+        // Calcola la posizione del carosello
+        const translateX = index * (slideWidth + gap) - gap / 2;
+        track.style.transform = `translateX(-${translateX}px)`;
+      });
+    });
+
+    // Aggiungi evento di resize per garantire che il carosello sia responsivo
+    window.addEventListener("resize", () => {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      const activeIndex = Array.from(indicators).findIndex((indicator) =>
+        indicator.classList.contains("active")
+      );
+      const translateX = activeIndex * (slideWidth + gap) - gap / 2;
+      track.style.transform = `translateX(-${translateX}px)`;
+    });
+  }
+
   // Esegui la funzione all'inizio per impostare l'altezza corretta
   updateHeroHeight();
   ctaScroll();
   openAccordion();
+  carouselScroll();
 });
