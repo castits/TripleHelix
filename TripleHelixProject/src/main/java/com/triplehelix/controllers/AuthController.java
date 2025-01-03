@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -40,26 +41,49 @@ public class AuthController {
 	@PostMapping("/register")
 	public ResponseEntity<String> registerUser(@RequestBody User user) {
 		System.out.println("Register endpoint called with email: " + user.getUserEmail());
+		
 		if (userService.findUserByEmail(user.getUserEmail()) != null) {
 			System.out.println("Email already in use: " + user.getUserEmail());
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use!");
 		}
-		user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+	    user.setUserPassword(user.getUserPassword());
 		userService.register(user);
-		System.out.println("User registered successfully: " + user.getUserEmail());
+	    
 		return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully!");
 	}
 	
-	@PostMapping("/prova")
-	public ResponseEntity<String> loginUser(@RequestBody User user) {
-		System.out.println("User: " + user.getUserEmail());
-		User existingUser = userService.findUserByEmail(user.getUserEmail());
-		if (existingUser == null || !passwordEncoder.matches(user.getUserPassword(), existingUser.getUserPassword())) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login not correctssss");
-		}
-		return ResponseEntity.ok("Login successful");
+	@GetMapping("/login")
+	public String loginPage() {
+		return "Login page";
 	}
 	
+	/*@PostMapping("/login")
+	public ResponseEntity<String> loginUser(@RequestBody User user) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null && auth.isAuthenticated()) {
+	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User is already logged in");
+	    }
+	    
+	    User existingUser = userService.findUserByEmail(user.getUserEmail());
+	    if (existingUser == null) {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not found");
+	    }
+	    
+	    if (passwordEncoder.matches(user.getUserPassword(), existingUser.getUserPassword())) {
+	    	Authentication newAuth = new UsernamePasswordAuthenticationToken(
+    			existingUser,
+    			user.getUserPassword()
+    			);
+	    	SecurityContextHolder.getContext().setAuthentication(newAuth);
+	    	
+	    	System.out.println("User authenticated: " + existingUser.getUserEmail());
+	        System.out.println("Authentication context: " + newAuth.getPrincipal());
+	    	
+	    	return ResponseEntity.ok("Login successful");
+	    }
+	    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect credentials");
+	}*/
+
 	@PostMapping("/logout")
 	public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -72,19 +96,18 @@ public class AuthController {
 	@GetMapping("/status")
 	public ResponseEntity<String> checkStatus() {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
+	    if (auth != null) {
+	        System.out.println("Authentication is authenticated: " + auth.isAuthenticated());
+	        System.out.println("Authentication name: " + auth.getName());
+	    } else {
+	        System.out.println("Authentication is null");
+	    }
+
+	    if (auth != null && auth.isAuthenticated()) {
 	        return ResponseEntity.ok("User is logged in: " + auth.getName());
 	    }
 	    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
 	}
-	
-	@GetMapping("/autenticato")
-	public ResponseEntity<String> provaUser() {
-	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	    if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
-	        return ResponseEntity.ok("Prova successful - User authenticated");
-	    }
-	    return ResponseEntity.ok("Prova successful - User is anonymous");
-	}
+
 
 }
