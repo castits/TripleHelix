@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-public class Request {
+public class UserRequest {
 	
 	@Id
 	@Column(name = "request_id")
@@ -21,14 +21,6 @@ public class Request {
 	private LocalDateTime createdAt;
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
-	
-	public Request(int userId, String status, String institute, LocalDateTime createdAt, LocalDateTime updatedAt) {
-		this.userId = userId;
-		this.status = status;
-		this.institute = institute;
-		this.createdAt = LocalDateTime.now();
-		this.updatedAt = LocalDateTime.now();
-	}
 
 	public int getRequestId() {
 		return requestId;
