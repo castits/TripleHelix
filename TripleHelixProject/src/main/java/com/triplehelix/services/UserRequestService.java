@@ -16,22 +16,22 @@ public class UserRequestService {
 	@Autowired
 	private UserRequestDAO userRequestDAO;
 	
-	public List<UserRequest> getAllRequests() {
+	public List<UserRequest> getAllUserRequests() {
 		return userRequestDAO.findAll();
 	}
 	
-	public Optional<UserRequest> getRequestById(int requestId) {
-		return userRequestDAO.findById(requestId);
+	public Optional<UserRequest> getUserRequestById(int userRequestId) {
+		return userRequestDAO.findById(userRequestId);
 	}
 	
-    public UserRequest createRequest(UserRequest request) {
-        request.setCreatedAt(LocalDateTime.now());
-        request.setUpdatedAt(LocalDateTime.now());
-        return userRequestDAO.save(request);
+    public UserRequest createUserRequest(UserRequest userRequest) {
+    	userRequest.setCreatedAt(LocalDateTime.now());
+    	userRequest.setUpdatedAt(LocalDateTime.now());
+        return userRequestDAO.save(userRequest);
     }
 
-    public void deleteRequest(int requestId) {
-    	userRequestDAO.deleteById(requestId);
+    public void deleteUserRequest(int userRequestId) {
+    	userRequestDAO.deleteById(userRequestId);
     }
 
 }

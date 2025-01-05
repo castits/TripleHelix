@@ -23,17 +23,17 @@ public class UserRequestController {
 	
 	@GetMapping
     public List<UserRequest> getAllRequests() {
-        return userRequestService.getAllRequests();
+        return userRequestService.getAllUserRequests();
     }
 
     @GetMapping("/{id}")
     public Optional<UserRequest> getRequestById(@PathVariable int id) {
-        return userRequestService.getRequestById(id);
+        return userRequestService.getUserRequestById(id);
     }
 
     @PostMapping
     public UserRequest createRequest(@RequestBody UserRequest userRequest) {
-        return userRequestService.createRequest(userRequest);
+        return userRequestService.createUserRequest(userRequest);
     }
 	
 }
