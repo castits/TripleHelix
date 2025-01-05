@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 public class UserRequest {
 	
@@ -13,10 +15,14 @@ public class UserRequest {
 	@Column(name = "request_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int requestId;
-	@Column(name = "user_id")
-	private int userId;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
 	private String status;
 	private String institute;
+	
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 	@Column(name = "updated_at")
@@ -30,12 +36,12 @@ public class UserRequest {
 		this.requestId = requestId;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user= user;
 	}
 
 	public String getStatus() {

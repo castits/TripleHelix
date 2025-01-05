@@ -24,10 +24,6 @@ public class UserRequestService {
 		return userRequestDAO.findById(requestId);
 	}
 	
-	public Optional<UserRequest> getRequestsByUserId(int userId) {
-		return userRequestDAO.findByUser_UserId(userId);
-	}
-	
     public UserRequest createRequest(UserRequest request) {
         request.setCreatedAt(LocalDateTime.now());
         request.setUpdatedAt(LocalDateTime.now());
