@@ -3,18 +3,27 @@ package com.triplehelix.entities;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "bookings")
 public class Booking {
 
 	@Id
 	@Column(name = "booking_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookingId;
-	@Column(name = "request_id")
-	private int requestId;
+	
+	@OneToOne
+	@JoinColumn(name = "request_id")
+	private UserRequest userRequest;
+	
 	@Column(name = "participant_quantity")
 	private int participantQuantity;
 	@Column(name = "appointment_date")
@@ -29,18 +38,6 @@ public class Booking {
 	private boolean feedbackSent;
 	@Column(name = "sign_up_confirmation_sent")
 	private boolean signUpConfirmationSent;
-	
-	public Booking(int requestId, int participantQuantity, LocalDateTime appointmentDate, String bookingInfoReq,
-			boolean eventConfirmationSent, boolean reminderSent, boolean feedbackSent, boolean signUpConfirmationSent) {
-		this.requestId = requestId;
-		this.participantQuantity = participantQuantity;
-		this.appointmentDate = appointmentDate;
-		this.bookingInfoReq = bookingInfoReq;
-		this.eventConfirmationSent = eventConfirmationSent;
-		this.reminderSent = reminderSent;
-		this.feedbackSent = feedbackSent;
-		this.signUpConfirmationSent = signUpConfirmationSent;
-	}
 
 	public int getBookingId() {
 		return bookingId;
@@ -50,12 +47,12 @@ public class Booking {
 		this.bookingId = bookingId;
 	}
 
-	public int getRequestId() {
-		return requestId;
+	public UserRequest getUserRequest() {
+		return userRequest;
 	}
 
-	public void setRequestId(int requestId) {
-		this.requestId = requestId;
+	public void setUserRequest(UserRequest userRequest) {
+		this.userRequest = userRequest;
 	}
 
 	public int getParticipantQuantity() {

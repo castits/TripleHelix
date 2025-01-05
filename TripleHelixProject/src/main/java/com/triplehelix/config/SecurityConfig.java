@@ -32,7 +32,7 @@ public class SecurityConfig {
 	    http
 	        .csrf().disable()
 	        .authorizeHttpRequests(auth -> auth
-	            .requestMatchers("/", "/login", "/logout", "/pub/auth/**").permitAll()
+	            .requestMatchers("/**", "/login", "/logout", "/pub/auth/**").permitAll()
 	            .anyRequest().authenticated()
 	        )
 	        .exceptionHandling()
@@ -54,7 +54,8 @@ public class SecurityConfig {
 	                response.setStatus(HttpServletResponse.SC_OK);
 	                response.getWriter().write("Logout successful");
 	            })
-	        );
+	        )
+	        .httpBasic();
 	    return http.build();
 	}
 
