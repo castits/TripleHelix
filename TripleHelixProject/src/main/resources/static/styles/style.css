@@ -29,6 +29,7 @@ body {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
   line-height: 160%; /* Comfortable line spacing */
+  background-color: #272727; /* Dark background for contrast */
 }
 
 header {
@@ -36,7 +37,7 @@ header {
   width: 100vw;
   height: 10vh;
   background-color: #272727; /* Dark background for contrast */
-  position: fixed; /* Ensures the header stays visible while scrolling */
+  position: sticky; /* Ensures the header stays visible while scrolling */
   top: 0;
   display: flex; /* Flex layout for alignment */
   justify-content: space-between; /* Space between nav and logo */
@@ -98,8 +99,9 @@ header img {
 
 main {
   /* Adjusts main content to avoid overlap with the fixed header */
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   letter-spacing: 0.06rem; /* Slightly increases text spacing */
+  background-color: var(--background-color); /* Dark background for contrast */
 }
 
 #hero {
