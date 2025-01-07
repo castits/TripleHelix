@@ -138,7 +138,7 @@ window.addEventListener("DOMContentLoaded", () => {
       hamburger.alt = "Chiusura menu di navigazione";
     } else {
       // Modifica l'immagine e il testo alternativo per indicare che il menu è chiuso
-      hamburger.src = "./assets/svg/coloredHamburger.svg";
+      hamburger.src = "./assets/svg/hamburger.svg";
       hamburger.alt = "Menu di navigazione";
     }
   }
