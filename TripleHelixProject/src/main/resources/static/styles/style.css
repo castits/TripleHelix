@@ -113,27 +113,21 @@ main {
 
 #hero-bg {
   /* Background image styling for the hero section */
-  width: 103%;
-  height: 103%;
+  width: 100%;
+  height: 100%;
   filter: blur(5px); /* Creates a blurred effect */
   position: absolute;
-  top: -1%;
-  left: -1%;
-  right: -1%;
-  bottom: -1%;
-  overflow: hidden;
+  top: 0;
+  left: 0;
 }
 
 #hero-bg-darkness {
   /* Adds a dark overlay to enhance text readability */
   position: absolute;
-  top: -1%;
-  left: -1%;
-  right: -1%;
-  bottom: -1%;
-  width: 103%;
-  height: 103%;
-  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
 }
 
