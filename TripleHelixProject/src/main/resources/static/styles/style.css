@@ -1,204 +1,227 @@
 :root {
-  --background-color: #ffffff;
-  --hero-text-color: #ffffff;
-  --form-color: #ffe9cc;
-  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
+  /* Defines CSS variables for colors, font families, and font weights, making the code modular and easier to update */
+  --background-color: #ffffff; /* Main background color */
+  --hero-text-color: #ffffff; /* Text color for the hero section */
+  --form-color: #ffe9cc; /* Background color for the form */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif; /* Font stack for the entire site */
+  --font-weight-light: 300; /* Light font weight */
+  --font-weight-regular: 400; /* Regular font weight */
+  --font-weight-medium: 500; /* Medium font weight */
+  --font-weight-semi-bold: 600; /* Semi-bold font weight */
+  --font-weight-bold: 700; /* Bold font weight */
 }
 
 html {
+  /* Sets the base font size and box-sizing to ensure consistent sizing across elements */
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 16px; /* Base font size for rem units */
 }
 
 *,
 *::before,
 *::after {
+  /* Ensures inherited box-sizing for all elements, pseudo-elements included */
   box-sizing: inherit;
 }
 
 body {
+  /* Applies the main font and line-height for readability */
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
-  line-height: 160%;
+  line-height: 160%; /* Comfortable line spacing */
 }
 
 header {
+  /* Fixed header with responsive styling */
   width: 100vw;
   height: 10vh;
-  background-color: #272727;
-  position: fixed;
+  background-color: #272727; /* Dark background for contrast */
+  position: fixed; /* Ensures the header stays visible while scrolling */
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Flex layout for alignment */
+  justify-content: space-between; /* Space between nav and logo */
+  align-items: center; /* Vertical alignment */
   padding: 2rem;
-  z-index: 1000;
+  z-index: 1000; /* Ensures header is on top of other elements */
 }
 
-header nav {
-  width: 45px;
-  height: 45px;
-}
-
+header nav,
 header img {
+  /* Consistent dimensions for navigation and logo images */
   width: 45px;
   height: 45px;
 }
 
 .progress-bar {
-  background: #ff8400;
+  /* Styles the progress bar displayed below the header */
+  background: #ff8400; /* Orange color for visibility */
   height: 5px;
-  width: 0%;
+  width: 0%; /* Initial state, dynamically updated */
   position: fixed;
-  top: 9.3vh;
-  z-index: 1000;
+  top: 9.3vh; /* Positioned just below the header */
+  z-index: 1000; /* Ensures it's above other content */
 }
 
 #hamburger {
-  cursor: pointer;
+  /* Styles the hamburger menu for mobile navigation */
+  cursor: pointer; /* Changes cursor to indicate interactivity */
 }
+
 .nav-mobile,
 #check {
+  /* Hides the mobile navigation menu by default */
   display: none;
 }
 
 #check:checked ~ .nav-mobile {
+  /* Displays the mobile navigation menu when the checkbox is checked */
   display: block;
 }
 
 .nav-mobile {
+  /* Full-screen overlay menu for mobile devices */
   position: absolute;
-  top: 10vh;
+  top: 10vh; /* Below the header */
   left: 0;
-  background: #272727;
-  z-index: 100;
+  background: #272727; /* Matches the header background */
+  z-index: 100; /* Ensures visibility above other content */
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Covers the full viewport height */
 }
 .nav-mobile a {
-  color: #fff;
-  padding: 1rem 1.5rem;
-  display: block;
-  text-decoration: none;
+  /* Styling for links in the mobile navigation */
+  color: #fff; /* White text for contrast */
+  padding: 1rem 1.5rem; /* Spacing for touch-friendly interaction */
+  display: block; /* Stacks links vertically */
+  text-decoration: none; /* Removes underlining */
 }
 
 main {
+  /* Adjusts main content to avoid overlap with the fixed header */
   margin-top: 10vh;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.06rem; /* Slightly increases text spacing */
 }
 
 #hero {
+  /* Styles the hero section */
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 90vh; /* Covers most of the viewport */
   z-index: 0;
-  letter-spacing: 0;
+  letter-spacing: 0; /* No extra spacing in hero text */
 }
 
 #hero-bg {
+  /* Background image styling for the hero section */
   width: 100%;
   height: 100%;
-  filter: blur(5px);
+  filter: blur(5px); /* Creates a blurred effect */
   position: absolute;
   top: 0;
   left: 0;
 }
 
 #hero-bg-darkness {
+  /* Adds a dark overlay to enhance text readability */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
 }
 
 #hero-content {
+  /* Centers the hero content and ensures proper alignment */
   position: absolute;
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
   width: 280px;
   height: 90%;
-  display: flex;
+  display: flex; /* Flex layout for column alignment */
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 1; /* Places content above the background */
 }
 
 #main-text {
+  /* Styles the main text block in the hero */
   width: 280px;
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-evenly; /* Even spacing between text elements */
 }
 
 h1 {
-  color: var(--hero-text-color);
-  font-size: 32px;
+  /* Styling for primary headings */
+  color: var(--hero-text-color); /* Hero-specific text color */
+  font-size: 32px; /* Large font size for emphasis */
   font-weight: var(--font-weight-bold);
-  text-align: center;
-  line-height: 130%;
+  text-align: center; /* Centers the text */
+  line-height: 130%; /* Reduces line spacing for compactness */
   width: 280px;
 }
 
 #main-text p {
+  /* Styling for hero paragraph */
   color: var(--hero-text-color);
-  font-size: 18px;
+  font-size: 18px; /* Slightly smaller than the heading */
   text-align: center;
 }
 
 button {
+  /* General button styling */
   width: 250px;
   height: 50px;
 }
 
 #cta-buttons {
+  /* Container for Call-To-Action buttons */
   width: 250px;
 }
 
 #discover-more,
 #book-now {
-  border-radius: 1rem;
+  /* Common button styles */
+  border-radius: 1rem; /* Rounded corners */
   font-size: 20px;
-  cursor: pointer;
+  cursor: pointer; /* Pointer to indicate interactivity */
 }
 
 #discover-more {
-  background-color: rgba(0, 0, 0, 0);
-  border: 2px solid #f19200;
-  border-radius: 1rem;
-  color: #f19200;
+  /* Specific styles for the "Discover More" button */
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
+  border: 2px solid #f19200; /* Orange border */
+  color: #f19200; /* Matches the border color */
   font-weight: var(--font-weight-medium);
 }
 
 #book-now {
+  /* Specific styles for the "Book Now" button */
   margin-top: 1rem;
-  color: #ffffff;
+  color: #ffffff; /* White text */
   font-weight: var(--font-weight-bold);
-  background-color: #f19200;
-  border: 2px solid #ff7f50;
+  background-color: #f19200; /* Solid orange background */
+  border: 2px solid #ff7f50; /* Slightly darker border */
 }
 
 #double-arrow {
-  animation: bounce 2s infinite;
+  /* Animates a bouncing arrow */
+  animation: bounce 2s infinite; /* Continuous bounce effect */
   cursor: pointer;
 }
 
 @keyframes bounce {
+  /* Keyframes for the bounce animation */
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0); /* Default position */
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-10px); /* Moves upward */
   }
 }
 
