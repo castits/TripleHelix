@@ -1,11 +1,14 @@
 package com.triplehelix.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -52,37 +55,30 @@ public class AuthController {
 		return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully!");
 	}
 	
-	@GetMapping("/login")
-	public String loginPage() {
-		return "Login page";
-	}
-	
-	/*@PostMapping("/login")
+	@PostMapping("/login")
 	public ResponseEntity<String> loginUser(@RequestBody User user) {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null && auth.isAuthenticated()) {
+	    if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
 	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User is already logged in");
 	    }
-	    
+
 	    User existingUser = userService.findUserByEmail(user.getUserEmail());
 	    if (existingUser == null) {
 	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not found");
 	    }
-	    
+
 	    if (passwordEncoder.matches(user.getUserPassword(), existingUser.getUserPassword())) {
-	    	Authentication newAuth = new UsernamePasswordAuthenticationToken(
-    			existingUser,
-    			user.getUserPassword()
-    			);
-	    	SecurityContextHolder.getContext().setAuthentication(newAuth);
-	    	
-	    	System.out.println("User authenticated: " + existingUser.getUserEmail());
-	        System.out.println("Authentication context: " + newAuth.getPrincipal());
-	    	
-	    	return ResponseEntity.ok("Login successful");
+	        Authentication newAuth = new UsernamePasswordAuthenticationToken(
+	            existingUser,
+	            null,
+	            List.of(new SimpleGrantedAuthority("ROLE_" + existingUser.getRole().getRoleName()))
+	        );
+	        SecurityContextHolder.getContext().setAuthentication(newAuth);
+	        return ResponseEntity.ok("Login successful");
 	    }
 	    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect credentials");
-	}*/
+	}
+
 
 	@PostMapping("/logout")
 	public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
