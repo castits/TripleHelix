@@ -1,5 +1,7 @@
 package com.triplehelix.services;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +33,11 @@ public class BookingService {
 		UserRequest savedUserRequest = userRequestService.createUserRequest(userRequest);
 		booking.setUserRequest(savedUserRequest);
 		return bookingDAO.save(booking);
+	}
+	
+	public List<Booking> getBookingsForReminder() {
+		LocalDateTime datePlusThreeDays = LocalDate.now().plusDays(3).atStartOfDay();
+		return bookingDAO.findByAppointmentDate(datePlusThreeDays);
 	}
 
 }
