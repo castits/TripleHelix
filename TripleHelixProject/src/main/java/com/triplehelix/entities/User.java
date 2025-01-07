@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -27,14 +29,14 @@ public class User {
 	private String userEmail;
 	@Column(name = "user_password", nullable = false)
 	private String userPassword;
-	@Column(name = "user_phone")
-	private String userPhone;
 	@Column(name = "created_at", updatable = false)
 	private LocalDateTime createdAt;
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
-	@Column(name = "role_id")
-	private int roleId;
+	
+	@ManyToOne
+	@JoinColumn(name = "role_id")
+	private Role role;
 	
 	@PrePersist
     protected void onCreate() {
@@ -49,13 +51,12 @@ public class User {
 	
 	public User() {}
 
-	public User(String userName, String userSurname, String userEmail, String userPassword, String userPhone, int roleId) {
+	public User(String userName, String userSurname, String userEmail, String userPassword, Role role) {
 		this.userName = userName;
 		this.userSurname = userSurname;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
-		this.userPhone = userPhone;
-		this.roleId = roleId;
+		this.role = role;
 	}
 
 	public int getUserId() {
@@ -98,14 +99,6 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	public String getUserPhone() {
-		return userPhone;
-	}
-
-	public void setUserPhone(String userPhone) {
-		this.userPhone = userPhone;
-	}
-
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
@@ -122,12 +115,12 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 
-	public int getRoleId() {
-		return roleId;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 }

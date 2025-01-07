@@ -31,6 +31,25 @@
       </button>
       <p>Non hai un account? <a href="">Registrati</a></p>
     </form>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const response = await fetch("/pub/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    userEmail: document.getElementById("email").value,
+                    userPassword: document.getElementById("password").value,
+                }),
+            });
+            if (response.ok) {
+                alert("Login successful!");
+                window.location.href = "/dashboard.html";
+            } else {
+                alert("Login failed! Incorrect credentials.");
+            }
+        });
+    </script>
   </body>
   <!-- Ending of body -->
 </html>
