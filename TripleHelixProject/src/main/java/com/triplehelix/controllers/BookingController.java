@@ -59,9 +59,12 @@ public class BookingController {
 
         UserRequest userRequest = new UserRequest();
 
-        System.out.println(authenticatedUser.getUserEmail());
-        userRequest.setUser(booking.getUserRequest().getUser());
+        userRequest.setUser(authenticatedUser);
         userRequest.setInstitute(booking.getUserRequest().getInstitute());
+        
+        booking.setStatus(BookingStatus.PENDING);
+        booking.setReminderSent(false);
+        booking.setFeedbackSent(false);
 
         Booking savedBooking = bookingService.createBooking(booking, userRequest); 
         
