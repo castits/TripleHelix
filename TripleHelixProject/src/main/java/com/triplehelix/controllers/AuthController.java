@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.triplehelix.entities.Role;
 import com.triplehelix.entities.User;
 import com.triplehelix.services.UserService;
 
@@ -50,6 +51,9 @@ public class AuthController {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use!");
 		}
 	    user.setUserPassword(user.getUserPassword());
+	    Role role = new Role();
+	    role.setRoleId(2);
+	    user.setRole(role);
 		userService.register(user);
 	    
 		return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully!");
