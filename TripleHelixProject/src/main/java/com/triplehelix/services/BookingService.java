@@ -44,7 +44,9 @@ public class BookingService {
 			.collect(Collectors.toList());
 	}
 	
-	public
+	public Optional<Booking> getBookingById(int id) {
+		return bookingDAO.findById(id);
+	}
 	
 	public List<Map<String, Object>> getBookingsByStatus(BookingStatus status) {
 		return bookingDAO.findByStatus(status)
@@ -69,6 +71,10 @@ public class BookingService {
 	public List<Booking> getBookingsForReminder() {
 		LocalDate datePlusThreeDays = LocalDate.now().plusDays(3);
 		return bookingDAO.findByAppointmentDate(datePlusThreeDays);
+	}
+	
+	public Booking saveBooking(Booking booking) {
+		return bookingDAO.save(booking);
 	}
 
 }

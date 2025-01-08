@@ -1,5 +1,7 @@
 package com.triplehelix.controllers;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -14,13 +16,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nimbusds.oauth2.sdk.Scope.Value;
 import com.triplehelix.entities.Booking;
 import com.triplehelix.entities.BookingStatus;
+import com.triplehelix.entities.BookingTimeSlot;
 import com.triplehelix.entities.User;
 import com.triplehelix.entities.UserRequest;
 import com.triplehelix.services.BookingService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -58,6 +66,35 @@ public class BookingController {
         Booking savedBooking = bookingService.createBooking(booking, userRequest); 
         
         return new ResponseEntity<>(savedBooking, HttpStatus.CREATED);
+    }
+    
+    @PatchMapping("update/{id}")
+    public ResponseEntity<Booking> updateBooking(@PathVariable int id, @RequestBody Map<String, Object> newBooking) {
+        Optional<Booking> bookingOpt = bookingService.getBookingById(id);
+        
+        if (bookingOpt.isEmpty()) {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+
+        Booking booking = bookingOpt.get();
+        
+        newBooking.forEach((key, value) -> {
+        	switch (key) {
+				case "participantQuantity" -> booking.setParticipantQuantity((int) value);
+				case "appointmentDate" -> booking.setAppointmentDate(LocalDate.parse(value.toString()));
+				case "timeSlot" -> booking.setTimeSlot(BookingTimeSlot.valueOf((String) value));
+				case "status" -> booking.setStatus(BookingStatus.valueOf((String) value));
+				case "bookingInfoReq" -> booking.setBookingInfoReq(value.toString());
+				case "reminderSent" -> booking.setReminderSent((boolean) value);
+				case "feedbackSent" -> booking.setFeedbackSent((boolean) value);
+        	}
+        });
+        
+        booking.getUserRequest().setUpdatedAt(LocalDateTime.now());
+        
+        Booking savedBooking = bookingService.saveBooking(booking);
+        
+        return new ResponseEntity<>(savedBooking, HttpStatus.OK);
     }
 
 }
