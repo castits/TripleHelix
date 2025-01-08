@@ -1,6 +1,6 @@
 package com.triplehelix.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +30,11 @@ public class Booking {
 	private int participantQuantity;
 	
 	@Column(name = "appointment_date")
-	private LocalDateTime appointmentDate;
+	private LocalDate appointmentDate;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "time_slot")
+	private BookingTimeSlot timeSlot;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status")
@@ -44,9 +48,6 @@ public class Booking {
 	
 	@Column(name = "feedback_sent")
 	private boolean feedbackSent;
-	
-	@Column(name = "sign_up_confirmation_sent")
-	private boolean signUpConfirmationSent;
 
 	public int getBookingId() {
 		return bookingId;
@@ -72,12 +73,20 @@ public class Booking {
 		this.participantQuantity = participantQuantity;
 	}
 
-	public LocalDateTime getAppointmentDate() {
+	public LocalDate getAppointmentDate() {
 		return appointmentDate;
 	}
 
-	public void setAppointmentDate(LocalDateTime appointmentDate) {
+	public void setAppointmentDate(LocalDate appointmentDate) {
 		this.appointmentDate = appointmentDate;
+	}
+
+	public BookingTimeSlot getTimeSlot() {
+		return timeSlot;
+	}
+
+	public void setTimeSlot(BookingTimeSlot timeSlot) {
+		this.timeSlot = timeSlot;
 	}
 
 	public BookingStatus getStatus() {
@@ -110,14 +119,6 @@ public class Booking {
 
 	public void setFeedbackSent(boolean feedbackSent) {
 		this.feedbackSent = feedbackSent;
-	}
-
-	public boolean isSignUpConfirmationSent() {
-		return signUpConfirmationSent;
-	}
-
-	public void setSignUpConfirmationSent(boolean signUpConfirmationSent) {
-		this.signUpConfirmationSent = signUpConfirmationSent;
 	}
 
 }
