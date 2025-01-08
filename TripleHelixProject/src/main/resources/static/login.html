@@ -41,6 +41,7 @@
                     userEmail: document.getElementById("email").value,
                     userPassword: document.getElementById("password").value,
                 }),
+                credentials: "include",
             });
             if (response.ok) {
                 alert("Login successful!");

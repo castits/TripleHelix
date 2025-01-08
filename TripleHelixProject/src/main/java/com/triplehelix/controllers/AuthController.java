@@ -56,7 +56,7 @@ public class AuthController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> loginUser(@RequestBody User user) {
+	public ResponseEntity<String> loginUser(@RequestBody User user, HttpServletRequest request) {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
 	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User is already logged in");
@@ -71,9 +71,12 @@ public class AuthController {
 	        Authentication newAuth = new UsernamePasswordAuthenticationToken(
 	            existingUser,
 	            null,
-	            List.of(new SimpleGrantedAuthority("ROLE_" + existingUser.getRole().getRoleName()))
+	            List.of(new SimpleGrantedAuthority(existingUser.getRole().getRoleName()))
 	        );
 	        SecurityContextHolder.getContext().setAuthentication(newAuth);
+	        
+	        request.getSession().setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
+	        
 	        return ResponseEntity.ok("Login successful");
 	    }
 	    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect credentials");
@@ -92,18 +95,12 @@ public class AuthController {
 	@GetMapping("/status")
 	public ResponseEntity<String> checkStatus() {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null) {
-	        System.out.println("Authentication is authenticated: " + auth.isAuthenticated());
-	        System.out.println("Authentication name: " + auth.getName());
-	    } else {
-	        System.out.println("Authentication is null");
+
+	    if (auth == null || !auth.isAuthenticated() || auth instanceof AnonymousAuthenticationToken) {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
 	    }
 
-	    if (auth != null && auth.isAuthenticated()) {
-	        return ResponseEntity.ok("User is logged in: " + auth.getName());
-	    }
-	    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
+	    return ResponseEntity.ok("User is logged in: " + auth.getName());
 	}
-
 
 }
