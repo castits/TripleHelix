@@ -24,11 +24,11 @@ public class UserRequest {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	private String status;
 	private String institute;
 	
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
+	
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 
@@ -46,14 +46,6 @@ public class UserRequest {
 
 	public void setUser(User user) {
 		this.user= user;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public String getInstitute() {
