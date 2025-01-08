@@ -1,6 +1,7 @@
 package com.triplehelix.controllers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +30,17 @@ public class BookingController {
 	private BookingService bookingService;
 	
 	@GetMapping
-	public List<Booking> getBookings() {
+	public List<Map<String, Object>> getBookings() {
 		return bookingService.getAllBookings();
 	}
 	
 	@GetMapping("/status")
-	public Optional<Booking> getBookingsByStatus(@RequestParam BookingStatus status) {
+	public List<Map<String, Object>> getBookingsByStatus(@RequestParam BookingStatus status) {
 		return bookingService.getBookingsByStatus(status);
 	}
 	
 	@GetMapping("/user")
-	public Optional<Booking> getBookingsByUserEmail(@RequestParam String email) {
+	public List<Map<String, Object>> getBookingsByUserEmail(@RequestParam String email) {
 		return bookingService.getBookingsByUserEmail(email);
 	}
 	

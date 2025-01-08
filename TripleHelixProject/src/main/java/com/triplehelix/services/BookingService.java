@@ -3,7 +3,9 @@ package com.triplehelix.services;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,16 +24,40 @@ public class BookingService {
 	@Autowired
 	private UserRequestService userRequestService;
 	
-	public List<Booking> getAllBookings() {
-		return bookingDAO.findAll();
+	private Map<String, Object> bookingToMap(Booking booking) {
+	    return Map.of(
+	    	"userName", booking.getUserRequest().getUser().getUserName(),
+	    	"userSurname", booking.getUserRequest().getUser().getUserSurname(),
+	    	"institute",  booking.getUserRequest().getInstitute(),
+	    	"day", booking.getAppointmentDate().getDayOfWeek(),
+	        "appointmentDate", booking.getAppointmentDate(),
+	        "timeSlot", booking.getTimeSlot().toString(),
+	        "participantQuantity", booking.getParticipantQuantity(),
+	        "userEmail", booking.getUserRequest().getUser().getUserEmail()
+	    );
+	}
+
+	public List<Map<String, Object>> getAllBookings() {
+		return bookingDAO.findAll()
+			.stream()
+			.map(this::bookingToMap)
+			.collect(Collectors.toList());
 	}
 	
-	public Optional<Booking> getBookingsByStatus(BookingStatus status) {
-		return bookingDAO.findByStatus(status);
-	}
+	public
 	
-	public Optional<Booking> getBookingsByUserEmail(String email) {
-		return bookingDAO.findByUserRequest_User_UserEmail(email);
+	public List<Map<String, Object>> getBookingsByStatus(BookingStatus status) {
+		return bookingDAO.findByStatus(status)
+			.stream()
+			.map(this::bookingToMap)
+			.collect(Collectors.toList());
+	}
+
+	public List<Map<String, Object>> getBookingsByUserEmail(String email) {
+		return bookingDAO.findByUserRequest_User_UserEmail(email)
+			.stream()
+			.map(this::bookingToMap)
+			.collect(Collectors.toList());
 	}
 	
 	public Booking createBooking(Booking booking, UserRequest userRequest) {
@@ -39,9 +65,9 @@ public class BookingService {
 		booking.setUserRequest(savedUserRequest);
 		return bookingDAO.save(booking);
 	}
-	
+
 	public List<Booking> getBookingsForReminder() {
-		LocalDateTime datePlusThreeDays = LocalDate.now().plusDays(3).atStartOfDay();
+		LocalDate datePlusThreeDays = LocalDate.now().plusDays(3);
 		return bookingDAO.findByAppointmentDate(datePlusThreeDays);
 	}
 
