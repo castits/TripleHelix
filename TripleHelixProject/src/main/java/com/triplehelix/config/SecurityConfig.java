@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -32,20 +33,24 @@ public class SecurityConfig {
 	    http
 	        .csrf().disable()
 	        .authorizeHttpRequests(auth -> auth
-	            .requestMatchers("/**", "/login", "/logout", "/pub/auth/**").permitAll()
+	            .requestMatchers("/**", "/pub/auth/**").permitAll()
 	            .anyRequest().authenticated()
 	        )
 	        .exceptionHandling()
 	            .authenticationEntryPoint((request, response, authException) -> {
 	                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 	                response.getWriter().write("Access Denied: Authentication Required");
-	            })
+	        })
 	        .and()
+	        .sessionManagement(session -> session
+	        	.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+	        )
+	        /*
 	        .formLogin(form -> form
         		.loginPage("/login")
         		.defaultSuccessUrl("/", true)
         		.permitAll()
-        	)
+        	)*/
 	        .logout(logout -> logout
 	            .logoutUrl("/pub/auth/logout")
 	            .invalidateHttpSession(false)
