@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,16 +28,23 @@ public class Booking {
 	
 	@Column(name = "participant_quantity")
 	private int participantQuantity;
+	
 	@Column(name = "appointment_date")
 	private LocalDateTime appointmentDate;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
+	private BookingStatus status;
+	
 	@Column(name = "booking_info_req")
 	private String bookingInfoReq;
-	@Column(name = "event_confirmation_sent")
-	private boolean eventConfirmationSent;
+	
 	@Column(name = "reminder_sent")
 	private boolean reminderSent;
+	
 	@Column(name = "feedback_sent")
 	private boolean feedbackSent;
+	
 	@Column(name = "sign_up_confirmation_sent")
 	private boolean signUpConfirmationSent;
 
@@ -71,20 +80,20 @@ public class Booking {
 		this.appointmentDate = appointmentDate;
 	}
 
+	public BookingStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(BookingStatus status) {
+		this.status = status;
+	}
+
 	public String getBookingInfoReq() {
 		return bookingInfoReq;
 	}
 
 	public void setBookingInfoReq(String bookingInfoReq) {
 		this.bookingInfoReq = bookingInfoReq;
-	}
-
-	public boolean isEventConfirmationSent() {
-		return eventConfirmationSent;
-	}
-
-	public void setEventConfirmationSent(boolean eventConfirmationSent) {
-		this.eventConfirmationSent = eventConfirmationSent;
 	}
 
 	public boolean isReminderSent() {

@@ -1,6 +1,7 @@
 package com.triplehelix.schedulers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -26,7 +27,7 @@ public class BookingReminderScheduler {
 	@Scheduled(cron = "0 0 9 * * ?")
 	public void sendBookingsReminders() {
 		List<Booking> bookings = bookingService.getBookingsForReminder();
-		/*
+		
 		for (Booking booking : bookings) {
 			String sendTo = booking.getUserRequest().getUser().getUserEmail();
 			String subject = "Promemoria Visita del " + booking.getAppointmentDate();
@@ -37,7 +38,7 @@ public class BookingReminderScheduler {
 			
 			booking.setReminderSent(true);
 			bookingDAO.save(booking);
-		}*/
+		}
 		
 		emailService.sendBookingReminder("suppaalessio1@gmail.com", "PROVA EMAIL", "Email di prova Triple Helix");
 	}

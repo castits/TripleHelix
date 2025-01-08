@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.triplehelix.entities.Booking;
+import com.triplehelix.entities.BookingStatus;
 import com.triplehelix.entities.UserRequest;
 import com.triplehelix.repos.BookingDAO;
 
@@ -23,6 +24,10 @@ public class BookingService {
 	
 	public List<Booking> getAllBookings() {
 		return bookingDAO.findAll();
+	}
+	
+	public Optional<Booking> getBookingsByStatus(BookingStatus status) {
+		return bookingDAO.findByStatus(status);
 	}
 	
 	public Optional<Booking> getBookingsByUserEmail(String email) {
