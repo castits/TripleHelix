@@ -103,8 +103,10 @@ public class AuthController {
 	    if (auth == null || !auth.isAuthenticated() || auth instanceof AnonymousAuthenticationToken) {
 	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
 	    }
+	    
+	    User authenticatedUser = (User) auth.getPrincipal();
 
-	    return ResponseEntity.ok("User is logged in: " + auth.getName());
+	    return ResponseEntity.ok("User is logged in: " + authenticatedUser.getUserEmail());
 	}
 
 }
