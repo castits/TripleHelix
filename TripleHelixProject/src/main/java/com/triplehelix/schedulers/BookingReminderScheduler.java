@@ -34,13 +34,12 @@ public class BookingReminderScheduler {
 			String body = "Buongiorno " + booking.getUserRequest().getUser().getUserName() + ",\n\n"
 					+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
 			
-			emailService.sendBookingReminder(sendTo, subject, body);
+			emailService.sendEmail(sendTo, subject, body);
 			
 			booking.setReminderSent(true);
 			bookingDAO.save(booking);
 		}
-		
-		emailService.sendBookingReminder("suppaalessio1@gmail.com", "PROVA EMAIL", "Email di prova Triple Helix");
+
 	}
 
 }
