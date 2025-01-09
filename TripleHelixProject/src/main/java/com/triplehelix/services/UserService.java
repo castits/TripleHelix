@@ -1,6 +1,11 @@
 package com.triplehelix.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,8 +27,22 @@ public class UserService {
         return userDao.save(user);
     }
 
-    public User findUserByEmail(String email) {
+    public User getUserByEmail(String email) {
         return userDao.findUserByUserEmail(email).orElse(null);
+    }
+    
+    public User getAuthenticatedUser() {
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+	    if (auth == null || !auth.isAuthenticated() || auth instanceof AnonymousAuthenticationToken) {
+	        return null;
+	    }
+	    
+	    return (User) auth.getPrincipal();
+    }
+    
+    public User saveUser(User user) {
+    	return userDao.save(user);
     }
 
 }
