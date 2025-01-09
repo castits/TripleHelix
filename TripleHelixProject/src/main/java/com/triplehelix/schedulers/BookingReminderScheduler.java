@@ -12,6 +12,8 @@ import com.triplehelix.repos.BookingDAO;
 import com.triplehelix.services.BookingService;
 import com.triplehelix.services.EmailService;
 
+import jakarta.mail.MessagingException;
+
 @Component
 public class BookingReminderScheduler {
 	
@@ -25,7 +27,7 @@ public class BookingReminderScheduler {
 	private BookingDAO bookingDAO;
 	
 	@Scheduled(cron = "0 0 9 * * ?")
-	public void sendBookingsReminders() {
+	public void sendBookingsReminders() throws MessagingException {
 		List<Booking> bookings = bookingService.getBookingsForReminder();
 		
 		for (Booking booking : bookings) {
