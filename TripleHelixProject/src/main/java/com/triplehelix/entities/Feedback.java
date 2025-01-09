@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,66 +20,101 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int feedbackId;
 
-    @Column(name = "booking_id", nullable = false)
-    private int bookingId;
+    @OneToOne
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
 
-    @Column(name = "rating", nullable = false)
-    private int rating;
+    @Column(name = "wihch_lab")
+    private String whichLab;
+    
+    @Column(name = "formative")
+	private int formative;
+    
+    @Column(name = "engaging")
+	private int engaging;
+    
+    @Column(name = "staff_quality")
+	private int staffQuality;
+    
+    @Column(name = "recommend_lab")
+	private String recommendLab;
+    
+    @Column(name = "advices")
+	private String advices;
 
-    @Column(name = "comment", columnDefinition = "TEXT")
-    private String comment;
-
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
     private LocalDateTime date;
 
-    public Feedback() {
-        // Default constructor for JPA
-    }
+	public int getFeedbackId() {
+		return feedbackId;
+	}
 
-    public Feedback(int bookingId, int rating, String comment, LocalDateTime date) {
-        this.bookingId = bookingId;
-        this.rating = rating;
-        this.comment = comment;
-        this.date = date != null ? date : LocalDateTime.now();
-    }
+	public void setFeedbackId(int feedbackId) {
+		this.feedbackId = feedbackId;
+	}
 
-    public int getFeedbackId() {
-        return feedbackId;
-    }
+	public Booking getBooking() {
+		return booking;
+	}
 
-    public void setFeedbackId(int feedbackId) {
-        this.feedbackId = feedbackId;
-    }
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
 
-    public int getBookingId() {
-        return bookingId;
-    }
+	public String getWhichLab() {
+		return whichLab;
+	}
 
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
-    }
+	public void setWhichLab(String whichLab) {
+		this.whichLab = whichLab;
+	}
 
-    public int getRating() {
-        return rating;
-    }
+	public int getFormative() {
+		return formative;
+	}
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
+	public void setFormative(int formative) {
+		this.formative = formative;
+	}
 
-    public String getComment() {
-        return comment;
-    }
+	public int getEngaging() {
+		return engaging;
+	}
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+	public void setEngaging(int engaging) {
+		this.engaging = engaging;
+	}
 
-    public LocalDateTime getDate() {
-        return date;
-    }
+	public int getStaffQuality() {
+		return staffQuality;
+	}
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
+	public void setStaffQuality(int staffQuality) {
+		this.staffQuality = staffQuality;
+	}
+
+	public String getRecommendLab() {
+		return recommendLab;
+	}
+
+	public void setRecommendLab(String recommendLab) {
+		this.recommendLab = recommendLab;
+	}
+
+	public String getAdvices() {
+		return advices;
+	}
+
+	public void setAdvices(String advices) {
+		this.advices = advices;
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
 }

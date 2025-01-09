@@ -16,7 +16,7 @@ public interface FeedbackDAO extends JpaRepository<Feedback, Integer> {
      * @param bookingId the ID of the booking
      * @return a list of feedback entries associated with the booking ID
      */
-    List<Feedback> findByBookingId(int bookingId);
+    //List<Feedback> findByBookingId(int bookingId);
 
     /**
      * Find all feedback entries with a specific rating.
@@ -24,7 +24,7 @@ public interface FeedbackDAO extends JpaRepository<Feedback, Integer> {
      * @param rating the rating value to search for
      * @return a list of feedback entries with the specified rating
      */
-    List<Feedback> findByRating(int rating);
+    //List<Feedback> findByRating(int rating);
 
     /**
      * Find feedback entries with comments containing a specific keyword.
@@ -32,6 +32,6 @@ public interface FeedbackDAO extends JpaRepository<Feedback, Integer> {
      * @param keyword the keyword to search in the comments
      * @return a list of feedback entries containing the keyword in comments
      */
-    List<Feedback> findByCommentContaining(String keyword);
+    //List<Feedback> findByCommentContaining(String keyword);
 
 }

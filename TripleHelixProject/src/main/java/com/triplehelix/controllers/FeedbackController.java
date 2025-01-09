@@ -16,7 +16,7 @@ public class FeedbackController {
 
     @Autowired
     private FeedbackService feedbackService; // Inject the FeedbackService
-
+/*
     // Get all feedbacks
     @GetMapping
     public ResponseEntity<List<Feedback>> getAllFeedbacks() {
@@ -53,5 +53,5 @@ public class FeedbackController {
         boolean isDeleted = feedbackService.deleteFeedback(id);
         return isDeleted ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    }*/
 }

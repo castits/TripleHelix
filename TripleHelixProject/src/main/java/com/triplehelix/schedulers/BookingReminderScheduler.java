@@ -12,6 +12,8 @@ import com.triplehelix.repos.BookingDAO;
 import com.triplehelix.services.BookingService;
 import com.triplehelix.services.EmailService;
 
+import jakarta.mail.MessagingException;
+
 @Component
 public class BookingReminderScheduler {
 	
@@ -25,7 +27,7 @@ public class BookingReminderScheduler {
 	private BookingDAO bookingDAO;
 	
 	@Scheduled(cron = "0 0 9 * * ?")
-	public void sendBookingsReminders() {
+	public void sendBookingsReminders() throws MessagingException {
 		List<Booking> bookings = bookingService.getBookingsForReminder();
 		
 		for (Booking booking : bookings) {
@@ -34,13 +36,12 @@ public class BookingReminderScheduler {
 			String body = "Buongiorno " + booking.getUserRequest().getUser().getUserName() + ",\n\n"
 					+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
 			
-			emailService.sendBookingReminder(sendTo, subject, body);
+			emailService.sendEmail(sendTo, subject, body);
 			
 			booking.setReminderSent(true);
 			bookingDAO.save(booking);
 		}
-		
-		emailService.sendBookingReminder("suppaalessio1@gmail.com", "PROVA EMAIL", "Email di prova Triple Helix");
+
 	}
 
 }
