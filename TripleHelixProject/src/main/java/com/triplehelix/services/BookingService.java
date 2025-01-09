@@ -73,6 +73,11 @@ public class BookingService {
 		return bookingDAO.findByAppointmentDate(datePlusThreeDays);
 	}
 	
+	public List<Booking> getBookingsForFeedback() {
+		LocalDate dateMinusSevenDays = LocalDate.now().minusDays(7);
+		return bookingDAO.findByAppointmentDate(dateMinusSevenDays);
+	}
+	
 	public Booking saveBooking(Booking booking) {
 		return bookingDAO.save(booking);
 	}

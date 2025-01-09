@@ -1,6 +1,8 @@
 package com.triplehelix.services;
 
 import com.triplehelix.entities.Feedback;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,7 +11,10 @@ import java.util.Optional;
 
 @Service
 public class FeedbackService {
+	
+	
 
+	/*
     // Simulated in-memory database for feedbacks
     private final List<Feedback> feedbacks = new ArrayList<>();
     private int currentId = 1; // Counter to generate unique IDs
@@ -52,4 +57,5 @@ public class FeedbackService {
     public boolean deleteFeedback(int id) {
         return feedbacks.removeIf(feedback -> feedback.getFeedbackId() == id); // Remove by ID
     }
+    */
 }
