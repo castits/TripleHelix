@@ -85,10 +85,19 @@ public class AuthController {
 
 	@PostMapping("/logout")
 	public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null) {
-	        new SecurityContextLogoutHandler().logout(request, response, auth);
+		System.out.println("Logout endpoint reached");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    
+	    if (auth == null || auth instanceof AnonymousAuthenticationToken) {
+	    	System.out.println("No authenticated user found.");
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
 	    }
+	    
+	    System.out.println("Authenticated user: " + auth.getName());
+	    new SecurityContextLogoutHandler().logout(request, response, auth);
+	    request.getSession().invalidate();
+	    
 	    return ResponseEntity.ok("Logout successful");
 	}
 	
