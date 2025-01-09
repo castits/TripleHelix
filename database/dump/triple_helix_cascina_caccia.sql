@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 08, 2025 alle 20:35
+-- Creato il: Gen 09, 2025 alle 21:29
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -44,7 +44,8 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`booking_id`, `request_id`, `participant_quantity`, `appointment_date`, `time_slot`, `status`, `booking_info_req`, `reminder_sent`, `feedback_sent`) VALUES
-(5, 5, 40, '2025-01-11', 'FULL_DAY', 'PENDING', NULL, 0, 0);
+(5, 5, 40, '2025-01-02', 'FULL_DAY', 'PENDING', NULL, 0, 1),
+(6, 6, 100, '2025-01-10', 'MORNING', 'PENDING', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -55,8 +56,12 @@ INSERT INTO `bookings` (`booking_id`, `request_id`, `participant_quantity`, `app
 CREATE TABLE `feedbacks` (
   `feedback_id` int(11) NOT NULL,
   `booking_id` int(11) NOT NULL,
-  `rating` int(1) NOT NULL,
-  `comment` text NOT NULL,
+  `which_lab` varchar(255) NOT NULL,
+  `formative` int(11) NOT NULL,
+  `engaging` int(11) NOT NULL,
+  `staff_quality` int(11) NOT NULL,
+  `recommend_lab` varchar(5) NOT NULL,
+  `advices` text NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -95,7 +100,8 @@ CREATE TABLE `requests` (
 --
 
 INSERT INTO `requests` (`request_id`, `user_id`, `institute`, `created_at`, `updated_at`) VALUES
-(5, 22, 'ITS ICT', '2025-01-08 19:15:14', '2025-01-08 19:15:14');
+(5, 22, 'ITS ICT', '2025-01-08 19:15:14', '2025-01-08 19:15:14'),
+(6, 22, 'Scuola Torino', '2025-01-09 20:41:07', '2025-01-09 20:41:07');
 
 -- --------------------------------------------------------
 
@@ -138,7 +144,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_email`, `user_password`, `created_at`, `updated_at`, `role_id`) VALUES
-(22, 'Lorenzo', 'Castiello', 'lorenzo.castiello04@gmail.com', '$2a$10$B1iSpx/REdXN22yHFs6CQuOfQGL7z5qbHB1yrs0zUEGJQaSxuMaI2', '2025-01-08 16:26:12', '2025-01-08 16:26:12', 1);
+(22, 'Lorenzo', 'Castiello', 'lorenzo.castiello04@gmail.com', '$2a$10$acvAP8GFFJaZO859z8LRI.heiFt1PoL9rN1Ui/wlFCF2XFBnegfAe', '2025-01-08 16:26:12', '2025-01-09 02:18:47', 1),
+(23, 'Mario', 'Rossi', 'mario.rossi@gmail.com', '$2a$10$2K/0cnTyOobLwKf.fu6A5eCPAr5./.SepdWYeET3./ajLRXDMcrMG', '2025-01-08 23:51:19', '2025-01-08 23:51:19', 2);
 
 --
 -- Indici per le tabelle scaricate
@@ -195,7 +202,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `feedbacks`
@@ -213,7 +220,7 @@ ALTER TABLE `information_request`
 -- AUTO_INCREMENT per la tabella `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `roles`
@@ -225,7 +232,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Limiti per le tabelle scaricate
