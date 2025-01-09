@@ -37,16 +37,11 @@ public class AuthController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	@GetMapping("/test")
-    public ResponseEntity<String> testEndpoint() {
-        return ResponseEntity.ok("Public endpoint works!");
-    }
-	
 	@PostMapping("/register")
 	public ResponseEntity<String> registerUser(@RequestBody User user) {
 		System.out.println("Register endpoint called with email: " + user.getUserEmail());
 		
-		if (userService.findUserByEmail(user.getUserEmail()) != null) {
+		if (userService.getUserByEmail(user.getUserEmail()) != null) {
 			System.out.println("Email already in use: " + user.getUserEmail());
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use!");
 		}
@@ -61,12 +56,13 @@ public class AuthController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<String> loginUser(@RequestBody User user, HttpServletRequest request) {
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {
-	        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User is already logged in");
-	    }
+		User authenticatedUser = userService.getAuthenticatedUser();
 
-	    User existingUser = userService.findUserByEmail(user.getUserEmail());
+		if (authenticatedUser != null) {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User is already logged in");
+		}
+
+	    User existingUser = userService.getUserByEmail(user.getUserEmail());
 	    if (existingUser == null) {
 	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not found");
 	    }
@@ -89,24 +85,31 @@ public class AuthController {
 
 	@PostMapping("/logout")
 	public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null) {
-	        new SecurityContextLogoutHandler().logout(request, response, auth);
+		System.out.println("Logout endpoint reached");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    
+	    if (auth == null || auth instanceof AnonymousAuthenticationToken) {
+	    	System.out.println("No authenticated user found.");
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
 	    }
+	    
+	    System.out.println("Authenticated user: " + auth.getName());
+	    new SecurityContextLogoutHandler().logout(request, response, auth);
+	    request.getSession().invalidate();
+	    
 	    return ResponseEntity.ok("Logout successful");
 	}
 	
 	@GetMapping("/status")
 	public ResponseEntity<String> checkStatus() {
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-	    if (auth == null || !auth.isAuthenticated() || auth instanceof AnonymousAuthenticationToken) {
-	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
-	    }
-	    
-	    User authenticatedUser = (User) auth.getPrincipal();
-
-	    return ResponseEntity.ok("User is logged in: " + authenticatedUser.getUserEmail());
+		User authenticatedUser = userService.getAuthenticatedUser();
+		
+		if (authenticatedUser == null) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
+		}
+		
+		return ResponseEntity.ok("User is logged in: " + authenticatedUser.getUserEmail());
 	}
 
 }

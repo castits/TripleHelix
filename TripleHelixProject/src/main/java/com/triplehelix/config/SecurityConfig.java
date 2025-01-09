@@ -11,6 +11,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.triplehelix.services.CustomUserDetailsService;
 
@@ -51,15 +54,8 @@ public class SecurityConfig {
         		.defaultSuccessUrl("/", true)
         		.permitAll()
         	)*/
-	        .logout(logout -> logout
-	            .logoutUrl("/pub/auth/logout")
-	            .invalidateHttpSession(false)
-	            .deleteCookies("JSESSIONID")
-	            .logoutSuccessHandler((request, response, authentication) -> {
-	                response.setStatus(HttpServletResponse.SC_OK);
-	                response.getWriter().write("Logout successful");
-	            })
-	        )
+	        .logout()
+	        	.disable()
 	        .httpBasic();
 	    return http.build();
 	}
