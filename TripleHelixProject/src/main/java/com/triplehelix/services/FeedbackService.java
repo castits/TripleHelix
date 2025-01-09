@@ -1,6 +1,7 @@
 package com.triplehelix.services;
 
 import com.triplehelix.entities.Feedback;
+import com.triplehelix.repos.FeedbackDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,12 @@ import java.util.Optional;
 @Service
 public class FeedbackService {
 	
+	@Autowired
+	private FeedbackDAO feedbackDAO;
 	
+	public Feedback saveFeedback(Feedback feedback) {
+		return feedbackDAO.save(feedback);
+	}
 
 	/*
     // Simulated in-memory database for feedbacks

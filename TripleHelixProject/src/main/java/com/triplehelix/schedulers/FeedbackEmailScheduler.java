@@ -1,6 +1,5 @@
 package com.triplehelix.schedulers;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class FeedbackEmailScheduler {
 	@Autowired
 	private EmailService emailService;
 	
-	@Scheduled(cron = "0 0 * * * ?")
+	@Scheduled(cron = "* * * * * ?")
 	public void sendFeedbackEmail() {
 		List<Booking> bookings = bookingService.getBookingsForFeedback();
 		
@@ -29,11 +28,10 @@ public class FeedbackEmailScheduler {
 			User user = booking.getUserRequest().getUser();
 			if (!booking.isFeedbackSent()) {
 				String sendTo = user.getUserEmail();
-				System.out.println(sendTo);
 				String subject = "Cascina Caccia - La tua opinione è importante!";
 				String body = "Gentile " + user.getUserName() + ",\n\n"
 						+ "Per favore, dicci cosa ne pensi della tua esperienza in Cascina Caccia!\n\n"
-                        + "https://form.jotform.com/243535022618351\n\n"
+                        + "https://form.jotform.com/250082624150345\n\n"
                         + "Grazie per il tuo feedback!";
 
 				emailService.sendEmail(sendTo, subject, body);

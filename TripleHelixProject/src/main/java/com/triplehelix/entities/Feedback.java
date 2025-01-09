@@ -20,11 +20,7 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int feedbackId;
 
-    @OneToOne
-    @JoinColumn(name = "booking_id")
-    private Booking booking;
-
-    @Column(name = "wihch_lab")
+    @Column(name = "which_lab")
     private String whichLab;
     
     @Column(name = "formative")
@@ -51,14 +47,6 @@ public class Feedback {
 
 	public void setFeedbackId(int feedbackId) {
 		this.feedbackId = feedbackId;
-	}
-
-	public Booking getBooking() {
-		return booking;
-	}
-
-	public void setBooking(Booking booking) {
-		this.booking = booking;
 	}
 
 	public String getWhichLab() {
