@@ -224,9 +224,7 @@ h2 {
   scroll-snap-type: x mandatory;
   margin-left: 1.3rem;
   margin-right: 1.3rem;
-  width: calc(
-    100% - 2.6rem
-  ); /* La larghezza del carosello considerando i margini */
+  width: calc(100% - 2.6rem); /* La larghezza del carosello considerando i margini */
 }
 
 .carosello-container::-webkit-scrollbar {
