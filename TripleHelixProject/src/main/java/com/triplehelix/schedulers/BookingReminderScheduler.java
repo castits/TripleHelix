@@ -1,7 +1,6 @@
 package com.triplehelix.schedulers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -26,20 +25,22 @@ public class BookingReminderScheduler {
 	@Autowired
 	private BookingDAO bookingDAO;
 	
-	@Scheduled(cron = "0 0 9 * * ?")
+	@Scheduled(cron = "0 0 * * * ?")
 	public void sendBookingsReminders() throws MessagingException {
 		List<Booking> bookings = bookingService.getBookingsForReminder();
 		
 		for (Booking booking : bookings) {
-			String sendTo = booking.getUserRequest().getUser().getUserEmail();
-			String subject = "Promemoria Visita del " + booking.getAppointmentDate();
-			String body = "Buongiorno " + booking.getUserRequest().getUser().getUserName() + ",\n\n"
-					+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
-			
-			emailService.sendEmail(sendTo, subject, body);
-			
-			booking.setReminderSent(true);
-			bookingDAO.save(booking);
+			if (!booking.isReminderSent()) {
+				String sendTo = booking.getUserRequest().getUser().getUserEmail();
+				String subject = "Promemoria Visita del " + booking.getAppointmentDate();
+				String body = "Buongiorno " + booking.getUserRequest().getUser().getUserName() + ",\n\n"
+						+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
+				
+				emailService.sendEmail(sendTo, subject, body);
+				
+				booking.setReminderSent(true);
+				bookingDAO.save(booking);
+			}
 		}
 
 	}
