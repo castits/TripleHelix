@@ -1,87 +1,49 @@
-
-
 package com.triplehelix.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.antlr.v4.runtime.misc.NotNull;
 
-/*
- * Represents the entity for the "information_request" table in the database.
- * This class maps to the "information_request" table and includes fields and
- * configurations for Hibernate/JPA.
- */
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "information_request")
 public class InformationRequest {
 
-    // Primary key for the table with auto-increment strategy.
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Maps to AUTO_INCREMENT in the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "information_request_id")
     private int informationRequestId;
 
-    // Column for the request ID (mandatory field).
     @Column(name = "request_id", nullable = false)
     private int requestId;
 
-    // Column for the text of the information request (mandatory field).
-    @Column(name = "information_request_text", nullable = false)
+
+    @Column(name = "information_request_text", nullable = false, length = 1000)
     private String informationRequestText;
 
-    // Column for the user's first name (optional field).
-    @Column(name = "user_name")
+    @Column(name = "user_name", length = 100)
     private String userName;
 
-    // Column for the user's last name (optional field).
-    @Column(name = "user_surname")
+    @Column(name = "user_surname", length = 100)
     private String userSurname;
 
-    // Column for the user's email (mandatory and unique field).
-    @Column(name = "user_email", unique = true, nullable = false)
+    @Column(name = "user_email", unique = true, nullable = false, length = 150)
     private String userEmail;
 
-    // Column for the user's phone number (optional field).
-    @Column(name = "user_phone", nullable = true)
+    @Column(name = "user_phone", length = 20)
     private String userPhone;
 
-    /*
-     * Parameterized constructor to initialize all fields of the entity.
-     *
-     * @param informationRequestId the ID of the information request
-     * @param requestId the ID of the request type
-     * @param informationRequestText the text of the information request
-     * @param userName the user's first name
-     * @param userSurname the user's last name
-     * @param userEmail the user's email address
-     * @param userPhone the user's phone number
-     */
-    
-    public InformationRequest(int informationRequestId, int requestId, String informationRequestText,
-                              String userName, String userSurname, String userEmail, String userPhone) {
-        super();
-        this.informationRequestId = informationRequestId;
+    // Costruttore predefinito
+    public InformationRequest() {
+    }
+
+    // Costruttore parametrizzato
+    public InformationRequest(int requestId, String informationRequestText, String userEmail) {
         this.requestId = requestId;
         this.informationRequestText = informationRequestText;
-        this.userName = userName;
-        this.userSurname = userSurname;
         this.userEmail = userEmail;
-        this.userPhone = userPhone;
     }
 
-    /*
-     * Default constructor required by JPA/Hibernate.
-     */
-    
-    public InformationRequest() {
-        // Default constructor
-    }
-
-    // Getter and setter methods for each field:
-
+    // Getter e setter
     public int getInformationRequestId() {
         return informationRequestId;
     }
@@ -136,5 +98,18 @@ public class InformationRequest {
 
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
+    }
+
+    @Override
+    public String toString() {
+        return "InformationRequest{" +
+                "informationRequestId=" + informationRequestId +
+                ", requestId=" + requestId +
+                ", informationRequestText='" + informationRequestText + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userSurname='" + userSurname + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                '}';
     }
 }
