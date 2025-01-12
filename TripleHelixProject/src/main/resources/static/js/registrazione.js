@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", () => {
             userSurname: document.getElementById("cognome").value,
             userEmail: document.getElementById("email").value,
             userPassword: document.getElementById("password").value,
-            roleId: 2,
           }),
         });
         if (response.status === 201) {

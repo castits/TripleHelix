@@ -26,62 +26,6 @@ body {
   font-family: var(--font-family);
 }
 
-header {
-  /* Fixed header with responsive styling */
-  width: 100vw;
-  height: 10vh;
-  background-color: #272727; /* Dark background for contrast */
-  position: sticky; /* Ensures the header stays visible while scrolling */
-  top: 0;
-  display: flex; /* Flex layout for alignment */
-  justify-content: space-between; /* Space between nav and logo */
-  align-items: center; /* Vertical alignment */
-  padding: 2rem;
-  z-index: 1000; /* Ensures header is on top of other elements */
-}
-
-header nav,
-header img {
-  /* Consistent dimensions for navigation and logo images */
-  width: 45px;
-  height: 45px;
-}
-
-#hamburger {
-  /* Styles the hamburger menu for mobile navigation */
-  cursor: pointer; /* Changes cursor to indicate interactivity */
-}
-
-.nav-mobile,
-#check {
-  /* Hides the mobile navigation menu by default */
-  display: none;
-}
-
-#check:checked ~ .nav-mobile {
-  /* Displays the mobile navigation menu when the checkbox is checked */
-  display: block;
-}
-
-.nav-mobile {
-  /* Full-screen overlay menu for mobile devices */
-  position: absolute;
-  top: 10vh; /* Below the header */
-  left: 0;
-  background: #272727; /* Matches the header background */
-  z-index: 100; /* Ensures visibility above other content */
-  width: 100%;
-  height: 100vh; /* Covers the full viewport height */
-}
-.nav-mobile a {
-  /* Styling for links in the mobile navigation */
-  color: #fff; /* White text for contrast */
-  padding: 1rem 1.5rem; /* Spacing for touch-friendly interaction */
-  display: block; /* Stacks links vertically */
-  text-decoration: none; /* Removes underlining */
-  text-align: center;
-}
-
 main {
   padding: 0 1.3rem;
   height: 90vh;
