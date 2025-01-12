@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="it">
+  <!-- Beginning of head -->
+  <head>
+    <!-- Meta informations -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Triple Helix" />
+    <meta name="description" content="" />
+    <title></title>
+
+    <!--aggiungi font fallback-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <!-- Ending of head -->
+
+  <!-- Beginning of body -->
+  <body>
+    <header>
+      <!-- Chiedere significato del logo per attributo alt -->
+      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
+        </label>
+        <div class="nav-mobile">
+          <a href="#">Chi siamo</a>
+          <a href="#">Laboratori</a>
+          <a href="#">Calendario</a>
+          <a href="#">Faq</a>
+          <a href="#">Contattaci</a>
+          <a href="#">Prenota visita</a>
+          <a href="#">Profilo</a>
+        </div>
+      </nav>
+    </header>
+    <div class="progress-bar" id="progressBar"></div>
+    <main>
+      <div id="hero">
+        <img id="hero-bg" src="./assets/img/cascina_caccia_mobile.jpg" alt="" />
+        <div id="hero-bg-darkness"></div>
+        <div id="hero-content">
+          <div id="main-text">
+            <h1>Cascina Caccia: riscatto, legalità ed educazione</h1>
+            <p>
+              Coinvolgi la tua scuola in un’esperienza unica di educazione alla
+              legalità.
+            </p>
+          </div>
+
+          <div id="cta-buttons">
+            <button id="discover-more" class="discover-more">
+              Scopri di più
+            </button>
+            <button id="book-now">Prenota ora</button>
+          </div>
+
+          <img
+            id="double-arrow"
+            class="discover-more"
+            src="assets/svg/double_arrow.svg"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div id="cascina-intro">
+        <h2>Cos'è Cascina Caccia?</h2>
+        <p>
+          Cascina Caccia è un bene confiscato alla criminalità organizzata,
+          situato a San Sebastiano da Po, e trasformato in un centro di memoria
+          e impegno sociale dedicato alla memoria del magistrato Bruno Caccia e
+          di sua moglie Carla.
+        </p>
+        <p>
+          Oggi è un centro educativo e comunitario dove si promuovono la
+          legalità e la cittadinanza attiva, stimolando riflessione e
+          consapevolezza attraverso laboratori didattici ed esperienze formative
+          dedicati a scuole e gruppi scout.
+        </p>
+      </div>
+      <div id="workshop">
+        <h2>Scopri i nostri laboratori</h2>
+        <div class="carosello-container">
+          <div class="carosello-item">
+            <img src="./assets/img/sentiero_cascina_caccia.jpg" alt="" />
+          </div>
+          <div class="carosello-item">
+            <img src="./assets/img/bruno-caccia.jpg" alt="" />
+          </div>
+          <div class="carosello-item">
+            <img src="./assets/img/educazione-3.jpg" alt="" />
+          </div>
+          <div class="carosello-item">
+            <img src="./assets/img/party-bene.jpg" alt="" />
+          </div>
+        </div>
+        <div class="carousel-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div id="faq-section">
+        <h2>Domande frequenti</h2>
+        <div class="faq-container">
+          <div class="faq-title">
+            <h3>Come posso prenotare una visita per la mia classe?</h3>
+            <img src="./assets/svg/arrow.svg" alt="" />
+          </div>
+          <div class="faq-answer">
+            <p>
+              Puoi prenotare direttamente dal nostro sito compilando il modulo
+              dedicato o contattandoci via mail. Siamo a disposizione per
+              aiutarti a personalizzare il percorso in base alle tue esigenze
+              educative.
+            </p>
+          </div>
+        </div>
+        <div class="faq-container">
+          <div class="faq-title">
+            <h3>Qual è il costo delle attività?</h3>
+            <img src="./assets/svg/arrow.svg" alt="" />
+          </div>
+          <div class="faq-answer">
+            <ul>
+              <li>Mezza giornata: 100€ a classe</li>
+              <li>Giornata intera: 150€ a classe</li>
+            </ul>
+            <p>
+              Sono previsti sconti per gruppi numerosi e gratuità per due
+              insegnanti accompagnatori nei soggiorni.
+            </p>
+          </div>
+        </div>
+        <div class="faq-container">
+          <div class="faq-title">
+            <h3>Ci sono limiti al numero di partecipanti?</h3>
+            <img src="./assets/svg/arrow.svg" alt="" />
+          </div>
+          <div class="faq-answer">
+            <p>
+              Sì, ospitiamo massimo due classi per le visite giornaliere e una
+              classe per volta per i soggiorni. Le camerate hanno una capienza
+              massima di 24 posti letto.
+            </p>
+          </div>
+        </div>
+        <div class="faq-container">
+          <div class="faq-title">
+            <h3>Come raggiungere la cascina?</h3>
+            <img src="./assets/svg/arrow.svg" alt="" />
+          </div>
+          <div class="faq-answer">
+            <p>
+              Per i pullman superiori ai 25 posti, è previsto il parcheggio
+              presso il cimitero di San Sebastiano da Po, seguito da una
+              passeggiata di 15 minuti. Per esigenze specifiche (es. persone con
+              mobilità ridotta), contattaci in anticipo.
+            </p>
+          </div>
+        </div>
+        <div class="faq-container">
+          <div class="faq-title">
+            <h3>Cosa include il costo del soggiorno formativo?</h3>
+            <img src="./assets/svg/arrow.svg" alt="" />
+          </div>
+          <div class="faq-answer">
+            <p>
+              Il costo comprende vitto, alloggio, formazione e supporto costante
+              degli educatori. I pasti possono essere portati al sacco o
+              organizzati con la gastronomia della cascina per gruppi superiori
+              alle 20 persone.
+            </p>
+          </div>
+        </div>
+        <div class="faq-container">
+          <div class="faq-title">
+            <h3>Quanti laboratori possono essere svolti in una giornata?</h3>
+            <img src="./assets/svg/arrow.svg" alt="" />
+          </div>
+          <div class="faq-answer">
+            <p>
+              Se si è scelta la mezza giornata, solitamente viene svolto un solo
+              laboratorio. In alternativa, per la giornata intera si può andare
+              a selezionare anche un secondo laboratorio.
+            </p>
+          </div>
+        </div>
+      </div>
+      <form action="">
+        <h2>Contattaci</h2>
+        <p>
+          Compila il modulo sottostante per richiedere maggiori informazioni.
+          Saremo felici di risponderti il prima possibile.
+        </p>
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Inserisci il tuo nome"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="surname">Cognome</label>
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            placeholder="Inserisci il tuo cognome"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Inserisci la tua email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone-number">Numero di telefono</label>
+          <input
+            type="text"
+            id="phone-number"
+            name="phone-number"
+            placeholder="Inserisci il tuo numero di telefono"
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Messaggio</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Inserisci il tuo messaggio"
+          ></textarea>
+        </div>
+        <button type="submit">INVIA</button>
+      </form>
+    </main>
+    <footer>
+      <div id="footer-logo">
+        <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
+        <p>CASCINA CACCIA</p>
+      </div>
+      <div id="footer-location">
+        <img src="./assets/svg/location.svg" alt="" />
+        <p>Via serra Alta 6</p>
+        <p>San Sebastiano da Po (TO)</p>
+      </div>
+      <div id="footer-phone">
+        <img src="./assets/svg/phone.svg" alt="" />
+        <p>+39 348 642 5023</p>
+      </div>
+      <div id="footer-email">
+        <img src="./assets/svg/mail.svg" alt="" />
+        <p>cascina.caccia@acmos.net</p>
+      </div>
+      <div id="footer-socials">
+        <img src="./assets/svg/instagram.svg" alt="" />
+        <img src="./assets/svg/facebook.svg" alt="" />
+        <img src="./assets/svg/youtube.svg" alt="" />
+      </div>
+      <p id="footer-copyright">&copy; Triple Helix</p>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+  <!-- Ending of body -->
+</html>

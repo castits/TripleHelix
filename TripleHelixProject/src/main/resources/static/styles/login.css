@@ -1,0 +1,182 @@
+:root {
+  /* Defines CSS variables for colors, font families, and font weights, making the code modular and easier to update */
+  --background-color: #ffffff; /* Main background color */
+  --hero-text-color: #ffffff; /* Text color for the hero section */
+  --form-color: #ffe9cc; /* Background color for the form */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif; /* Font stack for the entire site */
+  --font-weight-light: 300; /* Light font weight */
+  --font-weight-regular: 400; /* Regular font weight */
+  --font-weight-medium: 500; /* Medium font weight */
+  --font-weight-semi-bold: 600; /* Semi-bold font weight */
+  --font-weight-bold: 700; /* Bold font weight */
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+header {
+  /* Fixed header with responsive styling */
+  width: 100vw;
+  height: 10vh;
+  background-color: #272727; /* Dark background for contrast */
+  position: sticky; /* Ensures the header stays visible while scrolling */
+  top: 0;
+  display: flex; /* Flex layout for alignment */
+  justify-content: space-between; /* Space between nav and logo */
+  align-items: center; /* Vertical alignment */
+  padding: 2rem;
+  z-index: 1000; /* Ensures header is on top of other elements */
+}
+
+header nav,
+header img {
+  /* Consistent dimensions for navigation and logo images */
+  width: 45px;
+  height: 45px;
+}
+
+#hamburger {
+  /* Styles the hamburger menu for mobile navigation */
+  cursor: pointer; /* Changes cursor to indicate interactivity */
+}
+
+.nav-mobile,
+#check {
+  /* Hides the mobile navigation menu by default */
+  display: none;
+}
+
+#check:checked ~ .nav-mobile {
+  /* Displays the mobile navigation menu when the checkbox is checked */
+  display: block;
+}
+
+.nav-mobile {
+  /* Full-screen overlay menu for mobile devices */
+  position: absolute;
+  top: 10vh; /* Below the header */
+  left: 0;
+  background: #272727; /* Matches the header background */
+  z-index: 100; /* Ensures visibility above other content */
+  width: 100%;
+  height: 100vh; /* Covers the full viewport height */
+}
+.nav-mobile a {
+  /* Styling for links in the mobile navigation */
+  color: #fff; /* White text for contrast */
+  padding: 1rem 1.5rem; /* Spacing for touch-friendly interaction */
+  display: block; /* Stacks links vertically */
+  text-decoration: none; /* Removes underlining */
+}
+
+main {
+  padding: 0 1.3rem;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.7em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+label {
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+}
+
+input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.7rem;
+  margin: 0.3rem 0 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  background-color: #f3f7fb;
+}
+
+input::placeholder {
+  color: #b3b3b3;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #e0017a;
+}
+
+input:focus::placeholder {
+  color: #212121;
+}
+
+button {
+  width: 100%;
+  height: 3rem;
+  background-color: #162d3a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semi-bold);
+  letter-spacing: 1px;
+}
+
+#google-access {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #f3f9fa;
+  color: #313957;
+}
+
+a {
+  text-align: right;
+}
+
+button:first-of-type {
+  margin-top: 1em;
+}
+
+#alt-login {
+  text-align: center;
+  margin: 1em 0;
+}
+
+#register {
+  text-align: center;
+  margin-top: 1em;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beginning of head -->
+  <head>
+    <!-- Meta informations -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Triple Helix" />
+    <meta name="description" content="" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/registrazione.css" />
+  </head>
+  <!-- Ending of head -->
+
+  <!-- Beginning of body -->
+  <body>
+    <header>
+      <!-- Chiedere significato del logo per attributo alt -->
+      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
+        </label>
+        <div class="nav-mobile">
+          <a href="#">Chi siamo</a>
+          <a href="#">Laboratori</a>
+          <a href="#">Calendario</a>
+          <a href="#">Faq</a>
+          <a href="#">Contattaci</a>
+          <a href="#">Prenota visita</a>
+          <a href="#">Profilo</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <form id="registration-form">
+        <h1>Registrati</h1>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            placeholder="Inserisci il tuo nome"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="cognome">Cognome</label>
+          <input
+            type="text"
+            name="cognome"
+            id="cognome"
+            placeholder="Inserisci il tuo cognome"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Inserisci la tua email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Crea password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Almeno 8 caratteri"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="conferma-password">Conferma password</label>
+          <input
+            type="password"
+            name="conferma-password"
+            id="conferma-password"
+            placeholder="Almeno 8 caratteri"
+            required
+          />
+        </div>
+        <div id="gdpr-field">
+          <label for="gdpr"
+            >Autorizzo il trattamento dei miei dati personali ai sensi del
+            Regolamento (UE) 2016/679 (GDPR):</label
+          >
+          <div id="gdpr-input">
+            <input type="checkbox" name="gdpr" id="gdpr" />
+            <p>Si</p>
+          </div>
+        </div>
+        <button type="submit">Registrati</button>
+      </form>
+    </main>
+
+    <script src="./js/registrazione.js"></script>
+  </body>
+  <!-- Ending of body -->
+</html>
