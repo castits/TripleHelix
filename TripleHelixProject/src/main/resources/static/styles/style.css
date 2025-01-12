@@ -95,6 +95,7 @@ header img {
   padding: 1rem 1.5rem; /* Spacing for touch-friendly interaction */
   display: block; /* Stacks links vertically */
   text-decoration: none; /* Removes underlining */
+  text-align: center;
 }
 
 main {
