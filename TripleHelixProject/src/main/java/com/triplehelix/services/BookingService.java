@@ -26,6 +26,7 @@ public class BookingService {
 	
 	private Map<String, Object> bookingToMap(Booking booking) {
 	    return Map.of(
+	    	"bookingId", booking.getBookingId(),
 	    	"userName", booking.getUserRequest().getUser().getUserName(),
 	    	"userSurname", booking.getUserRequest().getUser().getUserSurname(),
 	    	"institute",  booking.getUserRequest().getInstitute(),
@@ -80,6 +81,22 @@ public class BookingService {
 	
 	public Booking saveBooking(Booking booking) {
 		return bookingDAO.save(booking);
+	}
+	
+	public void deleteBookingById(int id) {
+		bookingDAO.deleteById(id);
+	}
+	
+	public void changeBookingStatus(int id, String status) {
+		Optional<Booking> booking = bookingDAO.findById(id);
+		
+		if (booking.isPresent()) {
+			Booking newBooking = booking.get();
+			newBooking.setStatus(BookingStatus.valueOf(status));
+			bookingDAO.save(newBooking);
+		}
+		
+
 	}
 
 }
