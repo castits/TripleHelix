@@ -1,37 +1,9 @@
-// let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1327009964564340736";
-// let prenotazione;
-
-// fetch(endpointPrenotazioni)
-//   .then((response) => {
-//     if (response.ok) {
-//       return response.json();
-//     } else {
-//       throw new Error("Network response was not ok.");
-//     }
-//   })
-//   .then((prenotazioneJSON) => {
-//     console.log(prenotazioneJSON);
-//     prenotazione = prenotazioneJSON;
-//     showPrenotazione();
-//   })
-//   .catch((error) => {
-//     console.log("errorrino", error);
-//   });
-// //da undefined
-
-// let listaPrenotazione = document.getElementsByClassName("containerPrenotazione");
-
-// function createListItem(content) {
-//   let li = document.createElement("li");
-//   li.textContent = content;
-//   return li;
-// }
-
-// function showPrenotazione() {
-//   listaPrenotazione.appendChild(createListItem(`Name: ${prenotazione.nome}`));
-// }
-let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1327189519845482496";
+let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1327230806158139392";
+//1327189519845482496
+//1327213696677765120
+// tanti 1327230806158139392
 let prenotazioni = [];
+let x = 0;
 
 // Mappatura dei giorni e delle fasce orarie in italiano
 const giorniItaliano = {
@@ -61,13 +33,14 @@ fetch(endpointPrenotazioni)
   })
   .then((prenotazioneJSON) => {
     prenotazioni = prenotazioneJSON;
-    showPrenotazioni(); // Mostra tutte le prenotazioni
+    let x = prenotazioni.length;
+    showPrenotazioni(x); // Mostra tutte le prenotazioni
   })
   .catch((error) => {
     console.log("Errore:", error);
   });
 
-// Seleziona il contenitore per la lista di prenotazioni
+// // Seleziona il contenitore per la lista di prenotazioni
 let listaPrenotazione = document.querySelector(".containerPrenotazione");
 
 function createPrenotazioneBox(prenotazione) {
@@ -77,7 +50,7 @@ function createPrenotazioneBox(prenotazione) {
 
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
-  nome.appendChild(document.createTextNode(`Nome: ${prenotazione.userName} ${prenotazione.userSurname}`));
+  nome.appendChild(document.createTextNode(`Referente: ${prenotazione.userName} ${prenotazione.userSurname}`));
   div.appendChild(nome);
 
   let email = document.createElement("p");
@@ -108,14 +81,32 @@ function createPrenotazioneBox(prenotazione) {
   let buttonContainer = document.createElement("div");
   buttonContainer.classList.add("button-container");
 
+  // Crea l'elemento form
+  let btnForm = document.createElement("form");
+
+  // Imposta gli attributi del form
+  btnForm.classList.add("hiddenForm");
+  btnForm.action = "/action_page.php"; // URL di destinazione !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  btnForm.method = "get"; // Metodo HTTP
+  btnForm.id = "accept_reject"; // ID del form
+
+  // Aggiungi il form al DOM (ad esempio, al corpo del documento)
+  buttonContainer.appendChild(btnForm);
+
   let accettaButton = document.createElement("button");
   accettaButton.textContent = "Accetta";
+  accettaButton.value = "Accetta";
+  accettaButton.type = "submit";
   accettaButton.classList.add("accetta-button");
+  accettaButton.setAttribute("form", "accept_reject"); // Associa al form con ID "accept_reject"
   accettaButton.addEventListener("click", () => handleAccetta(prenotazione));
 
   let rifiutaButton = document.createElement("button");
   rifiutaButton.textContent = "Rifiuta";
+  rifiutaButton.value = "Rifiuta";
+  rifiutaButton.type = "submit";
   rifiutaButton.classList.add("rifiuta-button");
+  rifiutaButton.setAttribute("form", "accept_reject"); // Associa al form con ID "accept_reject"
   rifiutaButton.addEventListener("click", () => handleRifiuta(prenotazione));
 
   // Aggiungi i bottoni al container
@@ -139,9 +130,16 @@ function handleRifiuta(prenotazione) {
   // Puoi aggiungere altre azioni come l'invio di una richiesta al server
 }
 
-function showPrenotazioni() {
-  // Pulisce il contenitore prima di aggiungere gli elementi
-  listaPrenotazione.innerHTML = "";
+function showPrenotazioni(num) {
+  let h2NumAttesa = document.getElementById("inAttesa");
+  let numInAttesa = document.createElement("span"); // Crea l'elemento <span>
+  numInAttesa.textContent = num;
+
+  h2NumAttesa.appendChild(numInAttesa);
+  // Rimuove tutti i figli del contenitore in modo sicuro
+  while (listaPrenotazione.firstChild) {
+    listaPrenotazione.removeChild(listaPrenotazione.firstChild);
+  }
 
   // Itera su tutte le prenotazioni e le aggiunge al DOM
   prenotazioni.forEach((prenotazione) => {

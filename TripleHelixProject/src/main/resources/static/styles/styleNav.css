@@ -1,0 +1,63 @@
+header {
+  width: 100vw;
+  height: 10vh;
+  background-color: #272727;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+header nav,
+header img {
+  width: 45px;
+  height: 45px;
+}
+
+.progress-bar {
+  background: #ff8400;
+  height: 5px;
+  width: 0%;
+  position: fixed;
+  top: 9.3vh;
+  z-index: 1000;
+}
+
+#hamburger {
+  cursor: pointer;
+}
+.nav-mobile,
+#check {
+  display: none;
+}
+
+#check:checked ~ .nav-mobile {
+  display: block;
+}
+
+.nav-mobile {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  background: #272727;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+}
+.nav-mobile a {
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: block;
+  text-decoration: none;
+}
+main {
+  margin-top: 10vh;
+  letter-spacing: 0.06rem;
+}
+h2 {
+  font-size: 22px;
+  font-weight: var(--font-weight-semi-bold);
+}

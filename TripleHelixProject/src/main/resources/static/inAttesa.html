@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <!-- Link to the stylesheet -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/styleNav.css" />
+    <link rel="stylesheet" href="./styles/styleBackoffice.css" />
   </head>
   <!-- Ending of head -->
 
@@ -25,7 +26,7 @@
       <!-- Chiedere significato del logo per attributo alt -->
 
       <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
-      <h1>In attesa</h1>
+      
       <nav>
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
@@ -44,25 +45,15 @@
     </header>
 
     <main>
+      <h2 id="inAttesa">In attesa di conferma:  </h2>
       <div class="containerPrenotazione"></div>
-      <h2>In attesa di conferma</h2>
-      <div>
-        <span>Carlo Verdi</span>
-        -
-        <span>Liceo linguistico Juvarra</span>
-        <span>Venerdi 20/10/2024</span>
-        -
-        <span>Mattina</span>
-        -
-        <span>17 partecipanti</span>
-        <br />
-        <button class="btn-backoffice">Accetta</button>
-        <button class="btn-backoffice">Rifiuta</button>
+      
+      
       </div>
     </main>
     <footer></footer>
 
-    <script src="./js/js_backoffice.js"></script>
+    <script src="./js/inAttesa.js"></script>
   </body>
   <!-- Ending of body -->
 </html>

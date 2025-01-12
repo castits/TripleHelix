@@ -26,7 +26,7 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: 160%;
 }
-
+/*inizio stile navbar*/
 header {
   width: 100vw;
   height: 10vh;
@@ -40,11 +40,7 @@ header {
   z-index: 1000;
 }
 
-header nav {
-  width: 45px;
-  height: 45px;
-}
-
+header nav,
 header img {
   width: 45px;
   height: 45px;
@@ -91,7 +87,7 @@ main {
   margin-top: 10vh;
   letter-spacing: 0.06rem;
 }
-
+/*fine stile navbar*/
 #hero {
   position: relative;
   width: 100%;
@@ -448,9 +444,4 @@ footer div:not(#footer-logo, #footer-socials) img {
 
 #workshop h2 {
   margin: 0 1.3rem 1.5rem;
-}
-
-.btn-backoffice {
-  height: 3rem;
-  width: 11rem;
 }
