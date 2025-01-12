@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
-    <meta name="description" content="Pagina archivio feedbacks" />
+    <meta name="description" content="Pagina delle prenotazioni cancellate" />
     <title></title>
 
     <!--aggiungi font fallback-->
@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <!-- Link to the stylesheet -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/style2.css" />
+    <link rel="stylesheet" href="./styles/styleNav.css" />
+    <link rel="stylesheet" href="./styles/styleBackoffice.css" />
   </head>
   <!-- Ending of head -->
 
@@ -24,12 +25,12 @@
     <header>
       <!-- Chiedere significato del logo per attributo alt -->
 
-      <img src="./assets/img/logo.svg" alt="Logo di cascina caccia" />
-      <h1>Feedbacks</h1>
+      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
+      
       <nav>
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
-          <img src="./assets/img/coloredHamburger.svg" alt="Menu di navigazione" id="hamburger" />
+          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
         </label>
         <div class="nav-mobile">
           <a href="#">Home</a>
@@ -43,10 +44,16 @@
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <h2 id="feedbacks">Prenotazioni Cancellate:  </h2>
+      <div class="containerFeedbacks"></div>
+      
+      
+      </div>
+    </main>
     <footer></footer>
 
-    <script src="./js/main.js"></script>
+    <script src="./js/feedbacks.js"></script>
   </body>
   <!-- Ending of body -->
 </html>
