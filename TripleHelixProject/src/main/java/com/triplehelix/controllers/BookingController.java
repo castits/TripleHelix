@@ -12,21 +12,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nimbusds.oauth2.sdk.Scope.Value;
 import com.triplehelix.entities.Booking;
 import com.triplehelix.entities.BookingStatus;
 import com.triplehelix.entities.BookingTimeSlot;
 import com.triplehelix.entities.User;
 import com.triplehelix.entities.UserRequest;
 import com.triplehelix.services.BookingService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
@@ -98,6 +99,16 @@ public class BookingController {
         Booking savedBooking = bookingService.saveBooking(booking);
         
         return new ResponseEntity<>(savedBooking, HttpStatus.OK);
+    }
+    
+    @PutMapping("change-status/{id}")
+    public void changeBookingStatus(@PathVariable int id, @RequestParam String status) {
+        bookingService.changeBookingStatus(id, status);
+    }
+    
+    @DeleteMapping("delete/{id}")
+    public void deleteBookingById(@PathVariable int id) {
+    	bookingService.deleteBookingById(id);
     }
 
 }
