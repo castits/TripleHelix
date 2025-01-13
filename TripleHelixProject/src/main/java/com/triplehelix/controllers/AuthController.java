@@ -122,5 +122,10 @@ public class AuthController {
 			return true;
 		}
 	}
+	
+	@GetMapping("/user-info")
+	public User getLoggedUserInfo() {
+		return userService.getAuthenticatedUser();
+	}
 
 }
