@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function setupNavbarLinks() {
     // Seleziona tutti i link della navbar
-    const navLinks = document.querySelectorAll(".nav-mobile a");
+    const navLinks = document.querySelectorAll(".nav-mobile .scroll");
     const check = document.getElementById("check"); // Il checkbox del menu mobile
     const headerHeight = document.querySelector("header").offsetHeight;
 
@@ -198,4 +198,52 @@ window.addEventListener("DOMContentLoaded", () => {
       hamburger.alt = "Open navigation menu";
     }
   }
+
+  function isLogged() {
+    const profile = document.getElementById("profile");
+    let isUserLogged = false;
+
+    profile.addEventListener("click", async () => {
+      try {
+        const response = await fetch("/pub/auth/is-logged");
+
+        if (response.ok) {
+          const text = await response.text();
+          if (text === "true") {
+            isUserLogged = true;
+            console.log(isUserLogged);
+          }
+          if (isUserLogged) {
+            location.href = "./dashboard.html";
+          } else {
+            location.href = "./login.html";
+          }
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+
+  function logout() {
+    const logout = document.getElementById("logout");
+
+    logout.addEventListener("click", async () => {
+      try {
+        const response = await fetch("/pub/auth/logout", {
+          method: "POST",
+        });
+
+        if (response.ok) {
+          location.href=("/index.html");
+          console.log("user logged out");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+
+  isLogged();
+  logout();
 });
