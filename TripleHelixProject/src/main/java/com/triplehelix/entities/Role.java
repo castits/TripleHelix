@@ -13,10 +13,10 @@ public class Role {
 	
 	@Id
 	@Column(name = "role_id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int roleId;
 	
-	@Column(name="role_name")
+	@Column(name="role_name", nullable = false)
 	private String roleName;
 
 	public int getRoleId() {

@@ -21,16 +21,22 @@ public class User {
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
-	@Column(name = "user_name")
+	
+	@Column(name = "user_name", nullable = false)
 	private String userName;
-	@Column(name = "user_surname")
+	
+	@Column(name = "user_surname", nullable = false)
 	private String userSurname;
-	@Column(name = "user_email", unique = true)
+	
+	@Column(name = "user_email", unique = true, nullable = false)
 	private String userEmail;
+	
 	@Column(name = "user_password", nullable = false)
 	private String userPassword;
+	
 	@Column(name = "created_at", updatable = false)
 	private LocalDateTime createdAt;
+	
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 	
