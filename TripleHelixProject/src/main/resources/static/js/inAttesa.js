@@ -84,6 +84,8 @@ function createPrenotazioneBox(prenotazione) {
   // Crea l'elemento form
   let btnForm = document.createElement("form");
 
+  //CONFUSIONE SULLE CHIAMATE REJECTED E ACCEPTED
+
   // Imposta gli attributi del form
   btnForm.classList.add("hiddenForm");
   btnForm.action = "/action_page.php"; // URL di destinazione !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

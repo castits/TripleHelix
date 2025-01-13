@@ -1,7 +1,5 @@
-let endpointPrenotazioni = "http://localhost/api/bookings/status/";
-//1327189519845482496
-//1327213696677765120
-// tanti 1327230806158139392
+let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1328474797923033088";
+//1328474797923033088
 let prenotazioni = [];
 let x = 0;
 
@@ -40,6 +38,45 @@ fetch(endpointPrenotazioni)
     console.log("Errore:", error);
   });
 
+// Fetch per ottenere l'email di chi è loggato
+fetch(endpointPrenotazioni)
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("Network response was not ok.");
+    }
+  })
+  .then((prenotazioneJSON) => {
+    prenotazioni = prenotazioneJSON;
+    let x = prenotazioni.length;
+    showPrenotazioni(x); // Mostra tutte le prenotazioni
+  })
+  .catch((error) => {
+    console.log("Errore:", error);
+  });
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("dashboard-utente").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const response = await fetch("/api/bookings/user?email=", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userEmail: document.getElementById("email").value,
+        userPassword: document.getElementById("password").value,
+      }),
+      credentials: "include",
+    });
+    if (response.ok) {
+      alert("Login successful!");
+      window.location.href = "/dashboard.html";
+    } else {
+      alert("Login failed! Incorrect credentials.");
+    }
+  });
+});
+
 // // Seleziona il contenitore per la lista di prenotazioni
 let listaPrenotazione = document.querySelector(".containerPrenotazione");
 
@@ -77,43 +114,7 @@ function createPrenotazioneBox(prenotazione) {
   fasciaOraria.appendChild(document.createTextNode(`Fascia Oraria: ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
   div.appendChild(fasciaOraria);
 
-  // Crea bottone "cancella"
-  let buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("button-container");
-
-  // Crea l'elemento form
-  let btnForm = document.createElement("form");
-
-  // Imposta gli attributi del form
-  btnForm.classList.add("hiddenForm");
-  btnForm.action = `http://localhost/api/bookings/delete/${prenotazione.bookingsId}`;
-  btnForm.method = "get"; // Metodo HTTP
-  btnForm.id = "reject"; // ID del form
-
-  // Aggiungi il form al DOM (ad esempio, al corpo del documento)
-  buttonContainer.appendChild(btnForm);
-
-  let cancellaButton = document.createElement("button");
-  cancellaButton.textContent = "Cancella";
-  cancellaButton.value = "Cancella";
-  cancellaButton.type = "submit";
-  cancellaButton.classList.add("cancella-button");
-  cancellaButton.setAttribute("form", "reject"); // Associa al form con ID "reject"
-  cancellaButton.addEventListener("click", () => handleRifiuta(prenotazione));
-
-  // Aggiungi il bottone al container
-
-  buttonContainer.appendChild(cancellaButton);
-
-  // Aggiungi il container del bottone al div della prenotazione
-  div.appendChild(buttonContainer);
-
   return div;
-}
-
-function handleRifiuta(prenotazione) {
-  alert(`Prenotazione di ${prenotazione.userName} cancellata!`);
-  // Puoi aggiungere altre azioni come l'invio di una richiesta al server
 }
 
 function showPrenotazioni(num) {
