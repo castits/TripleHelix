@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 09, 2025 alle 21:29
+-- Creato il: Gen 13, 2025 alle 21:50
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -29,23 +29,29 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `booking_id` int(11) NOT NULL,
-  `request_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `institute` varchar(70) NOT NULL,
   `participant_quantity` int(3) NOT NULL,
   `appointment_date` date NOT NULL,
   `time_slot` enum('MORNING','AFTERNOON','FULL_DAY') NOT NULL,
+  `activity` varchar(50) NOT NULL,
   `status` enum('PENDING','CONFIRMED','REFUSED') NOT NULL,
   `booking_info_req` text DEFAULT NULL,
   `reminder_sent` tinyint(1) NOT NULL,
-  `feedback_sent` tinyint(1) NOT NULL
+  `feedback_sent` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `bookings`
 --
 
-INSERT INTO `bookings` (`booking_id`, `request_id`, `participant_quantity`, `appointment_date`, `time_slot`, `status`, `booking_info_req`, `reminder_sent`, `feedback_sent`) VALUES
-(5, 5, 40, '2025-01-02', 'FULL_DAY', 'PENDING', NULL, 0, 1),
-(6, 6, 100, '2025-01-10', 'MORNING', 'PENDING', NULL, 0, 0);
+INSERT INTO `bookings` (`booking_id`, `user_id`, `institute`, `participant_quantity`, `appointment_date`, `time_slot`, `activity`, `status`, `booking_info_req`, `reminder_sent`, `feedback_sent`, `created_at`, `updated_at`) VALUES
+(5, 22, 'ITS ICT', 150, '2025-05-28', 'MORNING', 'Visita', 'CONFIRMED', NULL, 1, 1, '2025-01-13 17:19:25', '2025-01-13 17:19:25'),
+(6, 22, 'ITS ICT', 100, '2025-01-02', 'MORNING', 'Visita', 'PENDING', NULL, 1, 1, '2025-01-13 17:19:25', '2025-01-13 17:19:25'),
+(10, 22, 'ITS ICT', 97, '2025-01-06', 'AFTERNOON', 'Visita', 'CONFIRMED', 'Ciao, questa è una prova', 1, 1, '2025-01-13 21:07:21', '2025-01-13 21:46:32'),
+(11, 22, 'ITS ICT', 97, '2025-01-03', 'AFTERNOON', 'Visita', 'PENDING', 'Ciao, questa è una prova', 0, 0, '2025-01-13 21:12:57', '2025-01-13 21:12:57');
 
 -- --------------------------------------------------------
 
@@ -55,53 +61,23 @@ INSERT INTO `bookings` (`booking_id`, `request_id`, `participant_quantity`, `app
 
 CREATE TABLE `feedbacks` (
   `feedback_id` int(11) NOT NULL,
-  `booking_id` int(11) NOT NULL,
   `which_lab` varchar(255) NOT NULL,
   `formative` int(11) NOT NULL,
   `engaging` int(11) NOT NULL,
   `staff_quality` int(11) NOT NULL,
   `recommend_lab` varchar(5) NOT NULL,
-  `advices` text NOT NULL,
+  `advices` text DEFAULT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Struttura della tabella `information_request`
+-- Dump dei dati per la tabella `feedbacks`
 --
 
-CREATE TABLE `information_request` (
-  `information_request_id` int(11) NOT NULL,
-  `request_id` int(11) NOT NULL,
-  `information_request_text` text NOT NULL,
-  `user_name` varchar(100) DEFAULT NULL,
-  `user_surname` varchar(100) DEFAULT NULL,
-  `user_email` varchar(150) NOT NULL,
-  `user_phone` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `requests`
---
-
-CREATE TABLE `requests` (
-  `request_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `institute` varchar(70) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dump dei dati per la tabella `requests`
---
-
-INSERT INTO `requests` (`request_id`, `user_id`, `institute`, `created_at`, `updated_at`) VALUES
-(5, 22, 'ITS ICT', '2025-01-08 19:15:14', '2025-01-08 19:15:14'),
-(6, 22, 'Scuola Torino', '2025-01-09 20:41:07', '2025-01-09 20:41:07');
+INSERT INTO `feedbacks` (`feedback_id`, `which_lab`, `formative`, `engaging`, `staff_quality`, `recommend_lab`, `advices`, `date`) VALUES
+(7, 'Bruno Caccia', 5, 3, 4, 'Si', 'Ottimo laboratorio', '2025-01-10 16:40:47'),
+(9, 'Il gioco non è un azzardo', 4, 5, 4, 'Si', NULL, '2025-01-12 12:01:50'),
+(10, 'Regolegalità per i più piccini', 5, 5, 5, 'Si', NULL, '2025-01-13 21:47:10');
 
 -- --------------------------------------------------------
 
@@ -144,8 +120,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_email`, `user_password`, `created_at`, `updated_at`, `role_id`) VALUES
-(22, 'Lorenzo', 'Castiello', 'lorenzo.castiello04@gmail.com', '$2a$10$acvAP8GFFJaZO859z8LRI.heiFt1PoL9rN1Ui/wlFCF2XFBnegfAe', '2025-01-08 16:26:12', '2025-01-09 02:18:47', 1),
-(23, 'Mario', 'Rossi', 'mario.rossi@gmail.com', '$2a$10$2K/0cnTyOobLwKf.fu6A5eCPAr5./.SepdWYeET3./ajLRXDMcrMG', '2025-01-08 23:51:19', '2025-01-08 23:51:19', 2);
+(22, 'Lorenzo', 'Castiello', 'lorenzo.castiello04@gmail.com', '$2a$10$kIUhi2HfZVoIC5OuWwbDAeElr1AUhgRcDsa4mkFOOSi7A6rKWjyXG', '2025-01-08 16:26:12', '2025-01-13 21:21:16', 1),
+(23, 'Mario', 'Rossi', 'mario.rossi@gmail.com', '$2a$10$2K/0cnTyOobLwKf.fu6A5eCPAr5./.SepdWYeET3./ajLRXDMcrMG', '2025-01-08 23:51:19', '2025-01-08 23:51:19', 2),
+(29, 'Stefano', 'Cherio', 'stefano.cherio@edu.itspiemonte.it', '$2a$10$6iQdwT51RoreFm6nY9c9VOZLAkTbsElDFgFykg/SBsQLqLkk78KpW', '2025-01-09 21:38:00', '2025-01-09 21:38:00', 2),
+(31, 'Alessio', 'Suppa', 'suppaalessio1@gmail.com', '$2a$10$CHoo.QeTOvVygg4VVeKDret1nXyALDVO1cSytiZr4lklGmshg6YYC', '2025-01-12 12:07:07', '2025-01-12 12:07:07', 2),
+(32, 'Prova', 'Sito', 'provasito@example.com', '$2a$10$PBLWfsrNiWQGOXbBRpvdQOc4AuxrTj0HYL0SSvysPO7tjzuDX3JKq', '2025-01-13 21:19:57', '2025-01-13 21:19:57', 2);
 
 --
 -- Indici per le tabelle scaricate
@@ -156,29 +135,13 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_email`, `user
 --
 ALTER TABLE `bookings`
   ADD PRIMARY KEY (`booking_id`),
-  ADD KEY `fk_booking_request` (`request_id`);
+  ADD KEY `fk_booking_user` (`user_id`);
 
 --
 -- Indici per le tabelle `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  ADD PRIMARY KEY (`feedback_id`),
-  ADD KEY `fk_feedback_booking` (`booking_id`);
-
---
--- Indici per le tabelle `information_request`
---
-ALTER TABLE `information_request`
-  ADD PRIMARY KEY (`information_request_id`),
-  ADD UNIQUE KEY `user_email` (`user_email`),
-  ADD KEY `fk_info_request` (`request_id`);
-
---
--- Indici per le tabelle `requests`
---
-ALTER TABLE `requests`
-  ADD PRIMARY KEY (`request_id`),
-  ADD KEY `fk_request_user` (`user_id`);
+  ADD PRIMARY KEY (`feedback_id`);
 
 --
 -- Indici per le tabelle `roles`
@@ -202,25 +165,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT per la tabella `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT per la tabella `information_request`
---
-ALTER TABLE `information_request`
-  MODIFY `information_request_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT per la tabella `requests`
---
-ALTER TABLE `requests`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `roles`
@@ -232,7 +183,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Limiti per le tabelle scaricate
@@ -242,25 +193,7 @@ ALTER TABLE `users`
 -- Limiti per la tabella `bookings`
 --
 ALTER TABLE `bookings`
-  ADD CONSTRAINT `fk_booking_request` FOREIGN KEY (`request_id`) REFERENCES `requests` (`request_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limiti per la tabella `feedbacks`
---
-ALTER TABLE `feedbacks`
-  ADD CONSTRAINT `fk_feedback_booking` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`booking_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limiti per la tabella `information_request`
---
-ALTER TABLE `information_request`
-  ADD CONSTRAINT `fk_info_request` FOREIGN KEY (`request_id`) REFERENCES `requests` (`request_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limiti per la tabella `requests`
---
-ALTER TABLE `requests`
-  ADD CONSTRAINT `fk_request_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Limiti per la tabella `users`
