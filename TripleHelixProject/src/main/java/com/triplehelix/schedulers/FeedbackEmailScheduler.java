@@ -25,7 +25,7 @@ public class FeedbackEmailScheduler {
 		List<Booking> bookings = bookingService.getBookingsForFeedback();
 		
 		for (Booking booking : bookings) {
-			User user = booking.getUserRequest().getUser();
+			User user = booking.getUser();
 			if (!booking.isFeedbackSent()) {
 				String sendTo = user.getUserEmail();
 				String subject = "Cascina Caccia - La tua opinione è importante!";

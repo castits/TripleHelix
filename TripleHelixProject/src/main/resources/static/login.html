@@ -16,7 +16,7 @@
     />
 
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/styleNav.css" />
+    <link rel="stylesheet" href="./styles/styleNavbar.css" />
     <link rel="stylesheet" href="./styles/login.css" />
   </head>
   <!-- Ending of head -->
@@ -36,18 +36,17 @@
           />
         </label>
         <div class="nav-mobile">
-          <a href="#">Chi siamo</a>
-          <a href="#">Laboratori</a>
-          <a href="#">Calendario</a>
-          <a href="#">Faq</a>
-          <a href="#">Contattaci</a>
+          <a href="#cascina-intro">Chi siamo</a>
+          <a href="#workshop">Laboratori</a>
+          <a href="#faq-section">Faq</a>
+          <a href="#contact-form">Contattaci</a>
           <a href="#">Prenota visita</a>
-          <a href="#">Profilo</a>
+          <a href="./dashboard.html">Profilo</a>
         </div>
       </nav>
     </header>
     <main>
-      <form id="login-form">
+      <form id="login-form" method="post">
         <h1>Accedi</h1>
         <div class="form-group">
           <label for="email">Email</label>
@@ -82,6 +81,8 @@
 
       <p id="register">Non hai un account? <a href="">Registrati</a></p>
     </main>
+
+    <script src="./js/login.js"></script>
   </body>
   <!-- Ending of body -->
 </html>

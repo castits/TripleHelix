@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,25 +18,25 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int feedbackId;
 
-    @Column(name = "which_lab")
+    @Column(name = "which_lab", nullable = false)
     private String whichLab;
     
-    @Column(name = "formative")
+    @Column(name = "formative", nullable = false)
 	private int formative;
     
-    @Column(name = "engaging")
+    @Column(name = "engaging", nullable = false)
 	private int engaging;
     
-    @Column(name = "staff_quality")
+    @Column(name = "staff_quality", nullable = false)
 	private int staffQuality;
     
-    @Column(name = "recommend_lab")
+    @Column(name = "recommend_lab", nullable = false)
 	private String recommendLab;
     
-    @Column(name = "advices")
+    @Column(name = "advices", nullable = true)
 	private String advices;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private LocalDateTime date;
 
 	public int getFeedbackId() {

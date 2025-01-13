@@ -111,5 +111,21 @@ public class AuthController {
 		
 		return ResponseEntity.ok("User is logged in: " + authenticatedUser.getUserEmail());
 	}
+	
+	@GetMapping("/is-logged")
+	public boolean isUserLogged() {
+		User authenticatedUser = userService.getAuthenticatedUser();
+		
+		if (authenticatedUser == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	@GetMapping("/user-info")
+	public User getLoggedUserInfo() {
+		return userService.getAuthenticatedUser();
+	}
 
 }
