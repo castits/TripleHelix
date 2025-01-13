@@ -21,6 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Set the height of the hero content to 90% of the total hero height for proper spacing
     heroContent.style.height = `${(heroHeight / 100) * 90}px`;
+
+    window.addEventListener("resize", updateHeroHeight);
   }
 
   /**
