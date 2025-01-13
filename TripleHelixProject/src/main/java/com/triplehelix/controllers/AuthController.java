@@ -113,13 +113,13 @@ public class AuthController {
 	}
 	
 	@GetMapping("/is-logged")
-	public String isUserLogged() {
+	public boolean isUserLogged() {
 		User authenticatedUser = userService.getAuthenticatedUser();
 		
 		if (authenticatedUser == null) {
-			return "Not logged";
+			return false;
 		} else {
-			return "Logged";
+			return true;
 		}
 	}
 	
