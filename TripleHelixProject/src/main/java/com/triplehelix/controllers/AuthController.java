@@ -113,13 +113,13 @@ public class AuthController {
 	}
 	
 	@GetMapping("/is-logged")
-	public ResponseEntity<Boolean> isUserLogged() {
+	public String isUserLogged() {
 		User authenticatedUser = userService.getAuthenticatedUser();
 		
 		if (authenticatedUser == null) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+			return "Logged";
 		} else {
-			return ResponseEntity.status(HttpStatus.OK).body(true);
+			return "Not logged";
 		}
 	}
 	
