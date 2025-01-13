@@ -190,11 +190,8 @@ h2 {
   ); /* La larghezza del carosello considerando i margini */
 }
 
-.carosello-container::-webkit-scrollbar {
-  display: none;
-}
-
 .carosello-item {
+  position: relative;
   flex-shrink: 0;
   width: 100%; /* Ogni immagine occupa l'intera larghezza della viewport */
   height: 70vh; /* Altezza al 70% della viewport */
@@ -209,11 +206,63 @@ h2 {
   object-fit: cover;
   border-radius: 8px;
 }
+.carosello-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.68) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.carosello-intro {
+  position: absolute;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5em;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 1;
+}
+
+.carosello-intro h3 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 25px;
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+.carosello-intro button {
+  width: 170px;
+  height: 50px;
+  background-color: #e0017a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff5722;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 18px;
+}
+
+.carosello-container::-webkit-scrollbar {
+  display: none;
+}
 
 .carousel-dots {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .dot {
