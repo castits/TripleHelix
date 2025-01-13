@@ -117,9 +117,9 @@ public class AuthController {
 		User authenticatedUser = userService.getAuthenticatedUser();
 		
 		if (authenticatedUser == null) {
-			return "Logged";
-		} else {
 			return "Not logged";
+		} else {
+			return "Logged";
 		}
 	}
 	
