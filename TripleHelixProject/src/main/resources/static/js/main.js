@@ -90,7 +90,7 @@ window.addEventListener("DOMContentLoaded", () => {
               });
             } else {
               window.scrollTo({
-                top: targetElement.offsetTop - headerHeight - 30,
+                top: targetElement.offsetTop - headerHeight - 40,
                 behavior: "smooth",
               });
             }
