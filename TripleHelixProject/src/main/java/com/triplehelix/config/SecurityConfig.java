@@ -48,12 +48,6 @@ public class SecurityConfig {
 	        .sessionManagement(session -> session
 	        	.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
 	        )
-	        /*
-	        .formLogin(form -> form
-        		.loginPage("/login")
-        		.defaultSuccessUrl("/", true)
-        		.permitAll()
-        	)*/
 	        .logout()
 	        	.disable()
 	        .httpBasic();
