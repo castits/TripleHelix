@@ -1,4 +1,4 @@
-package com.triplehelix.entities;
+/*package com.triplehelix.entities;
 
 import java.time.LocalDateTime;
 
@@ -73,3 +73,4 @@ public class UserRequest {
 	}
 
 }
+*/

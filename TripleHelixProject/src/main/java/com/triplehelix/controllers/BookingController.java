@@ -21,7 +21,6 @@ import com.triplehelix.entities.Booking;
 import com.triplehelix.entities.BookingStatus;
 import com.triplehelix.entities.BookingTimeSlot;
 import com.triplehelix.entities.User;
-import com.triplehelix.entities.UserRequest;
 import com.triplehelix.services.BookingService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -57,17 +56,13 @@ public class BookingController {
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User authenticatedUser = (User) auth.getPrincipal();
-
-        UserRequest userRequest = new UserRequest();
-
-        userRequest.setUser(authenticatedUser);
-        userRequest.setInstitute(booking.getUserRequest().getInstitute());
         
+        booking.setUser(authenticatedUser);
         booking.setStatus(BookingStatus.PENDING);
         booking.setReminderSent(false);
         booking.setFeedbackSent(false);
 
-        Booking savedBooking = bookingService.createBooking(booking, userRequest); 
+        Booking savedBooking = bookingService.saveBooking(booking); 
         
         return new ResponseEntity<>(savedBooking, HttpStatus.CREATED);
     }
@@ -93,8 +88,6 @@ public class BookingController {
 				case "feedbackSent" -> booking.setFeedbackSent((boolean) value);
         	}
         });
-        
-        booking.getUserRequest().setUpdatedAt(LocalDateTime.now());
         
         Booking savedBooking = bookingService.saveBooking(booking);
         

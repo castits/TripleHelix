@@ -31,9 +31,9 @@ public class BookingReminderScheduler {
 		
 		for (Booking booking : bookings) {
 			if (!booking.isReminderSent()) {
-				String sendTo = booking.getUserRequest().getUser().getUserEmail();
+				String sendTo = booking.getUser().getUserEmail();
 				String subject = "Promemoria Visita del " + booking.getAppointmentDate();
-				String body = "Buongiorno " + booking.getUserRequest().getUser().getUserName() + ",\n\n"
+				String body = "Buongiorno " + booking.getUser().getUserName() + ",\n\n"
 						+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
 				
 				emailService.sendEmail(sendTo, subject, body);

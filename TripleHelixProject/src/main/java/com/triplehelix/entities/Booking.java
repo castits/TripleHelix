@@ -1,6 +1,7 @@
 package com.triplehelix.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +11,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,32 +25,55 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookingId;
 	
-	@OneToOne
-	@JoinColumn(name = "request_id")
-	private UserRequest userRequest;
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 	
-	@Column(name = "participant_quantity")
+	@Column(name = "institute", nullable = false)
+	private String institute;
+	
+	@Column(name = "participant_quantity", nullable = false)
 	private int participantQuantity;
 	
-	@Column(name = "appointment_date")
+	@Column(name = "appointment_date", nullable = false)
 	private LocalDate appointmentDate;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "time_slot")
+	@Column(name = "time_slot", nullable = false)
 	private BookingTimeSlot timeSlot;
 	
+	@Column(name = "activity", nullable = false)
+	private String activity;
+	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status")
+	@Column(name = "status", nullable = false)
 	private BookingStatus status;
 	
-	@Column(name = "booking_info_req")
+	@Column(name = "booking_info_req", nullable = true)
 	private String bookingInfoReq;
 	
-	@Column(name = "reminder_sent")
+	@Column(name = "reminder_sent", nullable = false)
 	private boolean reminderSent;
 	
-	@Column(name = "feedback_sent")
+	@Column(name = "feedback_sent", nullable = false)
 	private boolean feedbackSent;
+	
+	@Column(name = "created_at", updatable = false)
+	private LocalDateTime createdAt;
+	
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt;
+	
+	@PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
 	public int getBookingId() {
 		return bookingId;
@@ -57,12 +83,20 @@ public class Booking {
 		this.bookingId = bookingId;
 	}
 
-	public UserRequest getUserRequest() {
-		return userRequest;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserRequest(UserRequest userRequest) {
-		this.userRequest = userRequest;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getInstitute() {
+		return institute;
+	}
+
+	public void setInstitute(String institute) {
+		this.institute = institute;
 	}
 
 	public int getParticipantQuantity() {
@@ -87,6 +121,14 @@ public class Booking {
 
 	public void setTimeSlot(BookingTimeSlot timeSlot) {
 		this.timeSlot = timeSlot;
+	}
+
+	public String getActivity() {
+		return activity;
+	}
+
+	public void setActivity(String activity) {
+		this.activity = activity;
 	}
 
 	public BookingStatus getStatus() {
@@ -119,6 +161,22 @@ public class Booking {
 
 	public void setFeedbackSent(boolean feedbackSent) {
 		this.feedbackSent = feedbackSent;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 }

@@ -13,7 +13,7 @@ import com.triplehelix.entities.BookingStatus;
 public interface BookingDAO extends JpaRepository<Booking, Integer> {
 	
 	public List<Booking> findByStatus(BookingStatus status);
-	public List<Booking> findByUserRequest_User_UserEmail(String email);
+	public List<Booking> findByUser_UserEmail(String email);
 	public List<Booking> findByAppointmentDate(LocalDate date);
 
 }
