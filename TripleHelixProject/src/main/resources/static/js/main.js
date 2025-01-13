@@ -65,6 +65,50 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function setupNavbarLinks() {
+    // Seleziona tutti i link della navbar
+    const navLinks = document.querySelectorAll(".nav-mobile a");
+    const check = document.getElementById("check"); // Il checkbox del menu mobile
+    const headerHeight = document.querySelector("header").offsetHeight;
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        // Previene il comportamento predefinito
+        event.preventDefault();
+
+        const href = link.getAttribute("href");
+
+        if (href.startsWith("#")) {
+          targetElement = document.querySelector(href);
+
+          if (targetElement) {
+            // Scrolla alla sezione desiderata considerando l'altezza dell'header
+            if (targetElement.id === "contact-form") {
+              window.scrollTo({
+                top: targetElement.offsetTop - headerHeight,
+                behavior: "smooth",
+              });
+            } else {
+              window.scrollTo({
+                top: targetElement.offsetTop - headerHeight - 30,
+                behavior: "smooth",
+              });
+            }
+          }
+        } else {
+          // Per gli href che puntano a file o URL esterni
+          window.location.href = href;
+        }
+
+        // Chiudi il menu mobile
+        handleClick();
+        if (check.checked) {
+          check.checked = false;
+        }
+      });
+    });
+  }
+
   // Carousel elements
   const dots = document.querySelectorAll(".dot");
   const items = document.querySelectorAll(".carosello-item");
@@ -110,6 +154,7 @@ window.addEventListener("DOMContentLoaded", () => {
   updateHeroHeight(); // Ensure the hero section has the correct height
   ctaScroll(); // Initialize the CTA scrolling behavior
   openAccordion(); // Initialize the FAQ accordion functionality
+  setupNavbarLinks();
 
   /**
    * Updates the progress bar width based on the scroll position of the page.
