@@ -280,11 +280,11 @@ h2 {
 }
 
 #faq-section h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5em;
 }
 
 .faq-container {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid #212121;
 }
 
@@ -301,7 +301,7 @@ h2 {
 .faq-title h3 {
   font-size: 16px;
   width: 90%;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semi-bold);
   line-height: 150%;
 }
 
@@ -320,6 +320,9 @@ h2 {
   max-height: 0; /* Nascondi l'elemento inizialmente */
   overflow: hidden;
   transition: max-height 0.4s ease-out; /* Aggiungi la transizione */
+}
+.faq-answer p {
+  margin-top: 1em;
 }
 
 .faq-container.active .faq-title img {
