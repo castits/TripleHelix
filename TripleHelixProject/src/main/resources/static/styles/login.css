@@ -78,6 +78,11 @@ input::placeholder {
 input:focus {
   outline: none;
   border: 1px solid #e0017a;
+  font-size: 16px;
+}
+
+textarea:focus {
+  font-size
 }
 
 input:focus::placeholder {
