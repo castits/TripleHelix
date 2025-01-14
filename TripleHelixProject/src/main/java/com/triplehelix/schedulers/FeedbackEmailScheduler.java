@@ -20,7 +20,7 @@ public class FeedbackEmailScheduler {
 	@Autowired
 	private EmailService emailService;
 	
-	@Scheduled(cron = "0 0 * * * ?")
+	@Scheduled(cron = "* * * * * ?")
 	public void sendFeedbackEmail() {
 		List<Booking> bookings = bookingService.getBookingsForFeedback();
 		
