@@ -6,14 +6,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
-    <meta name="description" content="Cascina Caccia: un centro di memoria e impegno sociale incentrato sulla legalità e sull'educazione, con attività educative per scuole e gruppi." />
+    <meta
+      name="description"
+      content="Cascina Caccia: un centro di memoria e impegno sociale incentrato sulla legalità e sull'educazione, con attività educative per scuole e gruppi."
+    />
     <title>Cascina Caccia - Riscatto, Legalità ed Educazione</title>
 
     <!-- Aggiunta font fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <!-- Link to the stylesheet -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link ai fogli di stile -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/styleNavbar.css" />
     <link rel="stylesheet" href="./styles/style.css" />
@@ -23,19 +29,47 @@
   <!-- Inizio della sezione body -->
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
-      <nav>
-        <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+      <!-- Logo -->
+      <a href="./#"
+        ><img
+          src="./assets/svg/logo.svg"
+          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+      /></a>
+      <nav aria-label="Navigazione principale">
+        <label
+          for="check"
+          class="checkbtn"
+          aria-label="Apri menu di navigazione"
+        >
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Icona menu di navigazione"
+            id="hamburger"
+          />
         </label>
         <input type="checkbox" id="check" />
         <div class="nav-mobile">
-          <a class="scroll" href="#cascina-intro" title="Scopri chi siamo">Chi siamo</a>
-          <a class="scroll" href="#workshop" title="Scopri i nostri laboratori">Laboratori</a>
-          <a class="scroll" href="#faq-section" title="Leggi le domande frequenti">Faq</a>
-          <a class="scroll" href="#contact-form" title="Contattaci per maggiori informazioni">Contattaci>Contattaci</a>
-          <a href="./prenotazione.html" title="Prenota una visita alla Cascina">Prenota visita</a>
+          <a class="scroll" href="#cascina-intro" title="Scopri chi siamo"
+            >Chi siamo</a
+          >
+          <a class="scroll" href="#workshop" title="Scopri i nostri laboratori"
+            >Laboratori</a
+          >
+          <a
+            class="scroll"
+            href="#faq-section"
+            title="Leggi le domande frequenti"
+            >Faq</a
+          >
+          <a
+            class="scroll"
+            href="#contact-form"
+            title="Contattaci per maggiori informazioni"
+            >Contattaci</a
+          >
+          <a href="./prenotazione.html" title="Prenota una visita alla Cascina"
+            >Prenota visita</a
+          >
           <a id="profile" href="#" title="Accedi al tuo profilo">Profilo</a>
           <a href="#" id="logout" title="Esci dal sistema">Logout</a>
         </div>
@@ -44,115 +78,206 @@
     <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
     <main>
       <div id="hero">
-        <img id="hero-bg" src="./assets/img/cascina_caccia_mobile.jpg" alt="Immagine della Cascina Caccia, vista panoramica del sito" />
+        <img
+          id="hero-bg"
+          src="./assets/img/cascina_caccia_mobile.jpg"
+          alt="Immagine della Cascina Caccia, vista panoramica del sito"
+        />
         <div id="hero-bg-darkness"></div>
         <div id="hero-content">
           <div id="main-text">
             <h1>Cascina Caccia: riscatto, legalità ed educazione</h1>
-            <p>Coinvolgi la tua scuola in un’esperienza unica di educazione alla legalità.</p>
+            <p>
+              Coinvolgi la tua scuola in un’esperienza unica di educazione alla
+              legalità.
+            </p>
           </div>
 
           <div id="cta-buttons">
-            <button id="discover-more" class="discover-more">Scopri di più</button>
-            <button id="book-now">Prenota ora</button>
+            <button
+              id="discover-more"
+              class="discover-more"
+              title="Scopri di più su Cascina Caccia"
+            >
+              Scopri di più
+            </button>
+            <a
+              id="book-now"
+              href="./prenotazione.html"
+              title="Prenota subito una visita alla Cascina"
+              >Prenota ora</a
+            >
           </div>
 
-          <img id="double-arrow" class="discover-more" src="assets/svg/double_arrow.svg" alt="" />
+          <img
+            id="double-arrow"
+            class="discover-more"
+            src="assets/svg/double_arrow.svg"
+            alt="Freccia doppia per scorrere"
+            title="Scorri per scoprire di più"
+          />
         </div>
       </div>
 
       <div id="cascina-intro">
         <h2>Cos'è Cascina Caccia?</h2>
-        <p>Cascina Caccia è un bene confiscato alla criminalità organizzata, situato a San Sebastiano da Po, e trasformato in un centro di memoria e impegno sociale dedicato alla memoria del magistrato Bruno Caccia e di sua moglie Carla.</p>
-        <p>Oggi è un centro educativo e comunitario dove si promuovono la legalità e la cittadinanza attiva, stimolando riflessione e consapevolezza attraverso laboratori didattici ed esperienze formative dedicati a scuole e gruppi scout.</p>
+        <p>
+          Cascina Caccia è un bene confiscato alla criminalità organizzata,
+          situato a San Sebastiano da Po, e trasformato in un centro di memoria
+          e impegno sociale dedicato alla memoria del magistrato Bruno Caccia e
+          di sua moglie Carla.
+        </p>
+        <p>
+          Oggi è un centro educativo e comunitario dove si promuovono la
+          legalità e la cittadinanza attiva, stimolando riflessione e
+          consapevolezza attraverso laboratori didattici ed esperienze formative
+          dedicati a scuole e gruppi scout.
+        </p>
       </div>
       <div id="workshop">
         <h2>Scopri i nostri laboratori</h2>
         <div class="carosello-container">
           <!-- Ogni carosello item rappresenta un laboratorio -->
-          <div class="carosello-item" aria-label="Laboratorio sulla storia della Cascina Caccia">
+          <div
+            class="carosello-item"
+            aria-label="Laboratorio sulla storia della Cascina Caccia"
+          >
             <div class="carosello-intro">
               <h3>Storia della Cascina Carla e Bruno Caccia</h3>
-              <button><a href="default.asp" target="_blank">Scopri di più</a></button>
+              <button title="Scopri di più sulla storia della Cascina">
+                Scopri di più
+              </button>
             </div>
-            <img src="./assets/img/sentiero_cascina_caccia.jpg" alt="Sentiero che conduce alla Cascina Caccia" />
+            <img
+              src="./assets/img/sentiero_cascina_caccia.jpg"
+              alt="Sentiero che conduce alla Cascina Caccia"
+            />
           </div>
           <div class="carosello-item" aria-label="Laboratorio su Bruno Caccia">
             <div class="carosello-intro">
               <h3>Bruno Caccia</h3>
-              <button title="Scopri di più su Bruno Caccia">Scopri di più</button>
+              <button title="Scopri di più su Bruno Caccia">
+                Scopri di più
+              </button>
             </div>
-            <img src="./assets/img/bruno-caccia.jpg" alt="Immagine di Bruno Caccia" />
+            <img
+              src="./assets/img/bruno-caccia.jpg"
+              alt="Immagine di Bruno Caccia"
+            />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sulla regolegalità per i più piccoli">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Regolegalità per i più piccini</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="./assets/img/educazione-3.jpg" alt="Immagine dei bambini che ascoltano" />
+            <img src="./assets/img/educazione-3.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sui beni confiscati alla mafia">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>I beni confiscati</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sulle mafie e il cibo">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Le mafie e il cibo</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="Tavoli apparecchiati per mangiare" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sul miele e le api">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Miele e api</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio dedicato al riciclo">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Ricicliamo</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sulle mafie, raccontate attraverso il cinema">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>La mafia attraverso il cinema</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sui giochi d'azzardo e non">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Il gioco non è un azzardo</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio dedicato a evitare eventuali rischi">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Chi non gioca vince</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
         </div>
         <!-- Punti per il carosello -->
-        <div class="carousel-dots" role="navigation" aria-label="Punti di navigazione del carosello">
-          <span class="dot" role="button" aria-label="Vai al primo laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al secondo laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al terzo laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al quarto laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al quinto laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al sesto laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al settimo laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al ottavo laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al nono laboratorio"></span>
-          <span class="dot" role="button" aria-label="Vai al decimo laboratorio"></span>
+        <div
+          class="carousel-dots"
+          role="navigation"
+          aria-label="Punti di navigazione del carosello"
+        >
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al primo laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al secondo laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al terzo laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al quarto laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al quinto laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al sesto laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al settimo laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al ottavo laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al nono laboratorio"
+          ></span>
+          <span
+            class="dot"
+            role="button"
+            aria-label="Vai al decimo laboratorio"
+          ></span>
         </div>
       </div>
       <!-- Domande frequenti -->
@@ -161,84 +286,168 @@
         <div class="faq-container" aria-expanded="false">
           <div class="faq-title" role="button" aria-expanded="false">
             <h3>Come posso prenotare una visita per la mia classe?</h3>
-            <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
+            <img
+              src="./assets/svg/arrow.svg"
+              alt="Freccia per espandere la risposta"
+            />
           </div>
           <div class="faq-answer">
-            <p>Puoi prenotare direttamente dal nostro sito compilando il modulo dedicato o contattandoci via mail. Siamo a disposizione per aiutarti a personalizzare il percorso in base alle tue esigenze educative.</p>
+            <p>
+              Puoi prenotare direttamente dal nostro sito compilando il modulo
+              dedicato o contattandoci via mail. Siamo a disposizione per
+              aiutarti a personalizzare il percorso in base alle tue esigenze
+              educative.
+            </p>
           </div>
         </div>
         <div class="faq-container" aria-expanded="false">
           <div class="faq-title" role="button" aria-expanded="false">
             <h3>Qual è il costo delle attività?</h3>
-            <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
+            <img
+              src="./assets/svg/arrow.svg"
+              alt="Freccia per espandere la risposta"
+            />
           </div>
           <div class="faq-answer">
             <ul>
               <li>Mezza giornata: 100€ a classe</li>
               <li>Giornata intera: 150€ a classe</li>
             </ul>
-            <p>Sono previsti sconti per gruppi numerosi e gratuità per due insegnanti accompagnatori nei soggiorni.</p>
+            <p>
+              Sono previsti sconti per gruppi numerosi e gratuità per due
+              insegnanti accompagnatori nei soggiorni.
+            </p>
           </div>
         </div>
         <div class="faq-container" aria-expanded="false">
           <div class="faq-title" role="button" aria-expanded="false">
             <h3>Ci sono limiti al numero di partecipanti?</h3>
-            <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
+            <img
+              src="./assets/svg/arrow.svg"
+              alt="Freccia per espandere la risposta"
+            />
           </div>
           <div class="faq-answer">
-            <p>Sì, ospitiamo massimo due classi per le visite giornaliere e una classe per volta per i soggiorni. Le camerate hanno una capienza massima di 24 posti letto.</p>
+            <p>
+              Sì, ospitiamo massimo due classi per le visite giornaliere e una
+              classe per volta per i soggiorni. Le camerate hanno una capienza
+              massima di 24 posti letto.
+            </p>
           </div>
         </div>
         <div class="faq-container" aria-expanded="false">
           <div class="faq-title" role="button" aria-expanded="false">
             <h3>Come raggiungere la cascina?</h3>
-            <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
+            <img
+              src="./assets/svg/arrow.svg"
+              alt="Freccia per espandere la risposta"
+            />
           </div>
           <div class="faq-answer">
-            <p>Per i pullman superiori ai 25 posti, è previsto il parcheggio presso il cimitero di San Sebastiano da Po, seguito da una passeggiata di 15 minuti. Per esigenze specifiche (es. persone con mobilità ridotta), contattaci in anticipo.</p>
+            <p>
+              Per i pullman superiori ai 25 posti, è previsto il parcheggio
+              presso il cimitero di San Sebastiano da Po, seguito da una
+              passeggiata di 15 minuti. Per esigenze specifiche (es. persone con
+              mobilità ridotta), contattaci in anticipo.
+            </p>
           </div>
         </div>
         <div class="faq-container" aria-expanded="false">
           <div class="faq-title" role="button" aria-expanded="false">
             <h3>Cosa include il costo del soggiorno formativo?</h3>
-            <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
+            <img
+              src="./assets/svg/arrow.svg"
+              alt="Freccia per espandere la risposta"
+            />
           </div>
           <div class="faq-answer">
-            <p>Il costo comprende vitto, alloggio, formazione e supporto costante degli educatori. I pasti possono essere portati al sacco o organizzati con la gastronomia della cascina per gruppi superiori alle 20 persone.</p>
+            <p>
+              Il costo comprende vitto, alloggio, formazione e supporto costante
+              degli educatori. I pasti possono essere portati al sacco o
+              organizzati con la gastronomia della cascina per gruppi superiori
+              alle 20 persone.
+            </p>
           </div>
         </div>
         <div class="faq-container" aria-expanded="false">
           <div class="faq-title" role="button" aria-expanded="false">
             <h3>Quanti laboratori possono essere svolti in una giornata?</h3>
-            <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
+            <img
+              src="./assets/svg/arrow.svg"
+              alt="Freccia per espandere la risposta"
+            />
           </div>
           <div class="faq-answer">
-            <p>Se si è scelta la mezza giornata, solitamente viene svolto un solo laboratorio. In alternativa, per la giornata intera si può andare a selezionare anche un secondo laboratorio.</p>
+            <p>
+              Se si è scelta la mezza giornata, solitamente viene svolto un solo
+              laboratorio. In alternativa, per la giornata intera si può andare
+              a selezionare anche un secondo laboratorio.
+            </p>
           </div>
         </div>
       </div>
-      <form id="contact-form">
-        <h2>Contattaci</h2>
-        <p>Compila il modulo sottostante per richiedere maggiori informazioni. Saremo felici di risponderti il prima possibile.</p>
+      <!-- Inizio form di contatto -->
+      <form
+        id="contact-form"
+        aria-labelledby="form-contact"
+        aria-describedby="form-contact-description"
+      >
+        <h2 id="form-contact">Contattaci</h2>
+        <p id="form-contact-description">
+          Compila il modulo sottostante per richiedere maggiori informazioni.
+          Saremo felici di risponderti il prima possibile.
+        </p>
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Inserisci il tuo nome"
+            required
+            aria-label="Inserisci il tuo nome"
+          />
         </div>
         <div class="form-group">
           <label for="surname">Cognome</label>
-          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" required />
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            placeholder="Inserisci il tuo cognome"
+            required
+            aria-label="Inserisci il tuo cognome"
+          />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Inserisci la tua email"
+            required
+            aria-label="Inserisci la tua email"
+          />
         </div>
         <div class="form-group">
-          <label for="phone-number">Numero di telefono</label>
-          <input type="text" id="phone-number" name="phone-number" placeholder="Inserisci il tuo numero di telefono" />
+          <label for="phone">Numero di telefono</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Inserisci il tuo numero di telefono"
+            aria-label="Inserisci il tuo numero di telefono"
+          />
         </div>
         <div class="form-group">
           <label for="message">Messaggio</label>
-          <textarea name="message" id="message" placeholder="Inserisci il tuo messaggio"></textarea>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Inserisci il tuo messaggio"
+            aria-label="Inserisci il tuo messaggio"
+          ></textarea>
         </div>
         <button type="submit" title="Invia il modulo di contatto">INVIA</button>
       </form>
@@ -265,12 +474,24 @@
         <p>cascina.caccia@acmos.net</p>
       </div>
       <div id="footer-socials" aria-label="Social media links">
-        <a href="https://www.instagram.com/cascina_caccia/" aria-label="Vai al profilo Instagram di Cascina Caccia">
-          >
-          <img src="./assets/svg/instagram.svg" alt="Icona di Instagram" />
-        </a>
-        <a href="https://www.facebook.com/cascinacaccia/" aria-label="Vai al profilo Facebook di Cascina Caccia"><img src="./assets/svg/facebook.svg" alt="Icona di Facebook" /></a>
-        <a href="https://www.youtube.com/@AcmosNet99/videos" aria-label="Vai al canale YouTube di Cascina Caccia"><img src="./assets/svg/youtube.svg" alt="Icona di YouTube" /></a>
+        <a
+          href="https://www.instagram.com/cascina_caccia/"
+          aria-label="Vai al profilo Instagram di Cascina Caccia"
+          target="_blank"
+          ><img src="./assets/svg/instagram.svg" alt="Icona di Instagram"
+        /></a>
+        <a
+          href="https://www.facebook.com/cascinacaccia/"
+          aria-label="Vai al profilo Facebook di Cascina Caccia"
+          target="_blank"
+          ><img src="./assets/svg/facebook.svg" alt="Icona di Facebook"
+        /></a>
+        <a
+          href="https://www.youtube.com/@AcmosNet99/videos"
+          aria-label="Vai al canale YouTube di Cascina Caccia"
+          target="_blank"
+          ><img src="./assets/svg/youtube.svg" alt="Icona di YouTube"
+        /></a>
       </div>
       <p id="footer-copyright">&copy; Triple Helix</p>
     </footer>

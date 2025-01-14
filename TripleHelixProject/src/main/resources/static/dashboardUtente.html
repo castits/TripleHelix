@@ -12,10 +12,13 @@
     <!--aggiungi font fallback-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Link to the stylesheet -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/styleNav.css" />
+    <link rel="stylesheet" href="./styles/styleNavbar.css" />
     <link rel="stylesheet" href="./styles/styleBackoffice.css" />
   </head>
   <!-- Ending of head -->
@@ -24,20 +27,45 @@
   <body>
     <header>
       <!-- Chiedere significato del logo per attributo alt -->
-
       <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
-
       <nav>
-        <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
         </label>
+        <input type="checkbox" id="check" />
         <div class="nav-mobile">
-          <a href="#">Home</a>
-          <a href="#">In attesa</a>
-          <a href="#">Confermate</a>
-          <a href="#">Cancellate</a>
-          <a href="#">Feedbacks</a>
+          <a
+            class="scroll"
+            href="./index.html#cascina-intro"
+            title="Scopri chi siamo"
+            >Chi siamo</a
+          >
+          <a
+            class="scroll"
+            href="./index.html#workshop"
+            title="Scopri i nostri laboratori"
+            >Laboratori</a
+          >
+          <a
+            class="scroll"
+            href="./index.html#faq-section"
+            title="Leggi le domande frequenti"
+            >Faq</a
+          >
+          <a
+            class="scroll"
+            href="./index.html#contact-form"
+            title="Contattaci per maggiori informazioni"
+            >Contattaci>Contattaci</a
+          >
+          <a href="./prenotazione.html" title="Prenota una visita alla Cascina"
+            >Prenota visita</a
+          >
+          <a href="#" id="logout" title="Esci dal sistema">Logout</a>
         </div>
       </nav>
     </header>

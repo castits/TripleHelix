@@ -202,7 +202,7 @@ window.addEventListener("DOMContentLoaded", () => {
             console.log(isUserLogged);
           }
           if (isUserLogged) {
-            location.href = "./dashboard.html";
+            location.href = "./dashboardUtente.html";
           } else {
             location.href = "./login.html";
           }
