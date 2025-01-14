@@ -249,27 +249,91 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function contact() {
     const form = document.querySelector("#contact-form");
+    const messageContainer = document.createElement("div");
+    messageContainer.id = "message-container";
+    messageContainer.style.marginTop = "20px";
+    form.appendChild(messageContainer);
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      fetch("api/information-requests/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userName: form.name.value,
-          userSurname: form.surname.value,
-          userEmail: form.email.value,
-          userPhone: form.phone.value,
-          informationRequestText: form.message.value,
-        }),
-      }).then((response) => {
+
+      // Pulisce i messaggi precedenti
+      messageContainer.textContent = "";
+
+      // Validazione dei campi
+      const errors = [];
+      const name = form.name.value.trim();
+      const surname = form.surname.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const message = form.message.value.trim();
+
+      // Regex per validare l'email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Validazione specifica per ogni campo
+      if (!name) errors.push("Il campo 'Nome' è obbligatorio.");
+      if (!surname) errors.push("Il campo 'Cognome' è obbligatorio.");
+      if (!email || !emailRegex.test(email)) {
+        errors.push("Inserisci un'email valida.");
+      }
+      if (phone && isNaN(phone)) {
+        errors.push("Il numero di telefono deve contenere solo numeri.");
+      }
+      if (!message) errors.push("Il campo 'Messaggio' è obbligatorio.");
+      if (message.length < 10)
+        errors.push("Il messaggio deve contenere almeno 10 caratteri.");
+
+      // Mostra errori se presenti
+      if (errors.length > 0) {
+        messageContainer.style.color = "red";
+        errors.forEach((error) => {
+          const errorElement = document.createElement("p");
+          errorElement.textContent = error;
+          messageContainer.appendChild(errorElement);
+        });
+        return;
+      }
+
+      // Se i dati sono validi, invia la richiesta
+      try {
+        const response = await fetch("api/information-requests/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userName: form.name.value,
+            userSurname: form.surname.value,
+            userEmail: form.email.value,
+            userPhone: form.phone.value,
+            informationRequestText: form.message.value,
+          }),
+        });
+
         if (response.ok) {
-          console.log("Email inviata con successo!");
-          location.href = "./index.html";
+          messageContainer.style.color = "green";
+          const successMessage = document.createElement("p");
+          successMessage.textContent = "Email inviata con successo!";
+          messageContainer.appendChild(successMessage);
+          setTimeout(() => {
+            location.href = "./index.html";
+          }, 2000);
         } else {
-          alert("Errore nell'invio dell'email. Riprova più tardi.");
+          const errorData = await response.json();
+          messageContainer.style.color = "red";
+          const errorMessage = document.createElement("p");
+          errorMessage.textContent =
+            errorData.message ||
+            "Errore nell'invio dell'email. Riprova più tardi.";
+          messageContainer.appendChild(errorMessage);
         }
-      });
+      } catch (error) {
+        console.error("Errore durante l'invio dell'email:", error);
+        messageContainer.style.color = "red";
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent =
+          "Si è verificato un errore. Riprova più tardi.";
+        messageContainer.appendChild(errorMessage);
+      }
     });
   }
 

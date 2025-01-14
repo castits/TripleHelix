@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       // Pulisce i messaggi precedenti
-      messageContainer.innerHTML = "";
+      messageContainer.textContent = "";
 
       // Validazione dei campi
       const errors = [];
@@ -53,7 +53,12 @@ window.addEventListener("DOMContentLoaded", () => {
       // Mostra errori se presenti
       if (errors.length > 0) {
         messageContainer.style.color = "red";
-        messageContainer.innerHTML = errors.join("<br>");
+        // Aggiungi i messaggi di errore come paragrafi
+        errors.forEach((error) => {
+          const errorMessage = document.createElement("p");
+          errorMessage.textContent = error;
+          messageContainer.appendChild(errorMessage);
+        });
         return;
       }
 
@@ -77,21 +82,28 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           messageContainer.style.color = "green";
-          messageContainer.innerHTML = "Prenotazione effettuata con successo!";
+          const successMessage = document.createElement("p");
+          successMessage.textContent = "Prenotazione effettuata con successo!";
+          messageContainer.appendChild(successMessage);
+
           setTimeout(() => {
             location.href = "./index.html";
           }, 2000);
         } else {
           const errorData = await response.json();
           messageContainer.style.color = "red";
-          messageContainer.innerHTML =
+          const errorMessage = document.createElement("p");
+          errorMessage.textContent =
             errorData.message || "Errore durante la prenotazione.";
+          messageContainer.appendChild(errorMessage);
         }
       } catch (error) {
         console.error("Errore durante la prenotazione:", error);
         messageContainer.style.color = "red";
-        messageContainer.innerHTML =
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent =
           "Si è verificato un errore. Riprova più tardi.";
+        messageContainer.appendChild(errorMessage);
       }
     });
   }
