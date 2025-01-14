@@ -235,7 +235,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          location.href=("/index.html");
+          location.href = "/index.html";
           console.log("user logged out");
         }
       } catch (error) {
@@ -246,4 +246,32 @@ window.addEventListener("DOMContentLoaded", () => {
 
   isLogged();
   logout();
+
+  function contact() {
+    const form = document.querySelector("#contact-form");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      fetch("api/information-requests/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userName: form.name.value,
+          userSurname: form.surname.value,
+          userEmail: form.email.value,
+          userPhone: form.phone.value,
+          informationRequestText: form.message.value,
+        }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log("Email inviata con successo!");
+          location.href = "./index.html";
+        } else {
+          alert("Errore nell'invio dell'email. Riprova più tardi.");
+        }
+      });
+    });
+  }
+
+  contact();
 });
