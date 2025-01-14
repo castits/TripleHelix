@@ -25,7 +25,7 @@ public class BookingReminderScheduler {
 	@Autowired
 	private BookingDAO bookingDAO;
 	
-	@Scheduled(cron = "0 0 * * * ?")
+	@Scheduled(cron = "* * * * * ?")
 	public void sendBookingsReminders() throws MessagingException {
 		List<Booking> bookings = bookingService.getBookingsForReminder();
 		
