@@ -138,12 +138,26 @@ button {
 }
 
 #book-now {
-  /* Specific styles for the "Book Now" button */
+  display: flex; /* Abilita Flexbox */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra orizzontalmente */
+  width: 250px;
+  height: 50px;
+  border-radius: 1rem; /* Angoli arrotondati */
+  font-size: 20px;
+  font-weight: bold; /* Usa direttamente il peso del font */
+  text-decoration: none; /* Rimuovi la sottolineatura */
+  color: #ffffff; /* Testo bianco */
+  background-color: #f19200; /* Colore di sfondo arancione */
+  border: 2px solid #ff7f50; /* Bordo leggermente più scuro */
+  cursor: pointer; /* Mostra il cursore a forma di mano */
   margin-top: 1rem;
-  color: #ffffff; /* White text */
-  font-weight: var(--font-weight-bold);
-  background-color: #f19200; /* Solid orange background */
-  border: 2px solid #ff7f50; /* Slightly darker border */
+  text-align: center; /* Allinea il testo */
+}
+
+#book-now:hover {
+  background-color: #ff7f50; /* Cambia il colore di sfondo al passaggio del mouse */
+  border-color: #f19200; /* Cambia il colore del bordo */
 }
 
 #double-arrow {
