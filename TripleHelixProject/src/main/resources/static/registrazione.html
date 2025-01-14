@@ -1,37 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-  <!-- Beginning of head -->
+<html lang="it">
+  <!-- Inizio della sezione head -->
   <head>
-    <!-- Meta informations -->
+    <!-- Meta informazioni -->
+    <!-- Specifica il set di caratteri utilizzato -->
     <meta charset="UTF-8" />
+    <!-- Ottimizzazione per dispositivi mobili -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
-    <meta name="description" content="" />
-    <title></title>
+    <!-- Descrizione del sito -->
+    <meta
+      name="description"
+      content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia."
+    />
+    <!-- Titolo della pagina -->
+    <title>Registrazione - Cascina Caccia</title>
+
+    <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <!-- Link to the stylesheet -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Collegamento ai fogli di stile -->
+    <!-- Reset CSS per uniformare gli stili -->
     <link rel="stylesheet" href="./styles/reset.css" />
+    <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/styleNavbar.css" />
+    <!-- Stile per la pagina di registrazione -->
     <link rel="stylesheet" href="./styles/registrazione.css" />
   </head>
-  <!-- Ending of head -->
+  <!-- Fine della sezione head -->
 
-  <!-- Beginning of body -->
+  <!-- Inizio del corpo della pagina -->
   <body>
+    <!-- Intestazione della pagina -->
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
       <a href="./index.html"
         ><img
           src="./assets/svg/logo.svg"
           alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
       /></a>
       <nav>
+        <!-- Checkbox per il menu mobile -->
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
         </label>
+
+        <!-- Link per la navigazione -->
         <div class="nav-mobile">
           <a href="./index.html#cascina-intro">Chi siamo</a>
           <a href="./index.html#workshop">Laboratori</a>
@@ -41,36 +65,86 @@
         </div>
       </nav>
     </header>
+
+    <!-- Contenuto principale della pagina -->
     <main>
+      <!-- Form per la registrazione -->
       <form id="registration-form" method="post">
         <h1>Registrati</h1>
+
+        <!-- Campo per il nome -->
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required />
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            placeholder="Inserisci il tuo nome"
+            required
+          />
         </div>
+
+        <!-- Campo per il cognome -->
         <div class="form-group">
           <label for="cognome">Cognome</label>
-          <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required />
+          <input
+            type="text"
+            name="cognome"
+            id="cognome"
+            placeholder="Inserisci il tuo cognome"
+            required
+          />
         </div>
+
+        <!-- Campo per l'email -->
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Inserisci la tua email"
+            required
+          />
         </div>
+
+        <!-- Campo per la creazione della password -->
         <div class="form-group">
           <label for="password">Crea password</label>
-          <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Almeno 8 caratteri"
+            required
+          />
         </div>
+
+        <!-- Campo per la conferma della password -->
         <div class="form-group">
           <label for="conferma-password">Conferma password</label>
-          <input type="password" name="conferma-password" id="conferma-password" placeholder="Almeno 8 caratteri" required />
+          <input
+            type="password"
+            name="conferma-password"
+            id="conferma-password"
+            placeholder="Almeno 8 caratteri"
+            required
+          />
         </div>
+
+        <!-- Campo per il consenso GDPR -->
         <div id="gdpr-field">
-          <label for="gdpr">Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR):</label>
+          <label for="gdpr"
+            >Autorizzo il trattamento dei miei dati personali ai sensi del
+            Regolamento (UE) 2016/679 (GDPR):</label
+          >
           <div id="gdpr-input">
-            <input type="checkbox" name="gdpr" id="gdpr" />
+            <input type="checkbox" name="gdpr" id="gdpr" required />
             <p>Si</p>
           </div>
         </div>
+
+        <!-- Pulsante per l'invio del form -->
         <button type="submit">Registrati</button>
       </form>
       <p id="login">
@@ -78,7 +152,8 @@
       </p>
     </main>
 
+    <!-- Collegamento al file JavaScript per la gestione della pagina di registrazione -->
     <script src="./js/registrazione.js"></script>
   </body>
-  <!-- Ending of body -->
+  <!-- Fine del corpo della pagina -->
 </html>
