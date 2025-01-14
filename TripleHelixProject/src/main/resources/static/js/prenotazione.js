@@ -130,42 +130,6 @@ window.addEventListener("DOMContentLoaded", () => {
     updateDots();
   }
 
-  // Listener per l'evento di scroll del carosello
-  container.addEventListener("scroll", updateCurrentIndex);
-
-  // Comportamento di navigazione tramite i punti, per scorrere tra gli item del carosello
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      // Scorrimento al corrispettivo item del carosello
-      container.scrollTo({
-        left: items[index].offsetLeft,
-        behavior: "smooth",
-      });
-    });
-  });
-
-  /**
-   * Gestisce la barra di progresso che si aggiorna in base alla posizione di scroll
-   * della pagina, mostrando un'idea del progresso del visitatore nella lettura della pagina.
-   */
-  window.addEventListener("scroll", handleScroll);
-
-  /**
-   * Funzione che gestisce l'aggiornamento della barra di progresso durante lo scroll della pagina.
-   */
-  function handleScroll() {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-
-    const scrolled = (winScroll / height) * 100;
-
-    document.getElementById("progressBar").style.width = scrolled + "%";
-  }
-
   /**
    * Gestisce l'apertura e la chiusura del menu mobile, cambiando l'icona dell'hamburger
    * (da apertura a chiusura) a seconda dello stato del menu.
@@ -280,8 +244,7 @@ window.addEventListener("DOMContentLoaded", () => {
         errors.push("Il numero di telefono deve contenere solo numeri.");
       }
       if (!message) errors.push("Il campo 'Messaggio' è obbligatorio.");
-      if (message.length < 10)
-        errors.push("Il messaggio deve contenere almeno 10 caratteri.");
+      if (message.length < 10) errors.push("Il messaggio deve contenere almeno 10 caratteri.");
 
       // Mostra errori se presenti
       if (errors.length > 0) {
@@ -320,17 +283,14 @@ window.addEventListener("DOMContentLoaded", () => {
           const errorData = await response.json();
           messageContainer.style.color = "red";
           const errorMessage = document.createElement("p");
-          errorMessage.textContent =
-            errorData.message ||
-            "Errore nell'invio dell'email. Riprova più tardi.";
+          errorMessage.textContent = errorData.message || "Errore nell'invio dell'email. Riprova più tardi.";
           messageContainer.appendChild(errorMessage);
         }
       } catch (error) {
         console.error("Errore durante l'invio dell'email:", error);
         messageContainer.style.color = "red";
         const errorMessage = document.createElement("p");
-        errorMessage.textContent =
-          "Si è verificato un errore. Riprova più tardi.";
+        errorMessage.textContent = "Si è verificato un errore. Riprova più tardi.";
         messageContainer.appendChild(errorMessage);
       }
     });
