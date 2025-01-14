@@ -1,3 +1,14 @@
+html {
+  box-sizing: border-box; /* Imposta il box-sizing per una gestione consistente delle dimensioni */
+  font-size: 16px; /* Imposta la dimensione di base del font */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* Eredita il box-sizing per tutti gli elementi e pseudo-elementi */
+}
+
 header {
   width: 100vw;
   height: 10vh;
@@ -6,15 +17,15 @@ header {
   top: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
+  align-items: center; /* Assicura l'allineamento verticale centrale */
   z-index: 1000;
+  padding: 0 2rem;
 }
 
-header nav,
 header img {
   width: 45px;
-  height: 45px;
+  height: auto; /* Mantiene le proporzioni del logo */
+  display: block; /* Assicura che l'immagine non introduca spazi aggiuntivi */
 }
 
 .progress-bar {

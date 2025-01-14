@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <!-- Link to the stylesheet -->
+    <!-- Link ai fogli di stile -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/styleNavbar.css" />
     <link rel="stylesheet" href="./styles/style.css" />
@@ -23,18 +23,18 @@
   <!-- Inizio della sezione body -->
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
-      <nav>
-        <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+      <!-- Logo -->
+      <a href="./#"><img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" /></a>
+      <nav aria-label="Navigazione principale">
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
         <div class="nav-mobile">
           <a class="scroll" href="#cascina-intro" title="Scopri chi siamo">Chi siamo</a>
           <a class="scroll" href="#workshop" title="Scopri i nostri laboratori">Laboratori</a>
           <a class="scroll" href="#faq-section" title="Leggi le domande frequenti">Faq</a>
-          <a class="scroll" href="#contact-form" title="Contattaci per maggiori informazioni">Contattaci>Contattaci</a>
+          <a class="scroll" href="#contact-form" title="Contattaci per maggiori informazioni">Contattaci</a>
           <a href="./prenotazione.html" title="Prenota una visita alla Cascina">Prenota visita</a>
           <a id="profile" href="#" title="Accedi al tuo profilo">Profilo</a>
           <a href="#" id="logout" title="Esci dal sistema">Logout</a>
@@ -53,11 +53,11 @@
           </div>
 
           <div id="cta-buttons">
-            <button id="discover-more" class="discover-more">Scopri di più</button>
-            <button id="book-now">Prenota ora</button>
+            <button id="discover-more" class="discover-more" title="Scopri di più su Cascina Caccia">Scopri di più</button>
+            <a id="book-now" href="./prenotazione.html" title="Prenota subito una visita alla Cascina">Prenota ora</a>
           </div>
 
-          <img id="double-arrow" class="discover-more" src="assets/svg/double_arrow.svg" alt="" />
+          <img id="double-arrow" class="discover-more" src="assets/svg/double_arrow.svg" alt="Freccia doppia per scorrere" title="Scorri per scoprire di più" />
         </div>
       </div>
 
@@ -84,61 +84,61 @@
             </div>
             <img src="./assets/img/bruno-caccia.jpg" alt="Immagine di Bruno Caccia" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sulla regolegalità per i più piccoli">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Regolegalità per i più piccini</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="./assets/img/educazione-3.jpg" alt="Immagine dei bambini che ascoltano" />
+            <img src="./assets/img/educazione-3.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sui beni confiscati alla mafia">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>I beni confiscati</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sulle mafie e il cibo">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Le mafie e il cibo</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="Tavoli apparecchiati per mangiare" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sul miele e le api">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Miele e api</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio dedicato al riciclo">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Ricicliamo</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sulle mafie, raccontate attraverso il cinema">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>La mafia attraverso il cinema</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio sui giochi d'azzardo e non">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Il gioco non è un azzardo</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
-          <div class="carosello-item" aria-label="Laboratorio dedicato a evitare eventuali rischi">
+          <div class="carosello-item">
             <div class="carosello-intro">
               <h3>Chi non gioca vince</h3>
               <button>Scopri di più</button>
             </div>
-            <img src="" alt="" />
+            <img src="./assets/img/party-bene.jpg" alt="" />
           </div>
         </div>
         <!-- Punti per il carosello -->
@@ -217,28 +217,29 @@
           </div>
         </div>
       </div>
-      <form id="contact-form">
-        <h2>Contattaci</h2>
-        <p>Compila il modulo sottostante per richiedere maggiori informazioni. Saremo felici di risponderti il prima possibile.</p>
+      <!-- Inizio form di contatto -->
+      <form id="contact-form" aria-labelledby="form-contact" aria-describedby="form-contact-description">
+        <h2 id="form-contact">Contattaci</h2>
+        <p id="form-contact-description">Compila il modulo sottostante per richiedere maggiori informazioni. Saremo felici di risponderti il prima possibile.</p>
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" required />
+          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" required aria-label="Inserisci il tuo nome" />
         </div>
         <div class="form-group">
           <label for="surname">Cognome</label>
-          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" required />
+          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" required aria-label="Inserisci il tuo cognome" />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
+          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required aria-label="Inserisci la tua email" />
         </div>
         <div class="form-group">
-          <label for="phone-number">Numero di telefono</label>
-          <input type="text" id="phone-number" name="phone-number" placeholder="Inserisci il tuo numero di telefono" />
+          <label for="phone">Numero di telefono</label>
+          <input type="text" id="phone" name="phone" placeholder="Inserisci il tuo numero di telefono" aria-label="Inserisci il tuo numero di telefono" />
         </div>
         <div class="form-group">
           <label for="message">Messaggio</label>
-          <textarea name="message" id="message" placeholder="Inserisci il tuo messaggio"></textarea>
+          <textarea name="message" id="message" placeholder="Inserisci il tuo messaggio" aria-label="Inserisci il tuo messaggio"></textarea>
         </div>
         <button type="submit" title="Invia il modulo di contatto">INVIA</button>
       </form>
@@ -265,12 +266,9 @@
         <p>cascina.caccia@acmos.net</p>
       </div>
       <div id="footer-socials" aria-label="Social media links">
-        <a href="https://www.instagram.com/cascina_caccia/" aria-label="Vai al profilo Instagram di Cascina Caccia">
-          >
-          <img src="./assets/svg/instagram.svg" alt="Icona di Instagram" />
-        </a>
-        <a href="https://www.facebook.com/cascinacaccia/" aria-label="Vai al profilo Facebook di Cascina Caccia"><img src="./assets/svg/facebook.svg" alt="Icona di Facebook" /></a>
-        <a href="https://www.youtube.com/@AcmosNet99/videos" aria-label="Vai al canale YouTube di Cascina Caccia"><img src="./assets/svg/youtube.svg" alt="Icona di YouTube" /></a>
+        <a href="https://www.instagram.com/cascina_caccia/" aria-label="Vai al profilo Instagram di Cascina Caccia" target="_blank"><img src="./assets/svg/instagram.svg" alt="Icona di Instagram" /></a>
+        <a href="https://www.facebook.com/cascinacaccia/" aria-label="Vai al profilo Facebook di Cascina Caccia" target="_blank"><img src="./assets/svg/facebook.svg" alt="Icona di Facebook" /></a>
+        <a href="https://www.youtube.com/@AcmosNet99/videos" aria-label="Vai al canale YouTube di Cascina Caccia" target="_blank"><img src="./assets/svg/youtube.svg" alt="Icona di YouTube" /></a>
       </div>
       <p id="footer-copyright">&copy; Triple Helix</p>
     </footer>
