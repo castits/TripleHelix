@@ -1,0 +1,19 @@
+header img {
+  width: 100vw;
+  height: 30vh;
+  z-index: 1;
+}
+main {
+  height: 100vh;
+  padding: 0, 2rem, 0, 2rem;
+  position: absolute;
+  top: 20vh;
+  right: 2rem;
+  left: 2rem;
+  z-index: 2;
+  border-radius: 5%;
+}
+
+h2 {
+  margin: 5%;
+}

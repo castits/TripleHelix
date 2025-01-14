@@ -11,7 +11,8 @@ window.addEventListener("DOMContentLoaded", () => {
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      errorContainer.innerHTML = ""; // Resetta i messaggi di errore
+      // Pulisce i messaggi precedenti
+      errorContainer.textContent = "";
 
       const userEmail = document.getElementById("email").value.trim();
       const userPassword = document.getElementById("password").value;
@@ -27,8 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
       else if (userPassword.length < 8)
         errors.push("La password deve contenere almeno 8 caratteri.");
 
+      // Mostra errori se ci sono
       if (errors.length > 0) {
-        errorContainer.innerHTML = errors.join("<br>");
+        // Aggiungi i messaggi di errore come nuovi paragrafi
+        errors.forEach((error) => {
+          const errorMessage = document.createElement("p");
+          errorMessage.textContent = error;
+          errorContainer.appendChild(errorMessage);
+        });
         return;
       }
 
@@ -52,14 +59,18 @@ window.addEventListener("DOMContentLoaded", () => {
           }, 2000);
         } else {
           const errorData = await response.json();
-          errorContainer.innerHTML =
+          const errorMessage = document.createElement("p");
+          errorMessage.textContent =
             errorData.message ||
             "Errore durante il login. Controlla le credenziali.";
+          errorContainer.appendChild(errorMessage);
         }
       } catch (error) {
         console.error("Errore durante la richiesta di login:", error);
-        errorContainer.innerHTML =
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent =
           "Si è verificato un errore. Riprova più tardi.";
+        errorContainer.appendChild(errorMessage);
       }
     });
   } else {
