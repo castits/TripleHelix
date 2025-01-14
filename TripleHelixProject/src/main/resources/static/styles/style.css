@@ -37,6 +37,7 @@ main {
   /* Stili per la sezione hero */
   position: relative;
   width: 100%;
+  /* ! Mettere nella media query del laptop height: 93vh */
   height: 90vh; /* Occupa il 90% dell'altezza della finestra */
   z-index: 0;
   overflow: hidden;
@@ -201,7 +202,9 @@ a:visited {
   scroll-snap-type: x mandatory; /* Forza lo scroll in modo sincronizzato */
   margin-left: 1.3rem;
   margin-right: 1.3rem;
-  width: calc(100% - 2.6rem); /* La larghezza del carosello considerando i margini */
+  width: calc(
+    100% - 2.6rem
+  ); /* La larghezza del carosello considerando i margini */
 }
 
 .carosello-item {
@@ -226,7 +229,14 @@ a:visited {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.68) 75%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.68) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .carosello-intro {

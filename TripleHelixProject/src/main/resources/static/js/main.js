@@ -167,21 +167,6 @@ window.addEventListener("DOMContentLoaded", () => {
    * Gestisce l'apertura e la chiusura del menu mobile, cambiando l'icona dell'hamburger
    * (da apertura a chiusura) a seconda dello stato del menu.
    */
-  document.getElementById("hamburger").addEventListener("click", handleClick);
-
-  function handleClick() {
-    const hamburger = document.getElementById("hamburger");
-    const hamburgerCheck = document.getElementById("check");
-
-    // Se il menu è chiuso, cambia l'icona a "chiudi", altrimenti a "apri"
-    if (!hamburgerCheck.checked) {
-      hamburger.src = "./assets/svg/closure.svg";
-      hamburger.alt = "Close navigation menu";
-    } else {
-      hamburger.src = "./assets/svg/hamburger.svg";
-      hamburger.alt = "Open navigation menu";
-    }
-  }
 
   /**
    * Verifica se l'utente è loggato e, in base alla risposta, reindirizza
