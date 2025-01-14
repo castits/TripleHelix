@@ -27,3 +27,19 @@ p {
 strong {
   font-weight: bold;
 }
+.close-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 4rem;
+
+  color: black;
+  text-decoration: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
