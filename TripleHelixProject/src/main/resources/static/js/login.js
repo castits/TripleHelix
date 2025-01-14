@@ -1,79 +1,86 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.getElementById("login-form");
-
-  // Aggiungi un container per i messaggi di errore
+  /**
+   * Crea un contenitore per i messaggi di errore, aggiungendolo al modulo di login.
+   * @type {HTMLElement}
+   */
   const errorContainer = document.createElement("div");
   errorContainer.id = "error-container";
   errorContainer.style.color = "red";
   errorContainer.style.marginTop = "10px";
   loginForm.appendChild(errorContainer);
 
-  if (loginForm) {
-    loginForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      // Pulisce i messaggi precedenti
-      errorContainer.textContent = "";
+  /**
+   * Gestisce l'evento submit del modulo di login. Esegue la validazione dei dati inseriti e
+   * invia una richiesta di login al server. In caso di errore, mostra i messaggi di errore.
+   * @param {Event} event - L'evento di submit del form.
+   */
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Previene il comportamento predefinito del form
 
-      const userEmail = document.getElementById("email").value.trim();
-      const userPassword = document.getElementById("password").value;
+    // Pulisce i messaggi di errore precedenti
+    errorContainer.textContent = "";
 
-      // Validazione dei campi
-      const errors = [];
+    const userEmail = document.getElementById("email").value.trim();
+    const userPassword = document.getElementById("password").value;
 
-      if (!userEmail) errors.push("Il campo 'Email' è obbligatorio.");
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail))
-        errors.push("Inserisci un'email valida.");
+    // Array di errori di validazione
+    const errors = [];
 
-      if (!userPassword) errors.push("Il campo 'Password' è obbligatorio.");
-      else if (userPassword.length < 8)
-        errors.push("La password deve contenere almeno 8 caratteri.");
+    // Validazione dell'email
+    if (!userEmail) errors.push("Il campo 'Email' è obbligatorio.");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail))
+      errors.push("Inserisci un'email valida.");
 
-      // Mostra errori se ci sono
-      if (errors.length > 0) {
-        // Aggiungi i messaggi di errore come nuovi paragrafi
-        errors.forEach((error) => {
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent = error;
-          errorContainer.appendChild(errorMessage);
-        });
-        return;
-      }
+    // Validazione della password
+    if (!userPassword) errors.push("Il campo 'Password' è obbligatorio.");
+    else if (userPassword.length < 8)
+      errors.push("La password deve contenere almeno 8 caratteri.");
 
-      try {
-        const response = await fetch("/pub/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userEmail, userPassword }),
-          credentials: "include",
-        });
+    // Mostra i messaggi di errore se ce ne sono
+    if (errors.length > 0) {
+      errors.forEach((error) => {
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = error;
+        errorContainer.appendChild(errorMessage);
+      });
+      return; // Esce dalla funzione per non inviare i dati
+    }
 
-        if (response.ok) {
-          const successMessage = document.createElement("div");
-          successMessage.style.color = "green";
-          successMessage.style.marginTop = "10px";
-          successMessage.textContent = "Login avvenuto con successo!";
-          loginForm.appendChild(successMessage);
+    try {
+      const response = await fetch("/pub/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userEmail, userPassword }),
+        credentials: "include",
+      });
 
-          setTimeout(() => {
-            window.location.href = "/dashboard.html";
-          }, 2000);
-        } else {
-          const errorData = await response.json();
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent =
-            errorData.message ||
-            "Errore durante il login. Controlla le credenziali.";
-          errorContainer.appendChild(errorMessage);
-        }
-      } catch (error) {
-        console.error("Errore durante la richiesta di login:", error);
+      // Se il login è riuscito
+      if (response.ok) {
+        const successMessage = document.createElement("div");
+        successMessage.style.color = "green";
+        successMessage.style.marginTop = "10px";
+        successMessage.textContent = "Login avvenuto con successo!";
+        loginForm.appendChild(successMessage);
+
+        setTimeout(() => {
+          window.location.href = "/dashboard.html"; // Redirige alla dashboard
+        }, 2000);
+      } else {
+        // Se il login non è riuscito, mostra il messaggio di errore
+        const errorData = await response.json();
         const errorMessage = document.createElement("p");
         errorMessage.textContent =
-          "Si è verificato un errore. Riprova più tardi.";
+          errorData.message ||
+          "Errore durante il login. Controlla le credenziali.";
         errorContainer.appendChild(errorMessage);
       }
-    });
-  } else {
-    console.error("Il form di login non è stato trovato nel DOM.");
-  }
+    } catch (error) {
+      // Se si verifica un errore nella richiesta di login
+      console.error("Errore durante la richiesta di login:", error);
+      const errorMessage = document.createElement("p");
+      errorMessage.textContent =
+        "Si è verificato un errore. Riprova più tardi.";
+      errorContainer.appendChild(errorMessage);
+    }
+  });
 });

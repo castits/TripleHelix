@@ -104,20 +104,20 @@ h1 {
   text-align: center;
 }
 
+/* Stili generali per i bottoni */
 button {
-  /* Stili generali per i bottoni */
   width: 250px;
   height: 50px;
 }
 
+/* Contenitore per i bottoni di Call-to-Action */
 #cta-buttons {
-  /* Contenitore per i bottoni di Call-to-Action */
   width: 250px;
 }
 
+/* Stili comuni per i bottoni */
 #discover-more,
 #book-now {
-  /* Stili comuni per i bottoni */
   border-radius: 1rem; /* Bordo arrotondato */
   font-size: 20px;
   cursor: pointer; /* Mostra il cursore a forma di mano */

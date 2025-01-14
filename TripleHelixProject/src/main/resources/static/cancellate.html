@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Beginning of head -->
+  <!-- Inizio della sezione head -->
   <head>
-    <!-- Meta informations -->
+    <!-- Meta informazioni -->
+    <!-- Specifica il set di caratteri utilizzato per garantire la corretta visualizzazione dei testi -->
     <meta charset="UTF-8" />
+    <!-- Ottimizzazione per dispositivi mobili, garantendo una visualizzazione corretta su tutti i dispositivi -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Nome dell'autore del sito -->
     <meta name="author" content="Triple Helix" />
+    <!-- Descrizione del sito per i motori di ricerca e per gli utenti -->
     <meta name="description" content="Pagina delle prenotazioni cancellate" />
-    <title></title>
+    <!-- Titolo della pagina, visibile nella barra del browser -->
+    <title>Prenotazioni Cancellate - Cascina Caccia</title>
 
-    <!--aggiungi font fallback-->
+    <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <!-- Link to the stylesheet -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Collegamento ai fogli di stile -->
+    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
     <link rel="stylesheet" href="./styles/reset.css" />
+    <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/styleNavbar.css" />
+    <!-- Stile per la pagina di backoffice -->
     <link rel="stylesheet" href="./styles/styleBackoffice.css" />
   </head>
-  <!-- Ending of head -->
+  <!-- Fine della sezione head -->
 
-  <!-- Beginning of body -->
+  <!-- Inizio del corpo della pagina -->
   <body>
+    <!-- Intestazione della pagina -->
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
+      <!-- Logo della Cascina Caccia con attributo alt per migliorare l'accessibilità -->
+      <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia" />
 
-      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
-
+      <!-- Navigazione principale -->
       <nav>
+        <!-- Checkbox per il menu mobile -->
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
         </label>
+
+        <!-- Link per la navigazione -->
         <div class="nav-mobile">
+          <!-- Link di navigazione per le varie sezioni -->
           <a href="#">Home</a>
           <a href="#">In attesa</a>
           <a href="#">Confermate</a>
@@ -42,13 +63,16 @@
       </nav>
     </header>
 
+    <!-- Contenuto principale della pagina -->
     <main>
+      <!-- Titolo della sezione delle prenotazioni cancellate -->
       <h2 id="cancellate">Prenotazioni Cancellate:</h2>
+      <!-- Contenitore per le prenotazioni cancellate, che verranno caricate dinamicamente -->
       <div class="containerPrenotazione"></div>
     </main>
-    <footer></footer>
 
+    <!-- Collegamento al file JavaScript per la gestione delle prenotazioni cancellate -->
     <script src="./js/cancellate.js"></script>
   </body>
-  <!-- Ending of body -->
+  <!-- Fine del corpo -->
 </html>
