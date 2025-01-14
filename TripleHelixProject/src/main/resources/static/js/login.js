@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
           loginForm.appendChild(successMessage);
 
           setTimeout(() => {
-            window.location.href = "/dashboard.html";
+            window.location.href = "/dashboardUtente.html";
           }, 2000);
         } else {
           const errorData = await response.json();

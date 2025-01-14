@@ -1,135 +1,132 @@
-let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1328474797923033088";
-//1328474797923033088
-let prenotazioni = [];
-let x = 0;
-
-// Mappatura dei giorni e delle fasce orarie in italiano
-const giorniItaliano = {
-  MONDAY: "Lunedì",
-  TUESDAY: "Martedì",
-  WEDNESDAY: "Mercoledì",
-  THURSDAY: "Giovedì",
-  FRIDAY: "Venerdì",
-  SATURDAY: "Sabato",
-  SUNDAY: "Domenica",
-};
-
-const fasceOrarieItaliano = {
-  MORNING: "Mattina",
-  AFTERNOON: "Pomeriggio",
-  FULL_DAY: "Tutto il giorno",
-};
-
-// Fetch per ottenere il JSON
-fetch(endpointPrenotazioni)
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("Network response was not ok.");
-    }
-  })
-  .then((prenotazioneJSON) => {
-    prenotazioni = prenotazioneJSON;
-    let x = prenotazioni.length;
-    showPrenotazioni(x); // Mostra tutte le prenotazioni
-  })
-  .catch((error) => {
-    console.log("Errore:", error);
-  });
-
-// Fetch per ottenere l'email di chi è loggato
-fetch(endpointPrenotazioni)
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("Network response was not ok.");
-    }
-  })
-  .then((prenotazioneJSON) => {
-    prenotazioni = prenotazioneJSON;
-    let x = prenotazioni.length;
-    showPrenotazioni(x); // Mostra tutte le prenotazioni
-  })
-  .catch((error) => {
-    console.log("Errore:", error);
-  });
-
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("dashboard-utente").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const response = await fetch("/api/bookings/user?email=", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userEmail: document.getElementById("email").value,
-        userPassword: document.getElementById("password").value,
-      }),
-      credentials: "include",
-    });
-    if (response.ok) {
-      alert("Login successful!");
-      window.location.href = "/dashboard.html";
-    } else {
-      alert("Login failed! Incorrect credentials.");
+  async function fetchLoggedUser() {
+    let endpointInfoUtente = "/pub/auth/user-info";
+
+    try {
+      const response = await fetch(endpointInfoUtente);
+      if (!response.ok) {
+        throw new Error(`Errore HTTP! stato: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Si è verificato un errore:", error);
     }
-  });
-});
-
-// // Seleziona il contenitore per la lista di prenotazioni
-let listaPrenotazione = document.querySelector(".containerPrenotazione");
-
-function createPrenotazioneBox(prenotazione) {
-  // Crea un div per ogni prenotazione
-  let div = document.createElement("div");
-  div.classList.add("prenotazione-box");
-  div.classList.add("confermate");
-  // Crea e aggiungi gli elementi
-  let nome = document.createElement("p");
-  nome.appendChild(document.createTextNode(`Referente: ${prenotazione.userName} ${prenotazione.userSurname}`));
-  div.appendChild(nome);
-
-  let email = document.createElement("p");
-  email.appendChild(document.createTextNode(`Email: ${prenotazione.userEmail}`));
-  div.appendChild(email);
-
-  let istituto = document.createElement("p");
-  istituto.appendChild(document.createTextNode(`Istituto: ${prenotazione.institute}`));
-  div.appendChild(istituto);
-
-  let partecipanti = document.createElement("p");
-  partecipanti.appendChild(document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`));
-  div.appendChild(partecipanti);
-
-  let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(document.createTextNode(`Data Appuntamento: ${prenotazione.appointmentDate}`));
-  div.appendChild(dataAppuntamento);
-
-  let giorno = document.createElement("p");
-  giorno.appendChild(document.createTextNode(`Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`));
-  div.appendChild(giorno);
-
-  let fasciaOraria = document.createElement("p");
-  fasciaOraria.appendChild(document.createTextNode(`Fascia Oraria: ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
-  div.appendChild(fasciaOraria);
-
-  return div;
-}
-
-function showPrenotazioni(num) {
-  let h2NumConfermate = document.getElementById("confermate");
-  let numConfermate = document.createElement("span"); // Crea l'elemento <span>
-  numConfermate.textContent = num;
-
-  h2NumConfermate.appendChild(numConfermate);
-  // Rimuove tutti i figli del contenitore in modo sicuro
-  while (listaPrenotazione.firstChild) {
-    listaPrenotazione.removeChild(listaPrenotazione.firstChild);
   }
 
-  // Itera su tutte le prenotazioni e le aggiunge al DOM
-  prenotazioni.forEach((prenotazione) => {
-    listaPrenotazione.appendChild(createPrenotazioneBox(prenotazione));
-  });
-}
+  async function fetchPrenotazioni() {
+    try {
+      const userData = await fetchLoggedUser();
+      if (!userData) {
+        console.error(
+          "Dati dell'utente non disponibili, impossibile recuperare le prenotazioni."
+        );
+        return;
+      }
+      const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
+        userData.userEmail
+      )}`;
+      const response = await fetch(endpointPrenotazioni);
+      if (!response.ok) {
+        throw new Error(`Errore HTTP! stato: ${response.status}`);
+      }
+      const prenotazioni = await response.json();
+      console.log("Prenotazioni utente:", prenotazioni);
+
+      // Mostra le prenotazioni
+      showPrenotazioni(prenotazioni);
+    } catch (error) {
+      console.error(
+        "Si è verificato un errore nel recupero delle prenotazioni:",
+        error
+      );
+    }
+  }
+
+  // Mappatura dei giorni e delle fasce orarie in italiano
+  const giorniItaliano = {
+    MONDAY: "Lunedì",
+    TUESDAY: "Martedì",
+    WEDNESDAY: "Mercoledì",
+    THURSDAY: "Giovedì",
+    FRIDAY: "Venerdì",
+    SATURDAY: "Sabato",
+    SUNDAY: "Domenica",
+  };
+
+  const fasceOrarieItaliano = {
+    MORNING: "Mattina",
+    AFTERNOON: "Pomeriggio",
+    FULL_DAY: "Tutto il giorno",
+  };
+
+  // Funzione per creare un elemento HTML per una prenotazione
+  function createPrenotazioneBox(prenotazione) {
+    const div = document.createElement("div");
+    div.classList.add("prenotazione-box");
+
+    // Aggiungi dettagli prenotazione
+    const nome = document.createElement("p");
+    nome.textContent = `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`;
+    div.appendChild(nome);
+
+    const email = document.createElement("p");
+    email.textContent = `Email: ${prenotazione.userEmail}`;
+    div.appendChild(email);
+
+    const istituto = document.createElement("p");
+    istituto.textContent = `Istituto: ${prenotazione.institute}`;
+    div.appendChild(istituto);
+
+    const partecipanti = document.createElement("p");
+    partecipanti.textContent = `Partecipanti: ${prenotazione.participantQuantity}`;
+    div.appendChild(partecipanti);
+
+    const dataAppuntamento = document.createElement("p");
+    dataAppuntamento.textContent = `Data Appuntamento: ${prenotazione.appointmentDate}`;
+    div.appendChild(dataAppuntamento);
+
+    const giorno = document.createElement("p");
+    giorno.textContent = `Giorno: ${
+      giorniItaliano[prenotazione.day] || prenotazione.day
+    }`;
+    div.appendChild(giorno);
+
+    const fasciaOraria = document.createElement("p");
+    fasciaOraria.textContent = `Fascia Oraria: ${
+      fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
+    }`;
+    div.appendChild(fasciaOraria);
+
+    return div;
+  }
+
+  // Funzione per mostrare tutte le prenotazioni
+  function showPrenotazioni(prenotazioni) {
+    const listaPrenotazione = document.querySelector(".containerPrenotazione");
+    if (!listaPrenotazione) {
+      console.error("Contenitore prenotazioni non trovato.");
+      return;
+    }
+
+    // Rimuove il contenuto precedente
+    while (listaPrenotazione.firstChild) {
+      listaPrenotazione.removeChild(listaPrenotazione.firstChild);
+    }
+
+    if (prenotazioni.length === 0) {
+      const nessunaPrenotazione = document.createElement("p");
+      nessunaPrenotazione.textContent = "Nessuna prenotazione trovata.";
+      listaPrenotazione.appendChild(nessunaPrenotazione);
+      return;
+    }
+
+    // Aggiunge ogni prenotazione al DOM
+    prenotazioni.forEach((prenotazione) => {
+      listaPrenotazione.appendChild(createPrenotazioneBox(prenotazione));
+    });
+  }
+
+  // Richiama fetchPrenotazioni al caricamento della pagina
+  fetchPrenotazioni();
+});
