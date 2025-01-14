@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Beginning of head -->
+  <!-- Inizio della sezione head -->
   <head>
-    <!-- Meta informations -->
+    <!-- Meta informazioni -->
+    <!-- Specifica il set di caratteri utilizzato -->
     <meta charset="UTF-8" />
+    <!-- Ottimizzazione per dispositivi mobili -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
-    <meta name="description" content="" />
-    <title>Prenotazione</title>
+    <!-- Descrizione del sito -->
+    <meta
+      name="description"
+      content="Pagina di prenotazione per prenotare una visita in Cascina Caccia."
+    />
+    <!-- Titolo della pagina -->
+    <title>Prenota - Cascina Caccia</title>
 
-    <!--aggiungi font fallback-->
+    <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- Link to the stylesheet -->
+
+    <!-- Collegamento ai fogli di stile -->
+    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
     <link rel="stylesheet" href="./styles/reset.css" />
+    <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/styleNavbar.css" />
+    <!-- Stile per la pagina di prenotazione -->
     <link rel="stylesheet" href="./styles/prenotazione.css" />
   </head>
-  <!-- Ending of head -->
+  <!-- Fine della sezione head -->
 
-  <!-- Beginning of body -->
+  <!-- Inizio del corpo della pagina -->
   <body>
+    <!-- Intestazione della pagina -->
     <header>
       <a href="./index.html"
         ><img
@@ -32,6 +45,7 @@
           alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
       /></a>
       <nav>
+        <!-- Checkbox per il menu mobile -->
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
           <img
@@ -40,6 +54,8 @@
             id="hamburger"
           />
         </label>
+
+        <!-- Link per la navigazione -->
         <div class="nav-mobile">
           <a href="./index.html">Homepage</a>
           <a href="./index.html#cascina-intro">Chi siamo</a>
@@ -51,6 +67,7 @@
       </nav>
     </header>
 
+    <!-- Contenuto principale -->
     <main>
       <!-- Form per la prenotazione -->
       <form>
@@ -59,7 +76,7 @@
           Compila il modulo per inviare la tua richiesta di prenotazione. Ti
           risponderemo al più presto!
         </p>
-        <!-- Input per inserire il nome -->
+        <!-- Campo per il nome -->
         <div class="form-group">
           <label for="name">Nome</label>
           <input
@@ -70,7 +87,7 @@
             required
           />
         </div>
-        <!-- Input per inserire il cognome -->
+        <!-- Campo per il cognome -->
         <div class="form-group">
           <label for="surname">Cognome</label>
           <input
@@ -81,7 +98,7 @@
             required
           />
         </div>
-        <!-- Input per inserire la email -->
+        <!-- Campo per l'email -->
         <div class="form-group">
           <label for="email">Email</label>
           <input
@@ -93,7 +110,7 @@
           />
         </div>
 
-        <!-- Input per inserire il numero di telefono -->
+        <!-- Campo per il numero di telefono -->
         <div class="form-group">
           <label for="phone-number">Numero di telefono</label>
           <input
@@ -105,7 +122,7 @@
           />
         </div>
 
-        <!-- Input per inserire l'ente -->
+        <!-- Campo per l'ente di appartenenza -->
         <div class="form-group">
           <label for="ente">Ente</label>
           <input
@@ -116,18 +133,19 @@
             required
           />
         </div>
-        <!-- Input per inserire il numero di partecipanti -->
+        <!-- Campo per il numero di partecipanti -->
         <div class="form-group">
           <label for="partecipanti">Partecipanti</label>
           <input
             type="number"
             id="partecipanti"
             name="partecipanti"
-            placeholder="Inserisci il nome dell'partecipanti"
+            placeholder="Inserisci il numero dei partecipanti"
             required
           />
         </div>
 
+        <!-- Selezione per la durata -->
         <div class="form-group">
           <label for="durata">Durata</label>
           <select name="durata" id="durata">
@@ -137,61 +155,52 @@
           </select>
         </div>
 
-        <!-- Input per inserire la data -->
+        <!-- Campo per selezionare la data -->
         <div class="form-group">
           <label for="data">Data</label>
           <input type="date" id="data" name="data" required />
         </div>
 
-        <!-- Input per selezionare l'attivita -->
+        <!-- Campo per selezionare l'attività -->
         <div class="form-group">
           <label for="attivita">Attività</label>
           <select name="attivita" id="attivita">
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Storia della Cascina Carla e Bruno Caccia">
               Storia della Cascina Carla e Bruno Caccia
             </option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Bruno Caccia">Bruno Caccia</option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Regolegalità per i più piccini">
               Regolegalità per i più piccini
             </option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="I beni confiscati">I beni confiscati</option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Le mafie e il cibo">Le mafie e il cibo</option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Miele e api">Miele e api</option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
-            <option value="I beni confiscati">I beni confiscati</option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="La mafia attraverso il cinema">
               La mafia attraverso il cinema
             </option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Il gioco non è un azzardo">
               Il gioco non è un azzardo
             </option>
-            <!-- Attività laboratorio: Storia della Cascina Carla e Bruno Caccia -->
             <option value="Chi non gioca vince">Chi non gioca vince</option>
           </select>
         </div>
 
-        <!-- Input per inserire il messaggio -->
+        <!-- Campo per inserire un messaggio -->
         <div class="form-group">
           <label for="messaggio">Messaggio</label>
           <textarea
             name="messaggio"
             id="messaggio"
             placeholder="Inserisci il tuo messaggio"
-            width="100%"
           ></textarea>
         </div>
+        <!-- Pulsante per inviare il form -->
         <button type="submit">INVIA</button>
       </form>
     </main>
 
+    <!-- Collegamento al file JavaScript per la gestione della pagina -->
     <script src="./js/prenotazione.js"></script>
   </body>
+  <!-- Fine del corpo -->
 </html>

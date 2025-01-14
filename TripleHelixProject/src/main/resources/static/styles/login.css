@@ -1,15 +1,16 @@
 :root {
-  /* Defines CSS variables for colors, font families, and font weights, making the code modular and easier to update */
-  --background-color: #ffffff; /* Main background color */
-  --hero-text-color: #ffffff; /* Text color for the hero section */
-  --form-color: #ffe9cc; /* Background color for the form */
-  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif; /* Font stack for the entire site */
-  --font-weight-light: 300; /* Light font weight */
-  --font-weight-regular: 400; /* Regular font weight */
-  --font-weight-medium: 500; /* Medium font weight */
-  --font-weight-semi-bold: 600; /* Semi-bold font weight */
-  --font-weight-bold: 700; /* Bold font weight */
+  /* Definizione delle variabili CSS per colori, font e pesi, per una gestione più modulare */
+  --background-color: #ffffff; /* Colore di sfondo principale */
+  --hero-text-color: #ffffff; /* Colore del testo nella sezione hero */
+  --form-color: #ffe9cc; /* Colore di sfondo per il modulo */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif; /* Font principale */
+  --font-weight-light: 300; /* Peso del font leggero */
+  --font-weight-regular: 400; /* Peso del font regolare */
+  --font-weight-medium: 500; /* Peso del font medio */
+  --font-weight-semi-bold: 600; /* Peso semi-grassetto */
+  --font-weight-bold: 700; /* Peso grassetto */
 }
+
 
 html {
   box-sizing: border-box;

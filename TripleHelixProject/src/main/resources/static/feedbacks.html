@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Beginning of head -->
+  <!-- Inizio della sezione head -->
   <head>
-    <!-- Meta informations -->
+    <!-- Meta informazioni -->
+    <!-- Specifica il set di caratteri utilizzato -->
     <meta charset="UTF-8" />
+    <!-- Ottimizzazione per dispositivi mobili -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
-    <meta name="description" content="Pagina delle prenotazioni cancellate" />
-    <title></title>
+    <!-- Descrizione del sito per i motori di ricerca -->
+    <meta
+      name="description"
+      content="Sito di gestione feedback per Cascina Caccia"
+    />
+    <!-- Titolo della pagina -->
+    <title>Feedbacks - Cascina Caccia</title>
 
-    <!--aggiungi font fallback-->
+    <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <!-- Link to the stylesheet -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Collegamento ai fogli di stile -->
+    <!-- Reset CSS per uniformare gli stili -->
     <link rel="stylesheet" href="./styles/reset.css" />
+    <!-- Stile della barra di navigazione -->
     <link rel="stylesheet" href="./styles/styleNavbar.css" />
+    <!-- Stile specifico per la pagina del backoffice -->
     <link rel="stylesheet" href="./styles/styleBackoffice.css" />
   </head>
-  <!-- Ending of head -->
+  <!-- Fine della sezione head -->
 
-  <!-- Beginning of body -->
+  <!-- Inizio del corpo -->
   <body>
+    <!-- Intestazione della pagina -->
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
+      <!-- Logo della pagina -->
+      <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia" />
 
-      <img src="./assets/svg/logo.svg" alt="Logo di cascina caccia" />
-
+      <!-- Navigazione principale -->
       <nav>
+        <!-- Checkbox per il menu mobile -->
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
         </label>
+
+        <!-- Link per la navigazione -->
         <div class="nav-mobile">
           <a href="#">Home</a>
           <a href="#">In attesa</a>
@@ -42,13 +64,22 @@
       </nav>
     </header>
 
+    <!-- Contenuto principale -->
     <main>
-      <h2 id="feedbacks">Prenotazioni Cancellate:</h2>
+      <!-- Titolo della sezione principale -->
+      <h2 id="feedbacks">Gestione Feedbacks</h2>
+
+      <!-- Contenitore per i feedbacks dinamicamente generati -->
       <div class="containerFeedbacks"></div>
     </main>
-    <footer></footer>
 
+    <!-- Footer -->
+    <footer>
+      <!-- Aggiungi contenuti utili o un'area dedicata a contatti/informazioni -->
+    </footer>
+
+    <!-- Collegamento al file JavaScript per gestire i feedback -->
     <script src="./js/feedbacks.js"></script>
   </body>
-  <!-- Ending of body -->
+  <!-- Fine del corpo -->
 </html>
