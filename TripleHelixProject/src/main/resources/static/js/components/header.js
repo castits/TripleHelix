@@ -15,11 +15,11 @@ check.addEventListener("change", () => {
     body.classList.add("body-no-scroll");
     progressBar.classList.remove("progress-bar");
     hamburger.src = "./assets/svg/closure.svg";
-    hamburger.alt = "Close navigation menu";
+    hamburger.alt = "Chiusura del menu di navigazione";
   } else {
     body.classList.remove("body-no-scroll");
     progressBar.classList.add("progress-bar");
     hamburger.src = "./assets/svg/hamburger.svg";
-    hamburger.alt = "Open navigation menu";
+    hamburger.alt = "Apertura del menu di navigazione";
   }
 });

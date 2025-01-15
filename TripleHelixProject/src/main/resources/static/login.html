@@ -10,22 +10,28 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta name="description" content="Pagina di accesso per gli utenti registrati di Cascina Caccia." />
+    <meta
+      name="description"
+      content="Pagina di accesso per gli utenti registrati di Cascina Caccia."
+    />
     <!-- Titolo della pagina -->
     <title>Login - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili su tutti i browser -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- Stile per la barra di navigazione -->
-    <link rel="stylesheet" href="./styles/styleNavbar.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
     <!-- Stile per la pagina di login -->
-    <link rel="stylesheet" href="./styles/login.css" />
+    <link rel="stylesheet" href="./styles/auth/login.css" />
   </head>
   <!-- Fine della sezione head -->
 
@@ -33,12 +39,20 @@
   <body>
     <!-- Intestazione della pagina -->
     <header>
-      <a href="./index.html"><img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" /></a>
+      <a href="./index.html"
+        ><img
+          src="./assets/svg/logo.svg"
+          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+      /></a>
       <nav>
         <!-- Checkbox per il menu mobile -->
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
-          <img src="./assets/svg/hamburger.svg" alt="Menu di navigazione" id="hamburger" />
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Menu di navigazione"
+            id="hamburger"
+          />
         </label>
 
         <!-- Link per la navigazione mobile -->
@@ -63,13 +77,25 @@
         <!-- Campo per inserire l'email -->
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Inserisci la tua email"
+            required
+          />
         </div>
 
         <!-- Campo per inserire la password -->
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Almeno 8 caratteri"
+            required
+          />
         </div>
 
         <!-- Collegamento per recuperare la password dimenticata -->
@@ -98,7 +124,7 @@
     </main>
 
     <!-- Collegamento al file JavaScript per la gestione della pagina -->
-    <script src="./js/login.js"></script>
+    <script src="./js/auth/login.js"></script>
   </body>
   <!-- Fine del corpo -->
 </html>

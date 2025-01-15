@@ -29,40 +29,143 @@
     <!-- Reset CSS per uniformare gli stili su tutti i browser -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- Stile per la barra di navigazione -->
-    <link rel="stylesheet" href="./styles/styleNavbar.css" />
+    <link rel="stylesheet" href="./styles/components/navbar.css" />
     <!-- Stile per la pagina di prenotazione -->
-    <link rel="stylesheet" href="./styles/prenotazione.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <!-- Fine della sezione head -->
 
   <!-- Inizio del corpo della pagina -->
   <body>
-    <!-- Intestazione della pagina -->
+    <!--*------------------------------*-->
+    <!--*           HEADER             *-->
+    <!--*------------------------------*-->
     <header>
-      <a href="./index.html"
-        ><img
+      <!-- Logo section -->
+      <a href="./index.html" aria-label="Torna alla homepage">
+        <img
           src="./assets/svg/logo.svg"
           alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-      /></a>
-      <nav>
-        <!-- Checkbox per il menu mobile -->
-        <input type="checkbox" id="check" />
-        <label for="check" class="checkbtn">
+        />
+      </a>
+
+      <!-- Navigation menu -->
+      <nav aria-label="Navigazione principale">
+        <!-- Hamburger menu icon for mobile devices -->
+        <label
+          for="check"
+          class="checkbtn"
+          aria-label="Apri menu di navigazione"
+        >
           <img
             src="./assets/svg/hamburger.svg"
-            alt="Menu di navigazione"
+            alt="Icona menu di navigazione"
             id="hamburger"
           />
         </label>
+        <input type="checkbox" id="check" />
 
-        <!-- Link per la navigazione -->
-        <div class="nav-mobile">
-          <a href="./index.html">Homepage</a>
-          <a href="./index.html#cascina-intro">Chi siamo</a>
-          <a href="./index.html#workshop">Laboratori</a>
-          <a href="./index.html#faq-section">Faq</a>
-          <a href="./index.html#contact-form">Contattaci</a>
-          <a href="#">Profilo</a>
+        <!-- Mobile menu -->
+        <div id="nav-mobile">
+          <ul>
+            <!-- Profile icon -->
+            <li>
+              <a id="profile" href="#" title="Accedi al tuo profilo"
+                ><img src="./assets/svg/account.svg" alt=""
+              /></a>
+            </li>
+
+            <!-- "Homepage" link -->
+            <li>
+              <a class="scroll" href="#index.html" title="Homepage">Homepage</a>
+            </li>
+
+            <!-- "Contact Us" link -->
+            <li>
+              <a
+                class="scroll important-btn"
+                href="#contact"
+                title="Contattaci per maggiori informazioni"
+                >Contattaci</a
+              >
+            </li>
+
+            <!-- "Book a Visit" link -->
+            <li>
+              <a
+                href="./booking.html"
+                title="Prenota una visita alla Cascina"
+                class="important-btn"
+                >Prenota ora</a
+              >
+            </li>
+
+            <!-- <li>
+              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+            </li> -->
+          </ul>
+        </div>
+
+        <!-- Desktop menu -->
+        <div id="nav-desktop">
+          <ul>
+            <!-- "About Us" link -->
+            <li>
+              <a class="scroll" href="#about-us" title="Scopri chi siamo"
+                >Chi siamo</a
+              >
+            </li>
+
+            <!-- "Workshops" link -->
+            <li>
+              <a
+                class="scroll"
+                href="#workshop"
+                title="Scopri i nostri laboratori"
+                >Laboratori</a
+              >
+            </li>
+
+            <!-- "FAQ" link -->
+            <li>
+              <a class="scroll" href="#faq" title="Leggi le domande frequenti"
+                >Faq</a
+              >
+            </li>
+
+            <!-- "Contact Us" button -->
+            <li>
+              <a
+                class="scroll important-btn"
+                href="#contact"
+                title="Contattaci per maggiori informazioni"
+                >Contattaci</a
+              >
+            </li>
+
+            <!-- "Book a Visit" button -->
+            <li>
+              <a
+                class="important-btn"
+                href="./booking.html"
+                title="Prenota una visita alla Cascina"
+                target="_blank"
+                >Prenota ora</a
+              >
+            </li>
+
+            <!-- Profile icon -->
+            <li>
+              <a id="profile" href="#" title="Accedi al tuo profilo"
+                ><img src="./assets/svg/account.svg" alt=""
+              /></a>
+            </li>
+
+            <!-- ! Da spostare allinterno del profilo una volta entrato -->
+            <!-- <li>
+              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+            </li> -->
+          </ul>
         </div>
       </nav>
     </header>
