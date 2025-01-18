@@ -44,8 +44,8 @@ body {
 }
 
 main {
-  letter-spacing: 1rem;
-  background-color: var(--background-color); /* Colore di sfondo principale */
+  letter-spacing: 0.1rem;
+  background-color: var(--background-color);
 }
 
 /** ----------------------------------------------------------------------------------------------------------- */
@@ -71,7 +71,6 @@ h2 {
 
 a:link,
 a:visited {
-  color: white;
   text-decoration: none;
 }
 

@@ -11,10 +11,9 @@
   /* Font family */
   --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
   /* Font size */
-  --font-size-mobile: 16px;
-  --font-size-tablet: 16px;
-  --font-size-laptop: 18px;
-  --font-size-desktop: 18px;
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
   /* Font weight */
   --font-weight-light: 300;
   --font-weight-regular: 400;

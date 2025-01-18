@@ -1,23 +1,19 @@
-/*
-* navbar.css
-*/
-
 :root {
   /* Colors */
   --white: #f4f4f4;
   --black: #272727;
   --orange: #ff8400;
   --fucsia: #ed008c;
+  --gray-light: #b3b3b3;
   --orange-hover: #cc6a00;
   --fucsia-hover: #c20074;
   --orange-light: #ffe9cc;
   /* Font family */
   --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
   /* Font size */
-  --font-size-mobile: 16px;
-  --font-size-tablet: 16px;
-  --font-size-laptop: 16px;
-  --font-size-desktop: 18px;
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
   /* Font weight */
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -180,6 +176,10 @@ header img {
 main {
   margin-top: 10vh;
   letter-spacing: 0.06rem;
+}
+a:link,
+a:visited {
+  text-decoration: none;
 }
 
 /* FIXME: Aggiustare le media query */
