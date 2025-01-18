@@ -103,16 +103,16 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Inizializzazione del carosello
+  // Inizializzazione del carousel
   const dots = document.querySelectorAll(".dot");
-  const items = document.querySelectorAll(".carosello-item");
-  const container = document.querySelector(".carosello-container");
+  const items = document.querySelectorAll(".carousel-item");
+  const container = document.querySelector(".carousel-container");
 
   let currentIndex = 0; // Tracks the current carousel item index
 
   /**
    * Funzione che aggiorna lo stato del dot attivo in base all'indice corrente
-   * del carosello, cambiando il punto evidenziato.
+   * del carousel, cambiando il punto evidenziato.
    */
   function updateDots() {
     dots.forEach((dot) => dot.classList.remove("active"));
@@ -120,7 +120,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Funzione che calcola l'indice corrente del carosello in base alla posizione
+   * Funzione che calcola l'indice corrente del carousel in base alla posizione
    * di scroll del contenitore, aggiornando di conseguenza il punto attivo.
    */
   function updateCurrentIndex() {
@@ -130,13 +130,13 @@ window.addEventListener("DOMContentLoaded", () => {
     updateDots();
   }
 
-  // Listener per l'evento di scroll del carosello
+  // Listener per l'evento di scroll del carousel
   container.addEventListener("scroll", updateCurrentIndex);
 
-  // Comportamento di navigazione tramite i punti, per scorrere tra gli item del carosello
+  // Comportamento di navigazione tramite i punti, per scorrere tra gli item del carousel
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      // Scorrimento al corrispettivo item del carosello
+      // Scorrimento al corrispettivo item del carousel
       container.scrollTo({
         left: items[index].offsetLeft,
         behavior: "smooth",
