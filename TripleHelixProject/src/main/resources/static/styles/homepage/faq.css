@@ -1,0 +1,80 @@
+:root {
+  /* Colors */
+  --white: #f4f4f4;
+  --black: #272727;
+  --orange: #ff8400;
+  --fucsia: #ed008c;
+  --gray-light: #b3b3b3;
+  --orange-hover: #cc6a00;
+  --fucsia-hover: #c20074;
+  --orange-light: #ffe9cc;
+  /* Font family */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+  /* Font size */
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font line height */
+  --line-height: 160%;
+}
+#faq h2 {
+  margin-bottom: 0.5em; /* Distanza tra l'intestazione e il contenuto */
+}
+
+.faq-container {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid #212121; /* Linea di separazione */
+}
+
+.faq-title {
+  height: 3.8rem;
+  color: #212121; /* Colore del testo */
+  cursor: pointer; /* Mostra il cursore a forma di mano */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-title h3 {
+  font-size: 16px;
+  width: 90%;
+  font-weight: var(--font-weight-semi-bold);
+  line-height: 150%; /* Altezza della riga aumentata per una lettura migliore */
+}
+
+.faq-title img {
+  transform: rotate(90deg); /* Ruota l'icona dell'accordion */
+  width: 20px;
+  margin-left: 1.3rem;
+  transition: transform 0.4s ease-out; /* Transizione per la rotazione */
+}
+
+.faq-answer {
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 160%; /* Aumenta l'altezza della riga per il paragrafo */
+  display: block; /* Cambia da "none" a "block" per gestire la visualizzazione */
+  max-height: 0; /* Nasconde la risposta all'inizio */
+  overflow: hidden; /* Nasconde il contenuto fuori dalla vista */
+  transition: max-height 0.4s ease-out; /* Transizione per l'animazione di apertura */
+}
+
+.faq-answer p {
+  margin-top: 1em;
+}
+
+.faq-container.active .faq-title img {
+  transform: rotate(-90deg); /* Ruota l'icona quando la risposta è aperta */
+}
+
+.faq-container.active .faq-answer {
+  max-height: 300px; /* Altezza massima quando la risposta è visibile */
+}
