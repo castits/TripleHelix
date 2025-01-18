@@ -1,0 +1,130 @@
+:root {
+  /* Colors */
+  --white: #f4f4f4;
+  --black: #272727;
+  --orange: #ff8400;
+  --fucsia: #ed008c;
+  --gray-light: #b3b3b3;
+  --orange-hover: #cc6a00;
+  --fucsia-hover: #c20074;
+  --orange-light: #ffe9cc;
+  /* Font family */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+  /* Font size */
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font line height */
+  --line-height: 160%;
+}
+
+.carosello-container {
+  /* Contenitore per il carosello */
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; /* Forza lo scroll in modo sincronizzato */
+  margin-left: 1.3rem;
+  margin-right: 1.3rem;
+  width: calc(
+    100% - 2.6rem
+  ); /* La larghezza del carosello considerando i margini */
+}
+
+.carosello-item {
+  /* Ogni elemento del carosello */
+  position: relative;
+  flex-shrink: 0;
+  width: 100%; /* Ogni immagine occupa l'intera larghezza della finestra */
+  height: 70vh; /* Altezza del 70% della finestra */
+  scroll-snap-align: start; /* Allinea l'elemento all'inizio */
+  background-size: cover; /* Copri l'area con l'immagine */
+  background-position: center;
+}
+
+.carosello-item img {
+  width: 100%; /* L'immagine occupa tutta la larghezza dell'elemento */
+  height: 100%; /* L'immagine occupa tutta l'altezza dell'elemento */
+  object-fit: cover; /* Mantiene le proporzioni dell'immagine riempiendo l'area */
+  border-radius: 8px; /* Angoli arrotondati per l'immagine */
+}
+
+.carosello-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.68) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.carosello-intro {
+  position: absolute;
+  width: 80%; /* L'introduzione occupa l'80% della larghezza */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5em; /* Spaziatura tra gli elementi */
+  text-align: center;
+  top: 50%; /* Posiziona verticalmente al centro */
+  left: 50%; /* Posiziona orizzontalmente al centro */
+  translate: -50% -50%; /* Centra esattamente l'elemento */
+  z-index: 1; /* Pone l'introduzione sopra l'immagine */
+}
+
+.carosello-intro h3 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 25px;
+  color: white; /* Colore del testo bianco */
+  letter-spacing: 1.5px; /* Aumenta la spaziatura tra le lettere */
+}
+
+.carosello-intro button {
+  width: 170px;
+  height: 50px;
+  background-color: #e0017a; /* Colore di sfondo del bottone */
+  color: white; /* Colore del testo bianco */
+  border: none;
+  border-radius: 8px; /* Bordo arrotondato */
+  box-shadow: 0 0 10px #ff5722; /* Ombra con colore arancione */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 18px;
+}
+
+.carosello-container::-webkit-scrollbar {
+  display: none; /* Nasconde la barra di scorrimento */
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center; /* Centra i pallini di navigazione */
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #bbb; /* Colore di base per i pallini */
+  border-radius: 50%; /* Forma rotonda per i pallini */
+  display: inline-block;
+  transition: background-color 0.3s ease; /* Transizione per il cambio di colore */
+}
+
+.dot.active {
+  background-color: #f19200; /* Colore attivo (arancione) per il pallino */
+}
