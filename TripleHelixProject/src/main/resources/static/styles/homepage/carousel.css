@@ -25,8 +25,8 @@
   --line-height: 160%;
 }
 
-.carosello-container {
-  /* Contenitore per il carosello */
+.carousel-container {
+  /* Contenitore per il carousel */
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -35,11 +35,11 @@
   margin-right: 1.3rem;
   width: calc(
     100% - 2.6rem
-  ); /* La larghezza del carosello considerando i margini */
+  ); /* La larghezza del carousel considerando i margini */
 }
 
-.carosello-item {
-  /* Ogni elemento del carosello */
+.carousel-item {
+  /* Ogni elemento del carousel */
   position: relative;
   flex-shrink: 0;
   width: 100%; /* Ogni immagine occupa l'intera larghezza della finestra */
@@ -49,14 +49,14 @@
   background-position: center;
 }
 
-.carosello-item img {
+.carousel-item img {
   width: 100%; /* L'immagine occupa tutta la larghezza dell'elemento */
   height: 100%; /* L'immagine occupa tutta l'altezza dell'elemento */
   object-fit: cover; /* Mantiene le proporzioni dell'immagine riempiendo l'area */
   border-radius: 8px; /* Angoli arrotondati per l'immagine */
 }
 
-.carosello-item::after {
+.carousel-item::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -70,7 +70,7 @@
   );
 }
 
-.carosello-intro {
+.carousel-intro {
   position: absolute;
   width: 80%; /* L'introduzione occupa l'80% della larghezza */
   display: flex;
@@ -84,7 +84,7 @@
   z-index: 1; /* Pone l'introduzione sopra l'immagine */
 }
 
-.carosello-intro h3 {
+.carousel-intro h3 {
   font-family: var(--font-family);
   font-weight: var(--font-weight-semi-bold);
   font-size: 25px;
@@ -92,7 +92,7 @@
   letter-spacing: 1.5px; /* Aumenta la spaziatura tra le lettere */
 }
 
-.carosello-intro button {
+.carousel-intro button {
   width: 170px;
   height: 50px;
   background-color: #e0017a; /* Colore di sfondo del bottone */
@@ -105,7 +105,7 @@
   font-size: 18px;
 }
 
-.carosello-container::-webkit-scrollbar {
+.carousel-container::-webkit-scrollbar {
   display: none; /* Nasconde la barra di scorrimento */
 }
 
