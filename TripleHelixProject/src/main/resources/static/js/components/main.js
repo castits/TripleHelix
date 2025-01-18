@@ -110,6 +110,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0; // Tracks the current carousel item index
 
+  // Imposta il primo punto come attivo all'inizio
+  dots[currentIndex].classList.add("active");
+
   /**
    * Funzione che aggiorna lo stato del dot attivo in base all'indice corrente
    * del carousel, cambiando il punto evidenziato.
