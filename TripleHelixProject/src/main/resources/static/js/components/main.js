@@ -243,12 +243,8 @@ window.addEventListener("DOMContentLoaded", () => {
       const name = form.name.value.trim();
       const surname = form.surname.value.trim();
       const email = form.email.value.trim();
-      const institute = form.ente.value.trim();
-      const participantQuantity = form.partecipanti.value.trim();
-      const appointmentDate = form.data.value.trim();
-      const timeSlot = form.durata.value.trim();
-      const activity = form.attivita.value.trim();
-      const bookingInfoReq = form.messaggio.value.trim();
+      const phone = form.phone.value.trim();
+      const message = form.message.value.trim();
 
       // Regex per validare l'email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -259,54 +255,42 @@ window.addEventListener("DOMContentLoaded", () => {
       if (!email || !emailRegex.test(email)) {
         errors.push("Inserisci un'email valida.");
       }
-      if (!institute) errors.push("Il campo 'Ente' è obbligatorio.");
-      if (
-        !participantQuantity ||
-        isNaN(participantQuantity) ||
-        participantQuantity <= 0
-      ) {
-        errors.push("Inserisci un numero di partecipanti valido.");
+      if (phone && isNaN(phone)) {
+        errors.push("Il numero di telefono deve contenere solo numeri.");
       }
-      if (!appointmentDate) errors.push("Il campo 'Data' è obbligatorio.");
-      if (!timeSlot) errors.push("Seleziona una durata valida.");
-      if (!activity) errors.push("Seleziona un'attività valida.");
-      if (bookingInfoReq.length > 500) {
-        errors.push("Il messaggio non può superare i 500 caratteri.");
-      }
+      if (!message) errors.push("Il campo 'Messaggio' è obbligatorio.");
+      if (message.length < 10)
+        errors.push("Il messaggio deve contenere almeno 10 caratteri.");
 
       // Mostra errori se presenti
       if (errors.length > 0) {
         messageContainer.style.color = "red";
         errors.forEach((error) => {
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent = error;
-          messageContainer.appendChild(errorMessage);
+          const errorElement = document.createElement("p");
+          errorElement.textContent = error;
+          messageContainer.appendChild(errorElement);
         });
         return;
       }
 
-      // Se i dati sono validi, invia la richiesta
+      // Se i dati sono validi, invia l'email
       try {
-        const response = await fetch("api/bookings/create", {
+        const response = await fetch("api/information-requests/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            name,
-            surname,
-            email,
-            institute,
-            participantQuantity,
-            appointmentDate,
-            timeSlot,
-            activity,
-            bookingInfoReq,
+            userName: form.name.value,
+            userSurname: form.surname.value,
+            userEmail: form.email.value,
+            userPhone: form.phone.value,
+            informationRequestText: form.message.value,
           }),
         });
 
         if (response.ok) {
           messageContainer.style.color = "green";
           const successMessage = document.createElement("p");
-          successMessage.textContent = "Prenotazione effettuata con successo!";
+          successMessage.textContent = "Email inviata con successo!";
           messageContainer.appendChild(successMessage);
           setTimeout(() => {
             location.href = "./index.html";
@@ -316,11 +300,12 @@ window.addEventListener("DOMContentLoaded", () => {
           messageContainer.style.color = "red";
           const errorMessage = document.createElement("p");
           errorMessage.textContent =
-            errorData.message || "Errore durante la prenotazione.";
+            errorData.message ||
+            "Errore nell'invio dell'email. Riprova più tardi.";
           messageContainer.appendChild(errorMessage);
         }
       } catch (error) {
-        console.error("Errore durante la prenotazione:", error);
+        console.error("Errore durante l'invio dell'email:", error);
         messageContainer.style.color = "red";
         const errorMessage = document.createElement("p");
         errorMessage.textContent =
@@ -330,11 +315,12 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  updateHeroHeight();
-  openAccordion();
-  ctaScroll();
-  setupNavbarLinks();
-  isLogged();
-  logout();
-  contact();
+  updateCurrentIndex(); // Inizializza lo stato iniziale del carousel
+  updateHeroHeight(); // Imposta la sezione hero all'altezza corretta
+  ctaScroll(); // Inizializza il comportamento di scrolling delle CTA
+  openAccordion(); // Inizializza le funzionalità degli accordion
+  setupNavbarLinks(); // Inizializza il comportamento dei link della navbar
+  isLogged(); // Verifica se l'utente è loggato
+  logout(); // Effettua il logout dell'utente corrente
+  contact(); // Invia la mail di contatto
 });
