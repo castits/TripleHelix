@@ -249,6 +249,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Regex per validazione
       const nameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Nome e cognome: minimo 2 caratteri, solo lettere, spazi, apostrofi e trattini
+      const surnameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Nome e cognome: minimo 2 caratteri, solo lettere, spazi, apostrofi e trattini
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // Email valida con dominio ed estensione
       const phoneRegex = /^\d{8,15}$/; // Solo cifre, lunghezza da 8 a 15
 
@@ -302,12 +303,18 @@ window.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Se i dati sono validi, invia l'email
+      // Se i dati sono validi, invia la richiesta
       try {
         const response = await fetch("api/information-requests/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, surname, email, phone, message }),
+          body: JSON.stringify({
+            userName: name,
+            userSurname: surname,
+            userEmail: email,
+            userPhone: phone,
+            informationRequestText: message,
+          }),
         });
 
         if (response.ok) {
@@ -345,6 +352,6 @@ window.addEventListener("DOMContentLoaded", () => {
   openAccordion(); // Inizializza le funzionalità degli accordion
   setupNavbarLinks(); // Inizializza il comportamento dei link della navbar
   isLogged(); // Verifica se l'utente è loggato
-  logout(); // Effettua il logout dell'utente corrente
+  // logout(); // Effettua il logout dell'utente corrente
   contact(); // Invia la mail di contatto
 });
