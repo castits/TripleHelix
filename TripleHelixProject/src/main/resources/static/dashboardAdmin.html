@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+  <!-- Inizio della sezione head -->
+  <head>
+    <!-- Meta informazioni -->
+    <!-- Specifica il set di caratteri utilizzato -->
+    <meta charset="UTF-8" />
+    <!-- Ottimizzazione per dispositivi mobili -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Autore del sito -->
+    <meta name="author" content="Triple Helix" />
+    <!-- Descrizione del sito -->
+    <meta
+      name="description"
+      content="Pagina di prenotazione per prenotare una visita in Cascina Caccia."
+    />
+    <!-- Titolo della pagina -->
+    <title>Prenota ora - Cascina Caccia</title>
+
+    <!-- Collegamento ai font di Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Collegamento ai fogli di stile -->
+    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <!-- Stile per la barra di navigazione -->
+    <link rel="stylesheet" href="./styles/components/navbar.css" />
+    <!-- Stile per la pagina di backoffice -->
+    <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
+  </head>
+  </head>
+  <!-- Fine della sezione head -->
+
+  <!-- Inizio del corpo della pagina -->
+  <body>
+<!-- Intestazione della pagina -->
+<header>
+  <!-- Logo della pagina -->
+  <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia" />
+
+  <!-- Navigazione principale -->
+  <nav>
+    <!-- Checkbox per il menu mobile -->
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <img
+        src="./assets/svg/hamburger.svg"
+        alt="Menu di navigazione"
+        id="hamburger"
+      />
+    </label>
+
+    <!-- Link per la navigazione -->
+    <div class="nav-mobile">
+      <a href="#">Home</a>
+          <a href="#">In attesa</a>
+          <a href="#">Confermate</a>
+          <a href="#">Cancellate</a>
+          <a href="#">Feedbacks</a>
+    </div>
+  </nav>
+</header>
+
+    <!-- Contenuto principale della pagina -->
+    <main>
+  
+    </main>
+
+    <!-- Collegamento al file JavaScript per la gestione delle prenotazioni confermate -->
+    <script src="./js/backoffice/bookingConfirm.js"></script>
+
+  </body>
+  <!-- Fine del corpo --> 
+</html>
