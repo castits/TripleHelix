@@ -229,62 +229,76 @@ window.addEventListener("DOMContentLoaded", () => {
    * Mostra errori in caso di campi non validi, o invia i dati via fetch se tutto è corretto.
    */
   function contact() {
-    const form = document.querySelector("#contact-form");
-    const messageContainer = document.createElement("div");
-    messageContainer.id = "message-container";
-    messageContainer.style.marginTop = "20px";
-    form.appendChild(messageContainer);
+    const form = document.querySelector("#contact");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Pulisce i messaggi precedenti
-      messageContainer.textContent = "";
+      // Pulisce i messaggi di errore precedenti
+      const errorMessages = form.querySelectorAll(".error-message");
+      errorMessages.forEach((error) => error.remove());
 
-      // Validazione dei campi: se ci sono errori, vengono mostrati nella pagina
-      const errors = [];
+      const successMessage = form.querySelector(".success-message");
+      if (successMessage) successMessage.remove();
+
       const name = form.name.value.trim();
       const surname = form.surname.value.trim();
       const email = form.email.value.trim();
-      const institute = form.ente.value.trim();
-      const participantQuantity = form.partecipanti.value.trim();
-      const appointmentDate = form.data.value.trim();
-      const timeSlot = form.durata.value.trim();
-      const activity = form.attivita.value.trim();
-      const bookingInfoReq = form.messaggio.value.trim();
+      const phone = form.phone.value.trim();
+      const message = form.message.value.trim();
 
-      // Regex per validare l'email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Regex per validazione
+      const nameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Nome e cognome: minimo 2 caratteri, solo lettere, spazi, apostrofi e trattini
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // Email valida con dominio ed estensione
+      const phoneRegex = /^\d{8,15}$/; // Solo cifre, lunghezza da 8 a 15
+
+      let hasErrors = false;
+
+      // Funzione per mostrare un messaggio di errore sotto un campo
+      const showError = (field, message) => {
+        hasErrors = true;
+        const errorElement = document.createElement("span");
+        errorElement.className = "error-message";
+        errorElement.style.color = "red";
+        errorElement.style.fontSize = "0.875em";
+        errorElement.textContent = message;
+        field.parentNode.appendChild(errorElement);
+      };
 
       // Validazione specifica per ogni campo
-      if (!name) errors.push("Il campo 'Nome' è obbligatorio.");
-      if (!surname) errors.push("Il campo 'Cognome' è obbligatorio.");
-      if (!email || !emailRegex.test(email)) {
-        errors.push("Inserisci un'email valida.");
-      }
-      if (!institute) errors.push("Il campo 'Ente' è obbligatorio.");
-      if (
-        !participantQuantity ||
-        isNaN(participantQuantity) ||
-        participantQuantity <= 0
-      ) {
-        errors.push("Inserisci un numero di partecipanti valido.");
-      }
-      if (!appointmentDate) errors.push("Il campo 'Data' è obbligatorio.");
-      if (!timeSlot) errors.push("Seleziona una durata valida.");
-      if (!activity) errors.push("Seleziona un'attività valida.");
-      if (bookingInfoReq.length > 500) {
-        errors.push("Il messaggio non può superare i 500 caratteri.");
+      if (!name || !nameRegex.test(name)) {
+        showError(
+          form.name,
+          "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
+        );
       }
 
-      // Mostra errori se presenti
-      if (errors.length > 0) {
-        messageContainer.style.color = "red";
-        errors.forEach((error) => {
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent = error;
-          messageContainer.appendChild(errorMessage);
-        });
+      if (!surname || !surnameRegex.test(surname)) {
+        showError(
+          form.surname,
+          "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
+        );
+      }
+
+      if (!email || !emailRegex.test(email)) {
+        showError(form.email, "Inserisci un'email valida.");
+      }
+
+      if (phone && !phoneRegex.test(phone)) {
+        showError(
+          form.phone,
+          "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri."
+        );
+      }
+
+      if (message.length > 500) {
+        showError(
+          form.message,
+          "Il messaggio non può superare i 500 caratteri."
+        );
+      }
+
+      if (hasErrors) {
         return;
       }
 
@@ -293,42 +307,35 @@ window.addEventListener("DOMContentLoaded", () => {
         const response = await fetch("api/bookings/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name,
-            surname,
-            email,
-            institute,
-            participantQuantity,
-            appointmentDate,
-            timeSlot,
-            activity,
-            bookingInfoReq,
-          }),
+          body: JSON.stringify({ name, surname, email, phone, message }),
         });
 
         if (response.ok) {
-          messageContainer.style.color = "green";
-          const successMessage = document.createElement("p");
-          successMessage.textContent = "Prenotazione effettuata con successo!";
-          messageContainer.appendChild(successMessage);
-          setTimeout(() => {
-            location.href = "./index.html";
-          }, 2000);
+          const successElement = document.createElement("div");
+          successElement.className = "success-message";
+          successElement.style.color = "green";
+          successElement.style.marginTop = "20px";
+          successElement.textContent = "Messaggio inviato con successo!";
+          form.appendChild(successElement);
+          form.reset(); // Resetta il form dopo l'invio
         } else {
-          const errorData = await response.json();
-          messageContainer.style.color = "red";
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent =
-            errorData.message || "Errore durante la prenotazione.";
-          messageContainer.appendChild(errorMessage);
+          const errorElement = document.createElement("div");
+          errorElement.className = "error-message";
+          errorElement.style.color = "red";
+          errorElement.style.marginTop = "20px";
+          errorElement.textContent =
+            "Errore durante l'invio del messaggio. Riprova più tardi.";
+          form.appendChild(errorElement);
         }
       } catch (error) {
-        console.error("Errore durante la prenotazione:", error);
-        messageContainer.style.color = "red";
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent =
+        console.error("Errore:", error);
+        const errorElement = document.createElement("div");
+        errorElement.className = "error-message";
+        errorElement.style.color = "red";
+        errorElement.style.marginTop = "20px";
+        errorElement.textContent =
           "Si è verificato un errore. Riprova più tardi.";
-        messageContainer.appendChild(errorMessage);
+        form.appendChild(errorElement);
       }
     });
   }
