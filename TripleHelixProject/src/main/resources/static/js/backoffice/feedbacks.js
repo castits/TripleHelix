@@ -1,4 +1,4 @@
-let endpointfeedbacks = "https://jsonblob.com/api/jsonBlob/1328070705258094592";
+let endpointfeedbacks = "http://localhost:8080/api/feedbacks";
 let feedbacks = [];
 let x = 0;
 

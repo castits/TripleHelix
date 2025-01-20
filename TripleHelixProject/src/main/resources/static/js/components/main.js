@@ -176,28 +176,31 @@ window.addEventListener("DOMContentLoaded", () => {
    * alla pagina appropriata: dashboard se loggato, login altrimenti.
    */
   function isLogged() {
-    const profile = document.getElementById("profile");
+    const profileIcons = document.querySelectorAll(".profile");
     let isUserLogged = false;
 
-    profile.addEventListener("click", async () => {
-      try {
-        const response = await fetch("/pub/auth/is-logged");
+    profileIcons.forEach((profile) => {
+      profile.addEventListener("click", async (event) => {
+        event.preventDefault();
+        try {
+          const response = await fetch("/pub/auth/is-logged");
 
-        if (response.ok) {
-          const text = await response.text();
-          if (text === "true") {
-            isUserLogged = true;
-            console.log(isUserLogged);
+          if (response.ok) {
+            const text = await response.text();
+            if (text === "true") {
+              isUserLogged = true;
+              console.log(isUserLogged);
+            }
+            if (isUserLogged) {
+              location.href = "./usersDashboard.html";
+            } else {
+              location.href = "./login.html";
+            }
           }
-          if (isUserLogged) {
-            location.href = "./dashboardUtente.html";
-          } else {
-            location.href = "./login.html";
-          }
+        } catch (error) {
+          console.error(error);
         }
-      } catch (error) {
-        console.error(error);
-      }
+      });
     });
   }
 
@@ -249,7 +252,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Regex per validazione
       const nameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Nome e cognome: minimo 2 caratteri, solo lettere, spazi, apostrofi e trattini
-      const surnameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Nome e cognome: minimo 2 caratteri, solo lettere, spazi, apostrofi e trattini
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // Email valida con dominio ed estensione
       const phoneRegex = /^\d{8,15}$/; // Solo cifre, lunghezza da 8 a 15
 
@@ -260,8 +262,6 @@ window.addEventListener("DOMContentLoaded", () => {
         hasErrors = true;
         const errorElement = document.createElement("span");
         errorElement.className = "error-message";
-        errorElement.style.color = "red";
-        errorElement.style.fontSize = "0.875em";
         errorElement.textContent = message;
         field.parentNode.appendChild(errorElement);
       };
@@ -274,7 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      if (!surname || !surnameRegex.test(surname)) {
+      if (!surname || !nameRegex.test(surname)) {
         showError(
           form.surname,
           "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
@@ -320,16 +320,12 @@ window.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           const successElement = document.createElement("div");
           successElement.className = "success-message";
-          successElement.style.color = "green";
-          successElement.style.marginTop = "20px";
           successElement.textContent = "Messaggio inviato con successo!";
           form.appendChild(successElement);
           form.reset(); // Resetta il form dopo l'invio
         } else {
           const errorElement = document.createElement("div");
           errorElement.className = "error-message";
-          errorElement.style.color = "red";
-          errorElement.style.marginTop = "20px";
           errorElement.textContent =
             "Errore durante l'invio del messaggio. Riprova più tardi.";
           form.appendChild(errorElement);
@@ -338,8 +334,6 @@ window.addEventListener("DOMContentLoaded", () => {
         console.error("Errore:", error);
         const errorElement = document.createElement("div");
         errorElement.className = "error-message";
-        errorElement.style.color = "red";
-        errorElement.style.marginTop = "20px";
         errorElement.textContent =
           "Si è verificato un errore. Riprova più tardi.";
         form.appendChild(errorElement);

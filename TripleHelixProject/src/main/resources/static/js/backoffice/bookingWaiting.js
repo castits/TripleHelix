@@ -1,7 +1,5 @@
-let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1327230806158139392";
-//1327189519845482496
-//1327213696677765120
-// tanti 1327230806158139392
+let endpointPrenotazioni =
+  "http://localhost:8080/api/bookings/status&status=PENDING";
 let prenotazioni = [];
 let x = 0;
 
@@ -50,31 +48,55 @@ function createPrenotazioneBox(prenotazione) {
 
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
-  nome.appendChild(document.createTextNode(`Referente: ${prenotazione.userName} ${prenotazione.userSurname}`));
+  nome.appendChild(
+    document.createTextNode(
+      `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`
+    )
+  );
   div.appendChild(nome);
 
   let email = document.createElement("p");
-  email.appendChild(document.createTextNode(`Email: ${prenotazione.userEmail}`));
+  email.appendChild(
+    document.createTextNode(`Email: ${prenotazione.userEmail}`)
+  );
   div.appendChild(email);
 
   let istituto = document.createElement("p");
-  istituto.appendChild(document.createTextNode(`Istituto: ${prenotazione.institute}`));
+  istituto.appendChild(
+    document.createTextNode(`Istituto: ${prenotazione.institute}`)
+  );
   div.appendChild(istituto);
 
   let partecipanti = document.createElement("p");
-  partecipanti.appendChild(document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`));
+  partecipanti.appendChild(
+    document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`)
+  );
   div.appendChild(partecipanti);
 
   let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(document.createTextNode(`Data Appuntamento: ${prenotazione.appointmentDate}`));
+  dataAppuntamento.appendChild(
+    document.createTextNode(
+      `Data Appuntamento: ${prenotazione.appointmentDate}`
+    )
+  );
   div.appendChild(dataAppuntamento);
 
   let giorno = document.createElement("p");
-  giorno.appendChild(document.createTextNode(`Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`));
+  giorno.appendChild(
+    document.createTextNode(
+      `Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`
+    )
+  );
   div.appendChild(giorno);
 
   let fasciaOraria = document.createElement("p");
-  fasciaOraria.appendChild(document.createTextNode(`Fascia Oraria: ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
+  fasciaOraria.appendChild(
+    document.createTextNode(
+      `Fascia Oraria: ${
+        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
+      }`
+    )
+  );
   div.appendChild(fasciaOraria);
 
   // Crea i bottoni "Accetta" e "Rifiuta"
