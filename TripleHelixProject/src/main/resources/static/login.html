@@ -10,14 +10,20 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta name="description" content="Pagina di accesso per gli utenti registrati di Cascina Caccia." />
+    <meta
+      name="description"
+      content="Pagina di accesso per gli utenti registrati di Cascina Caccia."
+    />
     <!-- Titolo della pagina -->
     <title>Login - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili su tutti i browser -->
@@ -37,14 +43,25 @@
     <header>
       <!-- Logo section -->
       <a href="./index.html" aria-label="Torna alla homepage">
-        <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" />
+        <img
+          src="./assets/svg/logo.svg"
+          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+        />
       </a>
 
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
-        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
-          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
+        <label
+          for="check"
+          class="checkbtn"
+          aria-label="Apri menu di navigazione"
+        >
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Icona menu di navigazione"
+            id="hamburger"
+          />
         </label>
         <input type="checkbox" id="check" />
 
@@ -61,17 +78,29 @@
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
             </li>
 
             <!-- "Contact Us" link -->
             <li class="mobileNavLink">
-              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
+              <a
+                class="scroll important-btn"
+                href="./index.html#contact"
+                title="Contattaci per maggiori informazioni"
+                >Contattaci</a
+              >
             </li>
 
             <!-- "Book a Visit" link -->
             <li class="mobileNavLink">
-              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn">Prenota ora</a>
+              <a
+                href="./booking.html"
+                title="Prenota una visita alla Cascina"
+                class="important-btn"
+                >Prenota ora</a
+              >
             </li>
 
             <li class="mobileNavLink">
@@ -85,16 +114,29 @@
           <ul>
             <!-- "Contact Us" button -->
             <li>
-              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
+              <a
+                class="scroll important-btn"
+                href="./index.html#contact"
+                title="Contattaci per maggiori informazioni"
+                >Contattaci</a
+              >
             </li>
 
             <!-- "Book a Visit" button -->
             <li>
-              <a class="important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank">Prenota ora</a>
+              <a
+                class="important-btn"
+                href="./booking.html"
+                title="Prenota una visita alla Cascina"
+                target="_blank"
+                >Prenota ora</a
+              >
             </li>
             <!--Homepage-->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
             </li>
             <!-- !Logout -->
             <li>
@@ -123,17 +165,31 @@
         <!-- Campo per inserire l'email -->
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Inserisci la tua email"
+            required
+          />
         </div>
 
         <!-- Campo per inserire la password -->
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Almeno 8 caratteri"
+            required
+          />
         </div>
 
         <!-- Collegamento per recuperare la password dimenticata -->
-        <a id="pwd-dimenticata" href="cambioPassword.html">Password dimenticata?</a>
+        <a id="pwd-dimenticata" href="cambioPassword.html"
+          >Password dimenticata?</a
+        >
 
         <!-- Pulsante per accedere -->
         <button type="submit">Accedi</button>
@@ -159,8 +215,8 @@
 
     <!-- Collegamento al file JavaScript per la gestione della pagina -->
     <script src="./js/auth/login.js"></script>
-    <script src="./js/components/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>
+    <script src="./js/components/isLoggedAndLogout.js"></script>
   </body>
   <!-- Fine del corpo -->
 </html>

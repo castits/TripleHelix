@@ -54,8 +54,14 @@ window.addEventListener("DOMContentLoaded", () => {
           successMessage.textContent = "Login avvenuto con successo!";
           loginForm.appendChild(successMessage);
 
+          const role = await userRole();
+
           setTimeout(() => {
-            window.location.href = "/dashboardUtente.html";
+            if (role == 2) {
+              location.href = "./usersDashboard.html";
+            } else if (role == 1) {
+              location.href = "./dashboardAdmin.html";
+            }
           }, 2000);
         } else {
           const errorData = await response.json();

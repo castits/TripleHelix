@@ -4,7 +4,6 @@
  */
 function isLogged() {
   const profileIcons = document.querySelectorAll(".profile");
-  const logoutBtn = document.querySelectorAll(".logout");
   let isUserLogged = false;
 
   profileIcons.forEach((profile) => {
@@ -17,19 +16,16 @@ function isLogged() {
           const text = await response.text();
           if (text === "true") {
             isUserLogged = true;
-            console.log(isUserLogged);
           }
           if (isUserLogged) {
-            profiloLogin.textContent = "Profilo";
-            logoutBtn.forEach((logoutItem) => {
-              logoutItem.style.display = "block";
-            });
-            location.href = "./usersDashboard.html";
+            const role = await userRole();
+
+            if (role == 2) {
+              location.href = "./usersDashboard.html";
+            } else if (role == 1) {
+              location.href = "./dashboardAdmin.html";
+            }
           } else {
-            profiloLogin.textContent = "Accedi";
-            logoutBtn.forEach((logoutItem) => {
-              logoutItem.style.display = "none";
-            });
             location.href = "./login.html";
           }
         }
@@ -69,9 +65,9 @@ function logout() {
 async function userRole() {
   const response = await fetch("/api/users/auth-role");
   const role = await response.text();
-  console.log(role);
+
+  return Number(role);
 }
 
 isLogged();
 logout();
-userRole();
