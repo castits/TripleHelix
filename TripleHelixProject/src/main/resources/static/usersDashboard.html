@@ -10,9 +10,9 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta name="description" content="Pagina di accesso per gli utenti registrati di Cascina Caccia." />
+    <meta name="description" content="Gestione delle prenotazioni confermate in cascina caccia da parte dell'utente" />
     <!-- Titolo della pagina -->
-    <title>Login - Cascina Caccia</title>
+    <title>Gestione Prenotazioni - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,26 +20,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <!-- Collegamento ai fogli di stile -->
-    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
+    <!-- Reset CSS per uniformare gli stili -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile per la pagina di login -->
-    <link rel="stylesheet" href="./styles/auth/login.css" />
+    <!-- Stile back office -->
+    <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
   </head>
   <!-- Fine della sezione head -->
 
   <!-- Inizio del corpo -->
   <body>
-    <!--*------------------------------*-->
-    <!--*           HEADER             *-->
-    <!--*------------------------------*-->
+    <!-- Intestazione della pagina -->
     <header>
-      <!-- Logo section -->
-      <a href="./index.html" aria-label="Torna alla homepage">
-        <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" />
-      </a>
-
+      <!-- Chiedere significato del logo per attributo alt -->
+      <a href="./index.html"><img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" /></a>
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
@@ -113,52 +108,17 @@
       </nav>
     </header>
 
-    <!-- Contenuto principale -->
+    <!-- Contenuto principale della pagina -->
     <main>
-      <!-- Form di accesso -->
-      <form id="login-form" method="post">
-        <!-- Titolo del form -->
-        <h1>Accedi</h1>
+      <!-- Titolo della sezione delle prenotazioni confermate -->
+      <h2 id="confermate">Prenotazioni Confermate:</h2>
 
-        <!-- Campo per inserire l'email -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
-        </div>
-
-        <!-- Campo per inserire la password -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
-        </div>
-
-        <!-- Collegamento per recuperare la password dimenticata -->
-        <a id="pwd-dimenticata" href="cambioPassword.html">Password dimenticata?</a>
-
-        <!-- Pulsante per accedere -->
-        <button type="submit">Accedi</button>
-      </form>
-
-      <!-- Sezione per accesso alternativo -->
-      <!-- <div id="alt-login">
-        <p>Oppure accedi con</p>
-      </div> -->
-
-      <!-- Pulsante per accesso con Google -->
-      <!-- <button id="google-access">
-        <img src="./assets/img/Google.png" alt="Logo Google" />
-        <p>Google</p>
-      </button> -->
-
-      <!-- Collegamento per la registrazione di nuovi utenti -->
-      <p id="register">
-        Non hai un account?
-        <a href="./registration.html">Registrati</a>
-      </p>
+      <!-- Contenitore dove verranno caricate le prenotazioni confermate -->
+      <div class="containerPrenotazione"></div>
     </main>
 
-    <!-- Collegamento al file JavaScript per la gestione della pagina -->
-    <script src="./js/auth/login.js"></script>
+    <!-- Collegamento al file JavaScript per la gestione della dashboard -->
+    <script src="./js/backoffice/usersDashboard.js"></script>
     <script src="./js/components/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>
   </body>

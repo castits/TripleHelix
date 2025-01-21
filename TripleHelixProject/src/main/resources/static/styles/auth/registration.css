@@ -1,0 +1,137 @@
+:root {
+  /* Colors */
+  --white: #f4f4f4;
+  --black: #272727;
+  --orange: #ff8400;
+  --fucsia: #ed008c;
+  --gray-light: #b3b3b3;
+  --orange-hover: #cc6a00;
+  --fucsia-hover: #c20074;
+  --orange-light: #ffe9cc;
+  /* Font family */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+  /* Font size */
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font line height */
+  --line-height: 160%;
+}
+
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+main {
+  padding: 2rem 1.3rem;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.7em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+label {
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+}
+
+input:not(#gdpr) {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.7rem;
+  margin: 0.3rem 0 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  background-color: #f3f7fb;
+}
+
+input:not(#gdpr)::placeholder {
+  color: #b3b3b3;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: 16px;
+}
+
+input:not(#gdpr):focus {
+  outline: none;
+  border: 1px solid #e0017a;
+}
+
+input:not(#gdpr):focus::placeholder {
+  color: #212121;
+}
+
+#gdpr-field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 0.5em;
+}
+
+#gdpr-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 16px;
+}
+
+label[for="gdpr"] {
+  font-weight: var(--font-weight-medium);
+  font-size: 16px;
+  line-height: 120%;
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  height: 3rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #162d3a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}

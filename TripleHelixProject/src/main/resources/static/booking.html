@@ -10,9 +10,9 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta name="description" content="Pagina di accesso per gli utenti registrati di Cascina Caccia." />
+    <meta name="description" content="Pagina di prenotazione per prenotare una visita in Cascina Caccia." />
     <!-- Titolo della pagina -->
-    <title>Login - Cascina Caccia</title>
+    <title>Prenota - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile per la pagina di login -->
-    <link rel="stylesheet" href="./styles/auth/login.css" />
+    <link rel="stylesheet" href="./styles/booking.css" />
   </head>
   <!-- Fine della sezione head -->
 
-  <!-- Inizio del corpo -->
+  <!-- Inizio del corpo della pagina -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
@@ -115,52 +114,91 @@
 
     <!-- Contenuto principale -->
     <main>
-      <!-- Form di accesso -->
-      <form id="login-form" method="post">
-        <!-- Titolo del form -->
-        <h1>Accedi</h1>
-
-        <!-- Campo per inserire l'email -->
+      <!-- Form per la prenotazione -->
+      <form>
+        <h2>Prenota ora</h2>
+        <p>Compila il modulo per inviare la tua richiesta di prenotazione. Ti risponderemo al più presto!</p>
+        <!-- Campo per il nome -->
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" required />
+        </div>
+        <!-- Campo per il cognome -->
+        <div class="form-group">
+          <label for="surname">Cognome</label>
+          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" required />
+        </div>
+        <!-- Campo per l'email -->
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
+          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
         </div>
 
-        <!-- Campo per inserire la password -->
+        <!-- Campo per il numero di telefono -->
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
+          <label for="phone-number">Numero di telefono</label>
+          <input type="text" id="phone-number" name="phone-number" placeholder="Inserisci il tuo numero di telefono" required />
         </div>
 
-        <!-- Collegamento per recuperare la password dimenticata -->
-        <a id="pwd-dimenticata" href="cambioPassword.html">Password dimenticata?</a>
+        <!-- Campo per l'ente di appartenenza -->
+        <div class="form-group">
+          <label for="ente">Ente</label>
+          <input type="text" id="ente" name="ente" placeholder="Inserisci il nome dell'ente" required />
+        </div>
+        <!-- Campo per il numero di partecipanti -->
+        <div class="form-group">
+          <label for="partecipanti">Partecipanti</label>
+          <input type="number" id="partecipanti" name="partecipanti" placeholder="Inserisci il numero dei partecipanti" required />
+        </div>
 
-        <!-- Pulsante per accedere -->
-        <button type="submit">Accedi</button>
+        <!-- Selezione per la durata -->
+        <div class="form-group">
+          <label for="durata">Durata</label>
+          <select name="durata" id="durata">
+            <option value="" disabled selected>Seleziona la fascia oraria...</option>
+            <option value="MORNING">Mattina</option>
+            <option value="AFTERNOON">Pomeriggio</option>
+            <option value="FULL_DAY">Tutto il giorno</option>
+          </select>
+        </div>
+
+        <!-- Campo per selezionare la data -->
+        <div class="form-group">
+          <label for="data">Data</label>
+          <input type="date" id="data" name="data" required />
+        </div>
+
+        <!-- Campo per selezionare l'attività -->
+        <div class="form-group">
+          <label for="attivita">Attività</label>
+          <select name="attivita" id="attivita">
+            <option value="" disabled selected>Seleziona attività...</option>
+            <option value="Storia della Cascina Carla e Bruno Caccia">Storia della Cascina Carla e Bruno Caccia</option>
+            <option value="Bruno Caccia">Bruno Caccia</option>
+            <option value="Regolegalità per i più piccini">Regolegalità per i più piccini</option>
+            <option value="I beni confiscati">I beni confiscati</option>
+            <option value="Le mafie e il cibo">Le mafie e il cibo</option>
+            <option value="Miele e api">Miele e api</option>
+            <option value="La mafia attraverso il cinema">La mafia attraverso il cinema</option>
+            <option value="Il gioco non è un azzardo">Il gioco non è un azzardo</option>
+            <option value="Chi non gioca vince">Chi non gioca vince</option>
+          </select>
+        </div>
+
+        <!-- Campo per inserire un messaggio -->
+        <div class="form-group">
+          <label for="messaggio">Messaggio</label>
+          <textarea name="messaggio" id="messaggio" placeholder="Inserisci il tuo messaggio"></textarea>
+        </div>
+        <!-- Pulsante per inviare il form -->
+        <button type="submit">INVIA</button>
       </form>
-
-      <!-- Sezione per accesso alternativo -->
-      <!-- <div id="alt-login">
-        <p>Oppure accedi con</p>
-      </div> -->
-
-      <!-- Pulsante per accesso con Google -->
-      <!-- <button id="google-access">
-        <img src="./assets/img/Google.png" alt="Logo Google" />
-        <p>Google</p>
-      </button> -->
-
-      <!-- Collegamento per la registrazione di nuovi utenti -->
-      <p id="register">
-        Non hai un account?
-        <a href="./registration.html">Registrati</a>
-      </p>
     </main>
 
     <!-- Collegamento al file JavaScript per la gestione della pagina -->
-    <script src="./js/auth/login.js"></script>
-    <script src="./js/components/isLoggedAndLogout.js"></script>
+    <script src="./js/backoffice/booking.js"></script>
     <script src="./js/components/header.js"></script>
+    <script src="./js/components/isLoggedAndLogout.js"></script>
   </body>
   <!-- Fine del corpo -->
 </html>
