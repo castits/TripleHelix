@@ -3,7 +3,6 @@ package com.triplehelix.services;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.triplehelix.entities.Booking;
 import com.triplehelix.entities.BookingStatus;
+import com.triplehelix.entities.BookingTimeSlot;
+import com.triplehelix.exceptions.BookingNotFoundException;
 import com.triplehelix.repos.BookingDAO;
 
 @Service
@@ -40,8 +41,9 @@ public class BookingService {
 			.collect(Collectors.toList());
 	}
 	
-	public Optional<Booking> getBookingById(int id) {
-		return bookingDAO.findById(id);
+	public Booking getBookingById(int id) {
+		return bookingDAO.findById(id)
+			.orElseThrow(() -> new BookingNotFoundException("Booking with id " + id + " not found"));
 	}
 	
 	public List<Map<String, Object>> getBookingsByStatus(BookingStatus status) {
@@ -72,18 +74,53 @@ public class BookingService {
 		return bookingDAO.save(booking);
 	}
 	
+	public Booking updateBooking(int id, Map<String, Object> updates) {
+	    Booking booking = bookingDAO.findById(id)
+	            .orElseThrow(() -> new BookingNotFoundException("Booking with ID " + id + " not found"));
+
+	    updates.forEach((key, value) -> {
+	        switch (key) {
+	            case "institute":
+	                booking.setInstitute((String) value);
+	                break;
+	            case "participantQuantity":
+	                booking.setParticipantQuantity((Integer) value);
+	                break;
+	            case "appointmentDate":
+	                booking.setAppointmentDate(LocalDate.parse((String) value));
+	                break;
+	            case "timeSlot":
+	                booking.setTimeSlot(BookingTimeSlot.valueOf((String) value));
+	                break;
+	            case "activity":
+	                booking.setActivity((String) value);
+	                break;
+	            case "status":
+	                booking.setStatus(BookingStatus.valueOf((String) value));
+	                break;
+	            default:
+	                throw new IllegalArgumentException("Field '" + key + "' is not updatable or invalid");
+	        }
+	    });
+
+	    return bookingDAO.save(booking);
+	}
+	
 	public void deleteBookingById(int id) {
+		if (!bookingDAO.existsById(id)) {
+			throw new BookingNotFoundException("Cannot delete booking. Booking with id " + id + " doesn't exist");
+		}
 		bookingDAO.deleteById(id);
 	}
 	
 	public void changeBookingStatus(int id, String status) {
-		Optional<Booking> booking = bookingDAO.findById(id);
-		
-		if (booking.isPresent()) {
-			Booking newBooking = booking.get();
-			newBooking.setStatus(BookingStatus.valueOf(status));
-			bookingDAO.save(newBooking);
-		}
+		Booking booking = getBookingById(id);
+		try {
+            booking.setStatus(BookingStatus.valueOf(status));
+            bookingDAO.save(booking);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Invalid status: " + status);
+        }
 
 	}
 
