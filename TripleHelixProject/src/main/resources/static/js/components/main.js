@@ -154,74 +154,13 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
 
   function handleScroll() {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
     const scrolled = (winScroll / height) * 100;
 
     document.getElementById("progressBar").style.width = scrolled + "%";
-  }
-
-  /**
-   * Gestisce l'apertura e la chiusura del menu mobile, cambiando l'icona dell'hamburger
-   * (da apertura a chiusura) a seconda dello stato del menu.
-   */
-
-  /**
-   * Verifica se l'utente è loggato e, in base alla risposta, reindirizza
-   * alla pagina appropriata: dashboard se loggato, login altrimenti.
-   */
-  function isLogged() {
-    const profile = document.getElementById("profile");
-    let isUserLogged = false;
-
-    profile.addEventListener("click", async () => {
-      try {
-        const response = await fetch("/pub/auth/is-logged");
-
-        if (response.ok) {
-          const text = await response.text();
-          if (text === "true") {
-            isUserLogged = true;
-            console.log(isUserLogged);
-          }
-          if (isUserLogged) {
-            location.href = "./dashboardUtente.html";
-          } else {
-            location.href = "./login.html";
-          }
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    });
-  }
-
-  /**
-   * Gestisce il logout dell'utente, inviando una richiesta POST al server per
-   * disconnettere l'utente e reindirizzarlo alla homepage.
-   */
-  function logout() {
-    const logout = document.getElementById("logout");
-
-    logout.addEventListener("click", async () => {
-      try {
-        const response = await fetch("/pub/auth/logout", {
-          method: "POST",
-        });
-
-        if (response.ok) {
-          location.href = "/index.html";
-          console.log("user logged out");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    });
   }
 
   /**
@@ -267,17 +206,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Validazione specifica per ogni campo
       if (!name || !nameRegex.test(name)) {
-        showError(
-          form.name,
-          "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
-        );
+        showError(form.name, "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri).");
       }
 
       if (!surname || !surnameRegex.test(surname)) {
-        showError(
-          form.surname,
-          "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
-        );
+        showError(form.surname, "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri).");
       }
 
       if (!email || !emailRegex.test(email)) {
@@ -285,17 +218,11 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       if (phone && !phoneRegex.test(phone)) {
-        showError(
-          form.phone,
-          "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri."
-        );
+        showError(form.phone, "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri.");
       }
 
       if (message.length > 500) {
-        showError(
-          form.message,
-          "Il messaggio non può superare i 500 caratteri."
-        );
+        showError(form.message, "Il messaggio non può superare i 500 caratteri.");
       }
 
       if (hasErrors) {
@@ -323,8 +250,7 @@ window.addEventListener("DOMContentLoaded", () => {
           errorElement.className = "error-message";
           errorElement.style.color = "red";
           errorElement.style.marginTop = "20px";
-          errorElement.textContent =
-            "Errore durante l'invio del messaggio. Riprova più tardi.";
+          errorElement.textContent = "Errore durante l'invio del messaggio. Riprova più tardi.";
           form.appendChild(errorElement);
         }
       } catch (error) {
@@ -333,8 +259,7 @@ window.addEventListener("DOMContentLoaded", () => {
         errorElement.className = "error-message";
         errorElement.style.color = "red";
         errorElement.style.marginTop = "20px";
-        errorElement.textContent =
-          "Si è verificato un errore. Riprova più tardi.";
+        errorElement.textContent = "Si è verificato un errore. Riprova più tardi.";
         form.appendChild(errorElement);
       }
     });
