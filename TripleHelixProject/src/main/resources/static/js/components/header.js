@@ -8,8 +8,8 @@ const check = document.getElementById("check");
 const hamburger = document.getElementById("hamburger");
 const progressBar = document.getElementById("progressBar");
 const body = document.body;
-const profiloLogin = document.getElementById("profile-login");
-const aLogout = document.getElementById("logout");
+const profiloLogin = document.getElementById("mobile-profile-login");
+const aLogout = document.querySelectorAll(".logout");
 const mobileNavLink = document.getElementsByClassName("mobileNavLink");
 const navArray = Array.prototype.slice.call(mobileNavLink);
 
@@ -17,12 +17,14 @@ let isLoggedd = true;
 
 if (isLoggedd == true) {
   profiloLogin.textContent = "Profilo";
-  document.getElementById("profile").href = "./usersDashboard.html";
-  aLogout.style.display = "block";
+  aLogout.forEach((logoutItem) => {
+    logoutItem.style.display = "block";
+  });
 } else {
   profiloLogin.textContent = "Accedi";
-  document.getElementById("profile").href = "./login.html";
-  aLogout.style.display = "none";
+  aLogout.forEach((logoutItem) => {
+    logoutItem.style.display = "none";
+  });
 }
 // Check if the checkbox is checked and add or remove the class to the body and change the hamburger icon
 check.addEventListener("change", handleNavCheck);

@@ -36,20 +36,26 @@ function isLogged() {
  * disconnettere l'utente e reindirizzarlo alla homepage.
  */
 function logout() {
-  const logout = document.getElementById("logout");
+  const logout = document.querySelectorAll(".logout");
 
-  logout.addEventListener("click", async () => {
-    try {
-      const response = await fetch("/pub/auth/logout", {
-        method: "POST",
-      });
+  logout.forEach((logoutItem) => {
+    logoutItem.addEventListener("click", async (e) => {
+      e.preventDefault();
+      try {
+        const response = await fetch("/pub/auth/logout", {
+          method: "POST",
+        });
 
-      if (response.ok) {
-        location.href = "/index.html";
-        console.log("user logged out");
+        if (response.ok) {
+          location.href = "/index.html";
+          console.log("user logged out");
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
+    });
   });
 }
+
+isLogged();
+logout();

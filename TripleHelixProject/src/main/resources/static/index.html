@@ -68,7 +68,7 @@
             <li class="mobileNavLink">
               <a class="profile" href="#" title="Accedi al tuo profilo">
                 <img src="./assets/svg/account.svg" alt="" />
-                <p class="profile-login"></p>
+                <p id="mobile-profile-login"></p>
               </a>
             </li>
 
@@ -109,7 +109,7 @@
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+              <a href="#" class="logout" title="Esci dal sistema">Logout</a>
             </li>
           </ul>
         </div>
@@ -156,14 +156,14 @@
             </li>
             <!-- !Logout -->
             <li>
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+              <a href="#" class="logout" title="Esci dal sistema">Logout</a>
             </li>
 
             <!-- Profile icon -->
             <li>
               <a class="profile" href="#" title="Accedi al tuo profilo">
                 <img src="./assets/svg/account.svg" alt="" />
-                <p class="profile-login"></p>
+                <p id="desktop-profile-login"></p>
               </a>
             </li>
           </ul>
@@ -619,9 +619,9 @@
     <!-- Fine del footer -->
 
     <!-- Collegamento al file javascript -->
-    <script src="./js/components/header.js"></script>
     <script src="./js/components/main.js"></script>
     <script src="./js/components/isLoggedAndLogout.js"></script>
+    <script src="./js/components/header.js"></script>
   </body>
   <!-- Fine della sezione body -->
 </html>
