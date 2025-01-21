@@ -4,6 +4,7 @@
  */
 function isLogged() {
   const profileIcons = document.querySelectorAll(".profile");
+  const logoutBtn = document.querySelectorAll(".logout");
   let isUserLogged = false;
 
   profileIcons.forEach((profile) => {
@@ -19,8 +20,16 @@ function isLogged() {
             console.log(isUserLogged);
           }
           if (isUserLogged) {
+            profiloLogin.textContent = "Profilo";
+            logoutBtn.forEach((logoutItem) => {
+              logoutItem.style.display = "block";
+            });
             location.href = "./usersDashboard.html";
           } else {
+            profiloLogin.textContent = "Accedi";
+            logoutBtn.forEach((logoutItem) => {
+              logoutItem.style.display = "none";
+            });
             location.href = "./login.html";
           }
         }

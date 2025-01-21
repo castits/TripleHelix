@@ -13,19 +13,6 @@ const aLogout = document.querySelectorAll(".logout");
 const mobileNavLink = document.getElementsByClassName("mobileNavLink");
 const navArray = Array.prototype.slice.call(mobileNavLink);
 
-let isLoggedd = true;
-
-if (isLoggedd == true) {
-  profiloLogin.textContent = "Profilo";
-  aLogout.forEach((logoutItem) => {
-    logoutItem.style.display = "block";
-  });
-} else {
-  profiloLogin.textContent = "Accedi";
-  aLogout.forEach((logoutItem) => {
-    logoutItem.style.display = "none";
-  });
-}
 // Check if the checkbox is checked and add or remove the class to the body and change the hamburger icon
 check.addEventListener("change", handleNavCheck);
 
