@@ -76,7 +76,7 @@ public class BookingService {
 	
 	public Booking updateBooking(int id, Map<String, Object> updates) {
 	    Booking booking = bookingDAO.findById(id)
-	            .orElseThrow(() -> new BookingNotFoundException("Booking with ID " + id + " not found"));
+	            .orElseThrow(() -> new BookingNotFoundException("Booking with id " + id + " doesn't exist"));
 
 	    updates.forEach((key, value) -> {
 	        switch (key) {
