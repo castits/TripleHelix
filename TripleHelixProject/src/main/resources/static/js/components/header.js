@@ -15,35 +15,36 @@ const navArray = Array.prototype.slice.call(mobileNavLink);
 const profileLoginArray = Array.prototype.slice.call(profileLogin);
 const aLogoutArray = Array.prototype.slice.call(aLogout);
 
-try {
-  const response = await fetch("/pub/auth/is-logged");
+async function showLogout() {
+  try {
+    const response = await fetch("/pub/auth/is-logged");
+    let isUserLogged = false;
 
-  if (response.ok) {
-    const text = await response.text();
-    if (text === "true") {
-      isUserLogged = true;
-      console.log(isUserLogged);
+    if (response.ok) {
+      const text = await response.text();
+      if (text === "true") {
+        isUserLogged = true;
+        console.log(isUserLogged);
+      }
+      if (isUserLogged) {
+        profileLoginArray.forEach((item) => {
+          item.textContent = "Profilo";
+        });
+        aLogoutArray.forEach((item) => {
+          item.style.display = "block";
+        });
+      } else {
+        profileLoginArray.forEach((item) => {
+          item.textContent = "Accedi";
+        });
+        aLogoutArray.forEach((item) => {
+          item.style.display = "none";
+        });
+      }
     }
-    if (isUserLogged) {
-      profileLoginArray.forEach((item) => {
-        item.textContent = "Profilo";
-      });
-      aLogoutArray.forEach((item) => {
-        item.style.display = "block";
-      });
-      location.href = "./dashboardUtente.html";
-    } else {
-      profileLoginArray.forEach((item) => {
-        item.textContent = "Accedi";
-      });
-      aLogoutArray.forEach((item) => {
-        item.style.display = "none";
-      });
-      location.href = "./login.html";
-    }
+  } catch (error) {
+    console.error(error);
   }
-} catch (error) {
-  console.error(error);
 }
 
 // Check if the checkbox is checked and add or remove the class to the body and change the hamburger icon
@@ -69,3 +70,5 @@ navArray.forEach((item) => {
     handleNavCheck();
   });
 });
+
+showLogout();
