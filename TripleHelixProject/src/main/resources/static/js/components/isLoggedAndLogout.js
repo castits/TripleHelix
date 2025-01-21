@@ -66,5 +66,12 @@ function logout() {
   });
 }
 
+async function userRole() {
+  const response = await fetch("/api/users/auth-role");
+  const role = await response.text();
+  console.log(role);
+}
+
 isLogged();
 logout();
+userRole();
