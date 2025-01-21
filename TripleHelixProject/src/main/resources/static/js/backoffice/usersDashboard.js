@@ -18,28 +18,21 @@ window.addEventListener("DOMContentLoaded", () => {
     try {
       const userData = await fetchLoggedUser();
       if (!userData) {
-        console.error(
-          "Dati dell'utente non disponibili, impossibile recuperare le prenotazioni."
-        );
+        console.error("Dati dell'utente non disponibili, impossibile recuperare le prenotazioni.");
         return;
       }
-      const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
-        userData.userEmail
-      )}`;
+      const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(userData.userEmail)}`;
       const response = await fetch(endpointPrenotazioni);
       if (!response.ok) {
         throw new Error(`Errore HTTP! stato: ${response.status}`);
       }
       const prenotazioni = await response.json();
       console.log("Prenotazioni utente:", prenotazioni);
-
+      let nPrenotazioni = prenotazioni.length;
       // Mostra le prenotazioni
-      showPrenotazioni(prenotazioni);
+      showPrenotazioni(prenotazioni, nPrenotazioni);
     } catch (error) {
-      console.error(
-        "Si è verificato un errore nel recupero delle prenotazioni:",
-        error
-      );
+      console.error("Si è verificato un errore nel recupero delle prenotazioni:", error);
     }
   }
 
@@ -87,27 +80,28 @@ window.addEventListener("DOMContentLoaded", () => {
     div.appendChild(dataAppuntamento);
 
     const giorno = document.createElement("p");
-    giorno.textContent = `Giorno: ${
-      giorniItaliano[prenotazione.day] || prenotazione.day
-    }`;
+    giorno.textContent = `Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`;
     div.appendChild(giorno);
 
     const fasciaOraria = document.createElement("p");
-    fasciaOraria.textContent = `Fascia Oraria: ${
-      fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
-    }`;
+    fasciaOraria.textContent = `Fascia Oraria: ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`;
     div.appendChild(fasciaOraria);
 
     return div;
   }
 
   // Funzione per mostrare tutte le prenotazioni
-  function showPrenotazioni(prenotazioni) {
+  function showPrenotazioni(prenotazioni, num) {
     const listaPrenotazione = document.querySelector(".containerPrenotazione");
     if (!listaPrenotazione) {
       console.error("Contenitore prenotazioni non trovato.");
       return;
     }
+    let h2NumPrenotazione = document.getElementById("confermate");
+    let numPrenotazione = document.createElement("span"); // Crea l'elemento <span>
+    numPrenotazione.textContent = num;
+
+    h2NumPrenotazione.appendChild(numPrenotazione);
 
     // Rimuove il contenuto precedente
     while (listaPrenotazione.firstChild) {
