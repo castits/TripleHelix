@@ -54,5 +54,9 @@ public class UserService {
     public User saveUser(User user) {
     	return userDao.save(user);
     }
+    
+    public Integer getUserRole(User user) {
+    	return userDao.findRoleIdByUserId(user.getUserId());
+    }
 
 }

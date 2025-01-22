@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import com.triplehelix.entities.User;
 import com.triplehelix.services.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
@@ -41,6 +42,13 @@ public class UserController {
         userService.saveUser(authenticatedUser);
 
         return ResponseEntity.ok("Password updated successfully");
+    }
+    
+    @GetMapping("/auth-role")
+    public Integer getAuthenticatedUserRole() {
+    	User authenticatedUser = userService.getAuthenticatedUser();
+    	
+    	return userService.getUserRole(authenticatedUser);
     }
     
 }

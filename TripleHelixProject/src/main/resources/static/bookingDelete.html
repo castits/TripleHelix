@@ -3,16 +3,17 @@
   <!-- Inizio della sezione head -->
   <head>
     <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
+    <!-- Specifica il set di caratteri utilizzato per garantire la corretta visualizzazione dei testi -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
+    <!-- Ottimizzazione per dispositivi mobili, garantendo una visualizzazione corretta su tutti i dispositivi -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
+    <!-- Nome dell'autore del sito -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito per i motori di ricerca -->
-    <meta name="description" content="Sito di gestione feedback per Cascina Caccia" />
-    <!-- Titolo della pagina -->
-    <title>Feedbacks - Cascina Caccia</title>
+    <!-- Descrizione del sito per i motori di ricerca e per gli utenti -->
+    <meta name="description" content="Pagina delle prenotazioni cancellate" />
+    <!-- Titolo della pagina, visibile nella barra del browser -->
+    <title>Prenotazioni Cancellate - Cascina Caccia</title>
+
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,12 +24,12 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile per la pagina di login -->
-    <link rel="stylesheet" href="./styles/auth/login.css" />
+    <!-- Stile per la pagina di backoffice -->
+    <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
   </head>
   <!-- Fine della sezione head -->
 
-  <!-- Inizio del corpo -->
+  <!-- Inizio del corpo della pagina -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
@@ -39,6 +40,7 @@
         <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" />
       </a>
 
+      <!-- Navigation menu -->
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
@@ -130,23 +132,16 @@
         </div>
       </nav>
     </header>
-
-    <!-- Contenuto principale -->
+    <!-- Contenuto principale della pagina -->
     <main>
-      <!-- Titolo della sezione principale -->
-      <h2 id="feedbacks">Gestione Feedbacks</h2>
-
-      <!-- Contenitore per i feedbacks dinamicamente generati -->
-      <div class="containerFeedbacks"></div>
+      <!-- Titolo della sezione delle prenotazioni cancellate -->
+      <h2 id="cancellate">Prenotazioni Cancellate:</h2>
+      <!-- Contenitore per le prenotazioni cancellate, che verranno caricate dinamicamente -->
+      <div class="containerPrenotazione"></div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-      <!-- Aggiungi contenuti utili o un'area dedicata a contatti/informazioni -->
-    </footer>
-
-    <!-- Collegamento al file JavaScript per gestire i feedback -->
-    <script src="./js/feedbacks.js"></script>
+    <!-- Collegamento al file JavaScript per la gestione delle prenotazioni cancellate -->
+    <script src="./js/backoffice/bookingDelete.js"></script>
     <script src="./js/components/header.js"></script>
     <script src="./js/components/isLoggedAndLogout.js"></script>
   </body>

@@ -1,469 +1,77 @@
 :root {
-  /* Definizione delle variabili CSS per colori, font e pesi, per una gestione più modulare */
-  --background-color: #ffffff; /* Colore di sfondo principale */
-  --hero-text-color: #ffffff; /* Colore del testo nella sezione hero */
-  --form-color: #ffe9cc; /* Colore di sfondo per il modulo */
-  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif; /* Font principale */
-  --font-weight-light: 300; /* Peso del font leggero */
-  --font-weight-regular: 400; /* Peso del font regolare */
-  --font-weight-medium: 500; /* Peso del font medio */
-  --font-weight-semi-bold: 600; /* Peso semi-grassetto */
-  --font-weight-bold: 700; /* Peso grassetto */
+  /* Colors */
+  --white: #f4f4f4;
+  --black: #272727;
+  --orange: #ff8400;
+  --fucsia: #ed008c;
+  --gray-light: #b3b3b3;
+  --orange-hover: #cc6a00;
+  --fucsia-hover: #c20074;
+  --orange-light: #ffe9cc;
+  /* Font family */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+  /* Font size */
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font line height */
+  --line-height: 160%;
 }
 
+/* Set box-sizing rules */
 html {
-  box-sizing: border-box; /* Imposta il box-sizing per una gestione consistente delle dimensioni */
-  font-size: 16px; /* Imposta la dimensione di base del font */
+  box-sizing: border-box;
+  font-size: var(--font-size-small);
+  font-family: var(--font-family);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit; /* Eredita il box-sizing per tutti gli elementi e pseudo-elementi */
+  box-sizing: inherit;
 }
 
 body {
-  font-family: var(--font-family); /* Imposta il font principale */
-  font-weight: var(--font-weight-regular); /* Imposta il peso del font */
-  line-height: 160%; /* Imposta l'altezza della riga per una migliore leggibilità */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height);
 }
 
 main {
-  letter-spacing: 0.06rem; /* Aumenta leggermente la spaziatura tra le lettere */
-  background-color: var(--background-color); /* Colore di sfondo principale */
+  letter-spacing: 0.1rem;
+  background-color: var(--background-color);
 }
 
-#hero {
-  /* Stili per la sezione hero */
-  position: relative;
-  width: 100%;
-  height: 90vh; /* Occupa il 90% dell'altezza della finestra */
-  z-index: 0;
-  overflow: hidden;
-  background-color: #316d37; /* Colore di sfondo verde */
-}
-
-#hero-bg {
-  /* Immagine di sfondo della sezione hero */
-  width: 106%;
-  height: 106%;
-  filter: blur(5px); /* Applica un effetto di sfocatura */
-  position: absolute;
-  top: -2%;
-  left: -2%;
-}
-
-#hero-bg-darkness {
-  /* Sovrapposizione scura per migliorare la leggibilità del testo */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Sovrapposizione nera trasparente */
-}
-
-#hero-content {
-  /* Centra il contenuto della sezione hero */
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1; /* Pone il contenuto sopra lo sfondo */
-}
-
-#main-text {
-  /* Blocca del testo principale nella sezione hero */
-  width: 280px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-h1 {
-  /* Stili per l'intestazione principale */
-  color: var(--hero-text-color); /* Colore del testo nella sezione hero */
-  font-size: 32px; /* Dimensione del font per l'intestazione */
-  font-weight: var(--font-weight-bold);
-  text-align: center; /* Allinea il testo al centro */
-  line-height: 130%; /* Distanza tra le righe ridotta */
-  width: 280px;
-}
-
-#main-text p {
-  /* Stili per il paragrafo della sezione hero */
-  color: var(--hero-text-color);
-  font-size: 18px;
-  text-align: center;
-}
-
-/* Stili generali per i bottoni */
-button {
-  width: 250px;
-  height: 50px;
-}
-
-/* Contenitore per i bottoni di Call-to-Action */
-#cta-buttons {
-  width: 250px;
-}
-
-/* Stili comuni per i bottoni */
-#discover-more,
-#book-now {
-  border-radius: 1rem; /* Bordo arrotondato */
-  font-size: 20px;
-  cursor: pointer; /* Mostra il cursore a forma di mano */
-}
-
-#discover-more {
-  /* Stili per il bottone "Discover More" */
-  background-color: rgba(0, 0, 0, 0); /* Sfondo trasparente */
-  border: 2px solid #f19200; /* Bordo arancione */
-  color: #f19200;
-  font-weight: var(--font-weight-medium);
-}
-
-#book-now {
-  /* Stili per il bottone "Book Now" */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 250px;
-  height: 50px;
-  border-radius: 1rem;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #f19200; /* Colore di sfondo arancione */
-  border: 2px solid #ff7f50; /* Bordo più scuro */
-  cursor: pointer;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-#book-now:hover {
-  /* Effetto hover per il bottone "Book Now" */
-  background-color: #ff7f50;
-  border-color: #f19200;
-}
-
-#double-arrow {
-  /* Animazione della freccia che rimbalza */
-  animation: bounce 2s infinite;
-  cursor: pointer;
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px); /* Movimento verso l'alto */
-  }
-}
+/** ----------------------------------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------------------------------------- */
+/** ----------------------------------------------------------------------------------------------------------- */
 
 h2 {
   font-size: 22px;
   font-weight: var(--font-weight-semi-bold);
 }
 
-#cascina-intro,
-#faq-section {
+#about-us,
+#faq {
   margin: 5rem 1.3rem;
 }
 
-#cascina-intro p {
+#about-us p {
   margin-top: 1.5rem;
   font-size: 16px;
 }
 
 a:link,
 a:visited {
-  color: white;
   text-decoration: none;
-}
-
-.carosello-container {
-  /* Contenitore per il carosello */
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory; /* Forza lo scroll in modo sincronizzato */
-  margin-left: 1.3rem;
-  margin-right: 1.3rem;
-  width: calc(100% - 2.6rem); /* La larghezza del carosello considerando i margini */
-}
-
-.carosello-item {
-  /* Ogni elemento del carosello */
-  position: relative;
-  flex-shrink: 0;
-  width: 100%; /* Ogni immagine occupa l'intera larghezza della finestra */
-  height: 70vh; /* Altezza del 70% della finestra */
-  scroll-snap-align: start; /* Allinea l'elemento all'inizio */
-  background-size: cover; /* Copri l'area con l'immagine */
-  background-position: center;
-}
-
-.carosello-item img {
-  width: 100%; /* L'immagine occupa tutta la larghezza dell'elemento */
-  height: 100%; /* L'immagine occupa tutta l'altezza dell'elemento */
-  object-fit: cover; /* Mantiene le proporzioni dell'immagine riempiendo l'area */
-  border-radius: 8px; /* Angoli arrotondati per l'immagine */
-}
-
-.carosello-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.68) 75%, rgba(0, 0, 0, 0) 100%);
-}
-
-.carosello-intro {
-  position: absolute;
-  width: 80%; /* L'introduzione occupa l'80% della larghezza */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5em; /* Spaziatura tra gli elementi */
-  text-align: center;
-  top: 50%; /* Posiziona verticalmente al centro */
-  left: 50%; /* Posiziona orizzontalmente al centro */
-  translate: -50% -50%; /* Centra esattamente l'elemento */
-  z-index: 1; /* Pone l'introduzione sopra l'immagine */
-}
-
-.carosello-intro h3 {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-semi-bold);
-  font-size: 25px;
-  color: white; /* Colore del testo bianco */
-  letter-spacing: 1.5px; /* Aumenta la spaziatura tra le lettere */
-}
-
-.carosello-intro button {
-  width: 170px;
-  height: 50px;
-  background-color: #e0017a; /* Colore di sfondo del bottone */
-  color: white; /* Colore del testo bianco */
-  border: none;
-  border-radius: 8px; /* Bordo arrotondato */
-  box-shadow: 0 0 10px #ff5722; /* Ombra con colore arancione */
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-semi-bold);
-  font-size: 18px;
-}
-
-.carosello-container::-webkit-scrollbar {
-  display: none; /* Nasconde la barra di scorrimento */
-}
-
-.carousel-dots {
-  display: flex;
-  justify-content: center; /* Centra i pallini di navigazione */
-  margin-top: 20px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
-  background-color: #bbb; /* Colore di base per i pallini */
-  border-radius: 50%; /* Forma rotonda per i pallini */
-  display: inline-block;
-  transition: background-color 0.3s ease; /* Transizione per il cambio di colore */
-}
-
-.dot.active {
-  background-color: #f19200; /* Colore attivo (arancione) per il pallino */
-}
-
-#faq-section h2 {
-  margin-bottom: 0.5em; /* Distanza tra l'intestazione e il contenuto */
-}
-
-.faq-container {
-  padding: 1.3rem 0;
-  border-bottom: 1px solid #212121; /* Linea di separazione */
-}
-
-.faq-title {
-  height: 3.8rem;
-  color: #212121; /* Colore del testo */
-  cursor: pointer; /* Mostra il cursore a forma di mano */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-title h3 {
-  font-size: 16px;
-  width: 90%;
-  font-weight: var(--font-weight-semi-bold);
-  line-height: 150%; /* Altezza della riga aumentata per una lettura migliore */
-}
-
-.faq-title img {
-  transform: rotate(90deg); /* Ruota l'icona dell'accordion */
-  width: 20px;
-  margin-left: 1.3rem;
-  transition: transform 0.4s ease-out; /* Transizione per la rotazione */
-}
-
-.faq-answer {
-  font-weight: var(--font-weight-regular);
-  font-size: 16px;
-  line-height: 160%; /* Aumenta l'altezza della riga per il paragrafo */
-  display: block; /* Cambia da "none" a "block" per gestire la visualizzazione */
-  max-height: 0; /* Nasconde la risposta all'inizio */
-  overflow: hidden; /* Nasconde il contenuto fuori dalla vista */
-  transition: max-height 0.4s ease-out; /* Transizione per l'animazione di apertura */
-}
-
-.faq-answer p {
-  margin-top: 1em;
-}
-
-.faq-container.active .faq-title img {
-  transform: rotate(-90deg); /* Ruota l'icona quando la risposta è aperta */
-}
-
-.faq-container.active .faq-answer {
-  max-height: 300px; /* Altezza massima quando la risposta è visibile */
-}
-
-form {
-  padding: 5rem 1.3rem;
-  background-color: var(--form-color); /* Colore di sfondo del modulo */
-}
-
-form h2 {
-  font-weight: var(--font-weight-semi-bold);
-  font-size: 28px;
-  margin-bottom: 1.5rem; /* Distanza tra il titolo e il contenuto */
-}
-
-form p {
-  font-weight: var(--font-weight-regular);
-  font-size: 16px;
-  line-height: 150%;
-  margin-bottom: 1.5rem; /* Distanza tra il paragrafo e gli altri elementi */
-}
-
-label {
-  font-weight: var(--font-weight-medium); /* Peso del font per le etichette */
-  font-size: 16px;
-}
-
-input,
-textarea {
-  width: 100%; /* Imposta la larghezza al 100% del contenitore */
-  height: 2.5rem; /* Altezza dei campi di input */
-  padding: 0.7rem; /* Distanza interna */
-  margin: 0.3rem 0 1rem; /* Margini tra gli elementi */
-  background-color: #ffffff; /* Colore di sfondo bianco */
-  border: 1px solid #d1d1d1; /* Bordo grigio chiaro */
-  border-radius: 8px; /* Angoli arrotondati */
-}
-
-textarea {
-  height: 8rem; /* Altezza maggiore per la textarea */
-  resize: none; /* Disabilita il ridimensionamento della textarea */
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #b3b3b3; /* Colore grigio per il testo del placeholder */
-  font-family: var(--font-family); /* Usa il font definito come variabile */
-  font-weight: var(--font-weight-light); /* Peso leggero del font */
-  font-size: 16px;
-}
-
-input:focus,
-textarea:focus {
-  outline: none; /* Rimuove il contorno di default */
-  border: 1px solid #e0017a; /* Colore del bordo al focus */
-}
-
-input:focus::placeholder,
-textarea:focus::placeholder {
-  color: #212121; /* Colore del placeholder al focus */
-}
-
-form button {
-  width: 100%; /* Larghezza del bottone al 100% */
-  height: 3rem; /* Altezza del bottone */
-  margin-top: 1rem; /* Distanza tra il bottone e l'elemento precedente */
-  background-color: #e0017a; /* Colore di sfondo del bottone */
-  color: #ffffff; /* Colore del testo del bottone */
-  font-size: 20px;
-  font-weight: var(--font-weight-regular); /* Peso del font regolare */
-  border: none; /* Rimuove il bordo */
-  border-radius: 8px; /* Angoli arrotondati */
-  cursor: pointer; /* Mostra il cursore a forma di mano */
-}
-
-footer {
-  background-color: #2e2e2e; /* Colore di sfondo scuro per il footer */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff; /* Colore del testo bianco */
-  text-align: center; /* Allineamento del testo */
-  font-weight: var(--font-weight-regular);
-}
-
-footer div {
-  font-size: 16px;
-  margin: 1rem 0; /* Distanza tra i div del footer */
-}
-
-footer div:not(#footer-logo, #footer-socials) img {
-  width: 20px;
-  height: 20px;
-}
-
-#footer-logo {
-  margin: 3.5rem 0 2.5rem; /* Distanza sopra e sotto il logo */
-  font-size: 22px;
-  line-height: 2rem; /* Altezza della linea del testo */
-}
-
-#footer-location {
-  margin: 0 0 1rem; /* Distanza per la sezione di localizzazione */
-}
-
-#footer-email {
-  margin: 1rem 0 2.5rem; /* Distanza per l'email */
-}
-
-#footer-socials {
-  display: flex;
-  width: 50%; /* Occupa metà della larghezza del footer */
-  flex-direction: row;
-  justify-content: space-around; /* Spaziatura uniforme tra le icone social */
-}
-
-#footer-socials img {
-  width: 28px;
-  height: 28px;
-}
-
-#footer-copyright {
-  font-size: 12px; /* Testo piccolo per il copyright */
-  margin: 0 0 2rem; /* Distanza dal resto del footer */
 }
 
 #workshop {
@@ -472,4 +80,20 @@ footer div:not(#footer-logo, #footer-socials) img {
 
 #workshop h2 {
   margin: 0 1.3rem 1.5rem; /* Distanza per il titolo del workshop */
+}
+
+/* Stile per i messaggi di errore */
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Stile per i messaggi di successo */
+.success-message {
+  color: green;
+  font-size: 1em;
+  margin-top: 20px;
+  font-weight: bold;
 }
