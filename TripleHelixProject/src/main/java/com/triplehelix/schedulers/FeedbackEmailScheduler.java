@@ -39,7 +39,7 @@ public class FeedbackEmailScheduler {
                     booking.setFeedbackSent(true);
                     bookingService.saveBooking(booking);
                 } catch (Exception e) {
-                    System.err.println("Failed to send feedback email to: " + sendTo);
+                    System.err.println("Failed to send feedback email to " + sendTo);
                 }
 			}
 		}

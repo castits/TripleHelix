@@ -41,7 +41,7 @@ public class BookingReminderScheduler {
 					booking.setReminderSent(true);
 					bookingDAO.save(booking);
 				} catch (Exception e) {
-					System.err.println("Failed to send reminder email to: " + sendTo);
+					System.err.println("Failed to send reminder email to " + sendTo);
 				}
 			}
 		}

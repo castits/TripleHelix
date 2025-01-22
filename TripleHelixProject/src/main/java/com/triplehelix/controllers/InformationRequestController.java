@@ -21,20 +21,28 @@ public class InformationRequestController {
 		String sendFrom = informationRequest.getUserEmail();
 		String emailText = informationRequest.getInformationRequestText();
 		
-		emailService.sendEmail(sendFrom,
-				"triplehelixtest1@gmail.com",
-				"Richiesta di informazioni da parte di " + userName + " " + userSurname,
-				emailText + "\n\n" + userName + " " + userSurname + ": " + userPhone);
+		try {
+			emailService.sendEmail(sendFrom,
+					"triplehelixtest1@gmail.com",
+					"Richiesta di informazioni da parte di " + userName + " " + userSurname,
+					emailText + "\n\n" + userName + " " + userSurname + ": " + userPhone);
+		} catch (Exception e) {
+			System.err.println("Failed to send request email from " + sendFrom);
+		}
 		
-		emailService.sendEmail(sendFrom, "Grazie per la tua richiesta", "Ciao " + userName + " " + userSurname + ",\n\n"
-				+ "Grazie mille per averci contattato. La tua richiesta è stata ricevuta dai nostri collaboratori che ti contatteranno al più presto.\r\n"
-				+ "\r\n"
-				+ "Nel frattempo, se hai necessità di aggiungere dettagli o hai altre richieste, non esitare a scriverci rispondendo a questa email.\r\n"
-				+ "\r\n"
-				+ "Ti ringraziamo. Siamo qui per aiutarti!\r\n"
-				+ "\r\n"
-				+ "Cordiali saluti,\r\n"
-				+ "Cascina Caccia");
+		try {
+			emailService.sendEmail(sendFrom, "Grazie per la tua richiesta", "Ciao " + userName + " " + userSurname + ",\n\n"
+					+ "Grazie mille per averci contattato. La tua richiesta è stata ricevuta dai nostri collaboratori che ti contatteranno al più presto.\r\n"
+					+ "\r\n"
+					+ "Nel frattempo, se hai necessità di aggiungere dettagli o hai altre richieste, non esitare a scriverci rispondendo a questa email.\r\n"
+					+ "\r\n"
+					+ "Ti ringraziamo. Siamo qui per aiutarti!\r\n"
+					+ "\r\n"
+					+ "Cordiali saluti,\r\n"
+					+ "Cascina Caccia");			
+		} catch (Exception e) {
+			System.err.println("Failed to send reply email to " + sendFrom);
+		}
 	}
 
 }
