@@ -34,10 +34,13 @@ public class FeedbackEmailScheduler {
                         + "https://form.jotform.com/250082624150345\n\n"
                         + "Grazie per il tuo feedback!";
 
-				emailService.sendEmail(sendTo, subject, body);
-				
-				booking.setFeedbackSent(true);
-				bookingService.saveBooking(booking);
+				try {
+                    emailService.sendEmail(sendTo, subject, body);
+                    booking.setFeedbackSent(true);
+                    bookingService.saveBooking(booking);
+                } catch (Exception e) {
+                    System.err.println("Failed to send feedback email to " + sendTo);
+                }
 			}
 		}
 	}

@@ -1,5 +1,7 @@
 package com.triplehelix.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,8 @@ import com.triplehelix.services.UserService;
 @RequestMapping("/api/users")
 public class UserController {
 
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
     @Autowired
     private UserService userService;
 
@@ -29,26 +33,35 @@ public class UserController {
         User authenticatedUser = userService.getAuthenticatedUser();
 		
 		if (authenticatedUser == null) {
+			logger.warn("Unauthorized password change attempt");
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
 		}
 
 		// Verify old password
         if (!passwordEncoder.matches(passwords.getOldPassword(), authenticatedUser.getUserPassword())) {
+        	logger.error("Incorrect old password for user: {}", authenticatedUser.getUserEmail());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Old password is incorrect");
         }
 
         // Set the new password
         authenticatedUser.setUserPassword(passwordEncoder.encode(passwords.getNewPassword()));
         userService.saveUser(authenticatedUser);
-
+        logger.info("Password updated successfully for user: {}", authenticatedUser.getUserEmail());
         return ResponseEntity.ok("Password updated successfully");
     }
     
     @GetMapping("/auth-role")
-    public Integer getAuthenticatedUserRole() {
+    public ResponseEntity<Integer> getAuthenticatedUserRole() {
     	User authenticatedUser = userService.getAuthenticatedUser();
     	
-    	return userService.getUserRole(authenticatedUser);
+    	if (authenticatedUser == null) {
+            logger.warn("No authenticated user found");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    	
+    	Integer roleId = userService.getUserRole(authenticatedUser);
+        logger.info("Role id: {} for user: {}", roleId, authenticatedUser.getUserEmail());
+        return ResponseEntity.ok(roleId);
     }
     
 }

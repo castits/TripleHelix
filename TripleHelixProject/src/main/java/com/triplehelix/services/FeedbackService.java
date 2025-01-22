@@ -1,13 +1,13 @@
 package com.triplehelix.services;
 
 import com.triplehelix.entities.Feedback;
+import com.triplehelix.exceptions.FeedbackNotFoundException;
 import com.triplehelix.repos.FeedbackDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FeedbackService {
@@ -25,12 +25,16 @@ public class FeedbackService {
     }
 
     // Retrieve a feedback by ID
-    public Optional<Feedback> getFeedbackById(int id) {
-        return feedbackDAO.findById(id);
+    public Feedback getFeedbackById(int id) {
+        return feedbackDAO.findById(id)
+        	.orElseThrow(() -> new FeedbackNotFoundException("Feedback with id " + id + " not found"));
     }
 
     // Delete a feedback by ID
     public void deleteFeedback(int id) {
+    	if (!feedbackDAO.existsById(id)) {
+            throw new IllegalArgumentException("Feedback with id " + id + " doesn't exist");
+        }
         feedbackDAO.deleteById(id);
     }
 }

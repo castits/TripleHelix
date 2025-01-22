@@ -3,6 +3,7 @@ package com.triplehelix.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.triplehelix.entities.Feedback;
+import com.triplehelix.exceptions.FeedbackNotFoundException;
 import com.triplehelix.services.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -57,21 +57,28 @@ public class FeedbackController {
     @GetMapping
     public ResponseEntity<List<Feedback>> getAllFeedbacks() {
         List<Feedback> feedbacks = feedbackService.getAllFeedbacks();
-        return new ResponseEntity<>(feedbacks, HttpStatus.OK);
+        return ResponseEntity.ok(feedbacks	);
     }
-
-    // Get feedback by ID
+    
     @GetMapping("/{id}")
-    public ResponseEntity<Feedback> getFeedbackById(@PathVariable int id) {
-        Optional<Feedback> feedback = feedbackService.getFeedbackById(id);
-        return feedback.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<?> getFeedbackById(@PathVariable int id) {
+    	try {
+            Feedback feedback = feedbackService.getFeedbackById(id);
+            return ResponseEntity.ok(feedback);
+        } catch (FeedbackNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
     // Delete feedback by ID
     @DeleteMapping("/{id}")
-    public void deleteFeedback(@PathVariable int id) {
-        feedbackService.deleteFeedback(id);
+    public ResponseEntity<String> deleteFeedback(@PathVariable int id) {
+    	try {
+            feedbackService.deleteFeedback(id);
+            return ResponseEntity.ok("Feedback deleted successfully.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
 }
