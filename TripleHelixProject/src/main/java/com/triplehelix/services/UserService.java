@@ -36,8 +36,7 @@ public class UserService {
     }
 
     public User getUserByEmail(String email) {
-        return userDao.findUserByUserEmail(email)
-        	.orElseThrow(() -> new UserNotFoundException("User not found with email " + email));
+        return userDao.findUserByUserEmail(email).orElse(null);
     }
     
     public User getAuthenticatedUser() {
@@ -56,7 +55,14 @@ public class UserService {
     }
     
     public Integer getUserRole(User user) {
-    	return userDao.findRoleIdByUserId(user.getUserId());
+    	Integer roleId = userDao.findRoleIdByUserId(user.getUserId());
+    	
+    	if (roleId == null) {
+			logger.error("Role id not found for user {}", user.getUserEmail());
+			throw new IllegalStateException("Role id not found for user " + user.getUserEmail());
+		}
+    	
+    	return roleId;
     }
 
 }
