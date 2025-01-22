@@ -36,10 +36,13 @@ public class BookingReminderScheduler {
 				String body = "Buongiorno " + booking.getUser().getUserName() + ",\n\n"
 						+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
 				
-				emailService.sendEmail(sendTo, subject, body);
-				
-				booking.setReminderSent(true);
-				bookingDAO.save(booking);
+				try {
+					emailService.sendEmail(sendTo, subject, body);					
+					booking.setReminderSent(true);
+					bookingDAO.save(booking);
+				} catch (Exception e) {
+					System.err.println("Failed to send reminder email to: " + sendTo);
+				}
 			}
 		}
 
