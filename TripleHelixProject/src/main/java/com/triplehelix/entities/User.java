@@ -34,6 +34,9 @@ public class User {
 	@Column(name = "user_password", nullable = false)
 	private String userPassword;
 	
+	@Column(name = "reset_token")
+	private String resetToken;
+	
 	@Column(name = "created_at", updatable = false)
 	private LocalDateTime createdAt;
 	
@@ -105,6 +108,14 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
+	}
+
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
@@ -128,5 +139,4 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
 }
