@@ -1,5 +1,8 @@
 package com.triplehelix.controllers;
 
+import java.util.Map;
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,54 +17,103 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.triplehelix.entities.ChangePassword;
 import com.triplehelix.entities.User;
+import com.triplehelix.services.EmailService;
 import com.triplehelix.services.UserService;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-	
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-	
+
+    @Autowired
+    private EmailService emailService;
+
     @PostMapping("/change-password")
     public ResponseEntity<String> changePassword(@RequestBody ChangePassword passwords) {
         User authenticatedUser = userService.getAuthenticatedUser();
-		
-		if (authenticatedUser == null) {
-			logger.warn("Unauthorized password change attempt");
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
-		}
-
-		// Verify old password
-        if (!passwordEncoder.matches(passwords.getOldPassword(), authenticatedUser.getUserPassword())) {
-        	logger.error("Incorrect old password for user: {}", authenticatedUser.getUserEmail());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Old password is incorrect");
+        
+        if (authenticatedUser == null) {
+            logger.warn("Tentativo di aggiornamento password non autorizzato");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
         }
 
-        // Set the new password
+        logger.info("Aggiornamento password per utente: {}", authenticatedUser.getUserEmail());
+
         authenticatedUser.setUserPassword(passwordEncoder.encode(passwords.getNewPassword()));
         userService.saveUser(authenticatedUser);
-        logger.info("Password updated successfully for user: {}", authenticatedUser.getUserEmail());
+
+        logger.info("Password aggiornata con successo per utente: {}", authenticatedUser.getUserEmail());
         return ResponseEntity.ok("Password updated successfully");
     }
-    
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        if (email == null || email.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email is required");
+        }
+        
+        User user = userService.getUserByEmail(email.trim().toLowerCase());
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+        
+        String token = UUID.randomUUID().toString();
+        user.setResetToken(token);
+        userService.saveUser(user);
+
+        String resetLink = "http://localhost:8080/CambioPassword.html?token=" + token;
+        String subject = "Cambia la tua password su Cascina Caccia";
+        String body = "Ciao " + user.getUserName() + ",\n\n"
+                    + "Per reimpostare la tua password, clicca sul link sottostante:\n"
+                    + resetLink + "\n\n"
+                    + "Grazie per utilizzare il nostro servizio!\n\n"
+                    + "Cordiali saluti,\n"
+                    + "Il team di Cascina Caccia";
+        
+        emailService.sendEmail(email, subject, body);
+        return ResponseEntity.ok("Password reset email sent");
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(@RequestBody Map<String, String> request) {
+        String token = request.get("token");
+        String newPassword = request.get("newPassword");
+
+        if (token == null || newPassword == null || newPassword.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token and new password are required");
+        }
+
+        User user = userService.getUserByResetToken(token);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid token");
+        }
+
+        user.setUserPassword(passwordEncoder.encode(newPassword));
+        user.setResetToken(null);
+        userService.saveUser(user);
+
+        return ResponseEntity.ok("Password updated successfully");
+    }
+
     @GetMapping("/auth-role")
     public ResponseEntity<Integer> getAuthenticatedUserRole() {
-    	User authenticatedUser = userService.getAuthenticatedUser();
-    	
-    	if (authenticatedUser == null) {
+        User authenticatedUser = userService.getAuthenticatedUser();
+        
+        if (authenticatedUser == null) {
             logger.warn("No authenticated user found");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-    	
-    	Integer roleId = userService.getUserRole(authenticatedUser);
+        
+        Integer roleId = userService.getUserRole(authenticatedUser);
         logger.info("Role id: {} for user: {}", roleId, authenticatedUser.getUserEmail());
         return ResponseEntity.ok(roleId);
     }
-    
 }

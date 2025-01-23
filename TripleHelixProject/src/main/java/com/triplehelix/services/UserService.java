@@ -39,6 +39,10 @@ public class UserService {
         return userDao.findUserByUserEmail(email).orElse(null);
     }
     
+    public User getUserByResetToken(String token) {
+        return userDao.findByResetToken(token).orElse(null);
+    }
+
     public User getAuthenticatedUser() {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 

@@ -13,6 +13,7 @@ import com.triplehelix.entities.User;
 public interface UserDAO extends JpaRepository<User, Integer> {
 	
 	Optional<User> findUserByUserEmail(String email);
+	Optional<User> findByResetToken(String resetToken);
 	
 	@Query("SELECT u.role.roleId FROM User u WHERE u.userId = :userId")
     Integer findRoleIdByUserId(@Param("userId") int userId);
