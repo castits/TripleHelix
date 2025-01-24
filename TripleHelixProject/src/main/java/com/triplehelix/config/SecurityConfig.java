@@ -11,9 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.logout.LogoutFilter;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.triplehelix.services.CustomUserDetailsService;
 
@@ -36,7 +33,17 @@ public class SecurityConfig {
 	    http
 	        .csrf().disable()
 	        .authorizeHttpRequests(auth -> auth
-	            .requestMatchers("/**", "/pub/auth/**").permitAll()
+	        		.requestMatchers("/api/bookings/create**",
+	        				"/api/feedbacks/add",
+	        				"/api/information-requests/send").permitAll()
+		        	.requestMatchers("/api/bookings",
+		        			"/api/bookings/status**",
+		        			"/api/bookings/update/**",
+		        			"/api/bookings/change-status/**",
+		        			"/api/bookings/delete/**").hasRole("ADMIN")
+		        	.requestMatchers("/api/feedbacks",
+		        			"/api/feedbacks/**").hasRole("ADMIN")
+	            .requestMatchers("/pub/auth/**").permitAll()
 	            .anyRequest().authenticated()
 	        )
 	        .exceptionHandling()
