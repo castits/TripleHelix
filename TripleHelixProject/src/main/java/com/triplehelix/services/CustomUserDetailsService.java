@@ -3,9 +3,12 @@ package com.triplehelix.services;
 import com.triplehelix.entities.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,10 +32,14 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User not found with email: " + email);
         }
+        
+        String userRole = user.getRole().getRoleName();
+        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + userRole);
+        
         return new org.springframework.security.core.userdetails.User(
                 user.getUserEmail(),
                 user.getUserPassword(),
-                new ArrayList<>()
+                List.of(authority)
         );
     }
 }

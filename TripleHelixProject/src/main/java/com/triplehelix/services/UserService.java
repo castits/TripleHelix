@@ -1,5 +1,6 @@
 package com.triplehelix.services;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.triplehelix.entities.User;
-import com.triplehelix.exceptions.UserNotFoundException;
 import com.triplehelix.repos.UserDAO;
 
 @Service

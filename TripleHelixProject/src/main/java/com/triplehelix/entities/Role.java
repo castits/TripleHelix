@@ -1,5 +1,7 @@
 package com.triplehelix.entities;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role implements GrantedAuthority {
 	
 	@Id
 	@Column(name = "role_id")
@@ -18,6 +20,11 @@ public class Role {
 	
 	@Column(name="role_name", nullable = false)
 	private String roleName;
+	
+	@Override
+	public String getAuthority() {
+		return "ROLE_" + roleName;
+	}
 
 	public int getRoleId() {
 		return roleId;

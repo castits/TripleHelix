@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,11 +38,13 @@ public class BookingController {
 	private UserService userService;
 	
 	@GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<List<Map<String, Object>>> getBookings() {
 		return ResponseEntity.ok(bookingService.getAllBookings());
 	}
 	
 	@GetMapping("/status")
+    @PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> getBookingsByStatus(@RequestParam String status) {
 		try {
 	        BookingStatus bookingStatus = BookingStatus.valueOf(status.toUpperCase());
@@ -72,6 +75,7 @@ public class BookingController {
     }
     
     @PatchMapping("/update/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateBooking(@PathVariable int id, @RequestBody Map<String, Object> updates) {
         try {
             Booking updatedBooking = bookingService.updateBooking(id, updates);
@@ -84,6 +88,7 @@ public class BookingController {
     }
 
     @PutMapping("/change-status/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> changeBookingStatus(@PathVariable int id, @RequestParam String status) {
         try {
             bookingService.changeBookingStatus(id, status);
@@ -94,6 +99,7 @@ public class BookingController {
     }
     
     @DeleteMapping("delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteBookingById(@PathVariable int id) {
         try {
             bookingService.deleteBookingById(id);

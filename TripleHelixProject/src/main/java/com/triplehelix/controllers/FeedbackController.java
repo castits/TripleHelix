@@ -8,6 +8,7 @@ import com.triplehelix.services.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -55,12 +56,14 @@ public class FeedbackController {
     
     // Get all feedbacks
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<Feedback>> getAllFeedbacks() {
         List<Feedback> feedbacks = feedbackService.getAllFeedbacks();
         return ResponseEntity.ok(feedbacks	);
     }
     
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getFeedbackById(@PathVariable int id) {
     	try {
             Feedback feedback = feedbackService.getFeedbackById(id);
@@ -72,6 +75,7 @@ public class FeedbackController {
 
     // Delete feedback by ID
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteFeedback(@PathVariable int id) {
     	try {
             feedbackService.deleteFeedback(id);
