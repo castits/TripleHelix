@@ -75,14 +75,33 @@ public class UserController {
         String subject = "Cambia la tua password su Cascina Caccia";
         
         try {
-        	String body = "Ciao " + user.getUserName() + ",\n\n"
-                    + "Per reimpostare la tua password, clicca sul link sottostante:\n"
-                    + resetLink + "\n\n"
-                    + "Grazie per utilizzare il nostro servizio!\n\n"
-                    + "Cordiali saluti,\n"
-                    + "Il team di Cascina Caccia";
-        
-			emailService.sendEmail(email, subject, body);
+        	String body = "<head>" +
+                    "  <style>" +
+                    "    body { font-family: Arial, sans-serif; color: #333333; }" +
+                    "    .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; }" +
+                    "    h1 { color: #0056b3; font-size: 24px; text-align: center; }" +
+                    "    p { line-height: 1.6; font-size: 16px; }" +
+                    "    .footer { margin-top: 20px; font-size: 14px; color: #777777; }" +
+                    "    .button { display: inline-block; padding: 10px 20px; color: #ffffff; background-color: #0056b3; text-decoration: none; border-radius: 5px; font-weight: bold; }" +
+                    "  </style>" +
+                    "</head>" +
+                    "<body>" +
+                    "  <div class='email-container'>" +
+                    "    <h1>Reimposta la tua password</h1>" +
+                    "    <p>Ciao <strong>" + user.getUserName() + "</strong>,</p>" +
+                    "    <p>Per reimpostare la tua password, clicca sul pulsante sottostante:</p>" +
+                    "    <p style='text-align: center;'><a href='" + resetLink + "' class='button'>Reimposta Password</a></p>" +
+                    "    <p>Se non hai richiesto la reimpostazione della password, ignora questa email.</p>" +
+                    "    <div class='footer'>" +
+                    "      <p>Grazie per utilizzare il nostro servizio!</p>" +
+                    "      <p><strong>Il Team di Cascina Caccia</strong></p>" +
+                    "    </div>" +
+                    "  </div>" +
+                    "</body>" +
+                    "</html>";
+
+      emailService.sendEmail(email, subject, body);
+
 		} catch (MessagingException e) {
 			System.err.println("Failed to send reminder email to " + email);
 		}
