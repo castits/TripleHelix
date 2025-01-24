@@ -20,6 +20,8 @@ import com.triplehelix.entities.User;
 import com.triplehelix.services.EmailService;
 import com.triplehelix.services.UserService;
 
+import jakarta.mail.MessagingException;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -71,14 +73,19 @@ public class UserController {
 
         String resetLink = "http://localhost:8080/CambioPassword.html?token=" + token;
         String subject = "Cambia la tua password su Cascina Caccia";
-        String body = "Ciao " + user.getUserName() + ",\n\n"
+        
+        try {
+        	String body = "Ciao " + user.getUserName() + ",\n\n"
                     + "Per reimpostare la tua password, clicca sul link sottostante:\n"
                     + resetLink + "\n\n"
                     + "Grazie per utilizzare il nostro servizio!\n\n"
                     + "Cordiali saluti,\n"
                     + "Il team di Cascina Caccia";
         
-        emailService.sendEmail(email, subject, body);
+			emailService.sendEmail(email, subject, body);
+		} catch (MessagingException e) {
+			System.err.println("Failed to send reminder email to " + email);
+		}
         return ResponseEntity.ok("Password reset email sent");
     }
 
