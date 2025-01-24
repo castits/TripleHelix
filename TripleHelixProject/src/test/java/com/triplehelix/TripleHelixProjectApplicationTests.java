@@ -1,4 +1,4 @@
-package com.trilehelix;
+package com.triplehelix;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
