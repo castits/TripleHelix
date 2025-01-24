@@ -22,24 +22,64 @@ public class InformationRequestController {
 		String emailText = informationRequest.getInformationRequestText();
 		
 		try {
+			String informationRequestText = "<html>" +
+                    "<head>" +
+                    "<style>" +
+                    "  body { font-family: Arial, sans-serif; color: #333333; }" +
+                    "  .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; }" +
+                    "  h2 { color: #0056b3; font-size: 22px; }" +
+                    "  p { line-height: 1.6; font-size: 16px; }" +
+                    "</style>" +
+                    "</head>" +
+                    "<body>" +
+                    "  <div class='email-container'>" +
+                    "    <h2>Richiesta di informazioni</h2>" +
+                    "    <p><strong>Nome:</strong> " + userName + " " + userSurname + "</p>" +
+                    "    <p><strong>Email:</strong> " + sendFrom + "</p>" +
+                    "    <p><strong>Telefono:</strong> " + (userPhone != "" ? userPhone : "N/D" ) + "</p>" +
+                    "    <p><strong>Messaggio:</strong></p>" +
+                    "    <p>" + emailText + "</p>" +
+                    "  </div>" +
+                    "</body>" +
+                    "</html>";
+
 			emailService.sendEmail(sendFrom,
 					"triplehelixtest1@gmail.com",
 					"Richiesta di informazioni da parte di " + userName + " " + userSurname,
-					emailText + "\n\n" + userName + " " + userSurname + ": " + userPhone);
+					informationRequestText);
 		} catch (Exception e) {
 			System.err.println("Failed to send request email from " + sendFrom);
 		}
 		
 		try {
-			emailService.sendEmail(sendFrom, "Grazie per la tua richiesta", "Ciao " + userName + " " + userSurname + ",\n\n"
-					+ "Grazie mille per averci contattato. La tua richiesta è stata ricevuta dai nostri collaboratori che ti contatteranno al più presto.\r\n"
-					+ "\r\n"
-					+ "Nel frattempo, se hai necessità di aggiungere dettagli o hai altre richieste, non esitare a scriverci rispondendo a questa email.\r\n"
-					+ "\r\n"
-					+ "Ti ringraziamo. Siamo qui per aiutarti!\r\n"
-					+ "\r\n"
-					+ "Cordiali saluti,\r\n"
-					+ "Cascina Caccia");			
+			String responseEmail = "<html>" +
+                    "<head>" +
+                    "<style>" +
+                    "  body { font-family: Arial, sans-serif; color: #333333; }" +
+                    "  .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; }" +
+                    "  h1 { color: #0056b3; font-size: 24px; text-align: center; }" +
+                    "  p { line-height: 1.6; font-size: 16px; }" +
+                    "  .footer { margin-top: 20px; font-size: 14px; color: #777777; }" +
+                    "</style>" +
+                    "</head>" +
+                    "<body>" +
+                    "  <div class='email-container'>" +
+                    "    <h1>Grazie per la tua richiesta!</h1>" +
+                    "    <p>Gentile <strong>" + userName + " " + userSurname + "</strong>,</p>" +
+                    "    <p>Grazie per averci contattato. Abbiamo ricevuto la tua richiesta e il nostro team ti risponderà al più presto.</p>" +
+                    "    <p>Nel frattempo, se hai bisogno di aggiungere informazioni o hai altre domande, sentiti libero di rispondere a questa email.</p>" +
+                    "    <p>Siamo qui per aiutarti!</p>" +
+                    "    <div class='footer'>" +
+                    "      <p>Con i migliori saluti,</p>" +
+                    "      <p><strong>Il Team di Cascina Caccia</strong></p>" +
+                    "    </div>" +
+                    "  </div>" +
+                    "</body>" +
+                    "</html>";
+
+			emailService.sendEmail(sendFrom,
+					"Grazie per la tua richiesta",
+					responseEmail);			
 		} catch (Exception e) {
 			System.err.println("Failed to send reply email to " + sendFrom);
 		}
