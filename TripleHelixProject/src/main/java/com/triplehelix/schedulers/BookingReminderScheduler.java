@@ -1,5 +1,7 @@
 package com.triplehelix.schedulers;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class BookingReminderScheduler {
 	@Autowired
 	private BookingDAO bookingDAO;
 	
+	final String DATE_FORMAT = "dd/MM/yyyy";
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
+	
 	@Scheduled(cron = "* * * * * ?")
 	public void sendBookingsReminders() throws MessagingException {
 		List<Booking> bookings = bookingService.getBookingsForReminder();
@@ -32,9 +37,10 @@ public class BookingReminderScheduler {
 		for (Booking booking : bookings) {
 			if (!booking.isReminderSent()) {
 				String sendTo = booking.getUser().getUserEmail();
-				String subject = "Promemoria Visita del " + booking.getAppointmentDate();
+				String formattedDate = formatter.format(booking.getAppointmentDate());
+				String subject = "Promemoria Visita del " + formattedDate;
 				String body = "Buongiorno " + booking.getUser().getUserName() + ",\n\n"
-						+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + booking.getAppointmentDate();
+						+ "Ti ricordiamo che la visita presso la nostra struttura sarà il " + formattedDate;
 				
 				try {
 					emailService.sendEmail(sendTo, subject, body);					
