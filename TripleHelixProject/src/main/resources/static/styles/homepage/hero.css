@@ -81,6 +81,7 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1; /* Ensure content is above the background */
+  gap: 1rem;
 }
 
 /* Main text block inside the hero section */
@@ -162,7 +163,7 @@ button {
   border-color: var(--orange-hover);
 }
 
-/* Animation for the bouncing arrow */
+/* Animation for the bouncing arrow  */
 #double-arrow {
   animation: bounce 2s infinite;
   cursor: pointer;
@@ -187,6 +188,41 @@ button {
   #main-text {
     gap: 3rem;
     padding-top: 2rem;
+  }
+}
+
+@media screen and (min-height: 300px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  #main-text p {
+    font-size: 16px;
+  }
+
+  button {
+    width: 150px;
+    height: 35px;
+  }
+
+  /* Container for call-to-action buttons */
+  #cta-buttons {
+    width: 150px;
+  }
+
+  /* Common styles for buttons */
+  #discover-more,
+  #book-now {
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #book-now {
+    width: 150px;
+    height: 35px;
+    font-size: 16px;
+    margin-bottom: 0px;
   }
 }
 
