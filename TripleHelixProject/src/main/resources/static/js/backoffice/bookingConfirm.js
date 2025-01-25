@@ -1,5 +1,5 @@
 let endpointPrenotazioni =
-  "http://localhost:8080/api/bookings/status&status=CONFIRMED";
+  "http://localhost:8080/api/bookings/status?status=CONFIRMED";
 let prenotazioni = [];
 let x = 0;
 
