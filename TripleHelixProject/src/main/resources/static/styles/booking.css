@@ -99,6 +99,7 @@ data,
 textarea,
 select {
   font-size: 1rem;
+  color: var(--black);
 }
 
 option {
