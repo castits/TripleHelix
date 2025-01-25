@@ -20,6 +20,8 @@ public class InformationRequestController {
 		String userPhone = informationRequest.getUserPhone();
 		String sendFrom = informationRequest.getUserEmail();
 		String emailText = informationRequest.getInformationRequestText();
+		String imagePath = "src/main/resources/static/assets/img/deck.jpg";
+		String cid = "bannerImage";
 		
 		try {
 			String informationRequestText = "<html>" +
@@ -27,13 +29,14 @@ public class InformationRequestController {
                     "<style>" +
                     "  body { font-family: Arial, sans-serif; color: #333333; }" +
                     "  .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; }" +
-                    "  h2 { color: #0056b3; font-size: 22px; }" +
+                    "  h1 { color: #ff8400; font-size: 22px; text-align: center; }" +
                     "  p { line-height: 1.6; font-size: 16px; }" +
                     "</style>" +
                     "</head>" +
                     "<body>" +
                     "  <div class='email-container'>" +
-                    "    <h2>Richiesta di informazioni</h2>" +
+                    "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
+                    "    <h1>Richiesta di informazioni</h1>" +
                     "    <p><strong>Nome:</strong> " + userName + " " + userSurname + "</p>" +
                     "    <p><strong>Email:</strong> " + sendFrom + "</p>" +
                     "    <p><strong>Telefono:</strong> " + (userPhone != "" ? userPhone : "N/D" ) + "</p>" +
@@ -46,7 +49,9 @@ public class InformationRequestController {
 			emailService.sendEmail(sendFrom,
 					"triplehelixtest1@gmail.com",
 					"Richiesta di informazioni da parte di " + userName + " " + userSurname,
-					informationRequestText);
+					informationRequestText,
+					imagePath,
+					cid);
 		} catch (Exception e) {
 			System.err.println("Failed to send request email from " + sendFrom);
 		}
@@ -57,13 +62,14 @@ public class InformationRequestController {
                     "<style>" +
                     "  body { font-family: Arial, sans-serif; color: #333333; }" +
                     "  .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; }" +
-                    "  h1 { color: #0056b3; font-size: 24px; text-align: center; }" +
+                    "  h1 { color: #ff8400; font-size: 24px; text-align: center; }" +
                     "  p { line-height: 1.6; font-size: 16px; }" +
                     "  .footer { margin-top: 20px; font-size: 14px; color: #777777; }" +
                     "</style>" +
                     "</head>" +
                     "<body>" +
                     "  <div class='email-container'>" +
+                    "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
                     "    <h1>Grazie per la tua richiesta!</h1>" +
                     "    <p>Gentile <strong>" + userName + " " + userSurname + "</strong>,</p>" +
                     "    <p>Grazie per averci contattato. Abbiamo ricevuto la tua richiesta e il nostro team ti risponderà al più presto.</p>" +
@@ -79,7 +85,9 @@ public class InformationRequestController {
 
 			emailService.sendEmail(sendFrom,
 					"Grazie per la tua richiesta",
-					responseEmail);			
+					responseEmail,
+					imagePath,
+					cid);			
 		} catch (Exception e) {
 			System.err.println("Failed to send reply email to " + sendFrom);
 		}

@@ -37,24 +37,6 @@ public class UserController {
     @Autowired
     private EmailService emailService;
 
-    @PostMapping("/change-password")
-    public ResponseEntity<String> changePassword(@RequestBody ChangePassword passwords) {
-        User authenticatedUser = userService.getAuthenticatedUser();
-        
-        if (authenticatedUser == null) {
-            logger.warn("Tentativo di aggiornamento password non autorizzato");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not logged in");
-        }
-
-        logger.info("Aggiornamento password per utente: {}", authenticatedUser.getUserEmail());
-
-        authenticatedUser.setUserPassword(passwordEncoder.encode(passwords.getNewPassword()));
-        userService.saveUser(authenticatedUser);
-
-        logger.info("Password aggiornata con successo per utente: {}", authenticatedUser.getUserEmail());
-        return ResponseEntity.ok("Password updated successfully");
-    }
-
     @PostMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> request) {
         String email = request.get("email");

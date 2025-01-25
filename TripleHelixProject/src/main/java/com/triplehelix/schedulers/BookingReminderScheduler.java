@@ -36,6 +36,7 @@ public class BookingReminderScheduler {
 		for (Booking booking : bookings) {
 			if (!booking.isReminderSent()) {
 				String sendTo = booking.getUser().getUserEmail();
+				String cid = "bannerImage";
 				String formattedDate = formatter.format(booking.getAppointmentDate());
 				String subject = "Promemoria Visita del " + formattedDate;
 				String body = "<html>" +
@@ -43,13 +44,14 @@ public class BookingReminderScheduler {
 			              "<style>" +
 			              "  body { font-family: Arial, sans-serif; color: #333333; }" +
 			              "  .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; }" +
-			              "  h1 { color: #0056b3; font-size: 24px; text-align: center; }" +
+			              "  h1 { color: #ff8400; font-size: 24px; text-align: center; }" +
 			              "  p { line-height: 1.6; font-size: 16px; }" +
 			              "  .footer { margin-top: 20px; font-size: 14px; color: #777777; }" +
 			              "</style>" +
 			              "</head>" +
 			              "<body>" +
 			              "  <div class='email-container'>" +
+			              "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
 			              "    <h1>Promemoria per la tua visita</h1>" +
 			              "    <p>Gentile <strong>" + booking.getUser().getUserName() + "</strong>,</p>" +
 			              "    <p>Ti ricordiamo che hai una visita presso la nostra struttura programmata per il: <strong>" + formattedDate + "</strong></p>" +
@@ -64,7 +66,8 @@ public class BookingReminderScheduler {
 			              "</html>";
 				
 				try {
-					emailService.sendEmail(sendTo, subject, body);					
+					String imagePath = "src/main/resources/static/assets/img/deck.jpg";
+					emailService.sendEmail(sendTo, subject, body, imagePath, cid);
 					booking.setReminderSent(true);
 					bookingDAO.save(booking);
 				} catch (Exception e) {
