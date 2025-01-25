@@ -43,14 +43,15 @@ public class SecurityConfig {
 		        			"/api/bookings/delete/**").hasRole("ADMIN")
 		        	.requestMatchers("/api/feedbacks",
 		        			"/api/feedbacks/**").hasRole("ADMIN")
-	            .requestMatchers("/pub/auth/**",
+	            /*.requestMatchers("/pub/auth/**",
 	            		"/**.html",
 	            		"/styles/**",
 	            		"/js/**",
 	            		"/assets/**",
 	            		"/carousel-info/**",
-	            		"/node_modules/**").permitAll()
-	            .anyRequest().authenticated()
+	            		"/node_modules/**",
+	            		"/").permitAll()*/
+	            .anyRequest().permitAll()
 	        )
 	        .exceptionHandling()
 	            .authenticationEntryPoint((request, response, authException) -> {
