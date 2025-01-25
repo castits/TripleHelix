@@ -69,5 +69,30 @@ async function userRole() {
   return Number(role);
 }
 
+async function compileForm() {
+  const form = document.querySelector("form");
+
+  if (!form) return;
+
+  try {
+    const response = await fetch("/pub/auth/user-info");
+    const user = await response.json();
+
+    const name = user.userName;
+    const surname = user.userSurname;
+    const email = user.userEmail;
+
+    form.name.value = name;
+    form.surname.value = surname;
+    form.email.value = email;
+    form.name.readOnly = true;
+    form.surname.readOnly = true;
+    form.email.readOnly = true;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 isLogged();
 logout();
+compileForm();

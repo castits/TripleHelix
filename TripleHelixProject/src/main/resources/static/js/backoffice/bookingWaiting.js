@@ -1,5 +1,5 @@
 let endpointPrenotazioni =
-  "http://localhost:8080/api/bookings/status&status=PENDING";
+  "http://localhost:8080/api/bookings/status?status=PENDING";
 let prenotazioni = [];
 let x = 0;
 
