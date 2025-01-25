@@ -69,29 +69,32 @@
         <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
-            <li>
-              <a id="profile" href="#" title="Accedi al tuo profilo"
-                ><img src="./assets/svg/account.svg" alt=""
-              /></a>
+            <li class="mobileNavLink">
+              <a id="profile" href="#" title="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="" />
+                <p id="profile-login"></p>
+              </a>
             </li>
 
             <!-- "Homepage" link -->
-            <li>
-              <a class="scroll" href="#index.html" title="Homepage">Homepage</a>
+            <li class="mobileNavLink">
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
             </li>
 
             <!-- "Contact Us" link -->
-            <li>
+            <li class="mobileNavLink">
               <a
                 class="scroll important-btn"
-                href="#contact"
+                href="./index.html#contact"
                 title="Contattaci per maggiori informazioni"
                 >Contattaci</a
               >
             </li>
 
             <!-- "Book a Visit" link -->
-            <li>
+            <li class="mobileNavLink">
               <a
                 href="./booking.html"
                 title="Prenota una visita alla Cascina"
@@ -100,44 +103,20 @@
               >
             </li>
 
-            <!-- <li>
+            <li class="mobileNavLink">
               <a href="#" id="logout" title="Esci dal sistema">Logout</a>
-            </li> -->
+            </li>
           </ul>
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
         <div id="nav-desktop">
           <ul>
-            <!-- "About Us" link -->
-            <li>
-              <a class="scroll" href="#about-us" title="Scopri chi siamo"
-                >Chi siamo</a
-              >
-            </li>
-
-            <!-- "Workshops" link -->
-            <li>
-              <a
-                class="scroll"
-                href="#workshop"
-                title="Scopri i nostri laboratori"
-                >Laboratori</a
-              >
-            </li>
-
-            <!-- "FAQ" link -->
-            <li>
-              <a class="scroll" href="#faq" title="Leggi le domande frequenti"
-                >Faq</a
-              >
-            </li>
-
             <!-- "Contact Us" button -->
             <li>
               <a
                 class="scroll important-btn"
-                href="#contact"
+                href="./index.html#contact"
                 title="Contattaci per maggiori informazioni"
                 >Contattaci</a
               >
@@ -153,18 +132,24 @@
                 >Prenota ora</a
               >
             </li>
+            <!--Homepage-->
+            <li>
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
+            </li>
+            <!-- !Logout -->
+            <li>
+              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+            </li>
 
             <!-- Profile icon -->
             <li>
-              <a id="profile" href="#" title="Accedi al tuo profilo"
-                ><img src="./assets/svg/account.svg" alt=""
-              /></a>
+              <a id="profile" href="#" title="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="" />
+                <p id="profile-login"></p>
+              </a>
             </li>
-
-            <!-- ! Da spostare allinterno del profilo una volta entrato -->
-            <!-- <li>
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
-            </li> -->
           </ul>
         </div>
       </nav>
@@ -202,7 +187,9 @@
         </div>
 
         <!-- Collegamento per recuperare la password dimenticata -->
-        <a id="pwd-dimenticata" href="#">Password dimenticata?</a>
+        <a id="pwd-dimenticata" href="cambioPassword.html"
+          >Password dimenticata?</a
+        >
 
         <!-- Pulsante per accedere -->
         <button type="submit">Accedi</button>
@@ -228,6 +215,8 @@
 
     <!-- Collegamento al file JavaScript per la gestione della pagina -->
     <script src="./js/auth/login.js"></script>
+    <script src="./js/components/header.js"></script>
+    <script src="./js/components/isLoggedAndLogout.js"></script>
   </body>
   <!-- Fine del corpo -->
 </html>

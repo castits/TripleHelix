@@ -29,6 +29,7 @@
 html {
   box-sizing: border-box;
   font-size: var(--font-size-mobile);
+  scroll-behavior: smooth;
 }
 
 *,
@@ -69,6 +70,7 @@ header img {
 }
 
 /* Mobile Menu */
+
 #hamburger {
   cursor: pointer;
 }
@@ -161,7 +163,7 @@ header img {
 #nav-desktop .important-btn {
   background-color: var(--orange);
   color: var(--white);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   font-weight: 600;
   padding: 0.5rem 01rem;
   transition: background-color 0.3s ease, transform 0.2s ease;

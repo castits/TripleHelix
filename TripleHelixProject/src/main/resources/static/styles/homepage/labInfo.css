@@ -24,9 +24,8 @@
   /* Font line height */
   --line-height: 160%;
 }
-
 header img {
-  width: 100vw;
+  width: 100%;
   height: 52vh;
   z-index: 1;
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
@@ -35,21 +34,32 @@ header img {
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
+  object-fit: cover;
+}
+body {
+  background-color: #f4f4f4;
 }
 main {
-  height: 100vh;
+  background-color: #f4f4f4;
+  height: auto;
   padding: 0, 2rem, 0, 2rem;
   position: absolute;
   top: 40vh;
   right: 2rem;
   left: 2rem;
   z-index: 2;
-  border-radius: 5%;
+  border-radius: 40px;
 }
 
-h2,
+p,
+h2 {
+  margin: 6%;
+}
 p {
-  margin: 5%;
+  text-align: left;
+}
+h2 {
+  text-align: center;
 }
 strong {
   font-weight: bold;

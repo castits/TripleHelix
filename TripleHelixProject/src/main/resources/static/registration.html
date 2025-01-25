@@ -10,20 +10,14 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta
-      name="description"
-      content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia."
-    />
+    <meta name="description" content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia." />
     <!-- Titolo della pagina -->
     <title>Registrazione - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili -->
@@ -43,25 +37,14 @@
     <header>
       <!-- Logo section -->
       <a href="./index.html" aria-label="Torna alla homepage">
-        <img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-        />
+        <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" />
       </a>
 
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
 
@@ -69,102 +52,62 @@
         <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
-            <li>
-              <a id="profile" href="#" title="Accedi al tuo profilo"
-                ><img src="./assets/svg/account.svg" alt=""
-              /></a>
+            <li class="mobileNavLink">
+              <a id="profile" href="#" title="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="" />
+                <p id="profile-login"></p>
+              </a>
             </li>
 
             <!-- "Homepage" link -->
-            <li>
-              <a class="scroll" href="#index.html" title="Homepage">Homepage</a>
+            <li class="mobileNavLink">
+              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
             </li>
 
             <!-- "Contact Us" link -->
-            <li>
-              <a
-                class="scroll important-btn"
-                href="#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+            <li class="mobileNavLink">
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" link -->
-            <li>
-              <a
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                class="important-btn"
-                >Prenota ora</a
-              >
+            <li class="mobileNavLink">
+              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn">Prenota ora</a>
             </li>
 
-            <!-- <li>
+            <li class="mobileNavLink">
               <a href="#" id="logout" title="Esci dal sistema">Logout</a>
-            </li> -->
+            </li>
           </ul>
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
         <div id="nav-desktop">
           <ul>
-            <!-- "About Us" link -->
-            <li>
-              <a class="scroll" href="#about-us" title="Scopri chi siamo"
-                >Chi siamo</a
-              >
-            </li>
-
-            <!-- "Workshops" link -->
-            <li>
-              <a
-                class="scroll"
-                href="#workshop"
-                title="Scopri i nostri laboratori"
-                >Laboratori</a
-              >
-            </li>
-
-            <!-- "FAQ" link -->
-            <li>
-              <a class="scroll" href="#faq" title="Leggi le domande frequenti"
-                >Faq</a
-              >
-            </li>
-
             <!-- "Contact Us" button -->
             <li>
-              <a
-                class="scroll important-btn"
-                href="#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" button -->
             <li>
-              <a
-                class="important-btn"
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                target="_blank"
-                >Prenota ora</a
-              >
+              <a class="important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank">Prenota ora</a>
+            </li>
+            <!--Homepage-->
+            <li>
+              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+            </li>
+            <!-- !Logout -->
+            <li>
+              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
             </li>
 
             <!-- Profile icon -->
             <li>
-              <a id="profile" href="#" title="Accedi al tuo profilo"
-                ><img src="./assets/svg/account.svg" alt=""
-              /></a>
+              <a id="profile" href="#" title="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="" />
+                <p id="profile-login"></p>
+              </a>
             </li>
-
-            <!-- ! Da spostare allinterno del profilo una volta entrato -->
-            <!-- <li>
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
-            </li> -->
           </ul>
         </div>
       </nav>
@@ -179,69 +122,36 @@
         <!-- Campo per il nome -->
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input
-            type="text"
-            name="nome"
-            id="nome"
-            placeholder="Inserisci il tuo nome"
-            required
-          />
+          <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required />
         </div>
 
         <!-- Campo per il cognome -->
         <div class="form-group">
           <label for="cognome">Cognome</label>
-          <input
-            type="text"
-            name="cognome"
-            id="cognome"
-            placeholder="Inserisci il tuo cognome"
-            required
-          />
+          <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required />
         </div>
 
         <!-- Campo per l'email -->
         <div class="form-group">
           <label for="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Inserisci la tua email"
-            required
-          />
+          <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
         </div>
 
         <!-- Campo per la creazione della password -->
         <div class="form-group">
           <label for="password">Crea password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Almeno 8 caratteri"
-            required
-          />
+          <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
         </div>
 
         <!-- Campo per la conferma della password -->
         <div class="form-group">
           <label for="conferma-password">Conferma password</label>
-          <input
-            type="password"
-            name="conferma-password"
-            id="conferma-password"
-            placeholder="Almeno 8 caratteri"
-            required
-          />
+          <input type="password" name="conferma-password" id="conferma-password" placeholder="Almeno 8 caratteri" required />
         </div>
 
         <!-- Campo per il consenso GDPR -->
         <div id="gdpr-field">
-          <label for="gdpr"
-            >Autorizzo il trattamento dei miei dati personali ai sensi del
-            Regolamento (UE) 2016/679 (GDPR):</label
-          >
+          <label for="gdpr">Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR):</label>
           <div id="gdpr-input">
             <input type="checkbox" name="gdpr" id="gdpr" required />
             <p>Si</p>
@@ -252,12 +162,15 @@
         <button type="submit">Registrati</button>
       </form>
       <p id="login">
-        Hai già un account? <a href="./login.html">Effettua il login</a>
+        Hai già un account?
+        <a href="./login.html">Effettua il login</a>
       </p>
     </main>
 
     <!-- Collegamento al file JavaScript per la gestione della pagina di registrazione -->
     <script src="./js/auth/registration.js"></script>
+    <script src="./js/components/header.js"></script>
+    <script src="./js/components/isLoggedAndLogout.js"></script>
   </body>
   <!-- Fine del corpo della pagina -->
 </html>
