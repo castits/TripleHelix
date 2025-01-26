@@ -105,6 +105,10 @@
   font-size: 18px;
 }
 
+a {
+  color: white;
+}
+
 .carousel-container::-webkit-scrollbar {
   display: none; /* Nasconde la barra di scorrimento */
 }
