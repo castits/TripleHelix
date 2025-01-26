@@ -31,6 +31,7 @@
     <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
     <link rel="stylesheet" href="./styles/booking.css" />
+    <link rel="stylesheet" href="./styles/booking.css" />
   </head>
   <!-- Fine della sezione head -->
 
@@ -297,6 +298,18 @@
             id="messaggio"
             placeholder="Inserisci il tuo messaggio"
           ></textarea>
+        </div>
+
+        <!-- Campo per il consenso GDPR -->
+        <div id="gdpr-field">
+          <label for="gdpr"
+            >Autorizzo il trattamento dei miei dati personali ai sensi del
+            Regolamento (UE) 2016/679 (GDPR):</label
+          >
+          <div id="gdpr-input">
+            <input type="checkbox" name="gdpr" id="gdpr" required />
+            <p>Si</p>
+          </div>
         </div>
         <!-- Pulsante per inviare il form -->
         <button type="submit">INVIA</button>

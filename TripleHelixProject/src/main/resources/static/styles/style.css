@@ -103,6 +103,42 @@ a:visited {
   font-weight: bold;
 }
 
+#gdpr-field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 0.5em;
+}
+
+#gdpr-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+#gdpr-input p {
+  font-size: 12px;
+  margin: 0;
+}
+
+label[for="gdpr"] {
+  font-weight: var(--font-weight-medium);
+  font-size: 12px;
+  line-height: 120%;
+}
+
+input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  border-radius: 5px;
+  margin: 0 5px 0 0;
+}
+input[type="checkbox"]:checked {
+  accent-color: var(--fucsia);
+}
+
 /* Media Queries */
 @media screen and (min-width: 768px) {
   #about-us,
