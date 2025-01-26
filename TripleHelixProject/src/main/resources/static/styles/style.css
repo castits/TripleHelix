@@ -8,12 +8,15 @@
   --orange-hover: #cc6a00;
   --fucsia-hover: #c20074;
   --orange-light: #ffe9cc;
+
   /* Font family */
   --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+
   /* Font size */
   --font-size-small: 16px;
   --font-size-medium: 18px;
   --font-size-big: 22px;
+
   /* Font weight */
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -25,7 +28,7 @@
   --line-height: 160%;
 }
 
-/* Set box-sizing rules */
+/* General styles */
 html {
   box-sizing: border-box;
   font-size: var(--font-size-small);
@@ -45,24 +48,27 @@ body {
 
 main {
   letter-spacing: 0.1rem;
-  background-color: var(--background-color);
 }
 
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-
 h2 {
-  font-size: 22px;
+  font-size: var(--font-size-big);
   font-weight: var(--font-weight-semi-bold);
 }
 
+a {
+  text-decoration: none;
+}
+
+/* Margins and padding for sections */
 #about-us,
-#workshop,
-#faq {
-  scroll-margin-top: 15vh;
+#faq,
+#workshop {
+  margin: 5rem 1.3rem;
+}
+
+#about-us p {
+  margin-top: 1.5rem;
+  font-size: var(--font-size-small);
 }
 
 #contact {
@@ -71,20 +77,10 @@ h2 {
 
 #about-us,
 #faq {
-  margin: 5rem 1.3rem;
+  scroll-margin-top: 15vh;
 }
 
-#about-us p {
-  margin-top: 1.5rem;
-  font-size: 16px;
-}
-
-a:link,
-a:visited {
-  text-decoration: none;
-}
-
-/* Stile per i messaggi di errore */
+/* Message styles */
 .error-message {
   color: red;
   font-size: 0.875em;
@@ -92,17 +88,14 @@ a:visited {
   font-weight: bold;
 }
 
-/* Stile per i messaggi di successo */
 .success-message {
   color: green;
   font-size: 1em;
   margin-top: 20px;
   font-weight: bold;
 }
-/********************************************************************************/
-/**                            MEDIA QUERIES                                   **/
-/********************************************************************************/
-/* Tablet */
+
+/* Media Queries */
 @media screen and (min-width: 768px) {
   #about-us,
   #faq {
@@ -110,26 +103,30 @@ a:visited {
   }
 }
 
-/* Laptop Small*/
 @media screen and (min-width: 992px) {
+  #about-us,
+  #faq {
+    margin: 5rem 10rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #about-us,
+  #faq {
+    margin: 5rem 15rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
   #about-us,
   #faq {
     margin: 5rem 20rem;
   }
 }
 
-/* Laptop medium */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1600px) {
   #about-us,
   #faq {
     margin: 5rem 25rem;
-  }
-}
-
-/* Desktop large */
-@media screen and (min-width: 1400px) {
-  #about-us,
-  #faq {
-    margin: 5rem 30rem;
   }
 }
