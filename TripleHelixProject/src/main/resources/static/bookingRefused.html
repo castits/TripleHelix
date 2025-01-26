@@ -3,19 +3,16 @@
   <!-- Inizio della sezione head -->
   <head>
     <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
+    <!-- Specifica il set di caratteri utilizzato per garantire la corretta visualizzazione dei testi -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
+    <!-- Ottimizzazione per dispositivi mobili, garantendo una visualizzazione corretta su tutti i dispositivi -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
+    <!-- Nome dell'autore del sito -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito -->
-    <meta
-      name="description"
-      content="Pagina di prenotazione per prenotare una visita in Cascina Caccia."
-    />
-    <!-- Titolo della pagina -->
-    <title>Prenota ora - Cascina Caccia</title>
+    <!-- Descrizione del sito per i motori di ricerca e per gli utenti -->
+    <meta name="description" content="Pagina delle prenotazioni rifiutate" />
+    <!-- Titolo della pagina, visibile nella barra del browser -->
+    <title>Prenotazioni rifiutate - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,12 +30,10 @@
     <!-- Stile per la pagina di backoffice -->
     <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
   </head>
-
   <!-- Fine della sezione head -->
 
   <!-- Inizio del corpo della pagina -->
   <body>
-    <!-- Intestazione della pagina -->
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
     <!--*------------------------------*-->
@@ -93,7 +88,7 @@
             </li>
             <!-- "Bookings confirmed" link -->
             <li class="mobileNavLink">
-              <a href="./bookingConfirm.html" title="Prenotazioni confermate"
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate"
                 >Confermate</a
               >
             </li>
@@ -134,7 +129,7 @@
             </li>
             <!-- "Bookings confirmed" link -->
             <li>
-              <a href="./bookingConfirm.html" title="Prenotazioni confermate"
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate"
                 >Confermate</a
               >
             </li>
@@ -164,17 +159,16 @@
         </div>
       </nav>
     </header>
-
     <!-- Contenuto principale della pagina -->
     <main>
-      <!-- Titolo della sezione per le prenotazioni confermate -->
-      <h2 id="confermate">Prenotazioni Confermate:</h2>
-      <!-- Contenitore per le prenotazioni confermate, che verranno caricate dinamicamente -->
+      <!-- Titolo della sezione delle prenotazioni rifiutate -->
+      <h2 id="rifiutate">Prenotazioni rifiutate:</h2>
+      <!-- Contenitore per le prenotazioni rifiutate, che verranno caricate dinamicamente -->
       <div class="containerPrenotazione"></div>
     </main>
 
-    <!-- Collegamento al file JavaScript per la gestione delle prenotazioni confermate -->
-    <script src="./js/backoffice/bookingConfirm.js"></script>
+    <!-- Collegamento al file JavaScript per la gestione delle prenotazioni rifiutate -->
+    <script src="./js/backoffice/bookingRefuse.js"></script>
     <script src="./js/components/header.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
