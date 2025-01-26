@@ -113,7 +113,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Se i dati sono validi, invia la richiesta
       try {
-        const response = await fetch("api/bookings/create", {
+        const response = await fetch("/api/bookings/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

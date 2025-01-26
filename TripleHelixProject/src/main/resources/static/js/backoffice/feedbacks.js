@@ -1,4 +1,4 @@
-let endpointfeedbacks = "http://localhost:8080/api/feedbacks";
+let endpointfeedbacks = "/api/feedbacks";
 let feedbacks = [];
 let x = 0;
 

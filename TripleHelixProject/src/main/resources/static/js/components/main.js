@@ -154,9 +154,12 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
 
   function handleScroll() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
 
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
 
     const scrolled = (winScroll / height) * 100;
 
@@ -204,11 +207,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Validazione specifica per ogni campo
       if (!name || !nameRegex.test(name)) {
-        showError(form.name, "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri).");
+        showError(
+          form.name,
+          "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
+        );
       }
 
       if (!surname || !nameRegex.test(surname)) {
-        showError(form.surname, "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri).");
+        showError(
+          form.surname,
+          "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
+        );
       }
 
       if (!email || !emailRegex.test(email)) {
@@ -216,11 +225,17 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       if (phone && !phoneRegex.test(phone)) {
-        showError(form.phone, "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri.");
+        showError(
+          form.phone,
+          "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri."
+        );
       }
 
       if (message.length > 500) {
-        showError(form.message, "Il messaggio non può superare i 500 caratteri.");
+        showError(
+          form.message,
+          "Il messaggio non può superare i 500 caratteri."
+        );
       }
 
       if (hasErrors) {
@@ -229,7 +244,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Se i dati sono validi, invia la richiesta
       try {
-        const response = await fetch("api/information-requests/send", {
+        const response = await fetch("/api/information-requests/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -250,14 +265,16 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
           const errorElement = document.createElement("div");
           errorElement.className = "error-message";
-          errorElement.textContent = "Errore durante l'invio del messaggio. Riprova più tardi.";
+          errorElement.textContent =
+            "Errore durante l'invio del messaggio. Riprova più tardi.";
           form.appendChild(errorElement);
         }
       } catch (error) {
         console.error("Errore:", error);
         const errorElement = document.createElement("div");
         errorElement.className = "error-message";
-        errorElement.textContent = "Si è verificato un errore. Riprova più tardi.";
+        errorElement.textContent =
+          "Si è verificato un errore. Riprova più tardi.";
         form.appendChild(errorElement);
       }
     });
@@ -268,6 +285,5 @@ window.addEventListener("DOMContentLoaded", () => {
   openAccordion(); // Inizializza le funzionalità degli accordion
   setupNavbarLinks(); // Inizializza il comportamento dei link della navbar
   isLogged(); // Verifica se l'utente è loggato
-  // logout(); // Effettua il logout dell'utente corrente
   contact(); // Invia la mail di contatto
 });
