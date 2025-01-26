@@ -2,38 +2,46 @@
  * Verifica se l'utente è loggato e, in base alla risposta, reindirizza
  * alla pagina appropriata: dashboard se loggato, login altrimenti.
  */
-function isLogged() {
+async function isLogged() {
   const profileIcons = document.querySelectorAll(".profile");
+  const bookBtn = document.querySelector(".book-now-btn");
+
   let isUserLogged = false;
 
-  profileIcons.forEach((profile) => {
-    profile.addEventListener("click", async (event) => {
-      event.preventDefault();
-      try {
-        const response = await fetch("/pub/auth/is-logged");
+  try {
+    const response = await fetch("/pub/auth/is-logged");
 
-        if (response.ok) {
-          const text = await response.text();
-          if (text === "true") {
-            isUserLogged = true;
-          }
-          if (isUserLogged) {
-            const role = await userRole();
+    if (response.ok) {
+      const text = await response.text();
+      isUserLogged = text === "true";
+    }
 
-            if (role == 2) {
-              location.href = "./usersDashboard.html";
-            } else if (role == 1) {
-              location.href = "./dashboardAdmin.html";
-            }
-          } else {
-            location.href = "./login.html";
-          }
+    profileIcons.forEach((profile) => {
+      profile.addEventListener("click", async (event) => {
+        event.preventDefault();
+        if (isUserLogged) {
+          const role = await userRole();
+          location.href =
+            role == 2 ? "./usersDashboard.html" : "./dashboardAdmin.html";
+        } else {
+          location.href = "./login.html";
         }
-      } catch (error) {
-        console.error(error);
-      }
+      });
     });
-  });
+
+    if (bookBtn) {
+      bookBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        location.href = isUserLogged ? "./booking.html" : "./login.html";
+      });
+    }
+
+    if (isUserLogged) {
+      compileForm();
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 /**
@@ -74,10 +82,10 @@ async function compileForm() {
 
   if (!form) return;
 
-  try {
-    const response = await fetch("/pub/auth/user-info");
-    const user = await response.json();
+  const response = await fetch("/pub/auth/user-info");
+  const user = await response.json();
 
+  if (user) {
     const name = user.userName;
     const surname = user.userSurname;
     const email = user.userEmail;
@@ -88,11 +96,8 @@ async function compileForm() {
     form.name.readOnly = true;
     form.surname.readOnly = true;
     form.email.readOnly = true;
-  } catch (error) {
-    console.error(error);
   }
 }
 
 isLogged();
 logout();
-compileForm();

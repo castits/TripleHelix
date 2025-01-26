@@ -112,6 +112,10 @@
   color: var(--white);
 }
 
+a {
+  color: white;
+}
+
 .carousel-container::-webkit-scrollbar {
   display: none;
 }
