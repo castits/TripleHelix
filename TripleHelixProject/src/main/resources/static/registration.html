@@ -10,20 +10,14 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta
-      name="description"
-      content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia."
-    />
+    <meta name="description" content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia." />
     <!-- Titolo della pagina -->
     <title>Registrazione - Cascina Caccia</title>
 
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili -->
@@ -31,7 +25,6 @@
     <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
     <!-- Stile per la pagina di registrazione -->
-    <!-- <link rel="stylesheet" href="./styles/auth/registration.css" /> -->
     <link rel="stylesheet" href="./styles/auth/form.css" />
   </head>
   <!-- Fine della sezione head -->
@@ -43,26 +36,15 @@
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a href="./index.html" aria-label="Torna alla homepage">
-        <img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-        />
+      <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
 
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
 
@@ -71,43 +53,29 @@
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo utente" />
                 <p id="profile-login"></p>
               </a>
             </li>
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
             <!-- "Contact Us" link -->
             <li class="mobileNavLink">
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci per maggiori informazioni">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" link -->
             <li class="mobileNavLink">
-              <a
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                class="important-btn"
-                >Prenota ora</a
-              >
+              <a href="./booking.html" title="Prenota una visita alla Cascina" aria-label="Prenota una visita alla Cascina" class="important-btn">Prenota ora</a>
             </li>
             <!-- "Logout" link -->
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema"
-                ><img src="./assets/svg/logout.svg" alt="icona profilo"
-              /></a>
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema"><img src="./assets/svg/logout.svg" alt="Icona logout" /></a>
             </li>
           </ul>
         </div>
@@ -117,42 +85,27 @@
           <ul>
             <!--Homepage-->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
             <!-- "Contact Us" button -->
             <li>
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci per maggiori informazioni">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" button -->
             <li>
-              <a
-                class="important-btn"
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                target="_blank"
-                >Prenota ora</a
-              >
+              <a class="important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank" aria-label="Prenota una visita alla Cascina">Prenota ora</a>
             </li>
 
             <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo utente" />
               </a>
             </li>
             <!-- !Logout -->
             <li>
-              <a href="#" class="logout" title="Esci dal sistema"
-                ><img src="./assets/svg/logout.svg" alt="icona profilo"
-              /></a>
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema"><img src="./assets/svg/logout.svg" alt="Icona logout" /></a>
             </li>
           </ul>
         </div>
@@ -163,87 +116,54 @@
     <main>
       <div class="bg-form bg-form-register">
         <!-- Form per la registrazione -->
-        <form id="registration-form" method="post">
-          <h2>Registrati</h2>
+        <form id="registration-form" method="post" aria-labelledby="form-title">
+          <h2 id="form-title">Registrati</h2>
 
           <!-- Campo per il nome -->
           <div class="form-group">
             <label for="nome">Nome</label>
-            <input
-              type="text"
-              name="nome"
-              id="nome"
-              placeholder="Inserisci il tuo nome"
-              required
-            />
+            <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" aria-required="true" required />
           </div>
 
           <!-- Campo per il cognome -->
           <div class="form-group">
             <label for="cognome">Cognome</label>
-            <input
-              type="text"
-              name="cognome"
-              id="cognome"
-              placeholder="Inserisci il tuo cognome"
-              required
-            />
+            <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" aria-required="true" required />
           </div>
 
           <!-- Campo per l'email -->
           <div class="form-group">
             <label for="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Inserisci la tua email"
-              required
-            />
+            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" aria-required="true" required />
           </div>
 
           <!-- Campo per la creazione della password -->
           <div class="form-group">
             <label for="password">Crea password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Almeno 8 caratteri"
-              required
-            />
+            <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" aria-required="true" required />
           </div>
 
           <!-- Campo per la conferma della password -->
           <div class="form-group">
             <label for="conferma-password">Conferma password</label>
-            <input
-              type="password"
-              name="conferma-password"
-              id="conferma-password"
-              placeholder="Almeno 8 caratteri"
-              required
-            />
+            <input type="password" name="conferma-password" id="conferma-password" placeholder="Almeno 8 caratteri" aria-required="true" required />
           </div>
 
           <!-- Campo per il consenso GDPR -->
           <div id="gdpr-field">
-            <label for="gdpr"
-              >Autorizzo il trattamento dei miei dati personali ai sensi del
-              Regolamento (UE) 2016/679 (GDPR):</label
-            >
+            <label for="gdpr">Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR):</label>
             <div id="gdpr-input">
-              <input type="checkbox" name="gdpr" id="gdpr" required />
+              <input type="checkbox" name="gdpr" id="gdpr" aria-required="true" required />
               <p>Si</p>
             </div>
           </div>
 
           <!-- Pulsante per l'invio del form -->
-          <button type="submit">Registrati</button>
+          <button type="submit" aria-label="Invia il modulo di registrazione">Registrati</button>
         </form>
         <p id="login">
           Hai già un account?
-          <a href="./login.html">Accedi</a>
+          <a href="./login.html" aria-label="Vai alla pagina di accesso">Accedi</a>
         </p>
       </div>
     </main>

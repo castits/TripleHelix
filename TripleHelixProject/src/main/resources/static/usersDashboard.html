@@ -1,173 +1,134 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Inizio della sezione head -->
+  <!-- Start of the head section -->
   <head>
-    <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
+    <!-- Meta information -->
+    <!-- Specifies the character set used -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
+    <!-- Optimization for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
+    <!-- Site author -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito -->
-    <meta
-      name="description"
-      content="Gestione delle prenotazioni confermate in cascina caccia da parte dell'utente"
-    />
-    <!-- Titolo della pagina -->
+    <!-- Site description -->
+    <meta name="description" content="Gestione delle prenotazioni confermate a Cascina Caccia da parte dell'utente" />
+    <!-- Page title -->
     <title>Gestione Prenotazioni - Cascina Caccia</title>
 
-    <!-- Collegamento ai font di Google -->
+    <!-- Link to Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-    <!-- Collegamento ai fogli di stile -->
-    <!-- Reset CSS per uniformare gli stili -->
+    <!-- Link to stylesheets -->
+    <!-- Reset CSS to standardize styles -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Stile per la barra di navigazione -->
+    <!-- Navigation bar style -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile back office -->
+    <!-- Back office style -->
     <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
   </head>
-  <!-- Fine della sezione head -->
+  <!-- End of the head section -->
 
-  <!-- Inizio del corpo -->
+  <!-- Start of the body -->
   <body>
-    <!-- Intestazione della pagina -->
+    <!-- Page header -->
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-      <a href="./index.html"
-        ><img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-      /></a>
+      <!-- Logo section -->
+      <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
+      </a>
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri il menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona del menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile">
+        <div id="nav-mobile" aria-labelledby="Menu di navigazione mobile">
+          <h2 id="nav-mobile-heading" class="visually-hidden">Menu di navigazione mobile</h2>
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona del profilo" title="Profilo" />
                 <p id="profile-login"></p>
               </a>
             </li>
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Vai alla Homepage">Homepage</a>
             </li>
 
-            <!-- "Contact Us" link -->
+            <!-- "Contact us" link -->
             <li class="mobileNavLink">
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
-            <!-- "Book a Visit" link -->
+            <!-- "Book a visit" link -->
             <li class="mobileNavLink">
-              <a
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                class="important-btn"
-                >Prenota ora</a
-              >
+              <a href="./booking.html" title="Prenota una visita a Cascina" class="important-btn" aria-label="Prenota ora una visita a Cascina">Prenota Ora</a>
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema"
-                ><img src="./assets/svg/logout.svg" alt="icona profilo"
-              /></a>
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="Icona di logout" title="Logout" />
+              </a>
             </li>
           </ul>
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop">
+        <div id="nav-desktop" aria-labelledby="Menu di navigazione desktop">
+          <h2 id="nav-desktop-heading" class="visually-hidden">Menu di navigazione desktop</h2>
           <ul>
             <!--Homepage-->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Vai alla Homepage">Homepage</a>
             </li>
 
-            <!-- "Contact Us" button -->
+            <!-- "Contact us" button -->
             <li>
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
-            <!-- "Book a Visit" button -->
+            <!-- "Book a visit" button -->
             <li>
-              <a
-                class="important-btn"
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                target="_blank"
-                >Prenota ora</a
-              >
+              <a class="important-btn" href="./booking.html" title="Prenota una visita a Cascina" target="_blank" aria-label="Prenota ora una visita a Cascina">Prenota Ora</a>
             </li>
 
             <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="icona profilo" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona del profilo" title="Profile" />
               </a>
             </li>
-            <!-- !Logout -->
+            <!-- Logout -->
             <li>
-              <a href="#" class="logout" title="Esci dal sistema"
-                ><img src="./assets/svg/logout.svg" alt="icona profilo"
-              /></a>
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="Icona di logout" title="Logout" />
+              </a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <!-- Contenuto principale della pagina -->
+    <!-- Main content of the page -->
     <main>
-      <!-- Titolo della sezione delle prenotazioni confermate -->
-      <h2 id="confermate">Prenotazioni Confermate:</h2>
+      <!-- Title of the confirmed bookings section -->
+      <h2 id="confermate">Confirmed Bookings:</h2>
 
-      <!-- Contenitore dove verranno caricate le prenotazioni confermate -->
-      <div class="containerPrenotazione"></div>
+      <!-- Container where confirmed bookings will be loaded -->
+      <div class="containerPrenotazione" aria-labelledby="Prenotazioni confermate"></div>
     </main>
 
-    <!-- Collegamento al file JavaScript per la gestione della dashboard -->
+    <!-- Link to JavaScript file for dashboard management -->
     <script src="./js/backoffice/usersDashboard.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>
   </body>
-  <!-- Fine del corpo -->
+  <!-- End of the body -->
 </html>
