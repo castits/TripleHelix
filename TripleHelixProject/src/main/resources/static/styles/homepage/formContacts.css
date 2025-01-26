@@ -92,3 +92,31 @@ form button {
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  form {
+    padding: 5rem 5rem;
+  }
+}
+
+/* Laptop Small*/
+@media screen and (min-width: 992px) {
+  form {
+    padding: 5rem 10rem;
+  }
+}
+
+/* Laptop medium */
+@media screen and (min-width: 1200px) {
+  form {
+    padding: 5rem 15rem;
+  }
+}
+
+/* Desktop large */
+@media screen and (min-width: 1400px) {
+  form {
+    padding: 5rem 20rem;
+  }
+}
