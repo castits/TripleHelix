@@ -22,7 +22,7 @@ async function isLogged() {
         if (isUserLogged) {
           const role = await userRole();
           location.href =
-            role == 2 ? "./usersDashboard.html" : "./dashboardAdmin.html";
+            role == 2 ? "./usersDashboard.html" : "./bookingWaiting.html";
         } else {
           location.href = "./login.html";
         }
