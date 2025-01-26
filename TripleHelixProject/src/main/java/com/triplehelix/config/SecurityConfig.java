@@ -39,8 +39,8 @@ public class SecurityConfig {
 		        	.requestMatchers("/api/bookings",
 		        			"/api/bookings/status?**",
 		        			"/api/bookings/update/**",
-		        			"/api/bookings/change-status/**",
-		        			"/api/bookings/delete/**").hasRole("ADMIN")
+		        			"/api/bookings/change-status**",
+		        			"/api/bookings/delete**").hasRole("ADMIN")
 		        	.requestMatchers("/api/feedbacks",
 		        			"/api/feedbacks/**").hasRole("ADMIN")
 	            /*.requestMatchers("/pub/auth/**",
