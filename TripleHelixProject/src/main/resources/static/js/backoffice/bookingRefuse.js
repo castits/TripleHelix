@@ -44,7 +44,7 @@ function createPrenotazioneBox(prenotazione) {
   // Crea un div per ogni prenotazione
   let div = document.createElement("div");
   div.classList.add("prenotazione-box");
-  div.classList.add("cancellate");
+  div.classList.add("rifiutate");
 
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
@@ -103,11 +103,11 @@ function createPrenotazioneBox(prenotazione) {
 }
 
 function showPrenotazioni(num) {
-  let h2NumCancellate = document.getElementById("cancellate");
-  let numCancellate = document.createElement("span"); // Crea l'elemento <span>
-  numCancellate.textContent = num;
+  let h2NumRifiutate = document.getElementById("rifiutate");
+  let numRifiutate = document.createElement("span"); // Crea l'elemento <span>
+  numRifiutate.textContent = num;
 
-  h2NumCancellate.appendChild(numCancellate);
+  h2NumRifiutate.appendChild(numRifiutate);
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
     listaPrenotazione.removeChild(listaPrenotazione.firstChild);
