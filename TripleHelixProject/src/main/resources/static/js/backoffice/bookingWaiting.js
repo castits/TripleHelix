@@ -30,14 +30,14 @@ fetch(endpointPrenotazioni)
   })
   .then((prenotazioneJSON) => {
     prenotazioni = prenotazioneJSON;
-    let x = prenotazioni.length;
+    x = prenotazioni.length;
     showPrenotazioni(x); // Mostra tutte le prenotazioni
   })
   .catch((error) => {
     console.log("Errore:", error);
   });
 
-// // Seleziona il contenitore per la lista di prenotazioni
+// Seleziona il contenitore per la lista di prenotazioni
 let listaPrenotazione = document.querySelector(".containerPrenotazione");
 
 function createPrenotazioneBox(prenotazione) {
@@ -102,35 +102,21 @@ function createPrenotazioneBox(prenotazione) {
   let buttonContainer = document.createElement("div");
   buttonContainer.classList.add("button-container");
 
-  // Crea l'elemento form
-  let btnForm = document.createElement("form");
-
-  //CONFUSIONE SULLE CHIAMATE REJECTED E ACCEPTED
-
-  // Imposta gli attributi del form
-  btnForm.classList.add("hiddenForm");
-  btnForm.action = "/action_page.php"; // URL di destinazione !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  btnForm.method = "get"; // Metodo HTTP
-  btnForm.id = "accept_reject"; // ID del form
-
-  // Aggiungi il form al DOM (ad esempio, al corpo del documento)
-  buttonContainer.appendChild(btnForm);
-
   let accettaButton = document.createElement("button");
   accettaButton.textContent = "Accetta";
-  accettaButton.value = "Accetta";
-  accettaButton.type = "submit";
   accettaButton.classList.add("accetta-button");
-  accettaButton.setAttribute("form", "accept_reject"); // Associa al form con ID "accept_reject"
-  accettaButton.addEventListener("click", () => handleAccetta(prenotazione));
+  accettaButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    handleAccetta(prenotazione);
+  });
 
   let rifiutaButton = document.createElement("button");
   rifiutaButton.textContent = "Rifiuta";
-  rifiutaButton.value = "Rifiuta";
-  rifiutaButton.type = "submit";
   rifiutaButton.classList.add("rifiuta-button");
-  rifiutaButton.setAttribute("form", "accept_reject"); // Associa al form con ID "accept_reject"
-  rifiutaButton.addEventListener("click", () => handleRifiuta(prenotazione));
+  rifiutaButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    handleRifiuta(prenotazione);
+  });
 
   // Aggiungi i bottoni al container
   buttonContainer.appendChild(accettaButton);
@@ -143,22 +129,49 @@ function createPrenotazioneBox(prenotazione) {
 }
 
 // Funzioni per gestire il click su "Accetta" e "Rifiuta"
-function handleAccetta(prenotazione) {
-  alert(`Prenotazione di ${prenotazione.userName} accettata!`);
-  // Puoi aggiungere altre azioni come l'invio di una richiesta al server
+async function handleAccetta(prenotazione) {
+  await fetch(
+    `/api/bookings/change-status/${prenotazione.bookingId}?status=CONFIRMED`,
+    {
+      method: "PUT",
+    }
+  );
+  updatePrenotazioni();
 }
 
-function handleRifiuta(prenotazione) {
-  alert(`Prenotazione di ${prenotazione.userName} rifiutata!`);
-  // Puoi aggiungere altre azioni come l'invio di una richiesta al server
+async function handleRifiuta(prenotazione) {
+  await fetch(
+    `/api/bookings/change-status/${prenotazione.bookingId}?status=REFUSED`,
+    {
+      method: "PUT",
+    }
+  );
+  updatePrenotazioni();
+}
+
+function updatePrenotazioni() {
+  fetch(endpointPrenotazioni)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    })
+    .then((prenotazioneJSON) => {
+      prenotazioni = prenotazioneJSON;
+      x = prenotazioni.length;
+      showPrenotazioni(x); // Mostra tutte le prenotazioni
+    })
+    .catch((error) => {
+      console.log("Errore:", error);
+    });
 }
 
 function showPrenotazioni(num) {
   let h2NumAttesa = document.getElementById("inAttesa");
-  let numInAttesa = document.createElement("span"); // Crea l'elemento <span>
-  numInAttesa.textContent = num;
+  h2NumAttesa.textContent = `In Attesa: ${num}`;
 
-  h2NumAttesa.appendChild(numInAttesa);
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
     listaPrenotazione.removeChild(listaPrenotazione.firstChild);
