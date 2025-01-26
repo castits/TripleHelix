@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Inizio della sezione head -->
+  <!-- Start of the head section -->
   <head>
-    <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
+    <!-- Meta information -->
+    <!-- Specifies the character set used -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
+    <!-- Optimization for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
+    <!-- Website author -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito -->
+    <!-- Website description -->
     <meta name="description" content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia." />
-    <!-- Titolo della pagina -->
+    <!-- Page title -->
     <title>Registrazione - Cascina Caccia</title>
 
-    <!-- Collegamento ai font di Google -->
+    <!-- Linking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-    <!-- Collegamento ai fogli di stile -->
-    <!-- Reset CSS per uniformare gli stili -->
+    <!-- Linking stylesheets -->
+    <!-- Reset CSS to standardize styles -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Stile per la barra di navigazione -->
+    <!-- Style for the navigation bar -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile per la pagina di registrazione -->
+    <!-- Style for the registration page -->
     <link rel="stylesheet" href="./styles/auth/form.css" />
   </head>
-  <!-- Fine della sezione head -->
+  <!-- End of the head section -->
 
-  <!-- Inizio del corpo della pagina -->
+  <!-- Start of the body -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
@@ -104,66 +104,29 @@
       </nav>
     </header>
 
-    <!-- Contenuto principale della pagina -->
+    <!-- Main content of the page -->
     <main>
       <div class="bg-form bg-form-register">
-        <!-- Form per la registrazione -->
+        <!-- Registration form -->
         <form id="registration-form" method="post" aria-labelledby="form-title">
           <h2 id="form-title">Registrati</h2>
 
-          <!-- Campo per il nome -->
+          <!-- Field for the name -->
           <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" aria-required="true" required />
           </div>
 
-          <!-- Campo per il cognome -->
+          <!-- Field for the surname -->
           <div class="form-group">
             <label for="cognome">Cognome</label>
             <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" aria-required="true" required />
           </div>
 
-          <!-- Campo per l'email -->
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" aria-required="true" required />
-          </div>
-
-          <!-- Campo per la creazione della password -->
-          <div class="form-group">
-            <label for="password">Crea password</label>
-            <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" aria-required="true" required />
-          </div>
-
-          <!-- Campo per la conferma della password -->
-          <div class="form-group">
-            <label for="conferma-password">Conferma password</label>
-            <input type="password" name="conferma-password" id="conferma-password" placeholder="Almeno 8 caratteri" aria-required="true" required />
-          </div>
-
-          <!-- Campo per il consenso GDPR -->
-          <div id="gdpr-field">
-            <label for="gdpr">Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR):</label>
-            <div id="gdpr-input">
-              <input type="checkbox" name="gdpr" id="gdpr" aria-required="true" required />
-              <p>Si</p>
-            </div>
-          </div>
-
-          <!-- Pulsante per l'invio del form -->
-          <button type="submit" aria-label="Invia il modulo di registrazione">Registrati</button>
+          <!-- Field for the email -->
+          <div class="form-group"></div>
         </form>
-        <p id="login">
-          Hai già un account?
-          <a href="./login.html" aria-label="Vai alla pagina di accesso">Accedi</a>
-        </p>
       </div>
     </main>
-
-    <!-- Collegamento al file JavaScript per la gestione della pagina di registrazione -->
-    <script src="./js/auth/registration.js"></script>
-    <script src="./js/components/header.js"></script>
-    <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
-  <!-- Fine del corpo della pagina -->
 </html>
