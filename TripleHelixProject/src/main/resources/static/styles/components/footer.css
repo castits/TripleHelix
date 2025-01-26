@@ -24,6 +24,7 @@
   /* Font line height */
   --line-height: 160%;
 }
+
 footer {
   background-color: var(--black); /* Colore di sfondo scuro per il footer */
   display: flex;

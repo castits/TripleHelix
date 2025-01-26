@@ -24,57 +24,58 @@
   /* Font line height */
   --line-height: 160%;
 }
+
 #faq h2 {
-  margin-bottom: 0.5em; /* Distanza tra l'intestazione e il contenuto */
+  margin-bottom: 0.5em;
 }
 
 .faq-container {
-  padding: 1.3rem 0;
-  border-bottom: 1px solid #212121; /* Linea di separazione */
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--black);
+  transition: max-height 0.4s ease-out;
 }
 
 .faq-title {
   height: 3.8rem;
-  color: #212121; /* Colore del testo */
-  cursor: pointer; /* Mostra il cursore a forma di mano */
+  color: var(--black);
+  cursor: pointer;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
 .faq-title h3 {
-  font-size: 16px;
+  font-size: var(--font-size-small);
   width: 90%;
   font-weight: var(--font-weight-semi-bold);
-  line-height: 150%; /* Altezza della riga aumentata per una lettura migliore */
+  line-height: 150%;
 }
 
 .faq-title img {
-  transform: rotate(90deg); /* Ruota l'icona dell'accordion */
+  transform: rotate(90deg);
   width: 20px;
   margin-left: 1.3rem;
-  transition: transform 0.4s ease-out; /* Transizione per la rotazione */
+  transition: transform 0.4s ease-out;
 }
 
 .faq-answer {
+  font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
-  font-size: 16px;
-  line-height: 160%; /* Aumenta l'altezza della riga per il paragrafo */
-  display: block; /* Cambia da "none" a "block" per gestire la visualizzazione */
-  max-height: 0; /* Nasconde la risposta all'inizio */
-  overflow: hidden; /* Nasconde il contenuto fuori dalla vista */
-  transition: max-height 0.4s ease-out; /* Transizione per l'animazione di apertura */
+  line-height: var(--line-height);
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
 }
 
 .faq-answer p {
-  margin-top: 1em;
+  margin: 2em 0;
 }
 
 .faq-container.active .faq-title img {
-  transform: rotate(-90deg); /* Ruota l'icona quando la risposta è aperta */
+  transform: rotate(-90deg);
 }
 
 .faq-container.active .faq-answer {
-  max-height: 300px; /* Altezza massima quando la risposta è visibile */
+  max-height: 300px;
 }
