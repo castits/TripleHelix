@@ -60,6 +60,16 @@ h2 {
 }
 
 #about-us,
+#workshop,
+#faq {
+  scroll-margin-top: 15vh;
+}
+
+#contact {
+  scroll-margin-top: 8vh;
+}
+
+#about-us,
 #faq {
   margin: 5rem 1.3rem;
 }

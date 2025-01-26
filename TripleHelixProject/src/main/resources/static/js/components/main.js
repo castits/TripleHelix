@@ -48,13 +48,13 @@ window.addEventListener("DOMContentLoaded", () => {
    * Aggiunge un comportamento di scroll morbido ai bottoni "discover more",
    * che porta l'utente alla sezione #hero con un'animazione di scorrimento.
    */
-  function ctaScroll() {
+  function discoverMoreScroll() {
     const ctas = document.querySelectorAll(".discover-more");
-    const heroHeight = document.getElementById("hero").offsetHeight;
 
     ctas.forEach((cta) => {
-      cta.addEventListener("click", () => {
-        window.scrollTo({ top: heroHeight, behavior: "smooth" });
+      cta.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.getElementById("about-us").scrollIntoView();
       });
     });
   }
@@ -81,12 +81,10 @@ window.addEventListener("DOMContentLoaded", () => {
             if (targetElement.id === "contact-form") {
               window.scrollTo({
                 top: targetElement.offsetTop - headerHeight,
-                behavior: "smooth",
               });
             } else {
               window.scrollTo({
                 top: targetElement.offsetTop - headerHeight - 40,
-                behavior: "smooth",
               });
             }
           }
@@ -281,7 +279,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   updateHeroHeight(); // Imposta la sezione hero all'altezza corretta
-  ctaScroll(); // Inizializza il comportamento di scrolling delle CTA
+  discoverMoreScroll(); // Inizializza il comportamento di scrolling delle CTA
   openAccordion(); // Inizializza le funzionalità degli accordion
   setupNavbarLinks(); // Inizializza il comportamento dei link della navbar
   isLogged(); // Verifica se l'utente è loggato
