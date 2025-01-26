@@ -82,16 +82,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Se la registrazione è andata a buon fine (status 201)
         if (response.ok && response.status === 201) {
-          const successMessage = document.createElement("div");
-          successMessage.style.color = "green";
-          successMessage.style.marginTop = "10px";
-          successMessage.textContent = "Registrazione completata con successo!";
-          registrationForm.appendChild(successMessage);
-
           // Redirigi l'utente alla pagina di login dopo 2 secondi
-          setTimeout(() => {
-            window.location.href = "/login.html";
-          }, 2000);
+          window.location.href = "/login.html";
         } else {
           // Gestione degli errori di risposta del server
           const errorData = await response.json();
