@@ -48,12 +48,6 @@ main {
   background-color: var(--background-color);
 }
 
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-/** ----------------------------------------------------------------------------------------------------------- */
-
 h2 {
   font-size: 22px;
   font-weight: var(--font-weight-semi-bold);
@@ -68,13 +62,6 @@ a {
 #faq,
 #workshop {
   margin: 5rem 1.3rem;
-}
-
-#about-us p {
-  margin-top: 1.5rem;
-  font-size: var(--font-size-small);
-#workshop,
-#faq {
   scroll-margin-top: 13vh;
 }
 
@@ -82,14 +69,9 @@ a {
   scroll-margin-top: 8vh;
 }
 
-#about-us,
-#faq {
-  margin: 5rem 1.3rem;
-}
-
 #about-us p {
   margin-top: 1.5rem;
-  font-size: 16px;
+  font-size: var(--font-size-small);
 }
 
 a:link,
@@ -119,4 +101,40 @@ a:visited {
   font-size: 1em;
   margin-top: 20px;
   font-weight: bold;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  #about-us,
+  #faq {
+    margin: 5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #about-us,
+  #faq {
+    margin: 5rem 10rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #about-us,
+  #faq {
+    margin: 5rem 15rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #about-us,
+  #faq {
+    margin: 5rem 20rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #about-us,
+  #faq {
+    margin: 5rem 25rem;
+  }
 }
