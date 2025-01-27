@@ -130,13 +130,102 @@ The API was built to allow interaction with the system’s core functionalities.
 
 ### Booking Controller Endpoints
 
-- **GET /api/bookings**: Fetches all bookings.
+1. **GET /api/bookings**: Fetches all bookings.
   - **Response**: List of booking objects.
-  - **Status**: 200 OK.
-
-- **GET /api/bookings/user**: Fetches bookings by user email.
+    - **Status**: 200 OK.
+    ```json
+    {
+      "userName": "Mario",
+      "timeSlot": "AFTERNOON",
+      "userSurname": "Rossi",
+      "participantQuantity": 7,
+      "institute": "ITS ICT",
+      "userEmail": "mario.rossi@example.com",
+      "appointmentDate": "2025-01-28",
+      "bookingId": 18,
+      "day": "TUESDAY"
+    },
+    {
+      "userName": "Luca",
+      "timeSlot": "MORNING",
+      "userSurname": "Rossi",
+      "participantQuantity": 30,
+      "institute": "ITS ICT",
+      "userEmail": "luca.rossi@example.com",
+      "appointmentDate": "2025-01-31",
+      "bookingId": 20,
+      "day": "FRIDAY"
+    }
+    ```
+2. **GET /api/bookings/status**: Retrieve bookings based on status.
+  - **Authorization required**: ADMIN role
+  - **Query Parameter**: `status` (String) – Booking status (REFUSED, PENDING, CONFIRMED).
+  - **Response**: 
+    - **Status**: 200 OK: List of bookings matching the status.<br>
+    ```json
+      Example request: "GET /api/bookings/status?status=PENDING"
+    ```
+    ```json
+    {
+      "userName": "Mario",
+      "timeSlot": "AFTERNOON",
+      "userSurname": "Rossi",
+      "participantQuantity": 7,
+      "institute": "ITS ICT",
+      "userEmail": "mario.rossi@example.com",
+      "appointmentDate": "2025-01-28",
+      "bookingId": 18,
+      "day": "TUESDAY"
+    }
+    ```
+    - **Status**: 400 Bad Request: "Invalid status value".
+  
+3. **GET /api/bookings/user**: Fetches bookings associated with a user's email
   - **Query Parameter**: `email` (string) – The user’s email address.
-  - **Response**: Booking object or 404 NOT FOUND if not found.
+  - **Response**:
+    - **Status**: 200 OK: List of bookings matching the status.<br>
+    ```json
+      Example request: "GET /api/bookings/user?email=user@example.com"
+    ```
+    ```json
+    {
+      "userName": "Luca",
+      "timeSlot": "AFTERNOON",
+      "userSurname": "Rossi",
+      "participantQuantity": 7,
+      "institute": "ITS ICT",
+      "userEmail": "luca.rossi@example.com",
+      "appointmentDate": "2025-01-28",
+      "bookingId": 18,
+      "day": "TUESDAY"
+    }
+    ```
+4. **GET /api/bookings/user-status**: Fetches bookings for a user filtered by status.
+  - **Query Parameter**: 
+    - `email` (string) – The user’s email address.
+    - `status` (String) – Booking status (REFUSED, PENDING, CONFIRMED).
+  - **Response**: The created booking object.
+    - **Status**: 200 OK: List of filtered bookings.<br>
+    ```json
+      Example request: "GET /api/bookings/user-status?email=user@example.com&status=CONFIRMED"
+    ```
+    ```json
+    {
+      "userName": "Luca",
+      "timeSlot": "AFTERNOON",
+      "userSurname": "Rossi",
+      "participantQuantity": 7,
+      "institute": "ITS ICT",
+      "userEmail": "luca.rossi@example.com",
+      "appointmentDate": "2025-01-28",
+      "bookingId": 18,
+      "day": "TUESDAY"
+    }
+    ```
+    - **Status**: 400 Bad Request: Invalid status value.
+  
+
+
 
 - **POST /api/bookings/create**: Creates a new booking.
   - **Request Body**:
