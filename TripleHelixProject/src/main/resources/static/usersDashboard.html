@@ -66,7 +66,7 @@
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a id="profile" href="#" title="Accedi al tuo profilo">
+              <a class="profile" href="#" title="Accedi al tuo profilo">
                 <img src="./assets/svg/account.svg" alt="" />
                 <p id="profile-login"></p>
               </a>
@@ -100,7 +100,9 @@
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+              <a href="#" class="logout" title="Esci dal sistema"
+                ><img src="./assets/svg/logout.svg" alt="icona profilo"
+              /></a>
             </li>
           </ul>
         </div>
@@ -108,6 +110,13 @@
         <!--*--------------------- DESKTOP MENU -------------------->
         <div id="nav-desktop">
           <ul>
+            <!--Homepage-->
+            <li>
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
+            </li>
+
             <!-- "Contact Us" button -->
             <li>
               <a
@@ -128,23 +137,18 @@
                 >Prenota ora</a
               >
             </li>
-            <!--Homepage-->
-            <li>
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
-            </li>
-            <!-- !Logout -->
-            <li>
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
-            </li>
 
             <!-- Profile icon -->
             <li>
-              <a id="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
-                <p id="profile-login"></p>
+              <a class="profile" href="#" title="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="icona profilo" />
               </a>
+            </li>
+            <!-- !Logout -->
+            <li>
+              <a href="#" class="logout" title="Esci dal sistema"
+                ><img src="./assets/svg/logout.svg" alt="icona profilo"
+              /></a>
             </li>
           </ul>
         </div>
@@ -162,7 +166,7 @@
 
     <!-- Collegamento al file JavaScript per la gestione della dashboard -->
     <script src="./js/backoffice/usersDashboard.js"></script>
-    <script src="./js/components/isLoggedAndLogout.js"></script>
+    <script src="./js/auth/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>
   </body>
   <!-- Fine del corpo -->

@@ -10,13 +10,19 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito -->
-    <meta name="description" content="Pagina di prenotazione per prenotare una visita in Cascina Caccia." />
+    <meta
+      name="description"
+      content="Pagina di prenotazione per prenotare una visita in Cascina Caccia."
+    />
     <!-- Titolo della pagina -->
     <title>Dashboard admin - Cascina Caccia</title>
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili su tutti i browser -->
@@ -36,14 +42,25 @@
     <header>
       <!-- Logo section -->
       <a href="./index.html" aria-label="Torna alla homepage">
-        <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione" />
+        <img
+          src="./assets/svg/logo.svg"
+          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+        />
       </a>
 
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
-        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
-          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
+        <label
+          for="check"
+          class="checkbtn"
+          aria-label="Apri menu di navigazione"
+        >
+          <img
+            src="./assets/svg/hamburger.svg"
+            alt="Icona menu di navigazione"
+            id="hamburger"
+          />
         </label>
         <input type="checkbox" id="check" />
 
@@ -52,7 +69,7 @@
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a id="profile" href="#" title="Accedi al tuo profilo">
+              <a class="profile" href="#" title="Accedi al tuo profilo">
                 <img src="./assets/svg/account.svg" alt="" />
                 <p id="profile-login"></p>
               </a>
@@ -60,23 +77,27 @@
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
-            </li>
-            <!-- "Notifications" link -->
-            <li class="mobileNavLink">
-              <a href="./dashboardAdmin.html" title="Notifiche">Notifiche</a>
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
             </li>
             <!-- "Bookings pending " link -->
             <li class="mobileNavLink">
-              <a href="./bookingWaiting.html" title="Prenotazioni in attesa">Prenotazioni in attesa</a>
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa"
+                >In attesa</a
+              >
             </li>
             <!-- "Bookings confirmed" link -->
             <li class="mobileNavLink">
-              <a href="./bookingConfirm.html" title="Prenotazioni confermate">Prenotazioni confermate</a>
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate"
+                >Confermate</a
+              >
             </li>
             <!-- "Bookings deleted" link -->
             <li class="mobileNavLink">
-              <a href="./bookingDelete.html" title="Prenotazioni cancellate">Prenotazioni cancellate</a>
+              <a href="./bookingRefused.html" title="Prenotazioni rifiutate"
+                >Rifiutate</a
+              >
             </li>
             <!-- "Feedbacks" link -->
             <li class="mobileNavLink">
@@ -84,7 +105,9 @@
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
+              <a href="#" class="logout" title="Esci dal sistema"
+                ><img src="./assets/svg/logout.svg" alt="Icona logout"
+              /></a>
             </li>
           </ul>
         </div>
@@ -94,37 +117,42 @@
           <ul>
             <!-- "Homepage" link -->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
-            </li>
-            <!-- "Notifications" link -->
-            <li>
-              <a href="./dashboardAdmin.html" title="Notifiche">Notifiche</a>
+              <a class="scroll" href="./index.html" title="Homepage"
+                >Homepage</a
+              >
             </li>
             <!-- "Bookings pending " link -->
             <li>
-              <a href="./bookingWaiting.html" title="Prenotazioni in attesa">Prenotazioni in attesa</a>
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa"
+                >In attesa</a
+              >
             </li>
             <!-- "Bookings confirmed" link -->
             <li>
-              <a href="./bookingConfirm.html" title="Prenotazioni confermate">Prenotazioni confermate</a>
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate"
+                >Confermate</a
+              >
             </li>
-            <!-- "Bookings cancelled" link -->
+            <!-- "Bookings refused" link -->
             <li>
-              <a href="./bookingDelete.html" title="Prenotazioni cancellate">Prenotazioni cancellate</a>
+              <a href="./bookingRefused.html" title="Prenotazioni rifiutate"
+                >Rifiutate</a
+              >
             </li>
             <!-- "Feedbacks" link -->
             <li>
               <a href="./feedbacks.html" title="Feedbacks">Feedbacks</a>
             </li>
-            <li>
-              <a href="#" id="logout" title="Esci dal sistema">Logout</a>
-            </li>
             <!-- Profile icon -->
             <li>
-              <a id="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
-                <p id="profile-login"></p>
+              <a class="profile" href="#" title="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" />
               </a>
+            </li>
+            <li>
+              <a href="#" class="logout" title="Esci dal sistema"
+                ><img src="./assets/svg/logout.svg" alt="Icona logout"
+              /></a>
             </li>
           </ul>
         </div>
@@ -135,8 +163,8 @@
     <main></main>
 
     <!-- Collegamento al file JavaScript per la gestione delle prenotazioni confermate -->
-    <script src="./js/backoffice/bookingConfirm.js"></script>
+    <script src="./js/backoffice/bookingConfirmed.js"></script>
     <script src="./js/components/header.js"></script>
-    <script src="./js/components/isLoggedAndLogout.js"></script>
+    <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
 </html>

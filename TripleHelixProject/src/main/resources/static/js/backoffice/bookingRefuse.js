@@ -1,5 +1,4 @@
-let endpointPrenotazioni =
-  "http://localhost:8080/api/bookings/status?status=CONFIRMED";
+let endpointPrenotazioni = "/api/bookings/status?status=REFUSED";
 let prenotazioni = [];
 let x = 0;
 
@@ -45,7 +44,8 @@ function createPrenotazioneBox(prenotazione) {
   // Crea un div per ogni prenotazione
   let div = document.createElement("div");
   div.classList.add("prenotazione-box");
-  div.classList.add("confermate");
+  div.classList.add("rifiutate");
+
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
   nome.appendChild(
@@ -99,51 +99,15 @@ function createPrenotazioneBox(prenotazione) {
   );
   div.appendChild(fasciaOraria);
 
-  // Crea bottone "cancella"
-  let buttonContainer = document.createElement("div");
-  buttonContainer.classList.add("button-container");
-
-  // Crea l'elemento form
-  let btnForm = document.createElement("form");
-
-  // Imposta gli attributi del form
-  btnForm.classList.add("hiddenForm");
-  btnForm.action = `http://localhost/api/bookings/delete/${prenotazione.bookingsId}`;
-  btnForm.method = "get"; // Metodo HTTP
-  btnForm.id = "reject"; // ID del form
-
-  // Aggiungi il form al DOM (ad esempio, al corpo del documento)
-  buttonContainer.appendChild(btnForm);
-
-  let cancellaButton = document.createElement("button");
-  cancellaButton.textContent = "Cancella";
-  cancellaButton.value = "Cancella";
-  cancellaButton.type = "submit";
-  cancellaButton.classList.add("cancella-button");
-  cancellaButton.setAttribute("form", "reject"); // Associa al form con ID "reject"
-  cancellaButton.addEventListener("click", () => handleRifiuta(prenotazione));
-
-  // Aggiungi il bottone al container
-
-  buttonContainer.appendChild(cancellaButton);
-
-  // Aggiungi il container del bottone al div della prenotazione
-  div.appendChild(buttonContainer);
-
   return div;
 }
 
-function handleRifiuta(prenotazione) {
-  alert(`Prenotazione di ${prenotazione.userName} cancellata!`);
-  // Puoi aggiungere altre azioni come l'invio di una richiesta al server
-}
-
 function showPrenotazioni(num) {
-  let h2NumConfermate = document.getElementById("confermate");
-  let numConfermate = document.createElement("span"); // Crea l'elemento <span>
-  numConfermate.textContent = num;
+  let h2NumRifiutate = document.getElementById("rifiutate");
+  let numRifiutate = document.createElement("span"); // Crea l'elemento <span>
+  numRifiutate.textContent = num;
 
-  h2NumConfermate.appendChild(numConfermate);
+  h2NumRifiutate.appendChild(numRifiutate);
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
     listaPrenotazione.removeChild(listaPrenotazione.firstChild);

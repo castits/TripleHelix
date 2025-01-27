@@ -80,7 +80,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  z-index: 1; /* Ensure content is above the background */
+  z-index: 1;
   gap: 1rem;
 }
 
@@ -133,7 +133,7 @@ button {
 /* Styles for the "Discover More" button */
 #discover-more {
   background-color: var(--transparent);
-  border: 2px solid var(--orange); /* Orange border */
+  border: 2px solid var(--orange);
   color: var(--orange);
   font-weight: var(--font-weight-medium);
 }
@@ -191,47 +191,46 @@ button {
   }
 }
 
-@media screen and (min-height: 300px) {
-  h1 {
-    font-size: 25px;
-  }
-
-  #main-text p {
-    font-size: 16px;
-  }
-
-  button {
-    width: 150px;
-    height: 35px;
-  }
-
-  /* Container for call-to-action buttons */
-  #cta-buttons {
-    width: 150px;
-  }
-
-  /* Common styles for buttons */
-  #discover-more,
-  #book-now {
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  #book-now {
-    width: 150px;
-    height: 35px;
-    font-size: 16px;
-    margin-bottom: 0px;
-  }
-}
-
 /* Laptop Small*/
 @media screen and (min-width: 992px) {
+  #main-text {
+    width: 100%;
+    gap: 3rem;
+  }
+
+  h1 {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    line-height: var(--line-height-font-size-big);
+    width: 320px;
+  }
+
+  #hero-content {
+    width: 320px;
+  }
 }
 
 /* Laptop medium */
 @media screen and (min-width: 1200px) {
+  h1 {
+    color: var(--white);
+    font-size: 38px;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    line-height: var(--line-height-font-size-big);
+    width: 350px;
+  }
+
+  #hero-content {
+    width: 350px;
+  }
+
+  #main-text p {
+    font-size: 22px;
+    line-height: var(--line-height-font-size-big);
+  }
 }
 
 /* Desktop large */

@@ -113,7 +113,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Se i dati sono validi, invia la richiesta
       try {
-        const response = await fetch("api/bookings/create", {
+        const response = await fetch("/api/bookings/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -135,7 +135,9 @@ window.addEventListener("DOMContentLoaded", () => {
           successElement.className = "success-message";
           successElement.textContent = "Prenotazione effettuata con successo!";
           form.appendChild(successElement);
-          form.reset(); // Resetta il form dopo l'invio
+          setTimeout(() => {
+            location.href = "./usersDashboard.html";
+          }, 1000);
         } else {
           const errorElement = document.createElement("div");
           errorElement.className = "error-message";

@@ -8,12 +8,15 @@
   --orange-hover: #cc6a00;
   --fucsia-hover: #c20074;
   --orange-light: #ffe9cc;
+
   /* Font family */
   --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+
   /* Font size */
   --font-size-small: 16px;
   --font-size-medium: 18px;
   --font-size-big: 22px;
+
   /* Font weight */
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -51,7 +54,6 @@ label {
 input,
 textarea {
   width: 100%;
-  height: 3rem;
   padding: 0.7rem;
   margin: 0.3rem 0 1rem;
   background-color: var(--white);
@@ -59,6 +61,11 @@ textarea {
   border-radius: 8px;
   font-size: var(--font-size-small);
   font-family: var(--font-family);
+}
+
+input,
+textarea {
+  height: 3rem;
 }
 
 textarea {
@@ -71,7 +78,7 @@ textarea::placeholder {
   color: var(--gray-light);
   font-family: var(--font-family);
   font-weight: var(--font-weight-light);
-  font-size: var(--font-size-mobile);
+  font-size: var(--font-size-small); /* Use the correct font-size-small here */
 }
 
 input:focus,
@@ -91,4 +98,35 @@ form button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* Responsive Media Queries */
+@media screen and (min-width: 768px) {
+  form {
+    padding: 5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  form {
+    padding: 5rem 10rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  form {
+    padding: 5rem 15rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  form {
+    padding: 5rem 20rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  form {
+    padding: 5rem 25rem;
+  }
 }

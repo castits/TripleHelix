@@ -48,21 +48,13 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
-          const successMessage = document.createElement("div");
-          successMessage.style.color = "green";
-          successMessage.style.marginTop = "10px";
-          successMessage.textContent = "Login avvenuto con successo!";
-          loginForm.appendChild(successMessage);
-
           const role = await userRole();
 
-          setTimeout(() => {
-            if (role == 2) {
-              location.href = "./usersDashboard.html";
-            } else if (role == 1) {
-              location.href = "./dashboardAdmin.html";
-            }
-          }, 2000);
+          if (role == 2) {
+            location.href = "./usersDashboard.html";
+          } else if (role == 1) {
+            location.href = "./dashboardAdmin.html";
+          }
         } else {
           const errorData = await response.json();
           const errorMessage = document.createElement("p");

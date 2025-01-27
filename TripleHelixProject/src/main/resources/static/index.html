@@ -11,7 +11,7 @@
       content="Cascina Caccia: un centro di memoria e impegno sociale incentrato sulla legalità e sull'educazione, con attività educative per scuole e gruppi."
     />
     <title>Cascina Caccia - Riscatto, Legalità ed Educazione</title>
-
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Aggiunta font fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -109,7 +109,9 @@
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema">Logout</a>
+              <a href="#" class="logout" title="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" />
+              </a>
             </li>
           </ul>
         </div>
@@ -117,6 +119,22 @@
         <!--*--------------------- DESKTOP MENU -------------------->
         <div id="nav-desktop">
           <ul>
+            <!-- "About us" link -->
+            <li>
+              <a class="scroll" href="./index.html#about-us" title="Chi siamo"
+                >Chi siamo</a
+              >
+            </li>
+            <!-- "Workshop" link -->
+            <li>
+              <a class="scroll" href="./index.html#workshop" title="Workshop"
+                >Laboratori</a
+              >
+            </li>
+            <!-- "Faq" link -->
+            <li>
+              <a class="scroll" href="./index.html#faq" title="Faq">Faq</a>
+            </li>
             <!-- "Contact Us" button -->
             <li>
               <a
@@ -137,33 +155,16 @@
                 >Prenota ora</a
               >
             </li>
-
-            <!-- "About us" link -->
-            <li>
-              <a class="scroll" href="./index.html#about-us" title="Chi siamo"
-                >Chi siamo</a
-              >
-            </li>
-            <!-- "Workshop" link -->
-            <li>
-              <a class="scroll" href="./index.html#workshop" title="Workshop"
-                >Laboratori</a
-              >
-            </li>
-            <!-- "Faq" link -->
-            <li>
-              <a class="scroll" href="./index.html#faq" title="Faq">Faq</a>
-            </li>
-            <!-- Logout -->
-            <li>
-              <a href="#" class="logout" title="Esci dal sistema">Logout</a>
-            </li>
-
             <!-- Profile icon -->
             <li>
               <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
-                <p id="desktop-profile-login"></p>
+                <img src="./assets/svg/account.svg" alt="icona profilo" />
+              </a>
+            </li>
+            <!-- Logout -->
+            <li>
+              <a href="#" class="logout" title="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" />
               </a>
             </li>
           </ul>
@@ -179,11 +180,17 @@
     <!--*-----------------------------------------------------*-->
     <main>
       <div id="hero">
-        <img
-          id="hero-bg"
-          src="./assets/img/cascina_caccia_mobile.jpg"
-          alt="Immagine della Cascina Caccia, vista panoramica del sito"
-        />
+        <picture>
+          <source
+            srcset="./assets/img/cascina_caccia.jpg"
+            media="(min-width: 768px)"
+          />
+          <img
+            id="hero-bg"
+            src="./assets/img/cascina_caccia_mobile.jpg"
+            alt="Immagine della Cascina Caccia, vista panoramica del sito"
+          />
+        </picture>
         <div id="hero-bg-darkness"></div>
         <div id="hero-content">
           <div id="main-text">
@@ -223,16 +230,27 @@
       <div id="about-us">
         <h2>Cos'è Cascina Caccia?</h2>
         <p>
-          Cascina Caccia è un bene confiscato alla criminalità organizzata,
-          situato a San Sebastiano da Po, e trasformato in un centro di memoria
-          e impegno sociale dedicato alla memoria del magistrato Bruno Caccia e
-          di sua moglie Carla.
+          <strong>Cascina Caccia</strong>
+          è un
+          <strong>bene confiscato alla criminalità</strong>
+
+          organizzata, situato a San Sebastiano da Po, e trasformato in un
+          centro di memoria e impegno sociale dedicato alla memoria del
+          magistrato
+          <strong>Bruno Caccia</strong>
+          e di
+          <strong>sua moglie Carla</strong>
+          .
         </p>
         <p>
-          Oggi è un centro educativo e comunitario dove si promuovono la
-          legalità e la cittadinanza attiva, stimolando riflessione e
-          consapevolezza attraverso laboratori didattici ed esperienze formative
-          dedicati a scuole e gruppi scout.
+          Oggi è un
+          <strong>centro educativo e comunitario</strong>
+          dove si promuovono la legalità e la cittadinanza attiva, stimolando
+          riflessione e consapevolezza attraverso
+          <strong>laboratori didattici</strong>
+          ed esperienze formative dedicati a
+          <strong>scuole</strong>
+          e gruppi scout.
         </p>
       </div>
       <div id="workshop">
@@ -245,102 +263,152 @@
           >
             <div class="carousel-intro">
               <h3>Storia della Cascina: Carla e Bruno Caccia</h3>
-              <button title="Scopri di più sulla storia della Cascina Caccia">
-                <a href="./carousel-info/carousel1.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sulla storia della Cascina Caccia"
+                href="./carousel-info/carousel1.html"
+                >Scopri di più</a
+              >
             </div>
             <img
-              src="./assets/img/sentiero_cascina_caccia.jpg"
+              src="./assets/img/sentiero-cascina-caccia.jpg"
               alt="Sentiero che conduce alla Cascina Caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item" aria-label="Laboratorio su Bruno Caccia">
             <div class="carousel-intro">
               <h3>Bruno Caccia</h3>
-              <button title="Scopri di più su Bruno Caccia">
-                <a href="./carousel-info/carousel2.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Bruno Caccia"
+                href="./carousel-info/carousel2.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/bruno-caccia.jpg"
-              alt="Immagine di Bruno Caccia"
+              alt="Bruno Caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Regolegalità per i più piccini</h3>
-              <button title="Scopri di più su Regolegalità">
-                <a href="./carousel-info/carousel3.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Regolegalità"
+                href="./carousel-info/carousel3.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/educazione-3.jpg" alt="" />
+            <img
+              src="./assets/img/regolegalita.jpg"
+              alt="Educazione in Cascina Caccia"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>I beni confiscati</h3>
-              <button title="Scopri di più su Regolegalità">
-                <a href="./carousel-info/carousel4.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Regolegalità"
+                href="./carousel-info/carousel4.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/beni-confiscati.jpg"
+              alt="Catena e lucchetto per i beni confiscati"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Le mafie e il cibo</h3>
-              <button title="Scopri di più sulle Mafie e il cibo">
-                <a href="./carousel-info/carousel5.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sulle Mafie e il cibo"
+                href="./carousel-info/carousel5.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/tavolo-imbandito.jpg"
+              alt="Tavolo imbandito di Cascina Caccia"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Miele e api</h3>
-              <button title="Scopri di più su Miele ed api della Cascina">
-                <a href="./carousel-info/carousel6.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Miele ed api della Cascina"
+                href="./carousel-info/carousel6.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/miele-e-api.jpg"
+              alt="Miele di cascina caccia"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Ricicliamo</h3>
-              <button title="Scopri di più sul riciclo e la creatività">
-                <a href="./carousel-info/carousel7.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sul riciclo e la creatività"
+                href="./carousel-info/carousel7.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/ricicliamo.jpg"
+              alt="Oggetti riciclati di Cascina Caccia"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>La mafia attraverso il cinema</h3>
-              <button title="Scopri di più sulla Mafia attraverso il cinema">
-                <a href="./carousel-info/carousel8.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sulla Mafia attraverso il cinema"
+                href="./carousel-info/carousel8.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/carla-e-bruno-caccia.jpg"
+              alt="Carla e Bruno Caccia che ballano"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Il gioco non è un azzardo</h3>
-              <button
+              <a
                 title="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)"
+                href="./carousel-info/carousel9.html"
+                >Scopri di più</a
               >
-                <a href="./carousel-info/carousel9.html">Scopri di più</a>
-              </button>
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/soldi-finti.jpg"
+              alt="Soldi finti"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Chi non gioca vince</h3>
-              <button
+              <a
                 title="Scopri di più sul tema del gioco d'azzardo (per i ragazzi)"
+                href="./carousel-info/carousel10.html"
+                >Scopri di più</a
               >
-                <a href="./carousel-info/carousel10.html">Scopri di più</a>
-              </button>
             </div>
-            <img src="./assets/img/party-bene.jpg" alt="" />
+            <img
+              src="./assets/img/riunione-laboratorio.jpg"
+              alt="Riunione in cerchio durante il laboratorio di 'Chi non gioca vince'"
+              loading="lazy"
+            />
           </div>
         </div>
         <!-- Punti per il carousel -->
@@ -414,10 +482,14 @@
           </div>
           <div class="faq-answer">
             <p>
-              Puoi prenotare direttamente dal nostro sito compilando il modulo
-              dedicato o contattandoci via mail. Siamo a disposizione per
-              aiutarti a personalizzare il percorso in base alle tue esigenze
-              educative.
+              Puoi prenotare direttamente dal
+              <strong>nostro sito</strong>
+              compilando il
+              <strong>modulo dedicato</strong>
+              o
+              <strong>contattandoci via mail</strong>
+              . Siamo a disposizione per aiutarti a personalizzare il percorso
+              in base alle tue esigenze educative.
             </p>
           </div>
         </div>
@@ -435,8 +507,11 @@
               <li>Giornata intera: 150€ a classe</li>
             </ul>
             <p>
-              Sono previsti sconti per gruppi numerosi e gratuità per due
-              insegnanti accompagnatori nei soggiorni.
+              Sono previsti
+              <strong>sconti per gruppi numerosi</strong>
+              e l'
+              <strong>ingresso gratuito</strong>
+              per due insegnanti accompagnatori durante le visite.
             </p>
           </div>
         </div>
@@ -450,9 +525,15 @@
           </div>
           <div class="faq-answer">
             <p>
-              Sì, ospitiamo massimo due classi per le visite giornaliere e una
-              classe per volta per i soggiorni. Le camerate hanno una capienza
-              massima di 24 posti letto.
+              Sì, ospitiamo massimo
+              <strong>due classi</strong>
+              per le
+              <strong>visite giornaliere</strong>
+              e una classe per volta per i soggiorni. Le
+              <strong>camerate</strong>
+              hanno una capienza massima di
+              <strong>24 posti letto</strong>
+              .
             </p>
           </div>
         </div>
@@ -467,9 +548,12 @@
           <div class="faq-answer">
             <p>
               Per i pullman superiori ai 25 posti, è previsto il parcheggio
-              presso il cimitero di San Sebastiano da Po, seguito da una
-              passeggiata di 15 minuti. Per esigenze specifiche (es. persone con
-              mobilità ridotta), contattaci in anticipo.
+              presso il
+              <strong>cimitero di San Sebastiano da Po</strong>
+              , seguito da una
+              <strong>passeggiata di 15 minuti.</strong>
+              Per esigenze specifiche (es. persone con mobilità ridotta),
+              contattaci in anticipo.
             </p>
           </div>
         </div>
@@ -575,7 +659,9 @@
       <!-- Fine form di contatto -->
     </main>
 
-    <!-- Inizio del footer -->
+    <!--*------------------------------*-->
+    <!--*           FOOTER             *-->
+    <!--*------------------------------*-->
     <footer aria-label="Informazioni di contatto">
       <div id="footer-logo">
         <img src="./assets/svg/logo.svg" alt="Logo di Cascina Caccia" />
@@ -620,7 +706,7 @@
 
     <!-- Collegamento al file javascript -->
     <script src="./js/components/main.js"></script>
-    <script src="./js/components/isLoggedAndLogout.js"></script>
+    <script src="./js/auth/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>
   </body>
   <!-- Fine della sezione body -->

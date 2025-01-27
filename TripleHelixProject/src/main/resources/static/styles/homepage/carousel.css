@@ -25,35 +25,40 @@
   --line-height: 160%;
 }
 
+#workshop {
+  margin: 0; /* Rimuove margini per il workshop */
+}
+
+#workshop h2 {
+  margin: 0 1.3rem 1.5rem; /* Distanza per il titolo del workshop */
+}
+
+/* Contenitore per il carousel */
 .carousel-container {
-  /* Contenitore per il carousel */
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory; /* Forza lo scroll in modo sincronizzato */
+  scroll-snap-type: x mandatory;
   margin-left: 1.3rem;
   margin-right: 1.3rem;
-  width: calc(
-    100% - 2.6rem
-  ); /* La larghezza del carousel considerando i margini */
+  width: calc(100% - 2.6rem);
 }
 
+/* Ogni elemento del carousel */
 .carousel-item {
-  /* Ogni elemento del carousel */
   position: relative;
   flex-shrink: 0;
-  width: 100%; /* Ogni immagine occupa l'intera larghezza della finestra */
-  height: 70vh; /* Altezza del 70% della finestra */
-  scroll-snap-align: start; /* Allinea l'elemento all'inizio */
-  background-size: cover; /* Copri l'area con l'immagine */
+  width: 100%;
+  height: 65vh;
+  scroll-snap-align: start;
+  background-size: cover;
   background-position: center;
 }
 
 .carousel-item img {
-  width: 100%; /* L'immagine occupa tutta la larghezza dell'elemento */
-  height: 100%; /* L'immagine occupa tutta l'altezza dell'elemento */
-  object-fit: cover; /* Mantiene le proporzioni dell'immagine riempiendo l'area */
-  border-radius: 8px; /* Angoli arrotondati per l'immagine */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .carousel-item::after {
@@ -72,46 +77,48 @@
 
 .carousel-intro {
   position: absolute;
-  width: 80%; /* L'introduzione occupa l'80% della larghezza */
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5em; /* Spaziatura tra gli elementi */
+  gap: 5em;
   text-align: center;
-  top: 50%; /* Posiziona verticalmente al centro */
-  left: 50%; /* Posiziona orizzontalmente al centro */
-  translate: -50% -50%; /* Centra esattamente l'elemento */
-  z-index: 1; /* Pone l'introduzione sopra l'immagine */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .carousel-intro h3 {
   font-family: var(--font-family);
   font-weight: var(--font-weight-semi-bold);
   font-size: 25px;
-  color: white; /* Colore del testo bianco */
-  letter-spacing: 1.5px; /* Aumenta la spaziatura tra le lettere */
+  color: var(--white);
 }
 
-.carousel-intro button {
+.carousel-intro a {
   width: 170px;
   height: 50px;
-  background-color: #e0017a; /* Colore di sfondo del bottone */
-  color: white; /* Colore del testo bianco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fucsia);
+  color: var(--white);
   border: none;
-  border-radius: 8px; /* Bordo arrotondato */
-  box-shadow: 0 0 10px #ff5722; /* Ombra con colore arancione */
+  border-radius: 8px;
   font-family: var(--font-family);
   font-weight: var(--font-weight-semi-bold);
   font-size: 18px;
+  text-decoration: none;
 }
 
 .carousel-container::-webkit-scrollbar {
-  display: none; /* Nasconde la barra di scorrimento */
+  display: none;
 }
 
 .carousel-dots {
   display: flex;
-  justify-content: center; /* Centra i pallini di navigazione */
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -119,12 +126,99 @@
   width: 12px;
   height: 12px;
   margin: 0 5px;
-  background-color: #bbb; /* Colore di base per i pallini */
-  border-radius: 50%; /* Forma rotonda per i pallini */
+  background-color: var(--gray-light);
+  border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.3s ease; /* Transizione per il cambio di colore */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .dot.active {
-  background-color: #f19200; /* Colore attivo (arancione) per il pallino */
+  background: linear-gradient(
+    90deg,
+    #fef200,
+    #ffd600,
+    #ff812e,
+    #ff2f6c,
+    #ed008c
+  );
+
+  /* border: 1px solid var(--gray-light); */
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .carousel-container {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    width: calc(100% - 10rem);
+  }
+
+  .carousel-intro {
+    width: 50%;
+  }
+
+  #workshop h2 {
+    margin: 0 5rem 1.5rem;
+  }
+}
+
+/* Laptop Small */
+@media screen and (min-width: 992px) {
+  .carousel-container {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    width: calc(100% - 20rem);
+  }
+
+  .carousel-intro {
+    width: 50%;
+  }
+
+  #workshop h2 {
+    margin: 0 10rem 1.5rem;
+  }
+}
+
+/* Laptop Medium */
+@media screen and (min-width: 1200px) {
+  .carousel-container {
+    margin-left: 15rem;
+    margin-right: 15rem;
+    width: calc(100% - 30rem);
+  }
+
+  .carousel-intro {
+    width: 50%;
+  }
+
+  #workshop h2 {
+    margin: 0 15rem 1.5rem;
+  }
+}
+
+/* Desktop Large */
+@media screen and (min-width: 1400px) {
+  .carousel-container {
+    margin-left: 20rem;
+    margin-right: 20rem;
+    width: calc(100% - 40rem);
+  }
+
+  #workshop h2 {
+    margin: 0 20rem 1.5rem;
+  }
+}
+
+/* Ultra Wide Screens */
+@media screen and (min-width: 1600px) {
+  .carousel-container {
+    margin-left: 25rem;
+    margin-right: 25rem;
+    width: calc(100% - 50rem);
+  }
+
+  #workshop h2 {
+    margin: 0 25rem 1.5rem;
+  }
 }
