@@ -4,7 +4,7 @@
  */
 async function isLogged() {
   const profileIcons = document.querySelectorAll(".profile");
-  const bookBtn = document.querySelector(".book-now-btn");
+  const bookBtns = document.querySelectorAll(".book-now-btn");
 
   let isUserLogged = false;
 
@@ -29,10 +29,12 @@ async function isLogged() {
       });
     });
 
-    if (bookBtn) {
-      bookBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        location.href = isUserLogged ? "./booking.html" : "./login.html";
+    if (bookBtns) {
+      bookBtns.forEach((bookBtn) => {
+        bookBtn.addEventListener("click", (event) => {
+          event.preventDefault();
+          location.href = isUserLogged ? "./booking.html" : "./login.html";
+        });
       });
     }
 
