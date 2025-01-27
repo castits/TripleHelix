@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -179,6 +180,27 @@ public class UserController {
         } catch (UserNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage()); // Return a NOT FOUND response if there is no user with that id
         }
+    }
+    
+    /**
+     * Endpoint to create and add to the database a new admin
+     * @param user - the new user in the body request
+     * @return the new user
+     * 
+     * Only accessible to users with the ADMIN role
+     */
+    @PostMapping("/create-admin")
+    @PreAuthorize("hasRole('ADMIN')")    
+    public ResponseEntity<?> createAdmin(@RequestBody User user) {
+    	// If the user is already present in the database
+	    if (userService.getUserByEmail(user.getUserEmail()) != null) {
+	    	// Print a warning and return a CONFLICT response
+	        logger.warn("Email already in use: {}" + user.getUserEmail());
+	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use!");
+	    }
+	    
+	    User savedUser = userService.createAdmin(user); // Save the new user in the database
+	    return new ResponseEntity<>(savedUser, HttpStatus.CREATED); // Return a CREATED response that contains the new admin
     }
 
 }
