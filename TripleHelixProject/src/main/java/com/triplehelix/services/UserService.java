@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.triplehelix.entities.User;
+import com.triplehelix.exceptions.UserNotFoundException;
 import com.triplehelix.repos.UserDAO;
 
 /**
@@ -111,5 +112,18 @@ public class UserService {
     	
     	return roleId; // Return the role id of the user
     }
+    
+	/**
+	 * Delete a user by id
+	 * @param id - the id of the user to be deleted
+	 * @throws UserNotFoundException if the user does not exist
+	 */
+	public void deleteUserById(int id) {
+		// If the user doesn't exist, throws an exception
+		if (!userDao.existsById(id)) {
+			throw new UserNotFoundException("Cannot delete user. User with id " + id + " doesn't exist");
+		}
+		userDao.deleteById(id); // Delete the user
+	}
 
 }

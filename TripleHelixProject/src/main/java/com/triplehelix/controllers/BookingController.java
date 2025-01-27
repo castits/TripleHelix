@@ -260,7 +260,7 @@ public class BookingController {
      * 
      * Only accessible to users with the ADMIN role
      */
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteBookingById(@PathVariable int id) {
         try {
