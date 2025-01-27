@@ -135,7 +135,9 @@ window.addEventListener("DOMContentLoaded", () => {
           successElement.className = "success-message";
           successElement.textContent = "Prenotazione effettuata con successo!";
           form.appendChild(successElement);
-          form.reset(); // Resetta il form dopo l'invio
+          setTimeout(() => {
+            location.href = "./usersDashboard.html";
+          }, 1000);
         } else {
           const errorElement = document.createElement("div");
           errorElement.className = "error-message";
