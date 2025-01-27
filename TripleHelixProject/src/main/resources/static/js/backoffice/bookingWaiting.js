@@ -1,6 +1,5 @@
 // let endpointPrenotazioni = "/api/bookings/status?status=PENDING";
-let endpointPrenotazioni =
-  "https://jsonblob.com/api/jsonBlob/1333237219015712768";
+let endpointPrenotazioni = "https://jsonblob.com/api/jsonBlob/1333237219015712768";
 let prenotazioni = [];
 let x = 0;
 
@@ -47,58 +46,26 @@ function createPrenotazioneBox(prenotazione) {
   let div = document.createElement("div");
   div.classList.add("prenotazione-box");
 
+  let dataAppuntamento = document.createElement("p");
+  dataAppuntamento.appendChild(document.createTextNode(`${prenotazione.appointmentDate}  \|  ${giorniItaliano[prenotazione.day] || prenotazione.day}  \|  ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
+  div.appendChild(dataAppuntamento);
+
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
-  nome.appendChild(
-    document.createTextNode(
-      `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`
-    )
-  );
+  nome.appendChild(document.createTextNode(`Referente: ${prenotazione.userName} ${prenotazione.userSurname}`));
   div.appendChild(nome);
 
   let email = document.createElement("p");
-  email.appendChild(
-    document.createTextNode(`Email: ${prenotazione.userEmail}`)
-  );
+  email.appendChild(document.createTextNode(`Email: ${prenotazione.userEmail}`));
   div.appendChild(email);
 
   let istituto = document.createElement("p");
-  istituto.appendChild(
-    document.createTextNode(`Istituto: ${prenotazione.institute}`)
-  );
+  istituto.appendChild(document.createTextNode(`Istituto: ${prenotazione.institute}`));
   div.appendChild(istituto);
 
   let partecipanti = document.createElement("p");
-  partecipanti.appendChild(
-    document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`)
-  );
+  partecipanti.appendChild(document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`));
   div.appendChild(partecipanti);
-
-  let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(
-    document.createTextNode(
-      `Data Appuntamento: ${prenotazione.appointmentDate}`
-    )
-  );
-  div.appendChild(dataAppuntamento);
-
-  let giorno = document.createElement("p");
-  giorno.appendChild(
-    document.createTextNode(
-      `Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`
-    )
-  );
-  div.appendChild(giorno);
-
-  let fasciaOraria = document.createElement("p");
-  fasciaOraria.appendChild(
-    document.createTextNode(
-      `Fascia Oraria: ${
-        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
-      }`
-    )
-  );
-  div.appendChild(fasciaOraria);
 
   // Crea i bottoni "Accetta" e "Rifiuta"
   let buttonContainer = document.createElement("div");
@@ -132,22 +99,16 @@ function createPrenotazioneBox(prenotazione) {
 
 // Funzioni per gestire il click su "Accetta" e "Rifiuta"
 async function handleAccetta(prenotazione) {
-  await fetch(
-    `/api/bookings/change-status/${prenotazione.bookingId}?status=CONFIRMED`,
-    {
-      method: "PUT",
-    }
-  );
+  await fetch(`/api/bookings/change-status/${prenotazione.bookingId}?status=CONFIRMED`, {
+    method: "PUT",
+  });
   updatePrenotazioni();
 }
 
 async function handleRifiuta(prenotazione) {
-  await fetch(
-    `/api/bookings/change-status/${prenotazione.bookingId}?status=REFUSED`,
-    {
-      method: "PUT",
-    }
-  );
+  await fetch(`/api/bookings/change-status/${prenotazione.bookingId}?status=REFUSED`, {
+    method: "PUT",
+  });
   updatePrenotazioni();
 }
 
