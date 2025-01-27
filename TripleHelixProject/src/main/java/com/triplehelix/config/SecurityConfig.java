@@ -39,7 +39,7 @@ public class SecurityConfig {
 	        		.requestMatchers("/api/bookings/").hasRole("ADMIN")
 	        		.requestMatchers("/api/users/create-admin/").hasRole("ADMIN")
 		        	.requestMatchers("/api/bookings/status?**",
-		        			"/api/bookings/update/**",
+		        			"/api/bookings/update**",
 		        			"/api/bookings/change-status**",
 		        			"/api/bookings/delete**").hasRole("ADMIN")
 		        	.requestMatchers("/api/feedbacks",
