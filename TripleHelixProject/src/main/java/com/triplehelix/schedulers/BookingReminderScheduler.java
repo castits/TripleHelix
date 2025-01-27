@@ -17,25 +17,39 @@ import jakarta.mail.MessagingException;
 @Component
 public class BookingReminderScheduler {
 	
+	// Dependency injection for the booking service
 	@Autowired
 	private BookingService bookingService;
 	
+	// Dependency injection for the email service
 	@Autowired
 	private EmailService emailService;
 	
+	// Dependency injection for the booking repository
 	@Autowired
 	private BookingDAO bookingDAO;
 	
+	// Date format to be used in emails
 	final String DATE_FORMAT = "dd/MM/yyyy";
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
 	
+    /**
+     * Scheduled method to send booking reminders
+     * Runs based on the cron expression defined (in this case every second)
+     */
 	@Scheduled(cron = "* * * * * ?")
 	public void sendBookingsReminders() throws MessagingException {
+		// Get all bookings that are eligible for reminders
 		List<Booking> bookings = bookingService.getBookingsForReminder();
 		
+		// Iterate through all the bookings to process reminders
 		for (Booking booking : bookings) {
+			// Check if the reminder has already been sent for this booking
 			if (!booking.isReminderSent()) {
+                // Get the email address of the user associated with the booking
 				String sendTo = booking.getUser().getUserEmail();
+				
+				// Prepare the email
 				String cid = "bannerImage";
 				String formattedDate = formatter.format(booking.getAppointmentDate());
 				String subject = "Promemoria Visita del " + formattedDate;
@@ -67,11 +81,11 @@ public class BookingReminderScheduler {
 				
 				try {
 					String imagePath = "src/main/resources/static/assets/img/deck.jpg";
-					emailService.sendEmail(sendTo, subject, body, imagePath, cid);
-					booking.setReminderSent(true);
-					bookingDAO.save(booking);
+					emailService.sendEmail(sendTo, subject, body, imagePath, cid); // Send the email
+					booking.setReminderSent(true); // Set the booking reminderSent to true
+					bookingDAO.save(booking); // Save the updated booking
 				} catch (Exception e) {
-					System.err.println("Failed to send reminder email to " + sendTo);
+					System.err.println("Failed to send reminder email to " + sendTo); // Print an error if the email can't be sent
 				}
 			}
 		}
