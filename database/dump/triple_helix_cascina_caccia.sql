@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 13, 2025 alle 21:50
+-- Creato il: Gen 27, 2025 alle 11:59
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -48,10 +48,10 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`booking_id`, `user_id`, `institute`, `participant_quantity`, `appointment_date`, `time_slot`, `activity`, `status`, `booking_info_req`, `reminder_sent`, `feedback_sent`, `created_at`, `updated_at`) VALUES
-(5, 22, 'ITS ICT', 150, '2025-05-28', 'MORNING', 'Visita', 'CONFIRMED', NULL, 1, 1, '2025-01-13 17:19:25', '2025-01-13 17:19:25'),
-(6, 22, 'ITS ICT', 100, '2025-01-02', 'MORNING', 'Visita', 'PENDING', NULL, 1, 1, '2025-01-13 17:19:25', '2025-01-13 17:19:25'),
-(10, 22, 'ITS ICT', 97, '2025-01-06', 'AFTERNOON', 'Visita', 'CONFIRMED', 'Ciao, questa è una prova', 1, 1, '2025-01-13 21:07:21', '2025-01-13 21:46:32'),
-(11, 22, 'ITS ICT', 97, '2025-01-03', 'AFTERNOON', 'Visita', 'PENDING', 'Ciao, questa è una prova', 0, 0, '2025-01-13 21:12:57', '2025-01-13 21:12:57');
+(18, 22, 'ITS ICT', 7, '2025-01-28', 'AFTERNOON', 'Visita', 'PENDING', 'Ciao, questa è una prova', 1, 1, '2025-01-24 12:35:58', '2025-01-25 13:54:14'),
+(20, 22, 'ITS ICT', 121, '2025-01-31', 'MORNING', 'Regolegalità per i più piccini', 'PENDING', 'dadsasdadsasdadsadsasd', 0, 0, '2025-01-25 15:05:02', '2025-01-25 15:05:02'),
+(21, 22, 'ITS ICT', 7, '2025-01-17', 'AFTERNOON', 'Visita', 'PENDING', 'Ciao, questa è una prova', 0, 0, '2025-01-25 15:07:36', '2025-01-25 15:07:36'),
+(26, 22, 'ITS ICT', 23, '2025-01-30', 'AFTERNOON', 'Bruno Caccia', 'PENDING', 'asdasdasedasdasd', 1, 0, '2025-01-27 10:44:24', '2025-01-27 10:44:26');
 
 -- --------------------------------------------------------
 
@@ -75,9 +75,8 @@ CREATE TABLE `feedbacks` (
 --
 
 INSERT INTO `feedbacks` (`feedback_id`, `which_lab`, `formative`, `engaging`, `staff_quality`, `recommend_lab`, `advices`, `date`) VALUES
-(7, 'Bruno Caccia', 5, 3, 4, 'Si', 'Ottimo laboratorio', '2025-01-10 16:40:47'),
-(9, 'Il gioco non è un azzardo', 4, 5, 4, 'Si', NULL, '2025-01-12 12:01:50'),
-(10, 'Regolegalità per i più piccini', 5, 5, 5, 'Si', NULL, '2025-01-13 21:47:10');
+(17, 'Miele e api', 5, 5, 4, 'Si', NULL, '2025-01-24 12:36:44'),
+(19, 'Bruno Caccia', 5, 5, 5, 'Si', NULL, '2025-01-24 15:22:25');
 
 -- --------------------------------------------------------
 
@@ -110,6 +109,7 @@ CREATE TABLE `users` (
   `user_surname` varchar(255) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL,
   `user_password` varchar(255) NOT NULL,
+  `reset_token` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `role_id` int(11) NOT NULL
@@ -119,12 +119,15 @@ CREATE TABLE `users` (
 -- Dump dei dati per la tabella `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_email`, `user_password`, `created_at`, `updated_at`, `role_id`) VALUES
-(22, 'Lorenzo', 'Castiello', 'lorenzo.castiello04@gmail.com', '$2a$10$kIUhi2HfZVoIC5OuWwbDAeElr1AUhgRcDsa4mkFOOSi7A6rKWjyXG', '2025-01-08 16:26:12', '2025-01-13 21:21:16', 1),
-(23, 'Mario', 'Rossi', 'mario.rossi@gmail.com', '$2a$10$2K/0cnTyOobLwKf.fu6A5eCPAr5./.SepdWYeET3./ajLRXDMcrMG', '2025-01-08 23:51:19', '2025-01-08 23:51:19', 2),
-(29, 'Stefano', 'Cherio', 'stefano.cherio@edu.itspiemonte.it', '$2a$10$6iQdwT51RoreFm6nY9c9VOZLAkTbsElDFgFykg/SBsQLqLkk78KpW', '2025-01-09 21:38:00', '2025-01-09 21:38:00', 2),
-(31, 'Alessio', 'Suppa', 'suppaalessio1@gmail.com', '$2a$10$CHoo.QeTOvVygg4VVeKDret1nXyALDVO1cSytiZr4lklGmshg6YYC', '2025-01-12 12:07:07', '2025-01-12 12:07:07', 2),
-(32, 'Prova', 'Sito', 'provasito@example.com', '$2a$10$PBLWfsrNiWQGOXbBRpvdQOc4AuxrTj0HYL0SSvysPO7tjzuDX3JKq', '2025-01-13 21:19:57', '2025-01-13 21:19:57', 2);
+INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_email`, `user_password`, `reset_token`, `created_at`, `updated_at`, `role_id`) VALUES
+(22, 'Lorenzo', 'Castiello', 'lorenzo.castiello04@gmail.com', '$2a$10$7NDQmsRQn0Apim4VdiEM8uwxQkEsQJuE/yh7/oQ3oEtE9boq0AwNW', NULL, '2025-01-08 16:26:12', '2025-01-25 14:42:26', 1),
+(23, 'Mario', 'Rossi', 'mario.rossi@gmail.com', '$2a$10$2K/0cnTyOobLwKf.fu6A5eCPAr5./.SepdWYeET3./ajLRXDMcrMG', NULL, '2025-01-08 23:51:19', '2025-01-08 23:51:19', 2),
+(29, 'Stefano', 'Cherio', 'stefano.cherio@edu.itspiemonte.it', '$2a$10$6iQdwT51RoreFm6nY9c9VOZLAkTbsElDFgFykg/SBsQLqLkk78KpW', NULL, '2025-01-09 21:38:00', '2025-01-09 21:38:00', 2),
+(32, 'Prova', 'Sito', 'provasito@example.com', '$2a$10$PBLWfsrNiWQGOXbBRpvdQOc4AuxrTj0HYL0SSvysPO7tjzuDX3JKq', NULL, '2025-01-13 21:19:57', '2025-01-13 21:19:57', 2),
+(33, 'Giovanni', 'La Faietta', 'Giovanni.lafaietta@gmail.com', '$2a$10$3k45LZ/Ae6v3qKFW4EXO0eFrZYwFKZvH3X033A/Ik4RvhmGZsF0Ju', NULL, '2025-01-14 14:31:15', '2025-01-14 14:31:15', 2),
+(34, 'Alessio', 'Suppa', 'suppaalessio1@gmail.com', '$2a$10$InrASOAAbX62fgwmc7fAOOeU/XTMrq1jODKlHYFEjZdGcjc8mhRIK', NULL, '2025-01-14 15:25:36', '2025-01-14 15:25:36', 2),
+(35, 'Lorenzo', 'Castiello', 'prova@gmail.com', '$2a$10$5RTDoOVOcTX/ldmugWSygOIr7mcoCe4giYhVredp.EC89MihtJTRq', NULL, '2025-01-14 16:37:35', '2025-01-14 16:37:35', 2),
+(37, 'Prova', 'Registrazione', 'prova@esempio.com', '$2a$10$lD7zhO53PMf.ZSX8NUi9JeoJm1GsiOwXMMA1dQlIQyhZ7G.Pmfa3K', NULL, '2025-01-22 16:33:28', '2025-01-22 16:33:28', 2);
 
 --
 -- Indici per le tabelle scaricate
@@ -165,13 +168,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT per la tabella `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT per la tabella `roles`
@@ -183,7 +186,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Limiti per le tabelle scaricate
