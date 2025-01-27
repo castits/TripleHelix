@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.triplehelix.entities.Role;
 import com.triplehelix.entities.User;
 import com.triplehelix.exceptions.UserNotFoundException;
+import com.triplehelix.services.EmailService;
 import com.triplehelix.services.UserService;
 
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -42,29 +44,66 @@ public class AuthController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private EmailService emailService;
+	
 	@PostMapping("/register")
 	public ResponseEntity<String> registerUser(@RequestBody User user) {
-		logger.info("Register attempt with email: {}", user.getUserEmail());
+	    logger.info("Register attempt with email: {}", user.getUserEmail());
 
-		if (userService.getUserByEmail(user.getUserEmail()) != null) {
-			logger.warn("Email already in use: {}" + user.getUserEmail());
-			return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use!");
-		}
-		
-		try {
-		    Role role = new Role();
-		    role.setRoleId(2);
-		    user.setRole(role);
-			userService.register(user);
-		    
-			logger.info("User registered successfully: {}", user.getUserEmail());
-			return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully!");
-		} catch (Exception e) {
-			logger.error("Error during registration: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Registration failed");
-		}
+	    if (userService.getUserByEmail(user.getUserEmail()) != null) {
+	        logger.warn("Email already in use: {}" + user.getUserEmail());
+	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use!");
+	    }
+
+	    try {
+	        Role role = new Role();
+	        role.setRoleId(2);
+	        user.setRole(role);
+	        userService.register(user);
+
+	        logger.info("User registered successfully: {}", user.getUserEmail());
+
+	        String cid = "bannerImage";
+	        String imagePath = "src/main/resources/static/assets/img/deck.jpg";
+	        String subject = "Benvenuto su Cascina Caccia";
+	        
+	        String body = "<head>"
+	                + "  <style>"
+	                + "    body { font-family: Arial, sans-serif; color: #333333; margin: 0; padding: 0; }"
+	                + "    .email-container { margin: 0 auto; padding: 20px; max-width: 600px; border: 1px solid #dddddd; border-radius: 8px; background-color: #f9f9f9; text-align: center; }"
+	                + "    h1 { color: #ff8400; font-size: 24px; text-align: center; }"
+	                + "    p { line-height: 1.6; font-size: 16px; text-align: left; }"
+	                + "    .footer { margin-top: 20px; font-size: 14px; color: #9B9B9B; text-align: center; }"
+	                + "    .button { display: inline-block; padding: 10px 20px; color: #ffffff !important; background-color: #ff8400; text-decoration: none; border-radius: 5px; font-weight: bold; }"
+	                + "    .banner { display: block; max-width: 100%; height: auto; margin: 20px auto 0; border-radius: 8px; }"
+	                + "  </style>"
+	                + "</head>"
+	                + "<body>"
+	                + "  <div class='email-container'>"
+	                + "    <h1>Benvenuto su Cascina Caccia</h1>"
+	                + "    <p>Ciao <strong>" + user.getUserName() + "</strong>,</p>"
+	                + "    <p>Grazie per esserti registrato al nostro sito!</p>"
+	                + "    <p style='text-align: center;'><a href='http://localhost:8080' class='button'>Accedi al sito</a></p>"
+	                + "    <div class='footer'>"
+	                + "      <p><strong>Il Team di Cascina Caccia</strong></p>"
+	                + "    </div>"
+	                + "    <img src='cid:" + cid + "' alt='Banner' class='banner' />"
+	                + "  </div>"
+	                + "</body>"
+	                + "</html>";
+	        
+	        emailService.sendEmail(user.getUserEmail(), subject, body, imagePath, cid);
+
+	        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully!");
+	    } catch (Exception e) {
+	        logger.error("Error during registration: {}", e.getMessage());
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Registration failed");
+	    }
 	}
-	
+
+
+
 	@PostMapping("/login")
 	public ResponseEntity<String> loginUser(@RequestBody User user, HttpServletRequest request) {
 		logger.info("Login attempt with email: {}", user.getUserEmail());
