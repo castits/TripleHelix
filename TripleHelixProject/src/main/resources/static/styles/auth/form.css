@@ -198,22 +198,6 @@ input[type="checkbox"] {
   margin: 0 5px 0 0; /* Rimuove margini indesiderati */
 }
 
-/* Stile per i messaggi di errore */
-.error-message {
-  color: red;
-  font-size: 0.875em;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-/* Stile per i messaggi di successo */
-.success-message {
-  color: green;
-  font-size: 1em;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
 /* Media Queries */
 @media screen and (min-width: 768px) {
   .bg-form {
