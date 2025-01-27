@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /registration.html
+Disallow: /mailChangePassword.html
+Disallow: /userDashboard.html
+Disallow: /login.html
+Disallow: /feedbacks.html
+Disallow: /changePassword.html
+Disallow: /bokingWaiting.html
+Disallow: /bookingRefused.html
+Disallow: /bookingConfirmed.html
+Disallow: /booking.html
+
+
+User-agent: *
+Allow: /index.html
+Allow: /carousel-info/carousel1.html
+Allow: /carousel-info/carousel2.html
+Allow: /carousel-info/carousel3.html
+Allow: /carousel-info/carousel4.html
+Allow: /carousel-info/carousel5.html
+Allow: /carousel-info/carousel6.html
+Allow: /carousel-info/carousel7.html
+Allow: /carousel-info/carousel8.html
+Allow: /carousel-info/carousel9.html
+Allow: /carousel-info/carousel10.html
+
+http://portalesfera.altervista.org/sitemap.xml
