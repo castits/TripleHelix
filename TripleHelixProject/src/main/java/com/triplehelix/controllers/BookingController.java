@@ -28,70 +28,108 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
+/**
+ * This controller handles bookings operations
+ */
 @RestController
-@RequestMapping("/api/bookings")
+@RequestMapping("/api/bookings") // Default endpoint for bookings operations
 public class BookingController {
 	
+	// Dependency injection for the booking service
 	@Autowired
 	private BookingService bookingService;
 	
+	// Dependency injection for the user service
 	@Autowired
 	private UserService userService;
 	
+	// Dependency injection for the email service
 	@Autowired
 	private EmailService emailService;
 	
+	// Date format to be used in emails
 	final String DATE_FORMAT = "dd/MM/yyyy";
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
 	
+	/**
+	 * Endpoint to get all bookings present in the database
+	 * @return a ResponseEntity that contains a list of bookings
+	 * 
+	 * Only accessible to users with the ADMIN role
+	 */
 	@GetMapping
     @PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<List<Map<String, Object>>> getBookings() {
 		return ResponseEntity.ok(bookingService.getAllBookings());
 	}
 	
+	/**
+	 * Endpoint to get bookings filtered by status
+	 * @param status - the booking status (PENDING, CONFIRMED, REFUSED)
+	 * @return a ResponseEntity that contains a list of bookings
+	 * 
+	 * Only accessible to users with the ADMIN role
+	 */
 	@GetMapping("/status")
     @PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> getBookingsByStatus(@RequestParam String status) {
 		try {
-	        BookingStatus bookingStatus = BookingStatus.valueOf(status.toUpperCase());
-	        return ResponseEntity.ok(bookingService.getBookingsByStatus(bookingStatus));
+	        BookingStatus bookingStatus = BookingStatus.valueOf(status.toUpperCase()); // Convert the input status (String) to ENUM
+	        return ResponseEntity.ok(bookingService.getBookingsByStatus(bookingStatus)); // Return an OK response that contains the list of bookings
 	    } catch (IllegalArgumentException e) {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 	                .body(status + " is not a valid status. Allowed values are: " 
-	                      + List.of(BookingStatus.values()));
+	                      + List.of(BookingStatus.values())); // If the status passed is not allowed, return a BAD REQUEST response
 	    }
 	}
 	
+	/**
+	 * Endpoint to get all bookings of a specific user by email
+	 * @param email - the user's email
+	 * @return a ResponseEntity that contains a list of bookings related to a user
+	 */
 	@GetMapping("/user")
 	public ResponseEntity<List<Map<String, Object>>> getBookingsByUserEmail(@RequestParam String email) {
 		return ResponseEntity.ok(bookingService.getBookingsByUserEmail(email));
 	}
 	
+	/**
+	 * Endpoint to get bookings associated with a specific user email and filtered by booking status
+	 * @param email - the user's email
+	 * @param status - the booking's status
+	 * @return a ResponseEntity that contains a list of bookings
+	 */
 	@GetMapping("/user-status")
 	public ResponseEntity<?> getBookingsByUserEmailAndStatus(@RequestParam String email, @RequestParam String status) {
 		try {
-	        BookingStatus bookingStatus = BookingStatus.valueOf(status.toUpperCase());
-	        return ResponseEntity.ok(bookingService.getBookingsByUserEmailAndStatus(email, bookingStatus));
+	        BookingStatus bookingStatus = BookingStatus.valueOf(status.toUpperCase()); // Convert the input status (String) to ENUM
+	        return ResponseEntity.ok(bookingService.getBookingsByUserEmailAndStatus(email, bookingStatus)); // Return an OK response that contains the list of bookings
 	    } catch (IllegalArgumentException e) {
 	        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 	                .body(status + " is not a valid status. Allowed values are: "
-	                      + List.of(BookingStatus.values()));
+	                      + List.of(BookingStatus.values())); // If the status passed is not allowed, return a BAD REQUEST response
 	    }
 	}
 	
+	/**
+	 * Endpoint to create a new booking for the logged user
+	 * Sends a confirmation email to the user and an admin notification email
+	 * @param booking - a booking to add to the database
+	 * @return a ResponseEntity that contains the new booking
+	 */
     @PostMapping("/create")
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-        User authenticatedUser = userService.getAuthenticatedUser();
+        User authenticatedUser = userService.getAuthenticatedUser(); // get the authenticated user
         
+        // Set the default booking properties
         booking.setUser(authenticatedUser);
         booking.setStatus(BookingStatus.PENDING);
         booking.setReminderSent(false);
         booking.setFeedbackSent(false);
 
-        Booking savedBooking = bookingService.saveBooking(booking);
+        Booking savedBooking = bookingService.saveBooking(booking); // Save the booking in the database
         
+        // Prepare the email
         String imagePath = "src/main/resources/static/assets/img/deck.jpg";
 		String cid = "bannerImage";
 		String formattedDate = formatter.format(savedBooking.getAppointmentDate());
@@ -123,13 +161,14 @@ public class BookingController {
                     "</body>" +
                     "</html>";
 
+			// Send notification email to the admin
 			emailService.sendEmail("triplehelixtest1@gmail.com",
 					"Richiesta di prenotazione da parte di " + savedBooking.getUser().getUserName() + " " + savedBooking.getUser().getUserSurname(),
 					emailBody,
 					imagePath,
 					cid);
 		} catch (Exception e) {
-			System.err.println("Failed to send request email from " + booking.getUser().getUserEmail());
+			System.err.println("Failed to send request email from " + booking.getUser().getUserEmail()); // Print an error if the email can't be sent
 		}
         
         try {
@@ -159,50 +198,76 @@ public class BookingController {
                     "</body>" +
                     "</html>";
 
+			// Send confirmation email to the user
 			emailService.sendEmail(savedBooking.getUser().getUserEmail(),
 					"Grazie per la tua prenotazione",
 					responseEmail,
 					imagePath,
 					cid);
 		} catch (Exception e) {
-			System.err.println("Failed to send request email from " + booking.getUser().getUserEmail());
+			System.err.println("Failed to send request email from " + booking.getUser().getUserEmail()); // Print an error if the email can't be sent
 		}
         
-        return new ResponseEntity<>(savedBooking, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedBooking, HttpStatus.CREATED); // Return a CREATED response that contains the new booking
     }
     
+    /**
+     * Endpoint to update a booking by its id
+     * @param id - the booking id
+     * @param updates - a Map that contains the attributes to be updated passed in the body request
+     * @return a ResponseEntity that contains the updated booking
+     * 
+     * Only accessible to users with the ADMIN role
+     */
     @PatchMapping("/update/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateBooking(@PathVariable int id, @RequestBody Map<String, Object> updates) {
         try {
-            Booking updatedBooking = bookingService.updateBooking(id, updates);
-            return ResponseEntity.ok(updatedBooking);
+            Booking updatedBooking = bookingService.updateBooking(id, updates); // Update the booking
+            return ResponseEntity.ok(updatedBooking); // Return an OK response that contains the updated booking
         } catch (BookingNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage()); // Return a NOT FOUND response if there is no booking with that id
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage()); // Return a BAD REQUEST response if there is no updatable attribute in the body
         }
     }
 
+    /**
+     * Endpoint to change the status of a booking
+     * @param id - the booking id
+     * @param status - a new status
+     * @return a ResponseEntity
+     * 
+     * Only accessible to users with the ADMIN role
+     */
     @PutMapping("/change-status/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> changeBookingStatus(@PathVariable int id, @RequestParam String status) {
         try {
-            bookingService.changeBookingStatus(id, status);
-            return ResponseEntity.ok("Status updated successfully");
-        } catch (BookingNotFoundException | IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            bookingService.changeBookingStatus(id, status); // Change the booking status
+            return ResponseEntity.ok("Status updated successfully"); // Return an OK response
+        } catch (BookingNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage()); // Return a NOT FOUND response if there is no booking with that id
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage()); // Return a BAD REQUEST response if the status is not accepted
         }
     }
     
+    /**
+     * Endpoint to delete a booking by id
+     * @param id - the booking id
+     * @return a ResponseEntity
+     * 
+     * Only accessible to users with the ADMIN role
+     */
     @DeleteMapping("delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteBookingById(@PathVariable int id) {
         try {
-            bookingService.deleteBookingById(id);
-            return ResponseEntity.ok("Booking deleted successfully");
+            bookingService.deleteBookingById(id); // Delete the booking
+            return ResponseEntity.ok("Booking deleted successfully"); // Return an OK response
         } catch (BookingNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage()); // Return a NOT FOUND response if there is no booking with that id
         }
     }
 

@@ -14,19 +14,28 @@ import com.triplehelix.services.EmailService;
 @Component
 public class FeedbackEmailScheduler {
 	
+	// Dependency injection for the booking service
 	@Autowired
 	private BookingService bookingService;
 	
+	// Dependency injection for the email service
 	@Autowired
 	private EmailService emailService;
 	
+    /**
+     * Scheduled method to send feedback forms
+     * Runs based on the cron expression defined (in this case every second)
+     */
 	@Scheduled(cron = "* * * * * ?")
 	public void sendFeedbackEmail() {
+		// Get all bookings that are eligible for feedbacks
 		List<Booking> bookings = bookingService.getBookingsForFeedback();
 		
+		// Iterate through all the bookings
 		for (Booking booking : bookings) {
-			User user = booking.getUser();
+			User user = booking.getUser(); // Get the user associated with the booking
 			if (!booking.isFeedbackSent()) {
+				// Prepare the email
 				String sendTo = user.getUserEmail();
 				String cid = "bannerImage";
 				String subject = "Cascina Caccia - La tua opinione è importante!";
@@ -60,11 +69,11 @@ public class FeedbackEmailScheduler {
 
 				try {
 					String imagePath = "src/main/resources/static/assets/img/deck.jpg";
-					emailService.sendEmail(sendTo, subject, body, imagePath, cid);
-                    booking.setFeedbackSent(true);
-                    bookingService.saveBooking(booking);
+					emailService.sendEmail(sendTo, subject, body, imagePath, cid); // Send the email
+                    booking.setFeedbackSent(true); // Set the booking feedbackSent to true
+                    bookingService.saveBooking(booking); // Save the updated booking
                 } catch (Exception e) {
-                    System.err.println("Failed to send feedback email to " + sendTo);
+                    System.err.println("Failed to send feedback email to " + sendTo); // Print an error if the email can't be sent
                 }
 			}
 		}
