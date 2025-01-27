@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
     <meta name="description" content="Laboratorio sul miele e api" />
-    <title></title>
+    <title>Laboratorio sul miele e api</title>
 
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!--aggiungi font fallback-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,34 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Le Mafie ed il cibo",
+        "description": "Laboratorio per studenti di scuole medie e superiori che analizza il ruolo delle mafie nel controllo della filiera alimentare, il fenomeno del caporalato e le azioni di contrasto. Promuove il consumo critico e la sensibilizzazione sull'impatto sociale delle scelte d'acquisto.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "Le Mafie ed il cibo",
+          "educationalProgramMode": "Attività di analisi e sensibilizzazione",
+          "description": "Approfondimento sul controllo delle mafie nella filiera alimentare e sulle azioni di contrasto, sensibilizzando i giovani sull'importanza di scelte d'acquisto etiche e consapevoli."
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://portalesfera.altervista.org/assets/img/tavolo-imbandito.jpg",
+        "url": "https://portalesfera.altervista.org/carosello-5",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://portalesfera.altervista.org"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -24,14 +53,12 @@
 
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-
       <img src="../assets/img/miele-e-api.jpg" alt="Api di cascina caccia" />
     </header>
 
     <main>
       <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
-        <img src="../assets/svg/coloredClosure.svg" />
+        <img src="../assets/svg/coloredClosure.svg" alt="Icona a x per tornare alla home" title="torna alla home" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">Miele e Api</h2>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
     <meta name="description" content="Laboratorio su Bruno Caccia: il magistrato e l'uomo" />
-    <title></title>
-
+    <title>Laboratorio su Bruno Caccia: il magistrato e l'uomo</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!--aggiungi font fallback-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +17,33 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Bruno Caccia: il magistrato e l'uomo",
+        "description": "Laboratorio educativo che approfondisce la figura di Bruno Caccia, magistrato simbolo di giustizia e umanità. Include analisi delle circostanze del suo assassinio, documentari e testimonianze, per riflettere sull'importanza del lavoro contro la criminalità organizzata.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "Person",
+          "name": "Bruno Caccia",
+          "description": "Magistrato italiano simbolo di giustizia e umanità, assassinato dalla criminalità organizzata."
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://portalesfera.altervista.org/assets/img/bruno-caccia.jpg",
+        "url": "https://portalesfera.altervista.org/carosello-2",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://portalesfera.altervista.org"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -24,14 +51,12 @@
 
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-
       <img src="../assets/img/bruno-caccia.jpg" alt="Bruno caccia" />
     </header>
 
     <main>
       <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
-        <img src="../assets/svg/coloredClosure.svg" />
+        <img src="../assets/svg/coloredClosure.svg" alt="Icona a x per tornare alla home" title="torna alla home" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">Bruno Caccia: il magistrato e l'uomo</h2>

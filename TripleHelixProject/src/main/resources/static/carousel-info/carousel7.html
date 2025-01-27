@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
     <meta name="description" content="Laboratorio sul riciclo e la creatività" />
-    <title></title>
+    <title>Laboratorio sul riciclo e la creatività</title>
 
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!--aggiungi font fallback-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,33 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Riciclo e Creatività",
+        "description": "Laboratorio per studenti di scuole medie e superiori che unisce attività pratiche e artistiche a una riflessione sulla riduzione dei consumi e il riuso. Include raccolta delle nocciole, panificazione e decorazione di oggetti.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "Riciclo e Creatività",
+          "educationalProgramMode": "Attività pratiche e artistiche",
+          "description": "Collegamento tra lavoro manuale, riflessione sulla sostenibilità e la promozione di uno stile di vita più consapevole attraverso attività come raccolta delle nocciole e panificazione."
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://portalesfera.altervista.org/assets/img/ricicliamo.jpg",
+        "url": "https://portalesfera.altervista.org/carosello-6",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://portalesfera.altervista.org"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -24,14 +52,12 @@
 
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-
       <img src="../assets/img/ricicliamo.jpg" alt="Oggetti riciclati in Cascina Caccia" />
     </header>
 
     <main>
       <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
-        <img src="../assets/svg/coloredClosure.svg" />
+        <img src="../assets/svg/coloredClosure.svg" alt="Icona a x per tornare alla home" title="torna alla home" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">Riciclo e Creatività</h2>

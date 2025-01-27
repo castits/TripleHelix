@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
     <meta name="description" content="Laboratorio sulla storia della Cascina: Carla e Bruno Caccia" />
-    <title></title>
+    <title>Laboratorio sulla storia della Cascina: Carla e Bruno Caccia</title>
 
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Aggiungi font fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,34 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Storia della Cascina: Carla e Bruno Caccia",
+        "description": "Laboratorio educativo che ripercorre la storia della Cascina Caccia, dalla sua origine come proprietà mafiosa al suo attuale ruolo come luogo simbolo di riscatto sociale. Adatto a studenti di scuole medie e superiori.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "Place",
+          "name": "Cascina Caccia",
+          "description": "Un luogo simbolo di riscatto sociale e memoria storica.",
+          "image": "https://portalesfera.altervista.org.it/assets/img/sentiero-cascina-caccia.jpg"
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://portalesfera.altervista.org.it/assets/img/sentiero-cascina-caccia.jpg",
+        "url": "https://portalesfera.altervista.org.it/carosello-1",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://portalesfera.altervista.org.it"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -24,23 +53,12 @@
 
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-      <div class="container-bg-opacity">
-      <img
-        src="../assets/img/sentiero-cascina-caccia.jpg"
-        alt="Sentiero di cascina caccia"
-      />
+      <img src="../assets/img/sentiero-cascina-caccia.jpg" alt="Sentiero di cascina caccia" title="Sentiero di cascina caccia" />
     </header>
 
     <main>
-      <a
-        href="../index.html#workshop"
-        class="close-button"
-        aria-label="Torna alla home"
-      >
-        
-          <img src="../assets/svg/coloredClosure.svg" />
-        </div>
+      <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
+        <img src="../assets/svg/coloredClosure.svg" alt="Icona a x per tornare alla home" title="torna alla home" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">Storia della Cascina: Carla e Bruno Caccia</h2>

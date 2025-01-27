@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
     <meta name="description" content="Laboratorio sui beni confiscati" />
-    <title></title>
+    <title>Laboratorio sui beni confiscati</title>
 
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!--aggiungi font fallback-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +19,34 @@
     <link rel="stylesheet" href="..\/styles/style.css" />
 
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "I beni confiscati",
+        "description": "Laboratorio per studenti di scuole medie e superiori, focalizzato sui beni confiscati alla criminalità organizzata e sul loro riutilizzo sociale. Include attività interattive e analisi delle leggi fondamentali come la legge Rognoni-La Torre.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "I beni confiscati",
+          "educationalProgramMode": "Attività interattive",
+          "description": "Approfondimento sulle leggi e sulle iniziative legate ai beni confiscati, con attività pratiche come giochi su mappa per identificare i beni confiscati in Italia."
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://portalesfera.altervista.org/assets/img/beni-confiscati.jpg",
+        "url": "https://portalesfera.altervista.org/carosello-4",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://portalesfera.altervista.org"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -25,14 +54,12 @@
 
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-
       <img src="../assets/img/beni-confiscati.jpg" alt="Catene e lucchetto dei beni confiscati" />
     </header>
 
     <main>
       <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
-        <img src="../assets/svg/coloredClosure.svg" />
+        <img src="../assets/svg/coloredClosure.svg" alt="Icona a x per tornare alla home" title="torna alla home" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">I beni confiscati</h2>

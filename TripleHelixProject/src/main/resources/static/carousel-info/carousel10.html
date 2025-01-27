@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Triple Helix" />
     <meta name="description" content="Laboratorio sull'educazione al gioco d'azzardo per i più grandi" />
-    <title></title>
+    <title>Laboratorio sull'educazione al gioco d'azzardo per i più grandi</title>
 
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!--aggiungi font fallback-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,34 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Chi non Gioca Vince",
+        "description": "Laboratorio rivolto a studenti delle scuole superiori, con l'obiettivo di analizzare il fenomeno del gioco d'azzardo, i rischi, i legami con la mafia e le strategie di prevenzione.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "Chi non Gioca Vince",
+          "educationalProgramMode": "Educazione al gioco responsabile",
+          "description": "Il laboratorio si concentra sul divertimento responsabile e sulla prevenzione della dipendenza dal gioco d'azzardo, mettendo in luce il ruolo del consumatore e il collegamento con la mafia."
+        },
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://portalesfera.altervista.org/assets/img/riunione-laboratorio.jpg",
+        "url": "https://portalesfera.altervista.org/carosello-9",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://portalesfera.altervista.org"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -24,14 +53,12 @@
 
   <body>
     <header>
-      <!-- Chiedere significato del logo per attributo alt -->
-
       <img src="../assets/img/riunione-laboratorio.jpg" alt="Riunione in cerchio durante il laboratorio di 'Chi non gioca vince'" />
     </header>
 
     <main>
       <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
-        <img src="../assets/svg/coloredClosure.svg" />
+        <img src="../assets/svg/coloredClosure.svg" alt="Icona a x per tornare alla home" title="torna alla home" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">Chi non Gioca Vince</h2>
