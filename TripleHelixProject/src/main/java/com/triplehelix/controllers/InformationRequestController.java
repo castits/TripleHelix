@@ -6,20 +6,32 @@ import org.springframework.web.bind.annotation.*;
 import com.triplehelix.entities.InformationRequest;
 import com.triplehelix.services.EmailService;
 
+/**
+ * This controller handles information requests operations
+ */
 @RestController
-@RequestMapping("/api/information-requests")
+@RequestMapping("/api/information-requests") // Default endpoint for information requests operations
 public class InformationRequestController {
 
+	// Dependency injection for the email service
 	@Autowired
 	private EmailService emailService;
 	
+	/**
+	 * Endpoint that send an information request email to the admin
+	 * and a response email to the user that sent the information request
+	 * @param informationRequest - an InformationRequest in the body
+	 */
 	@PostMapping("/send")
 	public void sendUserRequestEmail(@RequestBody InformationRequest informationRequest) {
+		// Get the information request data to prepare the email
 		String userName = informationRequest.getUserName();
 		String userSurname = informationRequest.getUserSurname();
 		String userPhone = informationRequest.getUserPhone();
 		String sendFrom = informationRequest.getUserEmail();
 		String emailText = informationRequest.getInformationRequestText();
+		
+		// Prepare the email
 		String imagePath = "src/main/resources/static/assets/img/deck.jpg";
 		String cid = "bannerImage";
 		
@@ -47,6 +59,7 @@ public class InformationRequestController {
                     "</body>" +
                     "</html>";
 
+			// Send email to the admin
 			emailService.sendEmail(sendFrom,
 					"triplehelixtest1@gmail.com",
 					"Richiesta di informazioni da parte di " + userName + " " + userSurname,
@@ -54,7 +67,7 @@ public class InformationRequestController {
 					imagePath,
 					cid);
 		} catch (Exception e) {
-			System.err.println("Failed to send request email from " + sendFrom);
+			System.err.println("Failed to send request email from " + sendFrom); // Print an error if the email can't be sent
 		}
 		
 		try {
@@ -85,13 +98,14 @@ public class InformationRequestController {
                     "</body>" +
                     "</html>";
 
+			// Send response email to the user
 			emailService.sendEmail(sendFrom,
 					"Grazie per la tua richiesta",
 					responseEmail,
 					imagePath,
 					cid);
 		} catch (Exception e) {
-			System.err.println("Failed to send reply email to " + sendFrom);
+			System.err.println("Failed to send reply email to " + sendFrom); // Print an error if the email can't be sent
 		}
 	}
 }
