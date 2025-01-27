@@ -96,7 +96,6 @@ public class BookingController {
                     "</head>" +
                     "<body>" +
                     "  <div class='email-container'>" +
-                    "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
                     "    <h1>Richiesta di prenotazione</h1>" +
                     "    <p><strong>Nome:</strong> " + savedBooking.getUser().getUserName() + " " + savedBooking.getUser().getUserSurname() + "</p>" +
                     "    <p><strong>Email:</strong> " + savedBooking.getUser().getUserEmail() + "</p>" +
@@ -107,6 +106,7 @@ public class BookingController {
                     "    <p><strong>Attività:</strong> " + savedBooking.getActivity() + "</p>" +
                     "    <p><strong>Messaggio:</strong></p>" +
                     "    <p>" + (savedBooking.getBookingInfoReq() != "" ? savedBooking.getBookingInfoReq() : "N/D") + "</p>" +
+                    "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
                     "  </div>" +
                     "</body>" +
                     "</html>";
@@ -133,8 +133,7 @@ public class BookingController {
                     "</head>" +
                     "<body>" +
                     "  <div class='email-container'>" +
-                    "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
-                    "    <h1>Grazie per la tua richiesta!</h1>" +
+                    "    <h1>Grazie per la tua prenotazione!</h1>" +
                     "    <p>Gentile <strong>" + savedBooking.getUser().getUserName() + " " + savedBooking.getUser().getUserSurname() + "</strong>,</p>" +
                     "    <p>Grazie per aver richiesto una prenotazione presto la nostra struttura. Abbiamo ricevuto la tua richiesta e il nostro team ti contatterà al più presto.</p>" +
                     "    <p>Nel frattempo, se hai bisogno di aggiungere informazioni o hai altre domande, sentiti libero di rispondere a questa email.</p>" +
@@ -142,13 +141,14 @@ public class BookingController {
                     "    <div class='footer'>" +
                     "      <p>Con i migliori saluti,</p>" +
                     "      <p><strong>Il Team di Cascina Caccia</strong></p>" +
+                    "      <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
                     "    </div>" +
                     "  </div>" +
                     "</body>" +
                     "</html>";
 
 			emailService.sendEmail(savedBooking.getUser().getUserEmail(),
-					"Grazie per la tua richiesta",
+					"Grazie per la tua prenotazione",
 					responseEmail,
 					imagePath,
 					cid);
