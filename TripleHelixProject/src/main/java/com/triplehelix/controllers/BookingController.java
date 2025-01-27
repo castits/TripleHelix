@@ -69,6 +69,18 @@ public class BookingController {
 		return ResponseEntity.ok(bookingService.getBookingsByUserEmail(email));
 	}
 	
+	@GetMapping("/user-status")
+	public ResponseEntity<?> getBookingsByUserEmailAndStatus(@RequestParam String email, @RequestParam String status) {
+		try {
+	        BookingStatus bookingStatus = BookingStatus.valueOf(status.toUpperCase());
+	        return ResponseEntity.ok(bookingService.getBookingsByUserEmailAndStatus(email, bookingStatus));
+	    } catch (IllegalArgumentException e) {
+	        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	                .body(status + " is not a valid status. Allowed values are: "
+	                      + List.of(BookingStatus.values()));
+	    }
+	}
+	
     @PostMapping("/create")
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
         User authenticatedUser = userService.getAuthenticatedUser();

@@ -89,6 +89,20 @@ public class BookingService {
 			.map(this::bookingToMap)
 			.collect(Collectors.toList());
 	}
+	
+	/**
+	 * Returns a mapped list of specific user's bookings
+	 * and a specific booking status
+	 * @param email - a user's email
+	 * @param status - a booking status
+	 * @return a list of Maps representing the user's bookings filtered by status
+	 */
+	public List<Map<String, Object>> getBookingsByUserEmailAndStatus(String email, BookingStatus status) {
+		return bookingDAO.findByUser_UserEmailAndStatus(email, status)
+			.stream()
+			.map(this::bookingToMap)
+			.collect(Collectors.toList());
+	}
 
 	/**
 	 * Returns a list of bookings that need reminders

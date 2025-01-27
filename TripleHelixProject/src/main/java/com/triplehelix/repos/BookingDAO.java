@@ -34,6 +34,17 @@ public interface BookingDAO extends JpaRepository<Booking, Integer> {
 	public List<Booking> findByUser_UserEmail(String email);
 	
 	/**
+	 * Returns a list of bookings by the email of a user and their status
+	 * This method returns every booking of a specific user
+	 * using the relationship between Booking and User entities
+	 * and with a specific status
+	 * @param email - a user's email
+	 * @param status - a booking status
+	 * @return a list of bookings filtered by user email and booking status
+	 */
+	public List<Booking> findByUser_UserEmailAndStatus(String email, BookingStatus status);
+	
+	/**
 	 * Returns a list of bookings scheduled for a specific date
 	 * @param date - the appointment date
 	 * @return a list of bookings filtered by appointment date
