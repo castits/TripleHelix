@@ -12,6 +12,7 @@
     />
     <title>Cascina Caccia - Riscatto, Legalità ed Educazione</title>
     <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Aggiunta font fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,15 +40,19 @@
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a href="#" aria-label="Torna alla homepage">
+      <a
+        aria-label="Logo di Sfera, rappresentante l'emblema del portale"
+        href="./index.html"
+      >
         <img
           src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+          alt="Logo di Sfera, rappresentante l'emblema del portale"
+          title="Logo di Sfera, rappresentante l'emblema del portale"
         />
       </a>
 
       <!-- Navigation menu -->
-      <nav aria-label="Navigazione principale">
+      <nav>
         <!-- Hamburger menu icon for mobile devices -->
         <label
           for="check"
@@ -67,7 +72,12 @@
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
+              <a
+                class="profile"
+                href="#"
+                title="Accedi al tuo profilo"
+                aria-label="Accedi al tuo profilo"
+              >
                 <img src="./assets/svg/account.svg" alt="" />
                 <p id="mobile-profile-login"></p>
               </a>
@@ -75,19 +85,33 @@
 
             <!-- "About us" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html#about-us" title="Chi siamo"
+              <a
+                class="scroll"
+                href="./index.html#about-us"
+                title="Chi siamo"
+                aria-label="Vai alla sezione 'Chi siamo'"
                 >Chi siamo</a
               >
             </li>
             <!-- "Workshop" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html#workshop" title="Workshop"
+              <a
+                class="scroll"
+                href="./index.html#workshop"
+                title="Workshop"
+                aria-label="Vai alla sezione 'Laboratori'"
                 >Laboratori</a
               >
             </li>
             <!-- "Faq" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html#faq" title="Faq">Faq</a>
+              <a
+                class="scroll"
+                href="./index.html#faq"
+                title="Faq"
+                aria-label="Vai alla sezione 'Faq'"
+                >Faq</a
+              >
             </li>
             <!-- "Contact Us" link -->
             <li class="mobileNavLink">
@@ -95,6 +119,7 @@
                 class="scroll important-btn"
                 href="./index.html#contact"
                 title="Contattaci per maggiori informazioni"
+                aria-label="Contattaci"
                 >Contattaci</a
               >
             </li>
@@ -105,12 +130,18 @@
                 href="./booking.html"
                 title="Prenota una visita alla Cascina"
                 class="important-btn book-now-btn"
+                aria-label="Prenota ora una visita a Cascina"
                 >Prenota ora</a
               >
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema">
+              <a
+                href="#"
+                class="logout"
+                title="Esci dal sistema"
+                aria-label="Esci dal sistema"
+              >
                 <img src="./assets/svg/logout.svg" alt="icona logout" />
               </a>
             </li>
@@ -122,19 +153,33 @@
           <ul>
             <!-- "About us" link -->
             <li>
-              <a class="scroll" href="./index.html#about-us" title="Chi siamo"
+              <a
+                class="scroll"
+                href="./index.html#about-us"
+                title="Chi siamo"
+                aria-label="Vai alla sezione 'Chi siamo'"
                 >Chi siamo</a
               >
             </li>
             <!-- "Workshop" link -->
             <li>
-              <a class="scroll" href="./index.html#workshop" title="Workshop"
+              <a
+                class="scroll"
+                href="./index.html#workshop"
+                title="Workshop"
+                aria-label="Vai alla sezione 'Laboratori'"
                 >Laboratori</a
               >
             </li>
             <!-- "Faq" link -->
             <li>
-              <a class="scroll" href="./index.html#faq" title="Faq">Faq</a>
+              <a
+                class="scroll"
+                href="./index.html#faq"
+                title="Faq"
+                aria-label="Vai alla sezione 'Faq'"
+                >Faq</a
+              >
             </li>
             <!-- "Contact Us" button -->
             <li>
@@ -142,6 +187,7 @@
                 class="scroll important-btn"
                 href="./index.html#contact"
                 title="Contattaci per maggiori informazioni"
+                aria-label="Contattaci"
                 >Contattaci</a
               >
             </li>
@@ -153,18 +199,29 @@
                 href="./booking.html"
                 title="Prenota una visita alla Cascina"
                 target="_blank"
+                aria-label="Prenota ora una visita a Cascina"
                 >Prenota ora</a
               >
             </li>
             <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
+              <a
+                class="profile"
+                href="#"
+                title="Accedi al tuo profilo"
+                aria-label="Accedi al tuo profilo"
+              >
                 <img src="./assets/svg/account.svg" alt="icona profilo" />
               </a>
             </li>
             <!-- Logout -->
             <li>
-              <a href="#" class="logout" title="Esci dal sistema">
+              <a
+                href="#"
+                class="logout"
+                title="Esci dal sistema"
+                aria-label="Esci dal sistema"
+              >
                 <img src="./assets/svg/logout.svg" alt="icona logout" />
               </a>
             </li>
@@ -195,8 +252,10 @@
         <div id="hero-bg-darkness"></div>
         <div id="hero-content">
           <div id="main-text">
-            <h1>Cascina Caccia: riscatto, legalità ed educazione</h1>
-            <p>
+            <h1 tabindex="0">
+              Cascina Caccia: riscatto, legalità ed educazione
+            </h1>
+            <p tabindex="0">
               Coinvolgi la tua scuola in un'esperienza unica di educazione alla
               legalità.
             </p>
@@ -207,6 +266,7 @@
               id="discover-more"
               class="discover-more"
               title="Scopri di più su Cascina Caccia"
+              aria-label="Scopri di più su Cascina Caccia"
             >
               Scopri di più
             </button>
@@ -214,6 +274,7 @@
               id="book-now"
               href="./booking.html"
               title="Prenota subito una visita alla Cascina"
+              aria-label="Prenota una visita in Cascina Caccia"
               >Prenota ora</a
             >
           </div>
@@ -228,7 +289,7 @@
         </div>
       </div>
 
-      <div id="about-us">
+      <div tabindex="0" id="about-us">
         <h2>Cos'è Cascina Caccia?</h2>
         <p>
           <strong>Cascina Caccia</strong>
@@ -255,7 +316,7 @@
         </p>
       </div>
       <div id="workshop">
-        <h2 id="laboratori">Scopri i nostri laboratori</h2>
+        <h2 id="laboratori" tabindex="0">Scopri i nostri laboratori</h2>
         <div class="carousel-container">
           <!-- Ogni carousel item rappresenta un laboratorio -->
           <div
@@ -265,6 +326,7 @@
             <div class="carousel-intro">
               <h3>Storia della Cascina: Carla e Bruno Caccia</h3>
               <a
+                aria-label="Scopri di più sulla storia della Cascina Caccia"
                 title="Scopri di più sulla storia della Cascina Caccia"
                 href="./carousel-info/carousel1.html"
                 >Scopri di più</a
@@ -280,6 +342,7 @@
             <div class="carousel-intro">
               <h3>Bruno Caccia</h3>
               <a
+                aria-label="Scopri di più su Bruno Caccia"
                 title="Scopri di più su Bruno Caccia"
                 href="./carousel-info/carousel2.html"
                 >Scopri di più</a
@@ -291,10 +354,14 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio sulla Regolegalità"
+          >
             <div class="carousel-intro">
               <h3>Regolegalità per i più piccini</h3>
               <a
+                aria-label="Scopri di più su Regolegalità"
                 title="Scopri di più su Regolegalità"
                 href="./carousel-info/carousel3.html"
                 >Scopri di più</a
@@ -306,11 +373,15 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio sui beni confiscati"
+          >
             <div class="carousel-intro">
               <h3>I beni confiscati</h3>
               <a
-                title="Scopri di più su Regolegalità"
+                aria-label="Scopri di più sui beni confiscati"
+                title="Scopri di più sui beni confiscati"
                 href="./carousel-info/carousel4.html"
                 >Scopri di più</a
               >
@@ -321,10 +392,14 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio sulle Mafie ed il cibo"
+          >
             <div class="carousel-intro">
               <h3>Le mafie e il cibo</h3>
               <a
+                aria-label="Scopri di più sulle mafie e il cibo"
                 title="Scopri di più sulle Mafie e il cibo"
                 href="./carousel-info/carousel5.html"
                 >Scopri di più</a
@@ -336,10 +411,14 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio sul Miele e le api di Cascina Caccia"
+          >
             <div class="carousel-intro">
               <h3>Miele e api</h3>
               <a
+                aria-label="Scopri di più su Miele ed api della Cascina"
                 title="Scopri di più su Miele ed api della Cascina"
                 href="./carousel-info/carousel6.html"
                 >Scopri di più</a
@@ -351,10 +430,14 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio sul Riciclo in Cascina Caccia"
+          >
             <div class="carousel-intro">
               <h3>Ricicliamo</h3>
               <a
+                aria-label="Scopri di più sul riciclo e la creatività"
                 title="Scopri di più sul riciclo e la creatività"
                 href="./carousel-info/carousel7.html"
                 >Scopri di più</a
@@ -366,10 +449,14 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio sulla Mafia attraverso il cinema"
+          >
             <div class="carousel-intro">
               <h3>La mafia attraverso il cinema</h3>
               <a
+                aria-label="Scopri di più sulla Mafia attraverso il cinema"
                 title="Scopri di più sulla Mafia attraverso il cinema"
                 href="./carousel-info/carousel8.html"
                 >Scopri di più</a
@@ -381,10 +468,14 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio Il gioco non è un azzardo"
+          >
             <div class="carousel-intro">
               <h3>Il gioco non è un azzardo</h3>
               <a
+                aria-label="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)"
                 title="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)"
                 href="./carousel-info/carousel9.html"
                 >Scopri di più</a
@@ -396,11 +487,15 @@
               loading="lazy"
             />
           </div>
-          <div class="carousel-item">
+          <div
+            class="carousel-item"
+            aria-label="Laboratorio Chi non gioca vince"
+          >
             <div class="carousel-intro">
               <h3>Chi non gioca vince</h3>
               <a
-                title="Scopri di più sul tema del gioco d'azzardo (per i ragazzi)"
+                aria-label="Scopri di più sul tema del gioco d'azzardo (per gli adolescenti)"
+                title="Scopri di più sul tema del gioco d'azzardo (per gli adolescenti)"
                 href="./carousel-info/carousel10.html"
                 >Scopri di più</a
               >
@@ -472,16 +567,18 @@
       </div>
       <!-- Domande frequenti -->
       <div id="faq">
-        <h2>Domande frequenti</h2>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Come posso prenotare una visita per la mia classe?</h3>
+        <h2 tabindex="0">Domande frequenti</h2>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">
+              Come posso prenotare una visita per la mia classe?
+            </h3>
             <img
               src="./assets/svg/arrow.svg"
               alt="Freccia per espandere la risposta"
             />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Puoi prenotare direttamente dal
               <strong>nostro sito</strong>
@@ -494,15 +591,15 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Qual è il costo delle attività?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Qual è il costo delle attività?</h3>
             <img
               src="./assets/svg/arrow.svg"
               alt="Freccia per espandere la risposta"
             />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <ul>
               <li>Mezza giornata: 100€ a classe</li>
               <li>Giornata intera: 150€ a classe</li>
@@ -516,15 +613,15 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Ci sono limiti al numero di partecipanti?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Ci sono limiti al numero di partecipanti?</h3>
             <img
               src="./assets/svg/arrow.svg"
               alt="Freccia per espandere la risposta"
             />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Sì, ospitiamo massimo
               <strong>due classi</strong>
@@ -538,15 +635,15 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Come raggiungere la cascina?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Come raggiungere la cascina?</h3>
             <img
               src="./assets/svg/arrow.svg"
               alt="Freccia per espandere la risposta"
             />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Per i pullman superiori ai 25 posti, è previsto il parcheggio
               presso il
@@ -558,36 +655,48 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Cosa include il costo del soggiorno formativo?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Cosa include il costo del soggiorno formativo?</h3>
             <img
               src="./assets/svg/arrow.svg"
               alt="Freccia per espandere la risposta"
             />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
-              Il costo comprende vitto, alloggio, formazione e supporto costante
+              Il costo
+              <strong>comprende vitto, alloggio, formazione</strong>
+              e
+              <strong>supporto costante</strong>
               degli educatori. I pasti possono essere portati al sacco o
-              organizzati con la gastronomia della cascina per gruppi superiori
-              alle 20 persone.
+              organizzati con la
+              <strong>gastronomia</strong>
+              della cascina per gruppi superiori alle 20 persone.
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Quanti laboratori possono essere svolti in una giornata?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">
+              Quanti laboratori possono essere svolti in una giornata?
+            </h3>
             <img
               src="./assets/svg/arrow.svg"
               alt="Freccia per espandere la risposta"
             />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
-              Se si è scelta la mezza giornata, solitamente viene svolto un solo
-              laboratorio. In alternativa, per la giornata intera si può andare
-              a selezionare anche un secondo laboratorio.
+              Se si è scelta la
+              <strong>mezza giornata</strong>
+              , solitamente viene svolto
+              <strong>un solo laboratorio</strong>
+              . In alternativa, per la
+              <strong>giornata intera</strong>
+              si può andare a selezionare anche un
+              <strong>secondo laboratorio</strong>
+              .
             </p>
           </div>
         </div>
@@ -595,11 +704,11 @@
       <!-- Inizio form di contatto -->
       <form
         id="contact"
-        aria-labelledby="form-contact"
-        aria-describedby="form-contact-description"
+        aria-labelledby="Form di contatto"
+        aria-describedby="Descrizione del form di contatto"
       >
-        <h2 id="form-contact">Contattaci</h2>
-        <p id="form-contact-description">
+        <h2 id="form-contact" tabindex="0">Contattaci</h2>
+        <p id="form-contact-description" tabindex="0">
           Compila il modulo sottostante per richiedere maggiori informazioni.
           Saremo felici di risponderti il prima possibile.
         </p>
@@ -610,8 +719,8 @@
             id="name"
             name="name"
             placeholder="Inserisci il tuo nome"
+            aria-required="true"
             required
-            aria-label="Inserisci il tuo nome"
           />
         </div>
         <div class="form-group">
@@ -621,8 +730,8 @@
             id="surname"
             name="surname"
             placeholder="Inserisci il tuo cognome"
+            aria-required="true"
             required
-            aria-label="Inserisci il tuo cognome"
           />
         </div>
         <div class="form-group">
@@ -632,8 +741,8 @@
             id="email"
             name="email"
             placeholder="Inserisci la tua email"
+            aria-required="true"
             required
-            aria-label="Inserisci la tua email"
           />
         </div>
         <div class="form-group">
@@ -642,8 +751,8 @@
             type="text"
             id="phone"
             name="phone"
-            placeholder="Inserisci il tuo numero di telefono"
-            aria-label="Inserisci il tuo numero di telefono"
+            placeholder="Inserisci il tuo numero di telefono (facoltativo)"
+            aria-required="false"
           />
         </div>
 
@@ -653,7 +762,8 @@
             name="message"
             id="message"
             placeholder="Inserisci il tuo messaggio"
-            aria-label="Inserisci il tuo messaggio"
+            required
+            aria-required="true"
           ></textarea>
         </div>
 
@@ -669,7 +779,13 @@
           </div>
         </div>
 
-        <button type="submit" title="Invia il modulo di contatto">INVIA</button>
+        <button
+          aria-label="Invia il modulo di contatto"
+          type="submit"
+          title="Invia il modulo di contatto"
+        >
+          INVIA
+        </button>
       </form>
       <!-- Fine form di contatto -->
     </main>
@@ -734,7 +850,7 @@
     </footer>
     <!-- Fine del footer -->
 
-    <!-- Collegamento al file javascript -->
+    <!-- link to javascript files -->
     <script src="./js/components/main.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>

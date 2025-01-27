@@ -10,19 +10,14 @@
     <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
     <!-- Descrizione del sito per i motori di ricerca -->
-    <meta
-      name="description"
-      content="Sito di gestione feedback per Cascina Caccia"
-    />
+    <meta name="description" content="Sito di gestione feedback per Cascina Caccia" />
     <!-- Titolo della pagina -->
     <title>Feedbacks - Cascina Caccia</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili su tutti i browser -->
@@ -39,127 +34,106 @@
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a href="./index.html" aria-label="Torna alla homepage">
-        <img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-        />
+      <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
 
       <!-- Navigation menu -->
-      <nav aria-label="Navigazione principale">
+      <nav>
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
         <div id="nav-mobile">
-          <ul>   
+          <ul>
+            <!-- Profile icon -->
+            <li class="mobileNavLink">
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" title="Profilo" />
+                <p id="profile-login"></p>
+              </a>
+            </li>
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
             <!-- "Bookings pending " link -->
             <li class="mobileNavLink">
-              <a href="./bookingWaiting.html" title="Prenotazioni in attesa"
-                >In attesa</a
-              >
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
             <!-- "Bookings confirmed" link -->
             <li class="mobileNavLink">
-              <a href="./bookingConfirmed.html" title="Prenotazioni confermate"
-                >Confermate</a
-              >
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
             <!-- "Bookings deleted" link -->
             <li class="mobileNavLink">
-              <a href="./bookingRefused.html" title="Prenotazioni rifiutate"
-                >Rifiutate</a
-              >
+              <a href="./bookingRefused.html" title="Prenotazioni rifiutate" aria-label="Vai alla pagina di prenotazioni rifiutate">Rifiutate</a>
             </li>
             <!-- "Feedbacks" link -->
             <li class="mobileNavLink">
-              <a href="./feedbacks.html" title="Feedbacks">Feedbacks</a>
+              <a href="./feedbacks.html" title="Feedbacks" aria-label="Vai alla pagina di feedbacks">Feedbacks</a>
             </li>
             <!-- Logout icon -->
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
               </a>
             </li>
           </ul>
-        </div>  
-    </header>
-    
-    <!-- Contenuto principale -->
-    <main>
-      <nav>
-        <div id="nav-desktop">
-          <h2>Dashboard</h2>
+        </div>
+
+        <!--*--------------------- DESKTOP MENU -------------------->
+        <div id="nav-desktop" aria-label="Menu di navigazione desktop">
           <ul>
             <!-- "Homepage" link -->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
     
             <!-- "Bookings pending " link -->
             <li>
-              <a href="./bookingWaiting.html" title="Prenotazioni in attesa"
-                >In attesa</a
-              >
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
             <!-- "Bookings confirmed" link -->
             <li>
-              <a href="./bookingConfirmed.html" title="Prenotazioni confermate"
-                >Confermate</a
-              >
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
             <!-- "Bookings refused" link -->
             <li>
-              <a href="./bookingRefused.html" title="Prenotazioni rifiutate"
-                >Rifiutate</a
-              >
+              <a href="./bookingRefused.html" title="Prenotazioni rifiutate" aria-label="Vai alla pagina di prenotazioni rifiutate">Rifiutare</a>
             </li>
             <!-- "Feedbacks" link -->
             <li>
-              <a href="./feedbacks.html" title="Feedbacks">Feedbacks</a>
+              <a href="./feedbacks.html" title="Feedbacks" aria-label="Vai alla pagina di feedbacks">Feedbacks</a>
             </li>
-
-          
+            <!-- Profile icon -->
+            <li>
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" title="Profilo" />
+              </a>
+            </li>
+            <!-- Logout icon -->
+            <li>
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
+              </a>
+            </li>
           </ul>
-        </div>
-        <!-- Logout icon -->
-        <div id="logout">
-          <li>
-            <a href="#" class="logout" title="Esci dal sistema">
-              <img src="./assets/svg/logout.svg" alt="icona logout" />
-            </a>
-          </li>
         </div>
       </nav>
 
       <div class="container">
       <!-- Titolo della sezione principale -->
-      <h2 id="feedbacks">Gestione Feedbacks</h2>
+      <h2 aria-label="Feedbacks sulle visite" id="feedbacks">Feedbacks sulle visite</h2>
 
       <!-- Contenitore per i feedbacks dinamicamente generati -->
       <div class="containerFeedbacks"></div>
+      </div>
     </main>
 
     <!-- Collegamento al file JavaScript per gestire i feedback -->

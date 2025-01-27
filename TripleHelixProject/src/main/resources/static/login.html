@@ -2,145 +2,78 @@
 <html lang="it">
   <!-- Inizio della sezione head -->
   <head>
-    <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito -->
-    <meta
-      name="description"
-      content="Pagina di accesso per gli utenti registrati di Cascina Caccia."
-    />
-    <!-- Titolo della pagina -->
+    <meta name="description" content="Pagina di accesso per gli utenti registrati di Cascina Caccia." />
     <title>Login - Cascina Caccia</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
 
-    <!-- Collegamento ai font di Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Collegamento ai fogli di stile -->
-    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile per la pagina di login -->
-    <!-- <link rel="stylesheet" href="./styles/auth/form.css" /> -->
     <link rel="stylesheet" href="./styles/auth/form.css" />
     <link rel="stylesheet" href="./styles/components/form-messages.css" />
   </head>
-  <!-- Fine della sezione head -->
-
-  <!-- Inizio del corpo -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a href="./index.html" aria-label="Torna alla homepage">
-        <img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-        />
+      <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
 
       <!-- Navigation menu -->
       <nav aria-label="Navigazione principale">
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
-        <input type="checkbox" id="check" />
+        <input type="checkbox" id="check" aria-hidden="true" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile">
+        <div id="nav-mobile" aria-labelledby="Menu di navigazione mobile">
           <ul>
-            <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
-                <p id="profile-login"></p>
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" />
+                <p id="profile-login">Profilo</p>
               </a>
             </li>
 
-            <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Vai alla Homepage">Homepage</a>
             </li>
 
-            <!-- "Contact Us" link -->
             <li class="mobileNavLink">
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
-            <!-- "Book a Visit" link -->
             <li class="mobileNavLink">
-              <a
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                class="important-btn"
-                >Prenota ora</a
-              >
+              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn" aria-label="Prenota ora una visita a Cascina">Prenota ora</a>
             </li>
           </ul>
         </div>
 
-        <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop">
+        <!--*--------------------- DESKTOP MENU ---------------------->
+        <div id="nav-desktop" aria-label="Menu di navigazione desktop">
           <ul>
-            <!--Homepage-->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Vai alla Homepage">Homepage</a>
             </li>
-            <!-- "Contact Us" button -->
             <li>
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                >Contattaci</a
-              >
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
-
-            <!-- "Book a Visit" button -->
             <li>
-              <a
-                class="important-btn"
-                href="./booking.html"
-                title="Prenota una visita alla Cascina"
-                target="_blank"
-                >Prenota ora</a
-              >
+              <a class="important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank" aria-label="Prenota ora una visita a Cascina">Prenota ora</a>
             </li>
-
-            <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" />
               </a>
             </li>
           </ul>
@@ -149,58 +82,43 @@
     </header>
 
     <!-- Contenuto principale -->
-    <main id="bg-height">
+    <main id="bg-height" role="main">
       <div class="bg-form">
         <!-- Form di accesso -->
-        <form id="login-form" method="post">
-          <!-- Titolo del form -->
-          <h2>Accedi</h2>
+        <form id="login-form" method="post" aria-labelledby="Form di Login">
+          <h2 tabindex="0" id="form-login">Accedi</h2>
 
           <!-- Campo per inserire l'email -->
           <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Inserisci la tua email"
-              required
-            />
+            <label for="email" id="email-label">Email</label>
+            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required aria-describedby="email-helper" />
+            <div id="email-helper" class="visually-hidden">Inserisci il tuo indirizzo email.</div>
           </div>
 
           <!-- Campo per inserire la password -->
           <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Almeno 8 caratteri"
-              required
-            />
+            <label for="password" id="password-label">Password</label>
+            <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required aria-describedby="password-helper" />
+            <div id="password-helper" class="visually-hidden">Inserisci una password sicura con almeno 8 caratteri.</div>
           </div>
 
           <!-- Collegamento per recuperare la password dimenticata -->
-          <a id="pwd-dimenticata" href="mailCambioPassword.html"
-            >Password dimenticata?</a
-          >
+          <a id="pwd-dimenticata" href="mailChangePassword.html" aria-label="Recupera la tua password">Password dimenticata?</a>
 
           <!-- Pulsante per accedere -->
-          <button type="submit">Accedi</button>
+          <button type="submit" aria-label="Accedi al tuo account">Accedi</button>
         </form>
 
         <!-- Collegamento per la registrazione di nuovi utenti -->
         <p id="register">
           Non hai un account?
-          <a href="./registration.html">Registrati</a>
+          <a href="./registration.html" aria-label="Registrati per un nuovo account">Registrati</a>
         </p>
       </div>
     </main>
 
-    <!-- Collegamento al file JavaScript per la gestione della pagina -->
     <script src="./js/auth/login.js"></script>
     <script src="./js/components/header.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
-  <!-- Fine del corpo -->
 </html>

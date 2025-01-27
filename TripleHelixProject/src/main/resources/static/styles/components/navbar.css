@@ -235,3 +235,6 @@ a:visited {
     top: 7.5vh;
   }
 }
+.visually-hidden {
+  display: none;
+}
