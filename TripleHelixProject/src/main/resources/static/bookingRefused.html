@@ -38,16 +38,16 @@
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
     <!--*------------------------------*-->
-    <!--*------------------------------*-->
-    <!--*           HEADER             *-->
-    <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a href="./index.html" aria-label="Torna alla homepage">
+      <a
+        aria-label="Logo di Sfera, rappresentante l'emblema del portale"
+        href="./index.html"
+      >
         <img
           src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-          title="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+          alt="Logo di Sfera, rappresentante l'emblema del portale"
+          title="Logo di Sfera, rappresentante l'emblema del portale"
         />
       </a>
 
@@ -141,7 +141,21 @@
     <main>
       <nav>
         <div id="nav-desktop">
+          <div id="logo">
+            <a
+              aria-label="Logo di Sfera, rappresentante l'emblema del portale"
+              href="./index.html"
+            >
+              <img
+                src="./assets/svg/logo.svg"
+                alt="Logo di Sfera, rappresentante l'emblema del portale"
+                title="Logo di Sfera, rappresentante l'emblema del portale"
+              />
+            </a>
+          </div>
+
           <h2>Dashboard</h2>
+
           <ul>
             <!-- "Homepage" link -->
             <li>
@@ -172,13 +186,13 @@
                 >Confermate</a
               >
             </li>
-            <!-- "Bookings cancelled" link -->
+            <!-- "Bookings refused" link -->
             <li>
               <a
                 href="./bookingRefused.html"
                 title="Prenotazioni rifiutate"
                 aria-label="Vai alla pagina di prenotazioni rifiutate"
-                >Rifiutate</a
+                >Rifiutare</a
               >
             </li>
             <!-- "Feedbacks" link -->
@@ -192,14 +206,13 @@
             </li>
           </ul>
         </div>
+        <!-- Logout icon -->
         <div id="logout">
-          <ul>
-            <li>
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
-              </a>
-            </li>
-          </ul>
+          <li>
+            <a href="#" class="logout" title="Esci dal sistema">
+              <img src="./assets/svg/logout.svg" alt="icona logout" />
+            </a>
+          </li>
         </div>
       </nav>
       <div class="container">

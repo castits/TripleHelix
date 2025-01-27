@@ -47,6 +47,18 @@ function createPrenotazioneBox(prenotazione) {
   let div = document.createElement("div");
   div.classList.add("prenotazione-box");
 
+  let dataAppuntamento = document.createElement("p");
+  dataAppuntamento.appendChild(
+    document.createTextNode(
+      `${prenotazione.appointmentDate}  \|  ${
+        giorniItaliano[prenotazione.day] || prenotazione.day
+      }  \|  ${
+        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
+      }`
+    )
+  );
+  div.appendChild(dataAppuntamento);
+
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
   nome.appendChild(
@@ -73,32 +85,6 @@ function createPrenotazioneBox(prenotazione) {
     document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`)
   );
   div.appendChild(partecipanti);
-
-  let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(
-    document.createTextNode(
-      `Data Appuntamento: ${prenotazione.appointmentDate}`
-    )
-  );
-  div.appendChild(dataAppuntamento);
-
-  let giorno = document.createElement("p");
-  giorno.appendChild(
-    document.createTextNode(
-      `Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`
-    )
-  );
-  div.appendChild(giorno);
-
-  let fasciaOraria = document.createElement("p");
-  fasciaOraria.appendChild(
-    document.createTextNode(
-      `Fascia Oraria: ${
-        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
-      }`
-    )
-  );
-  div.appendChild(fasciaOraria);
 
   // Crea i bottoni "Accetta" e "Rifiuta"
   let buttonContainer = document.createElement("div");
@@ -172,7 +158,7 @@ function updatePrenotazioni() {
 
 function showPrenotazioni(num) {
   let h2NumAttesa = document.getElementById("inAttesa");
-  h2NumAttesa.textContent = `In Attesa: ${num}`;
+  h2NumAttesa.textContent = `Bentornato, hai ${num} prenotazione/i in attesa`;
 
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {

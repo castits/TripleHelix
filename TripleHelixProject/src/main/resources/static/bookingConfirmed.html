@@ -42,11 +42,14 @@
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a href="./index.html" aria-label="Torna alla homepage">
+      <a
+        aria-label="Logo di Sfera, rappresentante l'emblema del portale"
+        href="./index.html"
+      >
         <img
           src="./assets/svg/logo.svg"
-          alt="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
-          title="Logo di Cascina Caccia, rappresentante l'emblema dell'organizzazione"
+          alt="Logo di Sfera, rappresentante l'emblema del portale"
+          title="Logo di Sfera, rappresentante l'emblema del portale"
         />
       </a>
 
@@ -85,7 +88,7 @@
               <a
                 href="./bookingWaiting.html"
                 title="Prenotazioni in attesa"
-                aria-label="Vai alla pagina delle prenotazioni in attesa"
+                aria-label="Vai alla pagina di prenotazioni in attesa"
                 >In attesa</a
               >
             </li>
@@ -94,7 +97,7 @@
               <a
                 href="./bookingConfirmed.html"
                 title="Prenotazioni confermate"
-                aria-label="Vai alla pagina delle prenotazioni confermate"
+                aria-label="Vai alla pagina di prenotazioni confermate"
                 >Confermate</a
               >
             </li>
@@ -103,7 +106,7 @@
               <a
                 href="./bookingRefused.html"
                 title="Prenotazioni rifiutate"
-                aria-label="Vai alla pagina delle prenotazioni rifiutate"
+                aria-label="Vai alla pagina di prenotazioni rifiutate"
                 >Rifiutate</a
               >
             </li>
@@ -112,7 +115,7 @@
               <a
                 href="./feedbacks.html"
                 title="Feedbacks"
-                aria-label="Vai alla pagina dei feedbacks"
+                aria-label="Vai alla pagina di feedbacks"
                 >Feedbacks</a
               >
             </li>
@@ -126,7 +129,7 @@
               >
                 <img
                   src="./assets/svg/logout.svg"
-                  alt="Icona logout"
+                  alt="icona logout"
                   title="Logout"
                 />
               </a>
@@ -140,7 +143,21 @@
     <main>
       <nav>
         <div id="nav-desktop">
+          <div id="logo">
+            <a
+              aria-label="Logo di Sfera, rappresentante l'emblema del portale"
+              href="./index.html"
+            >
+              <img
+                src="./assets/svg/logo.svg"
+                alt="Logo di Sfera, rappresentante l'emblema del portale"
+                title="Logo di Sfera, rappresentante l'emblema del portale"
+              />
+            </a>
+          </div>
+
           <h2>Dashboard</h2>
+
           <ul>
             <!-- "Homepage" link -->
             <li>
@@ -158,7 +175,7 @@
               <a
                 href="./bookingWaiting.html"
                 title="Prenotazioni in attesa"
-                aria-label="Vai alla pagina delle prenotazioni in attesa"
+                aria-label="Vai alla pagina di prenotazioni in attesa"
                 >In attesa</a
               >
             </li>
@@ -167,17 +184,17 @@
               <a
                 href="./bookingConfirmed.html"
                 title="Prenotazioni confermate"
-                aria-label="Vai alla pagina delle prenotazioni confermate"
+                aria-label="Vai alla pagina di prenotazioni confermate"
                 >Confermate</a
               >
             </li>
-            <!-- "Bookings cancelled" link -->
+            <!-- "Bookings refused" link -->
             <li>
               <a
                 href="./bookingRefused.html"
                 title="Prenotazioni rifiutate"
-                aria-label="Vai alla pagina delle prenotazioni rifiutate"
-                >Rifiutate</a
+                aria-label="Vai alla pagina di prenotazioni rifiutate"
+                >Rifiutare</a
               >
             </li>
             <!-- "Feedbacks" link -->
@@ -185,7 +202,7 @@
               <a
                 href="./feedbacks.html"
                 title="Feedbacks"
-                aria-label="Vai alla pagina dei feedbacks"
+                aria-label="Vai alla pagina di feedbacks"
                 >Feedbacks</a
               >
             </li>
@@ -200,6 +217,7 @@
           </li>
         </div>
       </nav>
+
       <div class="container">
         <!-- Titolo della sezione per le prenotazioni confermate -->
         <h2 id="confermate">Prenotazioni Confermate:</h2>
