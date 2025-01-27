@@ -63,8 +63,7 @@ textarea {
   font-family: var(--font-family);
 }
 
-input,
-textarea {
+input {
   height: 3rem;
 }
 

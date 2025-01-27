@@ -25,10 +25,9 @@
     <!-- Collegamento ai fogli di stile -->
     <!-- Reset CSS per uniformare gli stili su tutti i browser -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Stile per la barra di navigazione -->
-    <link rel="stylesheet" href="./styles/components/navbar.css" />
     <!-- Stile specifico per la pagina del backoffice -->
     <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
+    <link rel="stylesheet" href="./styles/backoffice/bookingWaiting.css" />
   </head>
   <!-- Fine della sezione head -->
 
@@ -64,14 +63,7 @@
 
         <!-- Mobile menu -->
         <div id="nav-mobile">
-          <ul>
-            <!-- Profile icon -->
-            <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
-                <p id="profile-login"></p>
-              </a>
-            </li>
+          <ul>   
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
@@ -109,10 +101,14 @@
               </a>
             </li>
           </ul>
-        </div>
-
-        <!--*--------------------- DESKTOP MENU -------------------->
+        </div>  
+    </header>
+    
+    <!-- Contenuto principale -->
+    <main>
+      <nav>
         <div id="nav-desktop">
+          <h2>Dashboard</h2>
           <ul>
             <!-- "Homepage" link -->
             <li>
@@ -120,7 +116,7 @@
                 >Homepage</a
               >
             </li>
-
+    
             <!-- "Bookings pending " link -->
             <li>
               <a href="./bookingWaiting.html" title="Prenotazioni in attesa"
@@ -143,30 +139,27 @@
             <li>
               <a href="./feedbacks.html" title="Feedbacks">Feedbacks</a>
             </li>
-            <!-- Profile icon -->
-            <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
-              </a>
-            </li>
-            <!-- Logout icon -->
-            <li>
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
-              </a>
-            </li>
+
+          
           </ul>
         </div>
+        <!-- Logout icon -->
+        <div id="logout">
+          <li>
+            <a href="#" class="logout" title="Esci dal sistema">
+              <img src="./assets/svg/logout.svg" alt="icona logout" />
+            </a>
+          </li>
+        </div>
       </nav>
-    </header>
 
-    <!-- Contenuto principale -->
-    <main>
+      <div class="container">
       <!-- Titolo della sezione -->
       <h2 id="inAttesa">In attesa di conferma:</h2>
 
       <!-- Contenitore dinamico per le prenotazioni -->
       <div class="containerPrenotazione"></div>
+    </div>
     </main>
 
     <!-- Collegamento al file JavaScript per gestire le richieste in attesa -->

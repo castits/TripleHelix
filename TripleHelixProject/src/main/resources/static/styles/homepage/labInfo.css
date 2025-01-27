@@ -36,30 +36,32 @@ header img {
   mask-size: 100% 100%;
   object-fit: cover;
 }
+
 body {
-  background-color: var(--white);
+  background-color: var(--orange-light);
 }
+
 main {
   background-color: var(--white);
   height: auto;
-  padding: 0, 2rem, 0, 2rem;
+  padding: 3.5rem 2rem;
   position: absolute;
-  top: 40vh;
+  top: 15vh;
   right: 2rem;
   left: 2rem;
   z-index: 2;
-  border-radius: 40px;
+  border-radius: 40px 40px 0px 0px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-p,
 h2 {
-  margin: 6%;
-}
-p {
+  margin-bottom: 3.5rem;
   text-align: left;
 }
-h2 {
-  text-align: center;
+
+p {
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 /*DA RIVEDERE*/

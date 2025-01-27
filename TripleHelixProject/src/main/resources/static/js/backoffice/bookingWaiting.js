@@ -1,4 +1,6 @@
-let endpointPrenotazioni = "/api/bookings/status?status=PENDING";
+// let endpointPrenotazioni = "/api/bookings/status?status=PENDING";
+let endpointPrenotazioni =
+  "https://jsonblob.com/api/jsonBlob/1333237219015712768";
 let prenotazioni = [];
 let x = 0;
 

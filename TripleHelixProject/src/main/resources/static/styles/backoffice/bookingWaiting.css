@@ -1,0 +1,152 @@
+:root {
+  /* Colors */
+  --white: #f4f4f4;
+  --black: #272727;
+  --orange: #ff8400; /* Arancione */
+  --fucsia: #ed008c; /* Fucsia */
+  --gray-light: #b3b3b3;
+  --orange-hover: #cc6a00; /* Arancione scuro per hover */
+  --fucsia-hover: #c20074; /* Fucsia scuro per hover */
+  --orange-light: #ffe9cc; /* Colore arancione chiaro */
+
+  /* Pulsanti specifici */
+  --primary-color: var(--orange); /* Arancione per il pulsante accetta */
+  --secondary-color: var(--fucsia); /* Fucsia per il pulsante rifiuta */
+  --hover-color: var(--orange-hover); /* Arancione scuro per hover */
+  --hover-red-color: var(--fucsia-hover); /* Fucsia scuro per hover */
+
+  /* Font family */
+  --font-family: "Montserrat", Arial, Verdana, Tahoma, sans-serif;
+
+  /* Font size */
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-big: 22px;
+
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  /* Font line height */
+  --line-height: 160%;
+}
+
+/* Corpo della pagina */
+body {
+  font-family: var(--font-family);
+  background-color: var(--gray-light);
+  color: var(--black);
+  line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenitore principale delle prenotazioni */
+.containerPrenotazione {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Box prenotazione */
+.prenotazione-box {
+  border: 1px solid var(--gray-light);
+  padding: 1.25rem;
+  margin: 1.25rem;
+  border-radius: 12px;
+  background-color: var(--white);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  width: 90%;
+  max-width: 450px;
+}
+
+/* Hover per il box */
+.prenotazione-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Testo all'interno dei box */
+.prenotazione-box p {
+  color: var(--black);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height);
+  margin: 0.5rem 0;
+}
+
+/* Pulsanti - Stile comune */
+.accetta-button,
+.rifiuta-button,
+.cancella-button {
+  cursor: pointer;
+  padding: 0.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-medium);
+  text-align: center;
+  color: var(--white);
+  transition: background-color 0.3s, transform 0.3s ease-out;
+  margin-top: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Pulsante Accetta (Arancione) */
+.accetta-button {
+  background-color: var(--primary-color);
+}
+
+.accetta-button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+/* Pulsante Rifiuta e Cancella (Fucsia) */
+.rifiuta-button,
+.cancella-button {
+  background-color: var(--secondary-color);
+}
+
+.rifiuta-button:hover,
+.cancella-button:hover {
+  background-color: var(--hover-red-color);
+  transform: scale(1.05);
+}
+
+/* Stato "cancellato" */
+.cancellate {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Stato "confermato" */
+.confermate {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 600px) {
+  .prenotazione-box {
+    width: 95%;
+  }
+
+  .accetta-button,
+  .rifiuta-button,
+  .cancella-button {
+    width: 100%;
+  }
+}

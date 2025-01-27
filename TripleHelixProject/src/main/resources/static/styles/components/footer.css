@@ -47,9 +47,12 @@ footer div:not(#footer-logo, #footer-socials) img {
 }
 
 #footer-logo {
-  margin: 3.5rem 0 2.5rem; /* Distanza sopra e sotto il logo */
-  font-size: 22px;
-  line-height: 2rem; /* Altezza della linea del testo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem;
 }
 
 #footer-location {
@@ -86,9 +89,14 @@ footer div p {
 /********************************************************************************/
 /* Tablet */
 @media screen and (min-width: 768px) {
+  #footer-logo {
+    flex-direction: row;
+    gap: 5rem;
+  }
 }
 /* Laptop Small*/
 @media screen and (min-width: 992px) {
+  
 }
 
 /* Laptop medium */
