@@ -133,7 +133,7 @@ function updatePrenotazioni() {
 
 function showPrenotazioni(num) {
   let h2NumAttesa = document.getElementById("inAttesa");
-  h2NumAttesa.textContent = `In Attesa: ${num}`;
+  h2NumAttesa.textContent = `Bentornato, hai ${num} prenotazione/i in attesa`;
 
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
