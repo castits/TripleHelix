@@ -44,7 +44,6 @@ public class FeedbackEmailScheduler {
 			              "</head>" +
 			              "<body>" +
 			              "  <div class='email-container'>" +
-			              "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
 			              "    <h1>La tua opinione è importante!</h1>" +
 			              "    <p>Gentile <strong>" + user.getUserName() + "</strong>,</p>" +
 			              "    <p>Grazie per essere stato nostro ospite presso Cascina Caccia. Vorremmo sapere cosa ne pensi della tua esperienza. Il tuo feedback è fondamentale per aiutarci a migliorare i nostri servizi.</p>" +
@@ -53,6 +52,7 @@ public class FeedbackEmailScheduler {
 			              "    <div class='footer'>" +
 			              "      <p>Con i migliori saluti,</p>" +
 			              "      <p><strong>Il Team di Cascina Caccia</strong></p>" +
+			              "      <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
 			              "    </div>" +
 			              "  </div>" +
 			              "</body>" +
