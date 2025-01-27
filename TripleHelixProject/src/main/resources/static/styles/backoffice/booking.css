@@ -1,0 +1,183 @@
+:root {
+  /* Colors */
+  --white: #f4f4f4;
+  --black: #272727;
+  --orange: #ff8400;
+  --fucsia: #ed008c;
+  --gray-light: #f9f9f9;
+  --gray-dark: #6c6c6c;
+  --orange-hover: #cc6a00;
+  --fucsia-hover: #c20074;
+  --orange-light: #ffe9cc;
+
+  /* Font family */
+  --font-family: "Montserrat", Arial, sans-serif;
+
+  /* Font sizes */
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --font-size-big: 20px;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Line height */
+  --line-height: 1.6;
+
+  /* Spacing */
+  --spacing-small: 10px;
+  --spacing-medium: 20px;
+  --spacing-large: 30px;
+
+  /* Border radius */
+  --border-radius: 8px;
+  --border-radius-large: 12px;
+
+  /* Shadow */
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Body */
+body {
+  font-family: var(--font-family);
+  background-color: var(--gray-light);
+  color: var(--black);
+  line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenitore principale */
+.containerPrenotazione {
+  width: 100%;
+  padding: var(--spacing-medium);
+  background-color: var(--white);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--box-shadow);
+  margin: 20px auto;
+}
+
+/* Box prenotazione */
+.prenotazione-box {
+  background-color: var(--orange-light);
+  margin: var(--spacing-medium) 0;
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prenotazione-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Testo all'interno dei box */
+.prenotazione-box p {
+  margin: 0 0 var(--spacing-small);
+  color: var(--gray-dark);
+  font-size: var(--font-size-small);
+}
+
+.prenotazione-box p:first-child {
+  font-weight: var(--font-weight-bold);
+  color: var(--black);
+}
+
+/* Pulsanti */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+button {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+/* Pulsante Accetta */
+.accetta-button {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.accetta-button:hover {
+  background-color: var(--orange-hover);
+}
+
+/* Pulsante Rifiuta */
+.rifiuta-button {
+  background-color: var(--fucsia);
+  color: var(--white);
+}
+
+.rifiuta-button:hover {
+  background-color: var(--fucsia-hover);
+}
+
+/* Pulsante Cancella */
+.cancella-button {
+  background-color: var(--gray-dark);
+  color: var(--white);
+}
+
+.cancella-button:hover {
+  background-color: #505050;
+}
+
+/* Stato "cancellato" */
+.cancellate {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* Stato "confermato" */
+.confermate {
+  border-left: 4px solid var(--orange);
+  padding-left: var(--spacing-small);
+}
+
+/* Breakpoint: Tablet */
+@media screen and (min-width: 768px) {
+  .containerPrenotazione {
+    width: 70%;
+  }
+}
+
+/* Breakpoint: Laptop Small */
+@media screen and (min-width: 992px) {
+  button {
+    padding: 12px 20px;
+    font-size: var(--font-size-medium);
+  }
+}
+
+/* Breakpoint: Laptop Medium */
+@media screen and (min-width: 1200px) {
+  .containerPrenotazione {
+    max-width: 650px;
+  }
+}
+
+/* Breakpoint: Desktop Large */
+@media screen and (min-width: 1400px) {
+  .containerPrenotazione {
+    max-width: 650px;
+  }
+
+  .prenotazione-box p {
+    font-size: var(--font-size-medium);
+  }
+}
