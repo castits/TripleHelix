@@ -9,36 +9,49 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Feedback entity that represents a feedback sent
+ */
 @Entity
 @Table(name = "feedbacks")
 public class Feedback {
 
+	// Feedback id. Unique identifier for the feedback (AUTO_INCREMENT)
     @Id
     @Column(name = "feedback_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int feedbackId;
 
+    // Which lab did you attend?
     @Column(name = "which_lab", nullable = false)
     private String whichLab;
     
+    // Was the lab formative? (1 to 5)
     @Column(name = "formative", nullable = false)
 	private int formative;
     
+    // Was the lab engaging? (1 to 5)
     @Column(name = "engaging", nullable = false)
 	private int engaging;
     
+    // Staff quality? (1 to 5)
     @Column(name = "staff_quality", nullable = false)
 	private int staffQuality;
     
+    // Do you recommend the lab?
     @Column(name = "recommend_lab", nullable = false)
 	private String recommendLab;
     
+    // Eventual advices
     @Column(name = "advices", nullable = true)
 	private String advices;
 
+    // Datetime that indicates when the feedback has been sent
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
 
+    // Getters and Setters
+    
 	public int getFeedbackId() {
 		return feedbackId;
 	}

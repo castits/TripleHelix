@@ -1,107 +1,123 @@
-/**
- * Gestisce la logica di registrazione dell'utente.
- *
- * Aggiunge un evento al form di registrazione che valida i dati inseriti dall'utente,
- * mostra gli errori di validazione, e invia i dati al server.
- */
 window.addEventListener("DOMContentLoaded", () => {
-  // Ottieni il form di registrazione dal DOM
-  const registrationForm = document.getElementById("registration-form");
+  function validateRegistrationForm() {
+    const form = document.getElementById("registration-form");
 
-  // Aggiungi un container per i messaggi di errore
-  const errorContainer = document.createElement("div");
-  errorContainer.id = "error-container";
-  errorContainer.style.color = "red";
-  errorContainer.style.marginTop = "10px";
-  registrationForm.appendChild(errorContainer);
+    if (!form) {
+      console.error("Il form di registrazione non è stato trovato nel DOM.");
+      return;
+    }
 
-  // Verifica se il form è presente nel DOM
-  if (registrationForm) {
-    // Aggiungi un event listener al submit del form
-    registrationForm.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Impedisce il comportamento di default del form (ricarica della pagina)
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); // Impedisce il comportamento di default del form
 
       // Pulisce i messaggi di errore precedenti
-      errorContainer.textContent = "";
+      const errorMessages = form.querySelectorAll(".error-message");
+      errorMessages.forEach((error) => error.remove());
+
+      const successMessage = form.querySelector(".success-message");
+      if (successMessage) successMessage.remove();
 
       // Ottieni i valori inseriti nei campi del form
-      const userName = document.getElementById("nome")?.value.trim();
-      const userSurname = document.getElementById("cognome")?.value.trim();
-      const userEmail = document.getElementById("email")?.value.trim();
-      const userPassword = document.getElementById("password")?.value;
-      const repeatPassword =
-        document.getElementById("conferma-password")?.value;
-      const gdprChecked = document.getElementById("gdpr")?.checked;
+      const userName = form.nome.value.trim();
+      const userSurname = form.cognome.value.trim();
+      const userEmail = form.email.value.trim();
+      const userPassword = form.password.value;
+      const repeatPassword = form["conferma-password"].value;
+      const gdprChecked = form.gdpr.checked;
 
-      // Array per raccogliere gli errori di validazione
-      const errors = [];
+      let hasErrors = false;
+
+      // Funzione per mostrare un messaggio di errore sotto un campo
+      const showError = (field, message) => {
+        hasErrors = true;
+        const errorElement = document.createElement("span");
+        errorElement.className = "error-message";
+        errorElement.textContent = message;
+        field.parentNode.appendChild(errorElement);
+      };
+
+      // Regex per validazione email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       // Validazione dei campi
-      if (!userName) errors.push("Il campo 'Nome' è obbligatorio.");
-      if (!userSurname) errors.push("Il campo 'Cognome' è obbligatorio.");
-      if (!userEmail) errors.push("Il campo 'Email' è obbligatorio.");
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail))
-        // Verifica se l'email è valida
-        errors.push("Inserisci un'email valida.");
-      if (!userPassword)
-        errors.push("Il campo 'Crea password' è obbligatorio.");
-      else if (userPassword.length < 8)
-        // Verifica che la password sia lunga almeno 8 caratteri
-        errors.push("La password deve contenere almeno 8 caratteri.");
-      if (userPassword !== repeatPassword)
-        // Verifica che le password corrispondano
-        errors.push("Le password non corrispondono.");
-      if (!gdprChecked)
-        // Verifica che l'utente abbia accettato i termini GDPR
-        errors.push(
+      if (!userName) {
+        showError(form.nome, "Il campo 'Nome' è obbligatorio.");
+      }
+
+      if (!userSurname) {
+        showError(form.cognome, "Il campo 'Cognome' è obbligatorio.");
+      }
+
+      if (!userEmail) {
+        showError(form.email, "Il campo 'Email' è obbligatorio.");
+      } else if (!emailRegex.test(userEmail)) {
+        showError(form.email, "Inserisci un'email valida.");
+      }
+
+      if (!userPassword) {
+        showError(form.password, "Il campo 'Crea password' è obbligatorio.");
+      } else if (userPassword.length < 8) {
+        showError(
+          form.password,
+          "La password deve contenere almeno 8 caratteri."
+        );
+      }
+
+      if (userPassword !== repeatPassword) {
+        showError(form["conferma-password"], "Le password non corrispondono.");
+      }
+
+      if (!gdprChecked) {
+        showError(
+          form.gdpr,
           "Devi accettare il trattamento dei dati personali per procedere."
         );
-
-      // Se ci sono errori, mostra i messaggi di errore
-      if (errors.length > 0) {
-        errors.forEach((error) => {
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent = error;
-          errorContainer.appendChild(errorMessage);
-        });
-        return; // Ferma l'esecuzione del codice in caso di errori
       }
+
+      // Se ci sono errori, interrompe l'esecuzione
+      if (hasErrors) return;
 
       // Se la validazione passa, invia i dati al server
       try {
         const response = await fetch("/pub/auth/register", {
-          method: "POST", // Metodo HTTP per inviare i dati al server
-          headers: { "Content-Type": "application/json" }, // Tipo di contenuto JSON
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userName, // Nome utente
-            userSurname, // Cognome utente
-            userEmail, // Email utente
-            userPassword, // Password utente
+            userName,
+            userSurname,
+            userEmail,
+            userPassword,
           }),
         });
 
-        // Se la registrazione è andata a buon fine (status 201)
         if (response.ok && response.status === 201) {
-          // Redirigi l'utente alla pagina di login dopo 2 secondi
-          window.location.href = "/login.html";
+          const successElement = document.createElement("div");
+          successElement.className = "success-message";
+          successElement.textContent = "Registrazione avvenuta con successo!";
+          form.appendChild(successElement);
+
+          setTimeout(() => {
+            window.location.href = "/login.html";
+          }, 1000);
         } else {
-          // Gestione degli errori di risposta del server
           const errorData = await response.json();
-          const errorMessage = document.createElement("p");
-          errorMessage.textContent =
+          const errorElement = document.createElement("div");
+          errorElement.className = "error-message";
+          errorElement.textContent =
             errorData.message || "Errore durante la registrazione.";
-          errorContainer.appendChild(errorMessage);
+          form.appendChild(errorElement);
         }
       } catch (error) {
-        // Gestione degli errori di rete
         console.error("Errore durante la richiesta di registrazione:", error);
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent =
+        const errorElement = document.createElement("div");
+        errorElement.className = "error-message";
+        errorElement.textContent =
           "Si è verificato un errore. Riprova più tardi.";
-        errorContainer.appendChild(errorMessage);
+        errorElement.style.marginTop = "20px";
+        form.appendChild(errorElement);
       }
     });
-  } else {
-    console.error("Il form di registrazione non è stato trovato nel DOM.");
   }
+
+  validateRegistrationForm();
 });

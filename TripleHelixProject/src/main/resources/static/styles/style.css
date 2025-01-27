@@ -87,22 +87,6 @@ a:visited {
   margin: 0 1.3rem 1.5rem; /* Distanza per il titolo del workshop */
 }
 
-/* Stile per i messaggi di errore */
-.error-message {
-  color: red;
-  font-size: 0.875em;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-/* Stile per i messaggi di successo */
-.success-message {
-  color: green;
-  font-size: 1em;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
 #gdpr-field {
   display: flex;
   flex-direction: column;
