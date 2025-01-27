@@ -52,13 +52,19 @@ check.addEventListener("change", handleNavCheck);
 
 function handleNavCheck() {
   if (check.checked) {
-    body.classList.add("body-no-scroll");
-    progressBar.classList.remove("progress-bar");
+    if (progressBar) {
+      body.classList.add("body-no-scroll");
+      progressBar.classList.remove("progress-bar");
+    }
+
     hamburger.src = "./assets/svg/closure.svg";
     hamburger.alt = "Chiusura del menu di navigazione";
   } else {
-    body.classList.remove("body-no-scroll");
-    progressBar.classList.add("progress-bar");
+    if (progressBar) {
+      body.classList.remove("body-no-scroll");
+      progressBar.classList.add("progress-bar");
+    }
+
     hamburger.src = "./assets/svg/hamburger.svg";
     hamburger.alt = "Apertura del menu di navigazione";
   }
