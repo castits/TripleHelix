@@ -17,6 +17,34 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/homepage/labInfo.css" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalEvent",
+        "name": "Storia della Cascina: Carla e Bruno Caccia",
+        "description": "Laboratorio educativo che ripercorre la storia della Cascina Caccia, dalla sua origine come proprietà mafiosa al suo attuale ruolo come luogo simbolo di riscatto sociale. Adatto a studenti di scuole medie e superiori.",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "about": {
+          "@type": "Place",
+          "name": "Cascina Caccia",
+          "description": "Un luogo simbolo di riscatto sociale e memoria storica.",
+          "image": "https://www.tuodominio.it/assets/img/sentiero-cascina-caccia.jpg"
+        },
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "Studenti di scuole medie e superiori"
+        },
+        "image": "https://www.tuodominio.it/assets/img/sentiero-cascina-caccia.jpg",
+        "url": "https://www.tuodominio.it/carosello-1",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Triple Helix",
+          "url": "https://www.tuodominio.it"
+        }
+      }
+    </script>
   </head>
   <!-- Ending of head -->
 
@@ -25,22 +53,13 @@
   <body>
     <header>
       <!-- Chiedere significato del logo per attributo alt -->
-      <div class="container-bg-opacity">
-      <img
-        src="../assets/img/sentiero-cascina-caccia.jpg"
-        alt="Sentiero di cascina caccia"
-      />
+
+      <img src="../assets/img/sentiero-cascina-caccia.jpg" alt="Sentiero di cascina caccia" />
     </header>
 
     <main>
-      <a
-        href="../index.html#workshop"
-        class="close-button"
-        aria-label="Torna alla home"
-      >
-        
-          <img src="../assets/svg/coloredClosure.svg" />
-        </div>
+      <a href="../index.html#workshop" class="close-button" aria-label="Torna alla home">
+        <img src="../assets/svg/coloredClosure.svg" />
       </a>
       <div tabindex="0">
         <h2 id="titolo">Storia della Cascina: Carla e Bruno Caccia</h2>

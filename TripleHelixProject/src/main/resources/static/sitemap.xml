@@ -8,13 +8,15 @@
       <priority>1.0</priority>
    </url>
 
-   <!-- Pagina di dettaglio sul primo carosello : Storia della Cascina: Carla e Bruno Caccia -->
+   <!-- Detail page on the first carousel: Storia della Cascina: Carla e Bruno Caccia -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel1.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   
+   <!-- Detail page on the second carousel:Bruno Caccia: il magistrato e l'uomo -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel2.html</loc>
       <lastmod>2025-01-27</lastmod>
@@ -22,7 +24,7 @@
       <priority>0.8</priority>
    </url>
 
-   <!-- Pagina elenco laboratori -->
+   <!-- Detail page on the third carousel: Regole e Legalità (RegoLegalità) -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel3.html</loc>
       <lastmod>2025-01-27</lastmod>
@@ -30,45 +32,55 @@
       <priority>0.8</priority>
    </url>
 
-   <!-- Pagine dei laboratori -->
+   
+   <!-- Detail page on the fourth carousel: I beni confiscati -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel4.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   
+   <!-- Detail page on the fifth carousel: Le Mafie ed il cibo -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel5.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   
+   <!-- Detail page on the sixth carousel: Miele e Api -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel6.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
-   <!-- Articoli correlati -->
+   <!-- Detail page on the seventh carousel: Riciclo e Creatività -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel7.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   
+   <!-- Detail page on the eighth carousel: La Mafia attraverso il Cinema -->
    <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel8.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   
+   <!-- Detail page on the ninth carousel: Il Gioco non è un Azzardo -->
       <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel9.html</loc>
       <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+   
+   <!-- Detail page on the tenth carousel: Chi non gioca Vince -->
       <url>
       <loc>https://portalesfera.altervista.org/carousel-info/carousel10.html</loc>
       <lastmod>2025-01-27</lastmod>
