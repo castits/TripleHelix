@@ -4,6 +4,8 @@
 
 The frontend of the Triple Helix Project was built using HTML, CSS, and vanilla JavaScript. This structure provides a clean and maintainable solution, ensuring high compatibility across all browsers without relying on external frameworks. The project emphasizes modularity and reusability, with a clear file organization that separates concerns like authentication, bookings, feedbacks, and administrative tools.
 
+Additionally, the frontend prioritizes user experience (UX) by implementing intuitive navigation, visually engaging elements, and accessibility features to ensure seamless interaction for all users, including individuals with disabilities. Features like ARIA attributes, descriptive `alt` text for images, and `title` attributes for interactive elements demonstrate a strong commitment to inclusivity. Users can also contact Cascina Caccia directly via dedicated forms and clear call-to-action buttons.
+
 ---
 
 ## **Technologies Used**
@@ -193,6 +195,32 @@ The frontend of the Triple Helix Project was built using HTML, CSS, and vanilla 
 
 - Fetches and displays users feedbacks.
 - Allows admins to check feedback entries.
+
+---
+
+### **5. User Experience Enhancements**
+
+The frontend design includes the following UX features:
+
+- **Responsive Design**: Ensures optimal viewing experiences across desktops, tablets, and smartphones.
+- **Intuitive Navigation**: Uses a consistent header and footer for smooth browsing and accessibility.
+- **Visual Feedback**: Provides feedback through animations, form validation messages, and dynamic updates.
+- **Contact with Cascina Caccia**:
+  - Users can easily reach Cascina Caccia via the dedicated **Contact Form** on the homepage.
+  - Clear buttons and links guide users to the booking form.
+  - Social media icons (Facebook, Instagram, YouTube) are accessible for direct interaction with the community.
+
+---
+
+### **6. Accessibility and Inclusivity**
+
+To ensure the platform is usable for individuals with disabilities, the following accessibility practices have been implemented:
+
+- **ARIA Attributes**: Used for dynamic and interactive elements (e.g., carousels, forms) to ensure screen readers can interpret the content correctly.
+- **Descriptive `alt` Text**: Every image includes meaningful `alt` text to describe its content for visually impaired users.
+- **Keyboard Navigation**: Interactive elements like buttons, links, and forms are fully navigable via keyboard inputs.
+- **`title` Attributes**: Added to links and interactive components to provide additional context when users hover over them.
+- **Semantic HTML**: Proper use of `<header>`, `<nav>`, `<main>`, `<footer>`, and `<section>` ensures that assistive technologies can parse and navigate the page structure easily.
 
 ---
 
