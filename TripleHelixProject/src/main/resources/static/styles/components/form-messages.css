@@ -1,0 +1,15 @@
+/* Stile per i messaggi di errore */
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Stile per i messaggi di successo */
+.success-message {
+  color: green;
+  font-size: 1em;
+  margin-top: 20px;
+  font-weight: bold;
+}
