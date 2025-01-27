@@ -23,6 +23,8 @@ window.addEventListener("DOMContentLoaded", () => {
     heroContent.style.height = `${(heroHeight / 100) * 90}px`;
   }
 
+  window.addEventListener("resize", updateHeroHeight);
+
   /**
    * Inizializza la funzionalità dell'accordion delle FAQ, che permette di aprire e chiudere
    * le risposte delle domande cliccate.

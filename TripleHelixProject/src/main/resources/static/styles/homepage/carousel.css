@@ -96,9 +96,12 @@
   color: var(--white);
 }
 
-.carousel-intro button {
+.carousel-intro a {
   width: 170px;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--fucsia);
   color: var(--white);
   border: none;
@@ -106,15 +109,6 @@
   font-family: var(--font-family);
   font-weight: var(--font-weight-semi-bold);
   font-size: 18px;
-}
-
-.carousel-intro button a {
-  color: var(--white);
-  text-decoration: none;
-}
-
-a {
-  color: var(--white);
   text-decoration: none;
 }
 
@@ -136,6 +130,7 @@ a {
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .dot.active {
