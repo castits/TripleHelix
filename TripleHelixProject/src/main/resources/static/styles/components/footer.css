@@ -55,6 +55,10 @@ footer div:not(#footer-logo, #footer-socials) img {
   margin: 3rem;
 }
 
+#footer-logo img {
+  height: 40px;
+}
+
 #footer-location {
   margin: 0 0 1rem; /* Distanza per la sezione di localizzazione */
 }
@@ -84,6 +88,17 @@ footer div p {
   text-decoration: none;
 }
 
+iframe {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+#footer-maps p {
+  font-size: var(--font-size-medium);
+  margin: 10px 0;
+  font-weight: var(--font-weight-medium);
+}
+
 /********************************************************************************/
 /**                            MEDIA QUERIES                                   **/
 /********************************************************************************/
@@ -92,17 +107,55 @@ footer div p {
   #footer-logo {
     flex-direction: row;
     gap: 5rem;
+    margin: 5rem;
+  }
+  #footer-logo img {
+    height: 45px;
   }
 }
 /* Laptop Small*/
+/* AGGIUSTAMI LORDINE VOGLIO I SOCIAL A SINISTRA PER */
 @media screen and (min-width: 992px) {
-  
+  /* #footer-desktop {
+    display: flex;
+    flex-direction: row;
+  } */
+
+  /* #footer-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  #footer-social {
+  } */
+  #footer-logo img {
+    height: 50px;
+  }
 }
 
 /* Laptop medium */
 @media screen and (min-width: 1200px) {
+  #footer-logo img {
+    height: 55px;
+  }
+  #footer-socials {
+    display: flex;
+    width: 15%;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+  }
+  #footer-copyright {
+    font-size: 14px; /* Testo piccolo per il copyright */
+    margin: 0 0 2rem; /* Distanza dal resto del footer */
+  }
 }
 
 /* Desktop large */
 @media screen and (min-width: 1400px) {
+  #footer-logo img {
+    height: 60px;
+  }
 }
