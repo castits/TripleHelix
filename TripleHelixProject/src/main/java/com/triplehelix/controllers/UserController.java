@@ -21,37 +21,54 @@ import com.triplehelix.services.UserService;
 
 import jakarta.mail.MessagingException;
 
+/**
+ * This controller handles users operations
+ */
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/users") // Default endpoint for users operations
 public class UserController {
 
+	// Logger instance to log important events and errors
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    // Dependency injection for the user service
     @Autowired
     private UserService userService;
 
+    // Dependency injection for the password encoder
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
+	
+	// Dependency injection for the email service
     @Autowired
     private EmailService emailService;
 
+    /**
+     * Endpoint to handel forgotten password requests
+     * @param request - the info for the password change in the body request
+     * @return a ResponseEntity that indicates if the password change email has been sent
+     */
     @PostMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> request) {
-        String email = request.get("email");
+        String email = request.get("email"); // Get the email from the body request
+        // Return a BAD REQUEST response if 'email' is not present
         if (email == null || email.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email is required");
         }
         
+        // Find the user associated with the email
         User user = userService.getUserByEmail(email.trim().toLowerCase());
+        // Return a NOT FOUND response if the user is not present in the database
         if (user == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
         
+        // Generate a unique reset token and associate it with the user
         String token = UUID.randomUUID().toString();
         user.setResetToken(token);
         userService.saveUser(user);
 
+        // Prepare the email
         String cid = "bannerImage";
         String imagePath = "src/main/resources/static/assets/img/deck.jpg";
         String resetLink = "http://localhost:8080/CambioPassword.html?token=" + token;
@@ -85,47 +102,64 @@ public class UserController {
                     + "</body>"
                     + "</html>";
 
+            // Send the email for password change to the user
             emailService.sendEmail(email, subject, body, imagePath, cid);
 
         } catch (MessagingException e) {
-            System.err.println("Failed to send reminder email to " + email);
+            System.err.println("Failed to send reminder email to " + email); // Print an error if the email can't be sent
         }
-        return ResponseEntity.ok("Password reset email sent");
+        return ResponseEntity.ok("Password reset email sent"); // Return an OK response if the email has been sent
     }
 
-
+    /**
+     * Endpoint to handle password reset requests
+     * @param request - contains the user token and a new password in the body request
+     * @return a ResponseEntity that indicates if the password change went well
+     */
     @PostMapping("/reset-password")
     public ResponseEntity<String> resetPassword(@RequestBody Map<String, String> request) {
-        String token = request.get("token");
-        String newPassword = request.get("newPassword");
+        String token = request.get("token"); // Get the token from the body request
+        String newPassword = request.get("newPassword"); // Get the new password from the body request
 
+        // Return a BAD REQUEST response if the token or the new password are not valid
         if (token == null || newPassword == null || newPassword.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Token and new password are required");
         }
 
+        // Get the user associated with the token
         User user = userService.getUserByResetToken(token);
+        
+        // Return NOT_FOUND response if the token is invalid
         if (user == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid token");
         }
 
+        // Update the user's password and clear the reset token
         user.setUserPassword(passwordEncoder.encode(newPassword));
         user.setResetToken(null);
         userService.saveUser(user);
 
-        return ResponseEntity.ok("Password updated successfully");
+        return ResponseEntity.ok("Password updated successfully"); // Return an OK response if the password change went well
     }
 
+    /**
+     * Endpoint to get the role id of the authenticated user
+     * @return a ResponseEntity that contains the role id of the authenticated user
+     */
     @GetMapping("/auth-role")
     public ResponseEntity<Integer> getAuthenticatedUserRole() {
+    	// Get the authenticated user
         User authenticatedUser = userService.getAuthenticatedUser();
         
+        // Return an UNAUTHORIZED response if no user is logged
         if (authenticatedUser == null) {
             logger.warn("No authenticated user found");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         
+        // Get the role of the authenticated user
         Integer roleId = userService.getUserRole(authenticatedUser);
-        logger.info("Role id: {} for user: {}", roleId, authenticatedUser.getUserEmail());
-        return ResponseEntity.ok(roleId);
+        logger.info("Role id: {} for user: {}", roleId, authenticatedUser.getUserEmail()); // Print the role id
+        return ResponseEntity.ok(roleId); // Return an OK response that contains the user's role id
     }
 }
