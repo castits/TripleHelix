@@ -87,7 +87,7 @@ public class InformationRequestController {
 					"Grazie per la tua richiesta",
 					responseEmail,
 					imagePath,
-					cid);			
+					cid);
 		} catch (Exception e) {
 			System.err.println("Failed to send reply email to " + sendFrom);
 		}
