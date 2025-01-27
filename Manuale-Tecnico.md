@@ -47,6 +47,110 @@ The backend architecture adheres to a layered structure, ensuring separation of 
 
 The API was built to allow interaction with the system’s core functionalities. Below are examples of the implemented endpoints based on the provided controllers:
 
+### Authentication Controller Endpoints
+
+1. **POST /pub/auth/register**: Register new user.
+  - **Request Body**:
+    ```json
+    {
+      "userName": "Mario",
+      "userSurname": "Rossi",
+      "userEmail": "mario.rossi@example.com",
+      "userPassword": "securePassword123"
+    }
+    ```
+    - **Response**: A message that indicates if the registration went well.
+      - **Status**: 201 Created: "User registered successfully!".
+      - **Status**: 409 Conflict: "Email already in use!".
+      - **Status**: 500 Internal Server Errore: "Registration failed".
+
+2. **POST /pub/auth/login**: Login new user.
+  - **Request Body**:
+    ```json
+    {
+      "userEmail": "mario.rossi@example.com",
+      "userPassword": "securePassword123"
+    }
+    ```
+    - **Response**: A message that indicates if the login went well.
+      - **Status**: 200 OK: "User registered successfully!".
+      - **Status**: 403 Forbidden: "User is already logged in".
+      - **Status**: 401 Unauthorized: "User is already logged in".
+      - **Status**: 401 Unauthorized:"User not found or incorrect credentials".
+
+3. **POST /pub/auth/logout**: Logout new user.
+    - **Response**: A message that indicates if the logout went well.
+      - **Status**: 200 OK: "Logout successful".
+      - **Status**: 401 Unauthorized: "User is not logged in".
+
+4. **GET /pub/auth/status**: Authentication status check.
+    - **Response**: A message that indicates the authentication status.
+      - **Status**: 200 OK: "User is logged in: mario.rossi@example.com".
+      - **Status**: 401 Unauthorized: "User is not logged in".  
+
+5. **GET /pub/auth/is-logged**: Check if a user is authenticated.
+    - **Response**: A message that indicates the authentication status.
+      - **Status**: 200 OK: "True" (if authenticated) or "False" (if not authenticated).
+
+6. **GET /pub/auth/user-info**: Retrieving authenticated user information.
+    - **Response**: A message that indicates the authentication status.
+      - **Status**: 200 OK:
+      ```json
+      {
+        "userId": 42,
+        "userName": "Mario",
+        "userSurname": "Rossi",
+        "userEmail": "mario.rossi@example.com",
+        "userPassword": "$2a$10$3oVbVfidv4P49BcKtqEcJu/pwI7eUTAOMzKiqAatPnL7JBrqlVYl2",
+        "resetToken": null,
+        "createdAt": "2025-01-27T17:26:35",
+        "updatedAt": "2025-01-27T17:26:35",
+        "role": {
+          "roleId": 2,
+          "roleName": "USER",
+          "authority": "ROLE_USER"
+        },
+        "enabled": true,
+        "password": "$2a$10$3oVbVfidv4P49BcKtqEcJu/pwI7eUTAOMzKiqAatPnL7JBrqlVYl2",
+        "username": "mario.rossi@example.com",
+        "authorities": [
+          {
+            "roleId": 2,
+            "roleName": "USER",
+            "authority": "ROLE_USER"
+          }
+        ],
+        "accountNonExpired": true,
+        "credentialsNonExpired": true,
+        "accountNonLocked": true
+      }
+      ```
+      - **Status**: 401 Unauthorized: "User is not logged in".
+
+
+### Booking Controller Endpoints
+
+- **GET /api/bookings**: Fetches all bookings.
+  - **Response**: List of booking objects.
+  - **Status**: 200 OK.
+
+- **GET /api/bookings/user**: Fetches bookings by user email.
+  - **Query Parameter**: `email` (string) – The user’s email address.
+  - **Response**: Booking object or 404 NOT FOUND if not found.
+
+- **POST /api/bookings/create**: Creates a new booking.
+  - **Request Body**:
+    ```json
+    {
+      "userRequest": {
+        "user": "userId",
+        "institute": "instituteId"
+      }
+    }
+    ```
+  - **Response**: The created booking object.
+  - **Status**: 201 CREATED.
+
 ### Feedback Controller Endpoints
 
 - **GET /api/feedbacks**: Fetches all feedback records.
@@ -89,30 +193,7 @@ The API was built to allow interaction with the system’s core functionalities.
   - **Response**: No content.
   - **Status**: 204 NO CONTENT or 404 NOT FOUND.
 
-### Booking Controller Endpoints
-
-- **GET /api/bookings**: Fetches all bookings.
-  - **Response**: List of booking objects.
-  - **Status**: 200 OK.
-
-- **GET /api/bookings/user**: Fetches bookings by user email.
-  - **Query Parameter**: `email` (string) – The user’s email address.
-  - **Response**: Booking object or 404 NOT FOUND if not found.
-
-- **POST /api/bookings/create**: Creates a new booking.
-  - **Request Body**:
-    ```json
-    {
-      "userRequest": {
-        "user": "userId",
-        "institute": "instituteId"
-      }
-    }
-    ```
-  - **Response**: The created booking object.
-  - **Status**: 201 CREATED.
-
-### User Request Controller Endpoints
+### Information Request Controller Endpoints
 
 - **GET /api/requests**: Fetches all user requests.
   - **Response**: List of user request objects.
@@ -133,6 +214,7 @@ The API was built to allow interaction with the system’s core functionalities.
   - **Response**: The created user request object.
   - **Status**: 201 CREATED.
 
+### User Controller Endpoints
 ## Testing and Validation
 
 - **Thunder Client** was employed for manual testing of API endpoints.
