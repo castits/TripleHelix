@@ -33,6 +33,7 @@ public interface UserDAO extends JpaRepository<User, Integer> {
 	
 	/**
 	 * Returns the role id associated with a specific user (user id)
+	 * This method uses a custom query with @Query annotation
 	 * @param userId - the user's id
 	 * @return the role id of a user (found by user id)
 	 */
