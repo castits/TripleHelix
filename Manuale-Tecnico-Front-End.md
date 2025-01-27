@@ -6,6 +6,8 @@ The frontend of the Triple Helix Project was built using HTML, CSS, and vanilla 
 
 Additionally, the frontend prioritizes user experience (UX) by implementing intuitive navigation, visually engaging elements, and accessibility features to ensure seamless interaction for all users, including individuals with disabilities. Features like ARIA attributes, descriptive `alt` text for images, and `title` attributes for interactive elements demonstrate a strong commitment to inclusivity. Users can also contact Cascina Caccia directly via dedicated forms and clear call-to-action buttons.
 
+To enhance visibility and ranking on search engines, SEO best practices such as structured data using JSON-LD have been implemented.
+
 ---
 
 ## **Technologies Used**
@@ -221,6 +223,12 @@ To ensure the platform is usable for individuals with disabilities, the followin
 - **Keyboard Navigation**: Interactive elements like buttons, links, and forms are fully navigable via keyboard inputs.
 - **`title` Attributes**: Added to links and interactive components to provide additional context when users hover over them.
 - **Semantic HTML**: Proper use of `<header>`, `<nav>`, `<main>`, `<footer>`, and `<section>` ensures that assistive technologies can parse and navigate the page structure easily.
+
+### **7. SEO Improvements**
+
+To enhance the website's visibility and search engine ranking, the following SEO best practices have been implemented:
+
+- **JSON-LD (Linked Data)**: Structured data is provided using JSON-LD to help search engines better understand the content and context of the website.
 
 ---
 
