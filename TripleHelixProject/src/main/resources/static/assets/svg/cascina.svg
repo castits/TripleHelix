@@ -1,0 +1,8 @@
+<svg width="500" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect width="500" height="100" fill="white" />
+  <text x="50" y="60" font-family="Arial, sans-serif" font-size="50" font-weight="bold">
+    <tspan fill="yellow">CA</tspan>
+    <tspan fill="orange">CC</tspan>
+    <tspan fill="fuchsia">IA</tspan>
+  </text>
+</svg>
