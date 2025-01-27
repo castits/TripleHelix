@@ -27,6 +27,7 @@
 
 #workshop {
   margin: 0; /* Rimuove margini per il workshop */
+  position: relative;
 }
 
 #workshop h2 {
@@ -119,7 +120,42 @@
 .carousel-dots {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 60px;
+}
+
+.carousel-arrow {
+  position: relative;
+  transform: translateY(-40%);
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.carousel-arrow img {
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-arrow:first-of-type img {
+  transform: rotate(180deg);
+}
+
+.carousel-arrow:first-of-type {
+  margin-right: 10px;
+}
+
+.carousel-arrow:last-of-type {
+  margin-left: 10px;
 }
 
 .dot {
