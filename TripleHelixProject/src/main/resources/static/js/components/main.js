@@ -113,7 +113,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Inizializzazione del carousel
   const dots = document.querySelectorAll(".dot");
   const items = document.querySelectorAll(".carousel-item");
   const container = document.querySelector(".carousel-container");
@@ -157,6 +156,41 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Funzione per navigare al prossimo item
+  function goToNextItem() {
+    if (currentIndex < items.length - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // Torna all'inizio
+    }
+    container.scrollTo({
+      left: items[currentIndex].offsetLeft,
+      behavior: "smooth",
+    });
+    setTimeout(updateDots, 300); // Aggiungiamo un ritardo per far partire l'animazione correttamente
+  }
+
+  // Funzione per navigare all'item precedente
+  function goToPreviousItem() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = items.length - 1; // Torna alla fine
+    }
+    container.scrollTo({
+      left: items[currentIndex].offsetLeft,
+      behavior: "smooth",
+    });
+    setTimeout(updateDots, 300); // Aggiungiamo un ritardo per far partire l'animazione correttamente
+  }
+
+  // Aggiungi Event Listeners alle frecce
+  const prevArrow = document.querySelector(".carousel-arrow:first-of-type");
+  const nextArrow = document.querySelector(".carousel-arrow:last-of-type");
+
+  prevArrow.addEventListener("click", goToPreviousItem);
+  nextArrow.addEventListener("click", goToNextItem);
+
   /**
    * Gestisce la barra di progresso che si aggiorna in base alla posizione di scroll
    * della pagina, mostrando un'idea del progresso del visitatore nella lettura della pagina.
@@ -164,9 +198,12 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
 
   function handleScroll() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
 
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
 
     const scrolled = (winScroll / height) * 100;
 
@@ -214,11 +251,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Validazione specifica per ogni campo
       if (!name || !nameRegex.test(name)) {
-        showError(form.name, "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri).");
+        showError(
+          form.name,
+          "Il campo 'Nome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
+        );
       }
 
       if (!surname || !nameRegex.test(surname)) {
-        showError(form.surname, "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri).");
+        showError(
+          form.surname,
+          "Il campo 'Cognome' è obbligatorio e deve contenere solo lettere (minimo 2 caratteri)."
+        );
       }
 
       if (!email || !emailRegex.test(email)) {
@@ -226,11 +269,17 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       if (phone && !phoneRegex.test(phone)) {
-        showError(form.phone, "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri.");
+        showError(
+          form.phone,
+          "Il numero di telefono deve contenere solo cifre e avere una lunghezza compresa tra 8 e 15 caratteri."
+        );
       }
 
       if (message.length > 500) {
-        showError(form.message, "Il messaggio non può superare i 500 caratteri.");
+        showError(
+          form.message,
+          "Il messaggio non può superare i 500 caratteri."
+        );
       }
 
       if (hasErrors) {
@@ -260,14 +309,16 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
           const errorElement = document.createElement("div");
           errorElement.className = "error-message";
-          errorElement.textContent = "Errore durante l'invio del messaggio. Riprova più tardi.";
+          errorElement.textContent =
+            "Errore durante l'invio del messaggio. Riprova più tardi.";
           form.appendChild(errorElement);
         }
       } catch (error) {
         console.error("Errore:", error);
         const errorElement = document.createElement("div");
         errorElement.className = "error-message";
-        errorElement.textContent = "Si è verificato un errore. Riprova più tardi.";
+        errorElement.textContent =
+          "Si è verificato un errore. Riprova più tardi.";
         form.appendChild(errorElement);
       }
     });

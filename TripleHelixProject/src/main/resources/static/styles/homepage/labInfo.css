@@ -43,10 +43,10 @@ body {
 
 main {
   background-color: var(--white);
-  height: auto;
+  height: calc(100vh - 40vh);
   padding: 3.5rem 2rem;
   position: absolute;
-  top: 15vh;
+  top: 40vh;
   right: 2rem;
   left: 2rem;
   z-index: 2;
