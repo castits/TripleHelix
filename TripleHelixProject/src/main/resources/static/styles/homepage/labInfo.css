@@ -43,7 +43,7 @@ body {
 
 main {
   background-color: var(--white);
-  height: calc(100vh - 40vh);
+  height: auto;
   padding: 3.5rem 2rem;
   position: absolute;
   top: 40vh;
@@ -64,7 +64,6 @@ p {
   text-align: left;
 }
 
-/*DA RIVEDERE*/
 .close-button {
   position: fixed;
   top: 1rem;

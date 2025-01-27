@@ -8,59 +8,71 @@
       <priority>1.0</priority>
    </url>
 
-   <!-- Pagine generali -->
+   <!-- Pagina di dettaglio sul primo carosello : Storia della Cascina: Carla e Bruno Caccia -->
    <url>
-      <loc>https://portalesfera.altervista.org/index.html</loc>
-      <lastmod>2025-01-15</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel1.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.tuosito.com/contatti</loc>
-      <lastmod>2025-01-10</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel2.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
+      <priority>0.8</priority>
    </url>
 
    <!-- Pagina elenco laboratori -->
    <url>
-      <loc>https://www.tuosito.com/laboratori</loc>
-      <lastmod>2025-01-20</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel3.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>weekly</changefreq>
-      <priority>0.9</priority>
+      <priority>0.8</priority>
    </url>
 
    <!-- Pagine dei laboratori -->
    <url>
-      <loc>https://www.tuosito.com/laboratori/scienze</loc>
-      <lastmod>2025-01-25</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel4.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.tuosito.com/laboratori/informatica</loc>
-      <lastmod>2025-01-23</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel5.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.tuosito.com/laboratori/musica</loc>
-      <lastmod>2025-01-22</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel6.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <!-- Articoli correlati -->
    <url>
-      <loc>https://www.tuosito.com/news/progetto-robotica</loc>
-      <lastmod>2025-01-18</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel7.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
+      <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.tuosito.com/news/giornata-laboratori-aperti</loc>
-      <lastmod>2025-01-17</lastmod>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel8.html</loc>
+      <lastmod>2025-01-27</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
+      <priority>0.8</priority>
+   </url>
+      <url>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel9.html</loc>
+      <lastmod>2025-01-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+      <url>
+      <loc>https://portalesfera.altervista.org/carousel-info/carousel10.html</loc>
+      <lastmod>2025-01-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
    </url>
 </urlset>
