@@ -144,7 +144,7 @@ button {
   cursor: pointer;
   font-size: var(--font-size-medium);
   font-family: var(--font-family);
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--);
 }
 
 #register,

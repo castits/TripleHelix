@@ -31,7 +31,6 @@
     <!-- Stile per la barra di navigazione -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
     <link rel="stylesheet" href="./styles/booking.css" />
-    <link rel="stylesheet" href="./styles/booking.css" />
   </head>
   <!-- Fine della sezione head -->
 
@@ -158,152 +157,156 @@
       </nav>
     </header>
 
-    <!-- Contenuto principale -->
+    <!--*--------------------*-->
+    <!--*         MAIN       *-->
+    <!--*--------------------*-->
     <main>
-      <!-- Form per la prenotazione -->
-      <form>
-        <h2>Prenota ora</h2>
-        <p>
-          Compila il modulo per inviare la tua richiesta di prenotazione. Ti
-          risponderemo al più presto!
-        </p>
-        <!-- Campo per il nome -->
-        <div class="form-group">
-          <label for="name">Nome</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Inserisci il tuo nome"
-            required
-          />
-        </div>
-        <!-- Campo per il cognome -->
-        <div class="form-group">
-          <label for="surname">Cognome</label>
-          <input
-            type="text"
-            id="surname"
-            name="surname"
-            placeholder="Inserisci il tuo cognome"
-            required
-          />
-        </div>
-        <!-- Campo per l'email -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Inserisci la tua email"
-            required
-          />
-        </div>
-
-        <!-- Campo per il numero di telefono -->
-        <div class="form-group">
-          <label for="phone-number">Numero di telefono</label>
-          <input
-            type="text"
-            id="phone-number"
-            name="phone-number"
-            placeholder="Inserisci il tuo numero di telefono"
-            required
-          />
-        </div>
-
-        <!-- Campo per l'ente di appartenenza -->
-        <div class="form-group">
-          <label for="ente">Ente</label>
-          <input
-            type="text"
-            id="ente"
-            name="ente"
-            placeholder="Inserisci il nome dell'ente"
-            required
-          />
-        </div>
-        <!-- Campo per il numero di partecipanti -->
-        <div class="form-group">
-          <label for="partecipanti">Partecipanti</label>
-          <input
-            type="number"
-            id="partecipanti"
-            name="partecipanti"
-            placeholder="Inserisci il numero dei partecipanti"
-            required
-          />
-        </div>
-
-        <!-- Selezione per la durata -->
-        <div class="form-group">
-          <label for="durata">Durata</label>
-          <select name="durata" id="durata">
-            <option value="" disabled selected>
-              Seleziona la fascia oraria...
-            </option>
-            <option value="MORNING">Mattina</option>
-            <option value="AFTERNOON">Pomeriggio</option>
-            <option value="FULL_DAY">Tutto il giorno</option>
-          </select>
-        </div>
-
-        <!-- Campo per selezionare la data -->
-        <div class="form-group">
-          <label for="data">Data</label>
-          <input type="date" id="data" name="data" required />
-        </div>
-
-        <!-- Campo per selezionare l'attività -->
-        <div class="form-group">
-          <label for="attivita">Attività</label>
-          <select name="attivita" id="attivita">
-            <option value="" disabled selected>Seleziona attività...</option>
-            <option value="Storia della Cascina Carla e Bruno Caccia">
-              Storia della Cascina Carla e Bruno Caccia
-            </option>
-            <option value="Bruno Caccia">Bruno Caccia</option>
-            <option value="Regolegalità per i più piccini">
-              Regolegalità per i più piccini
-            </option>
-            <option value="I beni confiscati">I beni confiscati</option>
-            <option value="Le mafie e il cibo">Le mafie e il cibo</option>
-            <option value="Miele e api">Miele e api</option>
-            <option value="La mafia attraverso il cinema">
-              La mafia attraverso il cinema
-            </option>
-            <option value="Il gioco non è un azzardo">
-              Il gioco non è un azzardo
-            </option>
-            <option value="Chi non gioca vince">Chi non gioca vince</option>
-          </select>
-        </div>
-
-        <!-- Campo per inserire un messaggio -->
-        <div class="form-group">
-          <label for="messaggio">Messaggio</label>
-          <textarea
-            name="messaggio"
-            id="messaggio"
-            placeholder="Inserisci il tuo messaggio"
-          ></textarea>
-        </div>
-
-        <!-- Campo per il consenso GDPR -->
-        <div id="gdpr-field">
-          <label for="gdpr"
-            >Autorizzo il trattamento dei miei dati personali ai sensi del
-            Regolamento (UE) 2016/679 (GDPR):</label
-          >
-          <div id="gdpr-input">
-            <input type="checkbox" name="gdpr" id="gdpr" required />
-            <p>Si</p>
+      <div class="bg-form">
+        <!-- Form per la prenotazione -->
+        <form>
+          <h2>Prenota ora</h2>
+          <p>
+            Compila il modulo per inviare la tua richiesta di prenotazione. Ti
+            risponderemo al più presto!
+          </p>
+          <!-- Campo per il nome -->
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Inserisci il tuo nome"
+              required
+            />
           </div>
-        </div>
-        <!-- Pulsante per inviare il form -->
-        <button type="submit">INVIA</button>
-      </form>
+          <!-- Campo per il cognome -->
+          <div class="form-group">
+            <label for="surname">Cognome</label>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              placeholder="Inserisci il tuo cognome"
+              required
+            />
+          </div>
+          <!-- Campo per l'email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Inserisci la tua email"
+              required
+            />
+          </div>
+
+          <!-- Campo per il numero di telefono -->
+          <div class="form-group">
+            <label for="phone-number">Numero di telefono</label>
+            <input
+              type="text"
+              id="phone-number"
+              name="phone-number"
+              placeholder="Inserisci il tuo numero di telefono"
+              required
+            />
+          </div>
+
+          <!-- Campo per l'ente di appartenenza -->
+          <div class="form-group">
+            <label for="ente">Ente</label>
+            <input
+              type="text"
+              id="ente"
+              name="ente"
+              placeholder="Inserisci il nome dell'ente"
+              required
+            />
+          </div>
+          <!-- Campo per il numero di partecipanti -->
+          <div class="form-group">
+            <label for="partecipanti">Partecipanti</label>
+            <input
+              type="number"
+              id="partecipanti"
+              name="partecipanti"
+              placeholder="Inserisci il numero dei partecipanti"
+              required
+            />
+          </div>
+
+          <!-- Selezione per la durata -->
+          <div class="form-group">
+            <label for="durata">Durata</label>
+            <select name="durata" id="durata">
+              <option value="" disabled selected>
+                Seleziona la fascia oraria...
+              </option>
+              <option value="MORNING">Mattina</option>
+              <option value="AFTERNOON">Pomeriggio</option>
+              <option value="FULL_DAY">Tutto il giorno</option>
+            </select>
+          </div>
+
+          <!-- Campo per selezionare la data -->
+          <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required />
+          </div>
+
+          <!-- Campo per selezionare l'attività -->
+          <div class="form-group">
+            <label for="attivita">Attività</label>
+            <select name="attivita" id="attivita">
+              <option value="" disabled selected>Seleziona attività...</option>
+              <option value="Storia della Cascina Carla e Bruno Caccia">
+                Storia della Cascina Carla e Bruno Caccia
+              </option>
+              <option value="Bruno Caccia">Bruno Caccia</option>
+              <option value="Regolegalità per i più piccini">
+                Regolegalità per i più piccini
+              </option>
+              <option value="I beni confiscati">I beni confiscati</option>
+              <option value="Le mafie e il cibo">Le mafie e il cibo</option>
+              <option value="Miele e api">Miele e api</option>
+              <option value="La mafia attraverso il cinema">
+                La mafia attraverso il cinema
+              </option>
+              <option value="Il gioco non è un azzardo">
+                Il gioco non è un azzardo
+              </option>
+              <option value="Chi non gioca vince">Chi non gioca vince</option>
+            </select>
+          </div>
+
+          <!-- Campo per inserire un messaggio -->
+          <div class="form-group">
+            <label for="messaggio">Messaggio</label>
+            <textarea
+              name="messaggio"
+              id="messaggio"
+              placeholder="Inserisci il tuo messaggio"
+            ></textarea>
+          </div>
+
+          <!-- Campo per il consenso GDPR -->
+          <div id="gdpr-field">
+            <label for="gdpr"
+              >Autorizzo il trattamento dei miei dati personali ai sensi del
+              Regolamento (UE) 2016/679 (GDPR):</label
+            >
+            <div id="gdpr-input">
+              <input type="checkbox" name="gdpr" id="gdpr" required />
+              <p>Si</p>
+            </div>
+          </div>
+          <!-- Pulsante per inviare il form -->
+          <button type="submit">INVIA</button>
+        </form>
+      </div>
     </main>
 
     <!-- Collegamento al file JavaScript per la gestione della pagina -->

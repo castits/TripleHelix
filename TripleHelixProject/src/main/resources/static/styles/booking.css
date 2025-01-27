@@ -41,11 +41,22 @@ html {
 
 body {
   font-family: var(--font-family);
+  background-color: var(--orange-light);
 }
 
 main {
   background-color: var(--orange-light);
-  padding: 2rem 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16vh auto;
+}
+.bg-form {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 85vw;
+  padding: 30px 20px;
 }
 
 h2 {

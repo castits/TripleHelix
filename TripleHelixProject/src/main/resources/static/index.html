@@ -180,11 +180,17 @@
     <!--*-----------------------------------------------------*-->
     <main>
       <div id="hero">
-        <img
-          id="hero-bg"
-          src="./assets/img/cascina_caccia_mobile.jpg"
-          alt="Immagine della Cascina Caccia, vista panoramica del sito"
-        />
+        <picture>
+          <source
+            srcset="./assets/img/cascina_caccia.jpg"
+            media="(min-width: 768px)"
+          />
+          <img
+            id="hero-bg"
+            src="./assets/img/cascina_caccia_mobile.jpg"
+            alt="Immagine della Cascina Caccia, vista panoramica del sito"
+          />
+        </picture>
         <div id="hero-bg-darkness"></div>
         <div id="hero-content">
           <div id="main-text">
@@ -257,119 +263,151 @@
           >
             <div class="carousel-intro">
               <h3>Storia della Cascina: Carla e Bruno Caccia</h3>
-              <button title="Scopri di più sulla storia della Cascina Caccia">
-                <a href="./carousel-info/carousel1.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sulla storia della Cascina Caccia"
+                href="./carousel-info/carousel1.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/sentiero-cascina-caccia.jpg"
               alt="Sentiero che conduce alla Cascina Caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item" aria-label="Laboratorio su Bruno Caccia">
             <div class="carousel-intro">
               <h3>Bruno Caccia</h3>
-              <button title="Scopri di più su Bruno Caccia">
-                <a href="./carousel-info/carousel2.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Bruno Caccia"
+                href="./carousel-info/carousel2.html"
+                >Scopri di più</a
+              >
             </div>
-            <img src="./assets/img/bruno-caccia.jpg" alt="Bruno Caccia" />
+            <img
+              src="./assets/img/bruno-caccia.jpg"
+              alt="Bruno Caccia"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Regolegalità per i più piccini</h3>
-              <button title="Scopri di più su Regolegalità">
-                <a href="./carousel-info/carousel3.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Regolegalità"
+                href="./carousel-info/carousel3.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/regolegalita.jpg"
               alt="Educazione in Cascina Caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>I beni confiscati</h3>
-              <button title="Scopri di più su Regolegalità">
-                <a href="./carousel-info/carousel4.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Regolegalità"
+                href="./carousel-info/carousel4.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/beni-confiscati.jpg"
               alt="Catena e lucchetto per i beni confiscati"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Le mafie e il cibo</h3>
-              <button title="Scopri di più sulle Mafie e il cibo">
-                <a href="./carousel-info/carousel5.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sulle Mafie e il cibo"
+                href="./carousel-info/carousel5.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/tavolo-imbandito.jpg"
               alt="Tavolo imbandito di Cascina Caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Miele e api</h3>
-              <button title="Scopri di più su Miele ed api della Cascina">
-                <a href="./carousel-info/carousel6.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più su Miele ed api della Cascina"
+                href="./carousel-info/carousel6.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/miele-e-api.jpg"
               alt="Miele di cascina caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Ricicliamo</h3>
-              <button title="Scopri di più sul riciclo e la creatività">
-                <a href="./carousel-info/carousel7.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sul riciclo e la creatività"
+                href="./carousel-info/carousel7.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/ricicliamo.jpg"
               alt="Oggetti riciclati di Cascina Caccia"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>La mafia attraverso il cinema</h3>
-              <button title="Scopri di più sulla Mafia attraverso il cinema">
-                <a href="./carousel-info/carousel8.html">Scopri di più</a>
-              </button>
+              <a
+                title="Scopri di più sulla Mafia attraverso il cinema"
+                href="./carousel-info/carousel8.html"
+                >Scopri di più</a
+              >
             </div>
             <img
               src="./assets/img/carla-e-bruno-caccia.jpg"
               alt="Carla e Bruno Caccia che ballano"
+              loading="lazy"
             />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Il gioco non è un azzardo</h3>
-              <button
+              <a
                 title="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)"
+                href="./carousel-info/carousel9.html"
+                >Scopri di più</a
               >
-                <a href="./carousel-info/carousel9.html">Scopri di più</a>
-              </button>
             </div>
-            <img src="./assets/img/soldi-finti.jpg" alt="Soldi finti" />
+            <img
+              src="./assets/img/soldi-finti.jpg"
+              alt="Soldi finti"
+              loading="lazy"
+            />
           </div>
           <div class="carousel-item">
             <div class="carousel-intro">
               <h3>Chi non gioca vince</h3>
-              <button
+              <a
                 title="Scopri di più sul tema del gioco d'azzardo (per i ragazzi)"
+                href="./carousel-info/carousel10.html"
+                >Scopri di più</a
               >
-                <a href="./carousel-info/carousel10.html">Scopri di più</a>
-              </button>
             </div>
             <img
               src="./assets/img/riunione-laboratorio.jpg"
               alt="Riunione in cerchio durante il laboratorio di 'Chi non gioca vince'"
+              loading="lazy"
             />
           </div>
         </div>
@@ -629,7 +667,7 @@
             <p>Si</p>
           </div>
         </div>
-        
+
         <button type="submit" title="Invia il modulo di contatto">INVIA</button>
       </form>
       <!-- Fine form di contatto -->
