@@ -86,7 +86,7 @@ p {
 }
 
 /* media query grossi height 60vh, piccoli auto */
-@media screen and (min-width: 1600px) and (max-width: 1800px) {
+@media screen and (min-width: 768px) {
   main {
     height: 60vh;
     padding-bottom: 0;
