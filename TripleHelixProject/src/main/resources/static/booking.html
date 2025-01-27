@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Inizio della sezione head -->
+  <!-- Start of the head section -->
   <head>
-    <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
+    <!-- Meta information -->
+    <!-- Specifies the character set used -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
+    <!-- Optimization for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
+    <!-- Author of the website -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito -->
+    <!-- Description of the website -->
     <meta name="description" content="Pagina di prenotazione per prenotare una visita in Cascina Caccia." />
-    <!-- Titolo della pagina -->
+    <!-- Page title -->
     <title>Prenota - Cascina Caccia</title>
-
-    <!-- Collegamento ai font di Google -->
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
+    <!-- Linking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-    <!-- Collegamento ai fogli di stile -->
-    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
+    <!-- Linking stylesheets -->
+    <!-- CSS reset to standardize styles across browsers -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Stile per la barra di navigazione -->
+    <!-- Style for the navigation bar -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
     <link rel="stylesheet" href="./styles/booking.css" />
   </head>
-  <!-- Fine della sezione head -->
+  <!-- End of the head section -->
 
-  <!-- Inizio del corpo della pagina -->
+  <!-- Start of the page body -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
@@ -36,7 +36,7 @@
     <header>
       <!-- Logo section -->
       <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
-        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" />
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
 
       <!-- Navigation menu -->
@@ -48,66 +48,66 @@
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile" aria-labelledby="Menu di navigazione mobile">
+        <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona del profilo" title="Profilo" />
                 <p id="profile-login"></p>
               </a>
             </li>
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Vai alla homepage">Homepage</a>
             </li>
 
             <!-- "Contact Us" link -->
             <li class="mobileNavLink">
-              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" link -->
             <li class="mobileNavLink">
-              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn">Prenota ora</a>
+              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn" aria-label="Prenota ora una visita a Cascina">Prenota ora</a>
             </li>
             <!-- "Logout" link -->
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
               </a>
             </li>
           </ul>
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop" aria-label="Menu di navigazione desktop">
+        <div id="nav-desktop">
           <ul>
             <!--Homepage-->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Vai alla homepage">Homepage</a>
             </li>
             <!-- "Contact Us" button -->
             <li>
-              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" button -->
             <li>
-              <a class="important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank">Prenota ora</a>
+              <a class="important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank" aria-label="Prenota ora una visita a Cascina">Prenota ora</a>
             </li>
 
             <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona del profilo" title="Profilo" />
               </a>
             </li>
             <!-- !Logout -->
             <li>
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
               </a>
             </li>
           </ul>
@@ -115,46 +115,46 @@
       </nav>
     </header>
 
-    <!-- Contenuto principale -->
+    <!-- Main content -->
     <main>
-      <!-- Form per la prenotazione -->
-      <form>
-        <h2>Prenota ora</h2>
-        <p>Compila il modulo per inviare la tua richiesta di prenotazione. Ti risponderemo al più presto!</p>
-        <!-- Campo per il nome -->
+      <!-- Booking form -->
+      <form aria-label="Form per la prenotazione di una visita">
+        <h2 tabindex="0">Prenota ora</h2>
+        <p tabindex="0">Compila il modulo per inviare la tua richiesta di prenotazione. Ti risponderemo al più presto!</p>
+        <!-- Name field -->
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" required />
+          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" aria-required="true" required />
         </div>
-        <!-- Campo per il cognome -->
+        <!-- Surname field -->
         <div class="form-group">
           <label for="surname">Cognome</label>
-          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" required />
+          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" aria-required="true" required />
         </div>
-        <!-- Campo per l'email -->
+        <!-- Email field -->
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
+          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" aria-required="true" required />
         </div>
 
-        <!-- Campo per il numero di telefono -->
+        <!-- Phone number field -->
         <div class="form-group">
           <label for="phone-number">Numero di telefono</label>
-          <input type="text" id="phone-number" name="phone-number" placeholder="Inserisci il tuo numero di telefono" required />
+          <input type="text" id="phone-number" name="phone-number" placeholder="Inserisci il tuo numero di telefono" aria-required="true" required />
         </div>
 
-        <!-- Campo per l'ente di appartenenza -->
+        <!-- Organization field -->
         <div class="form-group">
           <label for="ente">Ente</label>
-          <input type="text" id="ente" name="ente" placeholder="Inserisci il nome dell'ente" required />
+          <input type="text" id="ente" name="ente" placeholder="Inserisci il nome dell'ente" aria-required="true" required />
         </div>
-        <!-- Campo per il numero di partecipanti -->
+        <!-- Participants field -->
         <div class="form-group">
           <label for="partecipanti">Partecipanti</label>
-          <input type="number" id="partecipanti" name="partecipanti" placeholder="Inserisci il numero dei partecipanti" required />
+          <input type="number" id="partecipanti" name="partecipanti" placeholder="Inserisci il numero dei partecipanti" aria-required="true" required />
         </div>
 
-        <!-- Selezione per la durata -->
+        <!-- Duration selection -->
         <div class="form-group">
           <label for="durata">Durata</label>
           <select name="durata" id="durata">
@@ -165,18 +165,18 @@
           </select>
         </div>
 
-        <!-- Campo per selezionare la data -->
+        <!-- Date selection -->
         <div class="form-group">
           <label for="data">Data</label>
-          <input type="date" id="data" name="data" required />
+          <input type="date" id="data" name="data" aria-required="true" required />
         </div>
 
-        <!-- Campo per selezionare l'attività -->
+        <!-- Activity selection -->
         <div class="form-group">
           <label for="attivita">Attività</label>
           <select name="attivita" id="attivita">
             <option value="" disabled selected>Seleziona attività...</option>
-            <option value="Storia della Cascina Carla e Bruno Caccia">Storia della Cascina Carla e Bruno Caccia</option>
+            <option value="Storia della Cascina Carla e Bruno Caccia">Storia della Cascina, Carla e Bruno Caccia</option>
             <option value="Bruno Caccia">Bruno Caccia</option>
             <option value="Regolegalità per i più piccini">Regolegalità per i più piccini</option>
             <option value="I beni confiscati">I beni confiscati</option>
@@ -188,20 +188,20 @@
           </select>
         </div>
 
-        <!-- Campo per inserire un messaggio -->
+        <!-- Message field -->
         <div class="form-group">
           <label for="messaggio">Messaggio</label>
-          <textarea name="messaggio" id="messaggio" placeholder="Inserisci il tuo messaggio"></textarea>
+          <textarea name="messaggio" id="messaggio" placeholder="Inserisci il tuo messaggio (facoltativo)"></textarea>
         </div>
-        <!-- Pulsante per inviare il form -->
-        <button type="submit">INVIA</button>
+        <!-- Submit button -->
+        <button type="submit" aria-label="Invia il modulo di prenotazione">INVIA</button>
       </form>
     </main>
 
-    <!-- Collegamento al file JavaScript per la gestione della pagina -->
+    <!-- Linking JavaScript files for page management -->
     <script src="./js/backoffice/booking.js"></script>
     <script src="./js/components/header.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
-  <!-- Fine del corpo -->
+  <!-- End of the body -->
 </html>

@@ -13,6 +13,7 @@
     <meta name="description" content="Pagina di registrazione per accedere alle prenotazioni di Cascina Caccia." />
     <!-- Page title -->
     <title>Registrazione - Cascina Caccia</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
 
     <!-- Linking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +42,7 @@
       </a>
 
       <!-- Navigation menu -->
-      <nav aria-label="Navigazione principale">
+      <nav>
         <!-- Hamburger menu icon for mobile devices -->
         <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
           <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
@@ -49,7 +50,7 @@
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile" aria-labelledby="Menu di navigazione mobile">
+        <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
@@ -108,8 +109,8 @@
     <main>
       <div class="bg-form bg-form-register">
         <!-- Registration form -->
-        <form id="registration-form" method="post" aria-labelledby="Form di registrazione">
-          <h2 id="form-title">Registrati</h2>
+        <form id="registration-form" method="post">
+          <h2 tabindex="0" id="form-title">Registrati</h2>
 
           <!-- Field for the name -->
           <div class="form-group">
@@ -127,34 +128,34 @@
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
+            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" aria-required="true" required />
           </div>
 
           <!-- Field for the creation of the password -->
           <div class="form-group">
             <label for="password">Crea password</label>
-            <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" required />
+            <input type="password" name="password" id="password" placeholder="Almeno 8 caratteri" aria-required="true" required />
           </div>
 
           <!-- Field for the password confirm -->
           <div class="form-group">
             <label for="conferma-password">Conferma password</label>
-            <input type="password" name="conferma-password" id="conferma-password" placeholder="Almeno 8 caratteri" required />
+            <input type="password" name="conferma-password" id="conferma-password" placeholder="Almeno 8 caratteri" aria-required="true" required />
           </div>
 
           <!-- GDPR Consent Field -->
           <div id="gdpr-field">
             <label for="gdpr">Autorizzo il trattamento dei miei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR):</label>
             <div id="gdpr-input">
-              <input type="checkbox" name="gdpr" id="gdpr" required />
+              <input type="checkbox" name="gdpr" id="gdpr" aria-required="true" required />
               <p>Si</p>
             </div>
           </div>
 
           <!-- Form Submit Button -->
-          <button type="submit">Registrati</button>
+          <button aria-label="invia modulo di registrazione" type="submit">Registrati</button>
         </form>
-        <p id="login">
+        <p tabindex="0" id="login">
           Hai già un account?
           <a href="./login.html">Accedi</a>
         </p>

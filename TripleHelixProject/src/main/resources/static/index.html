@@ -9,6 +9,7 @@
     <meta name="description" content="Cascina Caccia: un centro di memoria e impegno sociale incentrato sulla legalità e sull'educazione, con attività educative per scuole e gruppi." />
     <title>Cascina Caccia - Riscatto, Legalità ed Educazione</title>
     <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Aggiunta font fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +38,7 @@
       </a>
 
       <!-- Navigation menu -->
-      <nav aria-label="Navigazione principale">
+      <nav>
         <!-- Hamburger menu icon for mobile devices -->
         <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
           <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
@@ -45,7 +46,7 @@
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile" aria-label="Menu di navigazione mobile">
+        <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
@@ -57,28 +58,28 @@
 
             <!-- "About us" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html#about-us" title="Chi siamo">Chi siamo</a>
+              <a class="scroll" href="./index.html#about-us" title="Chi siamo" aria-label="Vai alla sezione 'Chi siamo'">Chi siamo</a>
             </li>
             <!-- "Workshop" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html#workshop" title="Workshop">Laboratori</a>
+              <a class="scroll" href="./index.html#workshop" title="Workshop" aria-label="Vai alla sezione 'Laboratori'">Laboratori</a>
             </li>
             <!-- "Faq" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html#faq" title="Faq">Faq</a>
+              <a class="scroll" href="./index.html#faq" title="Faq" aria-label="Vai alla sezione 'Faq'">Faq</a>
             </li>
             <!-- "Contact Us" link -->
             <li class="mobileNavLink">
-              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" link -->
             <li>
-              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn book-now-btn">Prenota ora</a>
+              <a href="./booking.html" title="Prenota una visita alla Cascina" class="important-btn book-now-btn" aria-label="Prenota ora una visita a Cascina">Prenota ora</a>
             </li>
 
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema">
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
                 <img src="./assets/svg/logout.svg" alt="icona logout" />
               </a>
             </li>
@@ -86,38 +87,38 @@
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop" aria-label="Menu di navigazione desktop">
+        <div id="nav-desktop">
           <ul>
             <!-- "About us" link -->
             <li>
-              <a class="scroll" href="./index.html#about-us" title="Chi siamo">Chi siamo</a>
+              <a class="scroll" href="./index.html#about-us" title="Chi siamo" aria-label="Vai alla sezione 'Chi siamo'">Chi siamo</a>
             </li>
             <!-- "Workshop" link -->
             <li>
-              <a class="scroll" href="./index.html#workshop" title="Workshop">Laboratori</a>
+              <a class="scroll" href="./index.html#workshop" title="Workshop" aria-label="Vai alla sezione 'Laboratori'">Laboratori</a>
             </li>
             <!-- "Faq" link -->
             <li>
-              <a class="scroll" href="./index.html#faq" title="Faq">Faq</a>
+              <a class="scroll" href="./index.html#faq" title="Faq" aria-label="Vai alla sezione 'Faq'">Faq</a>
             </li>
             <!-- "Contact Us" button -->
             <li>
-              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni">Contattaci</a>
+              <a class="scroll important-btn" href="./index.html#contact" title="Contattaci per maggiori informazioni" aria-label="Contattaci">Contattaci</a>
             </li>
 
             <!-- "Book a Visit" button -->
             <li>
-              <a class="book-now-btn important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank">Prenota ora</a>
+              <a class="book-now-btn important-btn" href="./booking.html" title="Prenota una visita alla Cascina" target="_blank" aria-label="Prenota ora una visita a Cascina">Prenota ora</a>
             </li>
             <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
                 <img src="./assets/svg/account.svg" alt="icona profilo" />
               </a>
             </li>
             <!-- Logout -->
             <li>
-              <a href="#" class="logout" title="Esci dal sistema">
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
                 <img src="./assets/svg/logout.svg" alt="icona logout" />
               </a>
             </li>
@@ -141,20 +142,20 @@
         <div id="hero-bg-darkness"></div>
         <div id="hero-content">
           <div id="main-text">
-            <h1>Cascina Caccia: riscatto, legalità ed educazione</h1>
-            <p>Coinvolgi la tua scuola in un'esperienza unica di educazione alla legalità.</p>
+            <h1 tabindex="0">Cascina Caccia: riscatto, legalità ed educazione</h1>
+            <p tabindex="0">Coinvolgi la tua scuola in un'esperienza unica di educazione alla legalità.</p>
           </div>
 
           <div id="cta-buttons">
-            <button id="discover-more" class="discover-more" title="Scopri di più su Cascina Caccia">Scopri di più</button>
-            <a id="book-now" href="./booking.html" title="Prenota subito una visita alla Cascina">Prenota ora</a>
+            <button id="discover-more" class="discover-more" title="Scopri di più su Cascina Caccia" aria-label="Scopri di più su Cascina Caccia">Scopri di più</button>
+            <a id="book-now" href="./booking.html" title="Prenota subito una visita alla Cascina" aria-label="Prenota una visita in Cascina Caccia">Prenota ora</a>
           </div>
 
           <img id="double-arrow" class="discover-more" src="assets/svg/double_arrow.svg" alt="Freccia doppia per scorrere" title="Scorri per scoprire di più" />
         </div>
       </div>
 
-      <div id="about-us">
+      <div tabindex="0" id="about-us">
         <h2>Cos'è Cascina Caccia?</h2>
         <p>
           <strong>Cascina Caccia</strong>
@@ -178,76 +179,76 @@
         </p>
       </div>
       <div id="workshop">
-        <h2 id="laboratori">Scopri i nostri laboratori</h2>
+        <h2 id="laboratori" tabindex="0">Scopri i nostri laboratori</h2>
         <div class="carousel-container">
           <!-- Ogni carousel item rappresenta un laboratorio -->
           <div class="carousel-item" aria-label="Laboratorio sulla storia della Cascina Caccia">
             <div class="carousel-intro">
               <h3>Storia della Cascina: Carla e Bruno Caccia</h3>
-              <a title="Scopri di più sulla storia della Cascina Caccia" href="./carousel-info/carousel1.html">Scopri di più</a>
+              <a aria-label="Scopri di più sulla storia della Cascina Caccia" title="Scopri di più sulla storia della Cascina Caccia" href="./carousel-info/carousel1.html">Scopri di più</a>
             </div>
             <img src="./assets/img/sentiero-cascina-caccia.jpg" alt="Sentiero che conduce alla Cascina Caccia" loading="lazy" />
           </div>
           <div class="carousel-item" aria-label="Laboratorio su Bruno Caccia">
             <div class="carousel-intro">
               <h3>Bruno Caccia</h3>
-              <a title="Scopri di più su Bruno Caccia" href="./carousel-info/carousel2.html">Scopri di più</a>
+              <a aria-label="Scopri di più su Bruno Caccia" title="Scopri di più su Bruno Caccia" href="./carousel-info/carousel2.html">Scopri di più</a>
             </div>
             <img src="./assets/img/bruno-caccia.jpg" alt="Bruno Caccia" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio sulla Regolegalità">
             <div class="carousel-intro">
               <h3>Regolegalità per i più piccini</h3>
-              <a title="Scopri di più su Regolegalità" href="./carousel-info/carousel3.html">Scopri di più</a>
+              <a aria-label="Scopri di più su Regolegalità" title="Scopri di più su Regolegalità" href="./carousel-info/carousel3.html">Scopri di più</a>
             </div>
             <img src="./assets/img/regolegalita.jpg" alt="Educazione in Cascina Caccia" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio sui beni confiscati">
             <div class="carousel-intro">
               <h3>I beni confiscati</h3>
-              <a title="Scopri di più su Regolegalità" href="./carousel-info/carousel4.html">Scopri di più</a>
+              <a aria-label="Scopri di più sui beni confiscati" title="Scopri di più sui beni confiscati" href="./carousel-info/carousel4.html">Scopri di più</a>
             </div>
             <img src="./assets/img/beni-confiscati.jpg" alt="Catena e lucchetto per i beni confiscati" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio sulle Mafie ed il cibo">
             <div class="carousel-intro">
               <h3>Le mafie e il cibo</h3>
-              <a title="Scopri di più sulle Mafie e il cibo" href="./carousel-info/carousel5.html">Scopri di più</a>
+              <a aria-label="Scopri di più sulle mafie e il cibo" title="Scopri di più sulle Mafie e il cibo" href="./carousel-info/carousel5.html">Scopri di più</a>
             </div>
             <img src="./assets/img/tavolo-imbandito.jpg" alt="Tavolo imbandito di Cascina Caccia" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio sul Miele e le api di Cascina Caccia">
             <div class="carousel-intro">
               <h3>Miele e api</h3>
-              <a title="Scopri di più su Miele ed api della Cascina" href="./carousel-info/carousel6.html">Scopri di più</a>
+              <a aria-label="Scopri di più su Miele ed api della Cascina" title="Scopri di più su Miele ed api della Cascina" href="./carousel-info/carousel6.html">Scopri di più</a>
             </div>
             <img src="./assets/img/miele-e-api.jpg" alt="Miele di cascina caccia" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio sul Riciclo in Cascina Caccia">
             <div class="carousel-intro">
               <h3>Ricicliamo</h3>
-              <a title="Scopri di più sul riciclo e la creatività" href="./carousel-info/carousel7.html">Scopri di più</a>
+              <a aria-label="Scopri di più sul riciclo e la creatività" title="Scopri di più sul riciclo e la creatività" href="./carousel-info/carousel7.html">Scopri di più</a>
             </div>
             <img src="./assets/img/ricicliamo.jpg" alt="Oggetti riciclati di Cascina Caccia" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio sulla Mafia attraverso il cinema">
             <div class="carousel-intro">
               <h3>La mafia attraverso il cinema</h3>
-              <a title="Scopri di più sulla Mafia attraverso il cinema" href="./carousel-info/carousel8.html">Scopri di più</a>
+              <a aria-label="Scopri di più sulla Mafia attraverso il cinema" title="Scopri di più sulla Mafia attraverso il cinema" href="./carousel-info/carousel8.html">Scopri di più</a>
             </div>
             <img src="./assets/img/carla-e-bruno-caccia.jpg" alt="Carla e Bruno Caccia che ballano" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio Il gioco non è un azzardo">
             <div class="carousel-intro">
               <h3>Il gioco non è un azzardo</h3>
-              <a title="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)" href="./carousel-info/carousel9.html">Scopri di più</a>
+              <a aria-label="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)" title="Scopri di più sul tema del gioco d'azzardo (per i piu piccini)" href="./carousel-info/carousel9.html">Scopri di più</a>
             </div>
             <img src="./assets/img/soldi-finti.jpg" alt="Soldi finti" loading="lazy" />
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" aria-label="Laboratorio Chi non gioca vince">
             <div class="carousel-intro">
               <h3>Chi non gioca vince</h3>
-              <a title="Scopri di più sul tema del gioco d'azzardo (per i ragazzi)" href="./carousel-info/carousel10.html">Scopri di più</a>
+              <a aria-label="Scopri di più sul tema del gioco d'azzardo (per gli adolescenti)" title="Scopri di più sul tema del gioco d'azzardo (per gli adolescenti)" href="./carousel-info/carousel10.html">Scopri di più</a>
             </div>
             <img src="./assets/img/riunione-laboratorio.jpg" alt="Riunione in cerchio durante il laboratorio di 'Chi non gioca vince'" loading="lazy" />
           </div>
@@ -268,13 +269,13 @@
       </div>
       <!-- Domande frequenti -->
       <div id="faq">
-        <h2>Domande frequenti</h2>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Come posso prenotare una visita per la mia classe?</h3>
+        <h2 tabindex="0">Domande frequenti</h2>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Come posso prenotare una visita per la mia classe?</h3>
             <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Puoi prenotare direttamente dal
               <strong>nostro sito</strong>
@@ -286,12 +287,12 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Qual è il costo delle attività?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Qual è il costo delle attività?</h3>
             <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <ul>
               <li>Mezza giornata: 100€ a classe</li>
               <li>Giornata intera: 150€ a classe</li>
@@ -305,12 +306,12 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Ci sono limiti al numero di partecipanti?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Ci sono limiti al numero di partecipanti?</h3>
             <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Sì, ospitiamo massimo
               <strong>due classi</strong>
@@ -324,12 +325,12 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Come raggiungere la cascina?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Come raggiungere la cascina?</h3>
             <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Per i pullman superiori ai 25 posti, è previsto il parcheggio presso il
               <strong>cimitero di San Sebastiano da Po</strong>
@@ -339,12 +340,12 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Cosa include il costo del soggiorno formativo?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Cosa include il costo del soggiorno formativo?</h3>
             <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Il costo
               <strong>comprende vitto, alloggio, formazione</strong>
@@ -356,12 +357,12 @@
             </p>
           </div>
         </div>
-        <div class="faq-container" aria-expanded="false">
-          <div class="faq-title" role="button" aria-expanded="false">
-            <h3>Quanti laboratori possono essere svolti in una giornata?</h3>
+        <div class="faq-container">
+          <div class="faq-title" role="button">
+            <h3 tabindex="0">Quanti laboratori possono essere svolti in una giornata?</h3>
             <img src="./assets/svg/arrow.svg" alt="Freccia per espandere la risposta" />
           </div>
-          <div class="faq-answer">
+          <div class="faq-answer" tabindex="0">
             <p>
               Se si è scelta la
               <strong>mezza giornata</strong>
@@ -377,30 +378,30 @@
         </div>
       </div>
       <!-- Inizio form di contatto -->
-      <form id="contact" aria-labelledby="form-contact" aria-describedby="form-contact-description">
-        <h2 id="form-contact">Contattaci</h2>
-        <p id="form-contact-description">Compila il modulo sottostante per richiedere maggiori informazioni. Saremo felici di risponderti il prima possibile.</p>
+      <form id="contact" aria-labelledby="Form di contatto" aria-describedby="Descrizione del form di contatto">
+        <h2 id="form-contact" tabindex="0">Contattaci</h2>
+        <p id="form-contact-description" tabindex="0">Compila il modulo sottostante per richiedere maggiori informazioni. Saremo felici di risponderti il prima possibile.</p>
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" required aria-label="Inserisci il tuo nome" />
+          <input type="text" id="name" name="name" placeholder="Inserisci il tuo nome" aria-required="true" required />
         </div>
         <div class="form-group">
           <label for="surname">Cognome</label>
-          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" required aria-label="Inserisci il tuo cognome" />
+          <input type="text" id="surname" name="surname" placeholder="Inserisci il tuo cognome" aria-required="true" required />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required aria-label="Inserisci la tua email" />
+          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" aria-required="true" required />
         </div>
         <div class="form-group">
           <label for="phone">Numero di telefono</label>
-          <input type="text" id="phone" name="phone" placeholder="Inserisci il tuo numero di telefono" aria-label="Inserisci il tuo numero di telefono" />
+          <input type="text" id="phone" name="phone" placeholder="Inserisci il tuo numero di telefono (facoltativo)" aria-required="false" />
         </div>
         <div class="form-group">
           <label for="message">Messaggio</label>
-          <textarea name="message" id="message" placeholder="Inserisci il tuo messaggio" aria-label="Inserisci il tuo messaggio"></textarea>
+          <textarea name="message" id="message" placeholder="Inserisci il tuo messaggio" required aria-required="true"></textarea>
         </div>
-        <button type="submit" title="Invia il modulo di contatto">INVIA</button>
+        <button aria-label="Invia il modulo di contatto" type="submit" title="Invia il modulo di contatto">INVIA</button>
       </form>
       <!-- Fine form di contatto -->
     </main>
@@ -435,7 +436,7 @@
     </footer>
     <!-- Fine del footer -->
 
-    <!-- Collegamento al file javascript -->
+    <!-- link to javascript files -->
     <script src="./js/components/main.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>

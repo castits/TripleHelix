@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Inizio della sezione head -->
+  <!-- Beginning of the head section -->
   <head>
-    <!-- Meta informazioni -->
-    <!-- Specifica il set di caratteri utilizzato -->
+    <!-- Meta information -->
+    <!-- Specifies the character set used -->
     <meta charset="UTF-8" />
-    <!-- Ottimizzazione per dispositivi mobili -->
+    <!-- Optimization for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Autore del sito -->
+    <!-- Website author -->
     <meta name="author" content="Triple Helix" />
-    <!-- Descrizione del sito -->
-    <meta name="description" content="Pagina delle richieste in attesa" />
-    <!-- Titolo della pagina -->
-    <title>Richieste in Attesa - Cascina Caccia</title>
-
-    <!-- Collegamento ai font di Google -->
+    <!-- Description of the website -->
+    <meta name="description" content="Pagina delle prenotazioni in attesa lato amministratore" />
+    <!-- Page title -->
+    <title>Amministrazione prenotazioni in attesa - Cascina Caccia</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
+    <!-- Linking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-    <!-- Collegamento ai fogli di stile -->
-    <!-- Reset CSS per uniformare gli stili su tutti i browser -->
+    <!-- Linking CSS stylesheets -->
+    <!-- CSS reset to standardize styles across browsers -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Stile per la barra di navigazione -->
+    <!-- Styles for the navigation bar -->
     <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Stile specifico per la pagina del backoffice -->
+    <!-- Specific style for the backoffice page -->
     <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
   </head>
-  <!-- Fine della sezione head -->
+  <!-- End of the head section -->
 
-  <!-- Inizio del corpo -->
+  <!-- Beginning of the body -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
@@ -37,11 +37,11 @@
     <header>
       <!-- Logo section -->
       <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
-        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" />
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
 
       <!-- Navigation menu -->
-      <nav aria-label="Navigazione principale">
+      <nav>
         <!-- Hamburger menu icon for mobile devices -->
         <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
           <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
@@ -49,80 +49,80 @@
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile" aria-labelledby="Menu di navigazione mobile">
+        <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" title="Profilo" />
                 <p id="profile-login"></p>
               </a>
             </li>
 
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
-            <!-- "Bookings pending " link -->
+            <!-- "Bookings pending" link -->
             <li class="mobileNavLink">
-              <a href="./bookingWaiting.html" title="Prenotazioni in attesa">In attesa</a>
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
             <!-- "Bookings confirmed" link -->
             <li class="mobileNavLink">
-              <a href="./bookingConfirmed.html" title="Prenotazioni confermate">Confermate</a>
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
-            <!-- "Bookings deleted" link -->
+            <!-- "Bookings refused" link -->
             <li class="mobileNavLink">
-              <a href="./bookingRefused.html" title="Prenotazioni rifiutate">Rifiutate</a>
+              <a href="./bookingRefused.html" title="Prenotazioni rifiutate" aria-label="Vai alla pagina di prenotazioni rifiutate">Rifiutate</a>
             </li>
             <!-- "Feedbacks" link -->
             <li class="mobileNavLink">
-              <a href="./feedbacks.html" title="Feedbacks">Feedbacks</a>
+              <a href="./feedbacks.html" title="Feedbacks" aria-label="Vai alla pagina di feedbacks">Feedbacks</a>
             </li>
             <!-- Logout icon -->
             <li class="mobileNavLink">
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
               </a>
             </li>
           </ul>
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop" aria-label="Menu di navigazione desktop">
+        <div id="nav-desktop">
           <ul>
             <!-- "Homepage" link -->
             <li>
-              <a class="scroll" href="./index.html" title="Homepage">Homepage</a>
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
-            <!-- "Bookings pending " link -->
+            <!-- "Bookings pending" link -->
             <li>
-              <a href="./bookingWaiting.html" title="Prenotazioni in attesa">In attesa</a>
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
             <!-- "Bookings confirmed" link -->
             <li>
-              <a href="./bookingConfirmed.html" title="Prenotazioni confermate">Confermate</a>
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
             <!-- "Bookings refused" link -->
             <li>
-              <a href="./bookingRefused.html" title="Prenotazioni rifiutate">Rifiutate</a>
+              <a href="./bookingRefused.html" title="Prenotazioni rifiutate" aria-label="Vai alla pagina di prenotazioni rifiutate">Rifiutare</a>
             </li>
             <!-- "Feedbacks" link -->
             <li>
-              <a href="./feedbacks.html" title="Feedbacks">Feedbacks</a>
+              <a href="./feedbacks.html" title="Feedbacks" aria-label="Vai alla pagina di feedbacks">Feedbacks</a>
             </li>
             <!-- Profile icon -->
             <li>
-              <a class="profile" href="#" title="Accedi al tuo profilo">
-                <img src="./assets/svg/account.svg" alt="" />
+              <a class="profile" href="#" title="Accedi al tuo profilo" aria-label="Accedi al tuo profilo">
+                <img src="./assets/svg/account.svg" alt="Icona profilo" title="Profilo" />
               </a>
             </li>
             <!-- Logout icon -->
             <li>
-              <a href="#" class="logout" title="Esci dal sistema">
-                <img src="./assets/svg/logout.svg" alt="icona logout" />
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
               </a>
             </li>
           </ul>
@@ -130,19 +130,19 @@
       </nav>
     </header>
 
-    <!-- Contenuto principale -->
+    <!-- Main content -->
     <main>
-      <!-- Titolo della sezione -->
-      <h2 id="inAttesa">In attesa di conferma:</h2>
+      <!-- Section title -->
+      <h2 tabindex="0" aria-label="Prenotazioni in attesa di conferma" id="inAttesa">In attesa di conferma:</h2>
 
-      <!-- Contenitore dinamico per le prenotazioni -->
+      <!-- Dynamic container for bookings -->
       <div class="containerPrenotazione"></div>
     </main>
 
-    <!-- Collegamento al file JavaScript per gestire le richieste in attesa -->
+    <!-- Linking JavaScript files for managing pending requests -->
     <script src="./js/backoffice/bookingWaiting.js"></script>
     <script src="./js/components/header.js"></script>
     <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
-  <!-- Fine del corpo -->
+  <!-- End of the body -->
 </html>

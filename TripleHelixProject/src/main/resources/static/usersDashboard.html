@@ -13,7 +13,7 @@
     <meta name="description" content="Gestione delle prenotazioni confermate a Cascina Caccia da parte dell'utente" />
     <!-- Page title -->
     <title>Gestione Prenotazioni - Cascina Caccia</title>
-
+    <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Link to Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +40,7 @@
         <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
       <!-- Navigation menu -->
-      <nav aria-label="Navigazione principale">
+      <nav>
         <!-- Hamburger menu icon for mobile devices -->
         <label for="check" class="checkbtn" aria-label="Apri il menu di navigazione">
           <img src="./assets/svg/hamburger.svg" alt="Icona del menu di navigazione" id="hamburger" />
@@ -48,7 +48,7 @@
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
-        <div id="nav-mobile" aria-label="Menu di navigazione mobile">
+        <div id="nav-mobile">
           <ul>
             <!-- Profile icon -->
             <li class="mobileNavLink">
@@ -82,7 +82,7 @@
         </div>
 
         <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop" aria-label="Menu di navigazione desktop">
+        <div id="nav-desktop">
           <ul>
             <!--Homepage-->
             <li>
@@ -119,10 +119,10 @@
     <!-- Main content of the page -->
     <main>
       <!-- Title of the confirmed bookings section -->
-      <h2 id="confermate">Confirmed Bookings:</h2>
+      <h2 tabindex="0" aria-label="Le tue prenotazioni confermate" id="confermate">Le tue prenotazioni confermate:</h2>
 
       <!-- Container where confirmed bookings will be loaded -->
-      <div class="containerPrenotazione" aria-labelledby="Prenotazioni confermate"></div>
+      <div class="containerPrenotazione"></div>
     </main>
 
     <!-- Link to JavaScript file for dashboard management -->
