@@ -24,6 +24,12 @@
   /* Font line height */
   --line-height: 160%;
 }
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
 header img {
   width: 100%;
   height: 52vh;
@@ -43,7 +49,7 @@ body {
 
 main {
   background-color: var(--white);
-  height: calc(100vh - 40vh);
+  height: auto;
   padding: 3.5rem 2rem;
   position: absolute;
   top: 40vh;
@@ -64,7 +70,6 @@ p {
   text-align: left;
 }
 
-/*DA RIVEDERE*/
 .close-button {
   position: fixed;
   top: 1rem;
@@ -78,4 +83,12 @@ p {
   justify-content: center;
   z-index: 1000;
   transition: background-color 0.3s ease;
+}
+
+/* media query grossi height 60vh, piccoli auto */
+@media screen and (min-width: 768px) {
+  main {
+    height: 60vh;
+    padding-bottom: 0;
+  }
 }
