@@ -79,8 +79,8 @@ public class UserController {
                     + "    <div class='footer'>"
                     + "      <p>Grazie per utilizzare il nostro servizio!</p>"
                     + "      <p><strong>Il Team di Cascina Caccia</strong></p>"
+                    + "      <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />"
                     + "    </div>"
-                    + "    <img src='cid:" + cid + "' alt='Banner' class='banner' />"
                     + "  </div>"
                     + "</body>"
                     + "</html>";

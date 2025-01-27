@@ -81,14 +81,15 @@ public class AuthController {
 	                + "</head>"
 	                + "<body>"
 	                + "  <div class='email-container'>"
-	                + "    <h1>Benvenuto su Cascina Caccia</h1>"
+	                + "    <h1>Benvenuto su Cascina Caccia!</h1>"
 	                + "    <p>Ciao <strong>" + user.getUserName() + "</strong>,</p>"
 	                + "    <p>Grazie per esserti registrato al nostro sito!</p>"
 	                + "    <p style='text-align: center;'><a href='http://localhost:8080' class='button'>Accedi al sito</a></p>"
 	                + "    <div class='footer'>"
+	                + "      <p>Con i migliori saluti,</p>"
 	                + "      <p><strong>Il Team di Cascina Caccia</strong></p>"
-	                + "    </div>"
 	                + "    <img src='cid:" + cid + "' alt='Banner' class='banner' />"
+	                + "    </div>"
 	                + "  </div>"
 	                + "</body>"
 	                + "</html>";
@@ -101,8 +102,6 @@ public class AuthController {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Registration failed");
 	    }
 	}
-
-
 
 	@PostMapping("/login")
 	public ResponseEntity<String> loginUser(@RequestBody User user, HttpServletRequest request) {
@@ -140,7 +139,6 @@ public class AuthController {
 		}
 
 	}
-
 
 	@PostMapping("/logout")
 	public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {

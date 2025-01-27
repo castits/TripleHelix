@@ -51,7 +51,6 @@ public class BookingReminderScheduler {
 			              "</head>" +
 			              "<body>" +
 			              "  <div class='email-container'>" +
-			              "    <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
 			              "    <h1>Promemoria per la tua visita</h1>" +
 			              "    <p>Gentile <strong>" + booking.getUser().getUserName() + "</strong>,</p>" +
 			              "    <p>Ti ricordiamo che hai una visita presso la nostra struttura programmata per il: <strong>" + formattedDate + "</strong></p>" +
@@ -60,6 +59,7 @@ public class BookingReminderScheduler {
 			              "    <div class='footer'>" +
 			              "      <p>Con i migliori saluti,</p>" +
 			              "      <p><strong>Il Team di Cascina Caccia</strong></p>" +
+			              "      <img src='cid:" + cid + "' alt='Banner' style='width:100%; border-radius: 8px 8px 0 0;' />" +
 			              "    </div>" +
 			              "  </div>" +
 			              "</body>" +
