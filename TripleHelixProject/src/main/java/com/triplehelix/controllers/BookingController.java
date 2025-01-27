@@ -242,7 +242,7 @@ public class BookingController {
      */
     @PutMapping("/change-status/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> changeBookingStatus(@PathVariable int id, @RequestParam String status) {
+    public ResponseEntity<String> changeBookingStatus(@PathVariable int id, @RequestParam String status) {
         try {
             bookingService.changeBookingStatus(id, status); // Change the booking status
             return ResponseEntity.ok("Status updated successfully"); // Return an OK response

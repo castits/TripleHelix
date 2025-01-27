@@ -75,7 +75,7 @@ public class UserController {
         // Prepare the email
         String cid = "bannerImage";
         String imagePath = "src/main/resources/static/assets/img/deck.jpg";
-        String resetLink = "http://localhost:8080/CambioPassword.html?token=" + token;
+        String resetLink = "http://localhost:8080/changePassword.html?token=" + token;
         String subject = "Cambia la tua password su Cascina Caccia";
         
         try {
