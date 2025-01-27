@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
           if (role == 2) {
             location.href = "./usersDashboard.html";
           } else if (role == 1) {
-            location.href = "./dashboardAdmin.html";
+            location.href = "./bookingWaiting.html";
           }
         } else {
           const errorData = await response.json();
