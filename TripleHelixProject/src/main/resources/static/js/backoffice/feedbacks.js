@@ -1,4 +1,6 @@
-let endpointfeedbacks = "/api/feedbacks";
+// let endpointfeedbacks = "/api/feedbacks";
+let endpointfeedbacks = "https://jsonblob.com/api/jsonBlob/1333236738700795904";
+
 let feedbacks = [];
 let x = 0;
 
@@ -16,6 +18,7 @@ fetch(endpointfeedbacks)
   })
   .then((feedbackJSON) => {
     feedbacks = feedbackJSON;
+
     let x = feedbacks.length;
     showfeedbacks(x); // Mostra tutte i feedbacks
   })
