@@ -211,17 +211,6 @@ main nav {
   vertical-align: middle;
 }
 
-#nav-mobile ul li:nth-of-type(5) a::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-image: url("../../assets/svg/feedback.svg");
-  background-size: cover;
-  margin-right: 0.6rem;
-  vertical-align: middle;
-}
-
 #nav-mobile a:hover {
   background-color: #444;
 }
@@ -377,17 +366,6 @@ main nav {
     width: 24px;
     height: 24px;
     background-image: url("../../assets/svg/cancel.svg");
-    background-size: cover;
-    margin-right: 0.6rem;
-    vertical-align: middle;
-  }
-
-  #nav-desktop ul li:nth-of-type(5) a::before {
-    content: "";
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-image: url("../../assets/svg/feedback.svg");
     background-size: cover;
     margin-right: 0.6rem;
     vertical-align: middle;
