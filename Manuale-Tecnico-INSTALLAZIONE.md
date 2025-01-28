@@ -1,4 +1,3 @@
-
 # Progetto Spring Boot: Triple_Helix_Project
 
 ## 1. Installazione di un IDE
@@ -28,7 +27,7 @@ Dopo l'installazione di Eclipse, dovrai installare il framework Spring Boot dal 
    <p align="center"><img src="./immagini/4.png"></p>
 
    <p align="center"><img src="./immagini/5.png"></p>
-   
+
    <p align="center"><img src="./immagini/6.png"></p>
 
 ## 3. Installazione di un Server Manager
@@ -65,7 +64,6 @@ Utilizza un server manager come **XAMPP**, scaricabile da [qui](https://www.apac
 
 ---
 
-
 ## 6. Configurazione delle Application Properties
 
 Puoi modificare le impostazioni di connessione al database nel file `application.properties`.
@@ -98,13 +96,13 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 logging.level.org.springframework.security=DEBUG
 ```
 
-
 ## 7. Dipendenze del Progetto
 
 Ecco un elenco delle principali dipendenze utilizzate nel progetto:
 
-### 1. Spring Boot Starter Parent  
-Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce configurazioni predefinite per le dipendenze, la gestione delle versioni e le impostazioni del build di Spring Boot.  
+### 1. Spring Boot Starter Parent
+
+Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce configurazioni predefinite per le dipendenze, la gestione delle versioni e le impostazioni del build di Spring Boot.
 
 ```xml
 <parent>
@@ -117,7 +115,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 2. Spring Boot Starter Data JPA  
+### 2. Spring Boot Starter Data JPA
 
 ```xml
 <dependency>
@@ -130,7 +128,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 3. Spring Boot Starter Thymeleaf  
+### 3. Spring Boot Starter Thymeleaf
 
 ```xml
 <dependency>
@@ -143,7 +141,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 4. Spring Boot Starter Web  
+### 4. Spring Boot Starter Web
 
 ```xml
 <dependency>
@@ -156,7 +154,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 5. Thymeleaf Extras Spring Security  
+### 5. Thymeleaf Extras Spring Security
 
 ```xml
 <dependency>
@@ -169,7 +167,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 6. Spring Boot DevTools  
+### 6. Spring Boot DevTools
 
 ```xml
 <dependency>
@@ -184,7 +182,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 7. MariaDB JDBC Driver  
+### 7. MariaDB JDBC Driver
 
 ```xml
 <dependency>
@@ -198,7 +196,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 8. Spring Boot Starter Test  
+### 8. Spring Boot Starter Test
 
 ```xml
 <dependency>
@@ -212,7 +210,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 9. Spring Security Test  
+### 9. Spring Security Test
 
 ```xml
 <dependency>
@@ -226,7 +224,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 10. JWT (JSON Web Token) API  
+### 10. JWT (JSON Web Token) API
 
 ```xml
 <dependency>
@@ -250,7 +248,7 @@ Il progetto eredita dal parent `spring-boot-starter-parent`, che fornisce config
 
 ---
 
-### 11. Spring Boot Starter Mail  
+### 11. Spring Boot Starter Mail
 
 ```xml
 <dependency>

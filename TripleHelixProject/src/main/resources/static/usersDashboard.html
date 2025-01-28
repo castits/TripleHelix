@@ -1,207 +1,73 @@
 <!DOCTYPE html>
 <html lang="it">
-  <!-- Start of the head section -->
+  <!-- Beginning of the head section -->
   <head>
     <!-- Meta information -->
     <!-- Specifies the character set used -->
     <meta charset="UTF-8" />
     <!-- Optimization for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Site author -->
+    <!-- Website author -->
     <meta name="author" content="Triple Helix" />
-    <!-- Site description -->
-    <meta
-      name="description"
-      content="Gestione delle prenotazioni confermate a Cascina Caccia da parte dell'utente"
-    />
+    <!-- Description of the website -->
+    <meta name="description" content="Pagina delle prenotazioni in attesa lato utente" />
     <!-- Page title -->
-    <title>Gestione Prenotazioni - Cascina Caccia</title>
+    <title>Le mie prenotazioni in attesa - Cascina Caccia</title>
     <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
-    <!-- Link to Google fonts -->
+    <!-- Linking Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-    <!-- Link to stylesheets -->
-    <!-- Reset CSS to standardize styles -->
+    <!-- Linking CSS stylesheets -->
+    <!-- CSS reset to standardize styles across browsers -->
     <link rel="stylesheet" href="./styles/reset.css" />
-    <!-- Navigation bar style -->
-    <link rel="stylesheet" href="./styles/components/navbar.css" />
-    <!-- Back office style -->
+    <!-- Stile specifico per la pagina del backoffice -->
     <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
+    <link rel="stylesheet" href="./styles/backoffice/booking.css" />
   </head>
   <!-- End of the head section -->
 
-  <!-- Start of the body -->
+  <!-- Beginning of the body -->
   <body>
     <!--*------------------------------*-->
     <!--*           HEADER             *-->
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a
-        aria-label="Logo di Sfera, rappresentante l'emblema del portale"
-        href="./index.html"
-      >
-        <img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Sfera, rappresentante l'emblema del portale"
-          title="Logo di Sfera, rappresentante l'emblema del portale"
-        />
+      <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
+
       <!-- Navigation menu -->
       <nav>
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri il menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona del menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
 
         <!-- Mobile menu -->
         <div id="nav-mobile">
           <ul>
-            <!-- Profile icon -->
-            <li class="mobileNavLink">
-              <a
-                class="profile"
-                href="#"
-                title="Accedi al tuo profilo"
-                aria-label="Accedi al tuo profilo"
-              >
-                <img
-                  src="./assets/svg/account.svg"
-                  alt="Icona del profilo"
-                  title="Profilo"
-                />
-                <p id="profile-login"></p>
-              </a>
-            </li>
-
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a
-                class="scroll"
-                href="./index.html"
-                title="Homepage"
-                aria-label="Vai alla Homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
-            <!-- "Contact us" link -->
+            <!-- "Bookings pending" link -->
             <li class="mobileNavLink">
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                aria-label="Contattaci"
-                >Contattaci</a
-              >
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
-
-            <!-- "Book a visit" link -->
+            <!-- "Bookings confirmed" link -->
             <li class="mobileNavLink">
-              <a
-                href="./booking.html"
-                title="Prenota una visita a Cascina"
-                class="important-btn"
-                aria-label="Prenota ora una visita a Cascina"
-                >Prenota Ora</a
-              >
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
 
+            <!-- Logout icon -->
             <li class="mobileNavLink">
-              <a
-                href="#"
-                class="logout"
-                title="Esci dal sistema"
-                aria-label="Esci dal sistema"
-              >
-                <img
-                  src="./assets/svg/logout.svg"
-                  alt="Icona di logout"
-                  title="Logout"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!--*--------------------- DESKTOP MENU -------------------->
-        <div id="nav-desktop">
-          <ul>
-            <!--Homepage-->
-            <li>
-              <a
-                class="scroll"
-                href="./index.html"
-                title="Homepage"
-                aria-label="Vai alla Homepage"
-                >Homepage</a
-              >
-            </li>
-
-            <!-- "Contact us" button -->
-            <li>
-              <a
-                class="scroll important-btn"
-                href="./index.html#contact"
-                title="Contattaci per maggiori informazioni"
-                aria-label="Contattaci"
-                >Contattaci</a
-              >
-            </li>
-
-            <!-- "Book a visit" button -->
-            <li>
-              <a
-                class="important-btn"
-                href="./booking.html"
-                title="Prenota una visita a Cascina"
-                aria-label="Prenota ora una visita a Cascina"
-                >Prenota Ora</a
-              >
-            </li>
-
-            <!-- Profile icon -->
-            <li>
-              <a
-                class="profile"
-                href="#"
-                title="Accedi al tuo profilo"
-                aria-label="Accedi al tuo profilo"
-              >
-                <img
-                  src="./assets/svg/account.svg"
-                  alt="Icona del profilo"
-                  title="Profile"
-                />
-              </a>
-            </li>
-            <!-- Logout -->
-            <li>
-              <a
-                href="#"
-                class="logout"
-                title="Esci dal sistema"
-                aria-label="Esci dal sistema"
-              >
-                <img
-                  src="./assets/svg/logout.svg"
-                  alt="Icona di logout"
-                  title="Logout"
-                />
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
               </a>
             </li>
           </ul>
@@ -209,25 +75,57 @@
       </nav>
     </header>
 
-    <!-- Main content of the page -->
+    <!-- Contenuto principale -->
     <main>
-      <!-- Title of the confirmed bookings section -->
-      <h2
-        tabindex="0"
-        aria-label="Le tue prenotazioni confermate"
-        id="confermate"
-      >
-        Le tue prenotazioni confermate:
-      </h2>
+      <nav>
+        <div id="nav-desktop">
+          <div id="logo">
+            <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+              <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
+            </a>
+          </div>
 
-      <!-- Container where confirmed bookings will be loaded -->
-      <div class="containerPrenotazione"></div>
+          <h2>Dashboard</h2>
+
+          <ul>
+            <!-- "Homepage" link -->
+            <li>
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
+            </li>
+
+            <!-- "Bookings pending " link -->
+            <li>
+              <a href="./bookingWaiting.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
+            </li>
+            <!-- "Bookings confirmed" link -->
+            <li>
+              <a href="./bookingConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Logout icon -->
+        <div id="logout">
+          <li>
+            <a href="#" class="logout" title="Esci dal sistema">
+              <img src="./assets/svg/logout.svg" alt="icona logout" />
+            </a>
+          </li>
+        </div>
+      </nav>
+
+      <div class="container">
+        <!-- Titolo della sezione -->
+        <h2 id="inAttesa">Prenotazioni in attesa</h2>
+
+        <!-- Dynamic container for bookings -->
+        <div class="containerPrenotazione"></div>
+      </div>
     </main>
 
-    <!-- Link to JavaScript file for dashboard management -->
+    <!-- Linking JavaScript files for managing pending requests -->
     <script src="./js/backoffice/usersDashboard.js"></script>
-    <script src="./js/auth/isLoggedAndLogout.js"></script>
     <script src="./js/components/header.js"></script>
+    <script src="./js/auth/isLoggedAndLogout.js"></script>
   </body>
   <!-- End of the body -->
 </html>

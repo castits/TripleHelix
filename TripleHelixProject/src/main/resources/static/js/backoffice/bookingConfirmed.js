@@ -43,6 +43,10 @@ function createPrenotazioneBox(prenotazione) {
   let div = document.createElement("div");
   div.classList.add("prenotazione-box", "confermate");
 
+  let dataAppuntamento = document.createElement("p");
+  dataAppuntamento.appendChild(document.createTextNode(`${prenotazione.appointmentDate}  \|  ${giorniItaliano[prenotazione.day] || prenotazione.day}  \|  ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
+  div.appendChild(dataAppuntamento);
+
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
   nome.textContent = `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`;
@@ -59,22 +63,6 @@ function createPrenotazioneBox(prenotazione) {
   let partecipanti = document.createElement("p");
   partecipanti.textContent = `Partecipanti: ${prenotazione.participantQuantity}`;
   div.appendChild(partecipanti);
-
-  let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.textContent = `Data Appuntamento: ${prenotazione.appointmentDate}`;
-  div.appendChild(dataAppuntamento);
-
-  let giorno = document.createElement("p");
-  giorno.textContent = `Giorno: ${
-    giorniItaliano[prenotazione.day] || prenotazione.day
-  }`;
-  div.appendChild(giorno);
-
-  let fasciaOraria = document.createElement("p");
-  fasciaOraria.textContent = `Fascia Oraria: ${
-    fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
-  }`;
-  div.appendChild(fasciaOraria);
 
   // Crea bottone "cancella"
   let buttonContainer = document.createElement("div");
@@ -94,16 +82,11 @@ function createPrenotazioneBox(prenotazione) {
 
 async function handleRifiuta(prenotazione) {
   try {
-    const response = await fetch(
-      `/api/bookings/delete/${prenotazione.bookingId}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await fetch(`/api/bookings/delete/${prenotazione.bookingId}`, {
+      method: "DELETE",
+    });
     if (response.ok) {
-      prenotazioni = prenotazioni.filter(
-        (p) => p.bookingId !== prenotazione.bookingId
-      );
+      prenotazioni = prenotazioni.filter((p) => p.bookingId !== prenotazione.bookingId);
       showPrenotazioni(prenotazioni.length);
     } else {
       console.error("Failed to delete booking");
