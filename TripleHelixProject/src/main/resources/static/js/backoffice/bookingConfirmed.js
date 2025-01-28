@@ -115,7 +115,7 @@ async function handleRifiuta(prenotazione) {
 
 function showPrenotazioni(num) {
   let h2NumConfermate = document.getElementById("confermate");
-  h2NumConfermate.textContent = `Confermate (${num})`;
+  h2NumConfermate.textContent = `Prenotazioni confermate: ${num}`;
 
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {

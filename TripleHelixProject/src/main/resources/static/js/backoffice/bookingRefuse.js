@@ -105,7 +105,7 @@ function createPrenotazioneBox(prenotazione) {
 function showPrenotazioni(num) {
   let h2NumRifiutate = document.getElementById("rifiutate");
   let numRifiutate = document.createElement("span"); // Crea l'elemento <span>
-  numRifiutate.textContent = num;
+  numRifiutate.textContent = " " + num;
 
   h2NumRifiutate.appendChild(numRifiutate);
   // Rimuove tutti i figli del contenitore in modo sicuro
