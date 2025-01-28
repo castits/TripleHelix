@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
         userData.userEmail
-      )}&status=PENDING`; // Stato "PENDING" per prenotazioni in attesa di conferma
+      )}&status=PENDING`;
       const response = await fetch(endpointPrenotazioni);
       if (!response.ok) {
         throw new Error(`Errore HTTP! stato: ${response.status}`);
@@ -36,7 +36,6 @@ window.addEventListener("DOMContentLoaded", () => {
         prenotazioni
       );
       let nPrenotazioni = prenotazioni.length;
-      // Mostra le prenotazioni
       showPrenotazioni(prenotazioni, nPrenotazioni);
     } catch (error) {
       console.error(
@@ -46,7 +45,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Mappatura dei giorni e delle fasce orarie in italiano
   const giorniItaliano = {
     MONDAY: "Lunedì",
     TUESDAY: "Martedì",
@@ -63,7 +61,6 @@ window.addEventListener("DOMContentLoaded", () => {
     FULL_DAY: "Tutto il giorno",
   };
 
-  // Funzione per creare un elemento HTML per una prenotazione
   function createPrenotazioneBox(prenotazione) {
     const div = document.createElement("div");
     div.classList.add("prenotazione-box");
@@ -100,7 +97,6 @@ window.addEventListener("DOMContentLoaded", () => {
     return div;
   }
 
-  // Funzione per mostrare tutte le prenotazioni
   function showPrenotazioni(prenotazioni, num) {
     const listaPrenotazione = document.querySelector(".containerPrenotazione");
     if (!listaPrenotazione) {
@@ -113,7 +109,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     h2NumPrenotazione.appendChild(numPrenotazione);
 
-    // Rimuove il contenuto precedente
     while (listaPrenotazione.firstChild) {
       listaPrenotazione.removeChild(listaPrenotazione.firstChild);
     }
@@ -126,12 +121,10 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Aggiunge ogni prenotazione al DOM
     prenotazioni.forEach((prenotazione) => {
       listaPrenotazione.appendChild(createPrenotazioneBox(prenotazione));
     });
   }
 
-  // Richiama fetchPrenotazioni al caricamento della pagina
   fetchPrenotazioni();
 });

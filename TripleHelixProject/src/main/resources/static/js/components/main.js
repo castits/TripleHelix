@@ -1,8 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
   /**
-   * Funzione che aggiorna l'altezza della sezione #hero in base all'altezza
-   * della finestra e dell'header, adattando gli altri elementi correlati come
-   * il background, il filtro oscurante e il contenuto della sezione.
+   * Function that updates the height of the #hero section based on the window height
+   * and the header height, adjusting related elements such as the background,
+   * dark overlay, and section content.
    */
   function updateHeroHeight() {
     const header = document.querySelector("header");
@@ -11,23 +11,23 @@ window.addEventListener("DOMContentLoaded", () => {
     const heroDarkness = document.querySelector("#hero-bg-darkness");
     const heroContent = document.querySelector("#hero-content");
 
-    // Calcola l'altezza disponibile per la sezione hero, sottraendo l'altezza dell'header
+    // Calculate the available height for the hero section, subtracting the header height
     const heroHeight = window.innerHeight - header.offsetHeight;
 
-    // Imposta l'altezza della sezione hero e degli altri elementi correlati
+    // Set the height of the hero section and related elements
     hero.style.height = `${heroHeight}px`;
     heroBg.style.height = `${heroHeight}px`;
     heroDarkness.style.height = `${heroHeight}px`;
 
-    // Imposta l'altezza del contenuto della sezione hero al 90% dell'altezza della sezione
+    // Set the height of the hero section content to 90% of the hero section height
     heroContent.style.height = `${(heroHeight / 100) * 90}px`;
   }
 
   window.addEventListener("resize", updateHeroHeight);
 
   /**
-   * Inizializza la funzionalità dell'accordion delle FAQ, che permette di aprire e chiudere
-   * le risposte delle domande cliccate.
+   * Initializes the accordion functionality for the FAQ section, allowing users
+   * to toggle open and close on clicked questions.
    */
   function openAccordion() {
     const faqItems = document.querySelectorAll(".faq-container");
@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
       faq.addEventListener("click", () => {
         faq.classList.toggle("active");
 
-        // Se un altro item è aperto, lo chiude
+        // If another item is open, close it
         faqItems.forEach((item) => {
           if (item !== faq && item.classList.contains("active")) {
             item.classList.remove("active");
@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
       faq.addEventListener("keydown", () => {
         faq.classList.toggle("active");
 
-        // Se un altro item è aperto, lo chiude
+        // If another item is open, close it
         faqItems.forEach((item) => {
           if (item !== faq && item.classList.contains("active")) {
             item.classList.remove("active");
@@ -57,8 +57,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Aggiunge un comportamento di scroll morbido ai bottoni "discover more",
-   * che porta l'utente alla sezione #hero con un'animazione di scorrimento.
+   * Adds smooth scrolling behavior to "discover more" buttons, which scroll
+   * the user to the #about-us section with animation.
    */
   function discoverMoreScroll() {
     const ctas = document.querySelectorAll(".discover-more");
@@ -72,12 +72,12 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Imposta il comportamento dei link della navbar, facendo uno scroll morbido
-   * verso le diverse sezioni della pagina, tenendo conto dell'altezza dell'header.
+   * Sets up the behavior of navbar links, enabling smooth scrolling to
+   * different sections of the page while accounting for header height.
    */
   function setupNavbarLinks() {
     const navLinks = document.querySelectorAll(".nav-mobile .scroll");
-    const check = document.getElementById("check"); // Il checkbox (l'hamburger) del menu mobile
+    const check = document.getElementById("check"); // The checkbox (hamburger menu) for mobile navigation
     const headerHeight = document.querySelector("header").offsetHeight;
 
     navLinks.forEach((link) => {
@@ -104,7 +104,7 @@ window.addEventListener("DOMContentLoaded", () => {
           window.location.href = href;
         }
 
-        // Chiude il menu mobile dopo aver cliccato
+        // Closes the mobile menu after clicking
         handleClick();
         if (check.checked) {
           check.checked = false;
@@ -119,12 +119,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0; // Tracks the current carousel item index
 
-  // Imposta il primo punto come attivo all'inizio
+  // Set the first dot as active initially
   dots[currentIndex].classList.add("active");
 
   /**
-   * Funzione che aggiorna lo stato del dot attivo in base all'indice corrente
-   * del carousel, cambiando il punto evidenziato.
+   * Function that updates the active dot based on the current carousel
+   * index, changing the highlighted dot.
    */
   function updateDots() {
     dots.forEach((dot) => dot.classList.remove("active"));
@@ -132,8 +132,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Funzione che calcola l'indice corrente del carousel in base alla posizione
-   * di scroll del contenitore, aggiornando di conseguenza il punto attivo.
+   * Function that calculates the current carousel index based on the
+   * scroll position of the container, updating the active dot accordingly.
    */
   function updateCurrentIndex() {
     const scrollPosition = container.scrollLeft;
@@ -142,13 +142,13 @@ window.addEventListener("DOMContentLoaded", () => {
     updateDots();
   }
 
-  // Listener per l'evento di scroll del carousel
+  // Listener for the scroll event on the carousel
   container.addEventListener("scroll", updateCurrentIndex);
 
-  // Comportamento di navigazione tramite i punti, per scorrere tra gli item del carousel
+  // Navigation behavior through dots, to scroll between carousel items
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      // Scorrimento al corrispettivo item del carousel
+      // Scroll to the corresponding carousel item
       container.scrollTo({
         left: items[index].offsetLeft,
         behavior: "smooth",
@@ -156,35 +156,35 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Funzione per navigare al prossimo item
+  // Function to navigate to the next carousel item
   function goToNextItem() {
     if (currentIndex < items.length - 1) {
       currentIndex++;
     } else {
-      currentIndex = 0; // Torna all'inizio
+      currentIndex = 0; // Loop back to the start
     }
     container.scrollTo({
       left: items[currentIndex].offsetLeft,
       behavior: "smooth",
     });
-    setTimeout(updateDots, 300); // Aggiungiamo un ritardo per far partire l'animazione correttamente
+    setTimeout(updateDots, 300); // Add delay to ensure animation starts correctly
   }
 
-  // Funzione per navigare all'item precedente
+  // Function to navigate to the previous carousel item
   function goToPreviousItem() {
     if (currentIndex > 0) {
       currentIndex--;
     } else {
-      currentIndex = items.length - 1; // Torna alla fine
+      currentIndex = items.length - 1; // Loop back to the end
     }
     container.scrollTo({
       left: items[currentIndex].offsetLeft,
       behavior: "smooth",
     });
-    setTimeout(updateDots, 300); // Aggiungiamo un ritardo per far partire l'animazione correttamente
+    setTimeout(updateDots, 300); // Add delay to ensure animation starts correctly
   }
 
-  // Aggiungi Event Listeners alle frecce
+  // Add Event Listeners to the arrows
   const prevArrow = document.querySelector(".carousel-arrow:first-of-type");
   const nextArrow = document.querySelector(".carousel-arrow:last-of-type");
 
@@ -192,8 +192,8 @@ window.addEventListener("DOMContentLoaded", () => {
   nextArrow.addEventListener("click", goToNextItem);
 
   /**
-   * Gestisce la barra di progresso che si aggiorna in base alla posizione di scroll
-   * della pagina, mostrando un'idea del progresso del visitatore nella lettura della pagina.
+   * Handles the progress bar that updates based on the page scroll position,
+   * giving an idea of the user's reading progress on the page.
    */
   window.addEventListener("scroll", handleScroll);
 
@@ -211,8 +211,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Gestisce l'invio del modulo di contatto e la validazione dei dati inseriti.
-   * Mostra errori in caso di campi non validi, o invia i dati via fetch se tutto è corretto.
+   * Handles the submission of the contact form and validates the entered data.
+   * Displays errors for invalid fields, or sends the data via fetch if valid.
    */
   function contact() {
     const form = document.querySelector("#contact");
@@ -220,7 +220,7 @@ window.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Pulisce i messaggi di errore precedenti
+      // Clear previous error messages
       const errorMessages = form.querySelectorAll(".error-message");
       errorMessages.forEach((error) => error.remove());
 
@@ -233,14 +233,14 @@ window.addEventListener("DOMContentLoaded", () => {
       const phone = form.phone.value.trim();
       const message = form.message.value.trim();
 
-      // Regex per validazione
-      const nameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Nome e cognome: minimo 2 caratteri, solo lettere, spazi, apostrofi e trattini
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // Email valida con dominio ed estensione
-      const phoneRegex = /^\d{8,15}$/; // Solo cifre, lunghezza da 8 a 15
+      // Regex for validation
+      const nameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/; // Name and surname: minimum 2 characters, only letters, spaces, apostrophes, and dashes
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // Valid email with domain and extension
+      const phoneRegex = /^\d{8,15}$/; // Only digits, length between 8 and 15
 
       let hasErrors = false;
 
-      // Funzione per mostrare un messaggio di errore sotto un campo
+      // Function to display an error message below a field
       const showError = (field, message) => {
         hasErrors = true;
         const errorElement = document.createElement("span");
@@ -249,7 +249,7 @@ window.addEventListener("DOMContentLoaded", () => {
         field.parentNode.appendChild(errorElement);
       };
 
-      // Validazione specifica per ogni campo
+      // Specific validation for each field
       if (!name || !nameRegex.test(name)) {
         showError(
           form.name,
@@ -286,7 +286,7 @@ window.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Se i dati sono validi, invia la richiesta
+      // If the data is valid, send the request
       try {
         const response = await fetch("/api/information-requests/send", {
           method: "POST",
@@ -305,7 +305,7 @@ window.addEventListener("DOMContentLoaded", () => {
           successElement.className = "success-message";
           successElement.textContent = "Messaggio inviato con successo!";
           form.appendChild(successElement);
-          form.reset(); // Resetta il form dopo l'invio
+          form.reset(); // Reset the form after submission
         } else {
           const errorElement = document.createElement("div");
           errorElement.className = "error-message";
@@ -324,10 +324,10 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  updateHeroHeight(); // Imposta la sezione hero all'altezza corretta
-  discoverMoreScroll(); // Inizializza il comportamento di scrolling delle CTA
-  openAccordion(); // Inizializza le funzionalità degli accordion
-  setupNavbarLinks(); // Inizializza il comportamento dei link della navbar
-  isLogged(); // Verifica se l'utente è loggato
-  contact(); // Invia la mail di contatto
+  updateHeroHeight(); // Sets the hero section to the correct height
+  discoverMoreScroll(); // Initializes the scrolling behavior of CTAs
+  openAccordion(); // Initializes the accordion functionalities
+  setupNavbarLinks(); // Initializes the behavior of navbar links
+  isLogged(); // Checks if the user is logged in
+  contact(); // Sends the contact form
 });

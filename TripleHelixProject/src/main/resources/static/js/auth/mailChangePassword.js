@@ -3,21 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (form) {
     form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Previene il comportamento predefinito del form
+      event.preventDefault();
 
       const emailField = document.getElementById("email");
       const email = emailField.value.trim();
 
-      // Pulisce i messaggi di errore precedenti
       const errorMessages = form.querySelectorAll(".error-message");
       errorMessages.forEach((error) => error.remove());
 
-      // Regex per validazione dell'email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
       let hasErrors = false;
 
-      // Funzione per mostrare un messaggio di errore sotto il campo
       const showError = (field, message) => {
         hasErrors = true;
         const errorElement = document.createElement("span");
@@ -26,14 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
         field.parentNode.appendChild(errorElement);
       };
 
-      // Validazione del campo email
       if (!email || !emailRegex.test(email)) {
         showError(emailField, "Inserisci un'email valida.");
       }
 
-      if (hasErrors) return; // Se ci sono errori, non invia la richiesta
+      if (hasErrors) return;
 
-      // Se i dati sono validi, invia la richiesta
       fetch("/api/users/forgot-password", {
         method: "POST",
         headers: {

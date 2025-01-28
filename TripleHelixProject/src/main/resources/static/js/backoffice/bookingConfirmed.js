@@ -1,7 +1,6 @@
 let endpointPrenotazioni = "/api/bookings/status?status=CONFIRMED";
 let prenotazioni = [];
 
-// Mappatura dei giorni e delle fasce orarie in italiano
 const giorniItaliano = {
   MONDAY: "Lunedì",
   TUESDAY: "Martedì",
@@ -18,7 +17,6 @@ const fasceOrarieItaliano = {
   FULL_DAY: "Tutto il giorno",
 };
 
-// Fetch per ottenere il JSON
 fetch(endpointPrenotazioni)
   .then((response) => {
     if (response.ok) {
@@ -29,25 +27,30 @@ fetch(endpointPrenotazioni)
   })
   .then((prenotazioneJSON) => {
     prenotazioni = prenotazioneJSON;
-    showPrenotazioni(prenotazioni.length); // Mostra tutte le prenotazioni
+    showPrenotazioni(prenotazioni.length);
   })
   .catch((error) => {
     console.log("Errore:", error);
   });
 
-// Seleziona il contenitore per la lista di prenotazioni
 let listaPrenotazione = document.querySelector(".containerPrenotazione");
 
 function createPrenotazioneBox(prenotazione) {
-  // Crea un div per ogni prenotazione
   let div = document.createElement("div");
   div.classList.add("prenotazione-box", "confermate");
 
   let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(document.createTextNode(`${prenotazione.appointmentDate}  \|  ${giorniItaliano[prenotazione.day] || prenotazione.day}  \|  ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
+  dataAppuntamento.appendChild(
+    document.createTextNode(
+      `${prenotazione.appointmentDate}  \|  ${
+        giorniItaliano[prenotazione.day] || prenotazione.day
+      }  \|  ${
+        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
+      }`
+    )
+  );
   div.appendChild(dataAppuntamento);
 
-  // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
   nome.textContent = `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`;
   div.appendChild(nome);
@@ -64,7 +67,6 @@ function createPrenotazioneBox(prenotazione) {
   partecipanti.textContent = `Partecipanti: ${prenotazione.participantQuantity}`;
   div.appendChild(partecipanti);
 
-  // Crea bottone "cancella"
   let buttonContainer = document.createElement("div");
   buttonContainer.classList.add("button-container");
 
@@ -82,11 +84,16 @@ function createPrenotazioneBox(prenotazione) {
 
 async function handleRifiuta(prenotazione) {
   try {
-    const response = await fetch(`/api/bookings/delete/${prenotazione.bookingId}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `/api/bookings/delete/${prenotazione.bookingId}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (response.ok) {
-      prenotazioni = prenotazioni.filter((p) => p.bookingId !== prenotazione.bookingId);
+      prenotazioni = prenotazioni.filter(
+        (p) => p.bookingId !== prenotazione.bookingId
+      );
       showPrenotazioni(prenotazioni.length);
     } else {
       console.error("Failed to delete booking");
@@ -100,12 +107,10 @@ function showPrenotazioni(num) {
   let h2NumConfermate = document.getElementById("confermate");
   h2NumConfermate.textContent = `Prenotazioni confermate: ${num}`;
 
-  // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
     listaPrenotazione.removeChild(listaPrenotazione.firstChild);
   }
 
-  // Itera su tutte le prenotazioni e le aggiunge al DOM
   prenotazioni.forEach((prenotazione) => {
     listaPrenotazione.appendChild(createPrenotazioneBox(prenotazione));
   });

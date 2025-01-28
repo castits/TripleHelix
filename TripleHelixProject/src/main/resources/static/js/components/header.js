@@ -1,6 +1,6 @@
 /**
  * @file        main.js
- * @author      Nicolò Galizia
+ * @author      Triple Helix
  * @description This file contains the JavaScript code for the header of the website.
  */
 

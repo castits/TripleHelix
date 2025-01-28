@@ -5,14 +5,12 @@ window.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Pulisce i messaggi di errore precedenti
       const errorMessages = form.querySelectorAll(".error-message");
       errorMessages.forEach((error) => error.remove());
 
       const successMessage = form.querySelector(".success-message");
       if (successMessage) successMessage.remove();
 
-      // Recupera i valori dai campi del form
       const name = form.name.value.trim();
       const surname = form.surname.value.trim();
       const email = form.email.value.trim();
@@ -24,7 +22,6 @@ window.addEventListener("DOMContentLoaded", () => {
       const activity = form.attivita.value.trim();
       const bookingInfoReq = form.messaggio.value.trim();
 
-      // Regex per validazione
       const nameSurnameRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s'-]{2,}$/;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
       const phoneRegex = /^\d{8,15}$/;
@@ -32,7 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       let hasErrors = false;
 
-      // Funzione per mostrare un messaggio di errore sotto un campo
       const showError = (field, message) => {
         hasErrors = true;
         const errorElement = document.createElement("span");
@@ -41,7 +37,6 @@ window.addEventListener("DOMContentLoaded", () => {
         field.parentNode.appendChild(errorElement);
       };
 
-      // Validazione dei campi
       if (!name || !nameSurnameRegex.test(name)) {
         showError(
           form.name,
@@ -111,7 +106,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (hasErrors) return;
 
-      // Se i dati sono validi, invia la richiesta
       try {
         const response = await fetch("/api/bookings/create", {
           method: "POST",

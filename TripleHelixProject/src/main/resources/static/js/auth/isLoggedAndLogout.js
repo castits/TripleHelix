@@ -1,6 +1,6 @@
 /**
- * Verifica se l'utente è loggato e, in base alla risposta, reindirizza
- * alla pagina appropriata: dashboard se loggato, login altrimenti.
+ * Checks if the user is logged in and, based on the response, redirects
+ * to the appropriate page: dashboard if logged in, login otherwise.
  */
 async function isLogged() {
   const profileIcons = document.querySelectorAll(".profile");
@@ -47,8 +47,8 @@ async function isLogged() {
 }
 
 /**
- * Gestisce il logout dell'utente, inviando una richiesta POST al server per
- * disconnettere l'utente e reindirizzarlo alla homepage.
+ * Handles user logout by sending a POST request to the server to
+ * disconnect the user and redirect them to the homepage.
  */
 function logout() {
   const logout = document.querySelectorAll(".logout");

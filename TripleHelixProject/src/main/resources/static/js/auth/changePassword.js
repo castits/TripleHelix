@@ -1,55 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.getElementById("password-form");
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const token = urlParams.get("token");
-
-//   if (!token) {
-//     alert("Token non valido!");
-//     return;
-//   }
-
-//   document.getElementById("token").value = token;
-
-//   form.addEventListener("submit", function (event) {
-//     event.preventDefault(); // Previene l'invio del form
-
-//     const password = document.getElementById("password").value.trim();
-//     const confirmPassword = document
-//       .getElementById("confirm-password")
-//       .value.trim();
-
-//     if (password !== confirmPassword) {
-//       alert("Le password non corrispondono!");
-//       return;
-//     }
-
-//     fetch("/api/users/reset-password", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         token: token,
-//         newPassword: password,
-//       }),
-//     })
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error("Errore durante il reset della password");
-//         }
-//         return response.text();
-//       })
-//       .then((message) => {
-//         alert(message);
-//         window.location.href = "/login.html"; // Reindirizzamento alla pagina di login
-//       })
-//       .catch((error) => {
-//         console.error("Errore:", error);
-//         alert("Errore durante il reset della password.");
-//       });
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("password-form");
   const urlParams = new URLSearchParams(window.location.search);
@@ -66,20 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("token").value = token;
 
   form.addEventListener("submit", function (event) {
-    event.preventDefault(); // Previene l'invio del form
+    event.preventDefault();
 
     const passwordField = document.getElementById("password");
     const confirmPasswordField = document.getElementById("confirm-password");
     const password = passwordField.value.trim();
     const confirmPassword = confirmPasswordField.value.trim();
 
-    // Pulisce i messaggi di errore precedenti
     const errorMessages = form.querySelectorAll(".error-message");
     errorMessages.forEach((error) => error.remove());
 
     let hasErrors = false;
 
-    // Funzione per mostrare un messaggio di errore sotto il campo
     const showError = (field, message) => {
       hasErrors = true;
       const errorElement = document.createElement("span");
@@ -88,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
       field.parentNode.appendChild(errorElement);
     };
 
-    // Validazione della password
     if (!password || password.length < 6) {
       showError(
         passwordField,
@@ -96,14 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
-    // Validazione della conferma password
     if (!confirmPassword || confirmPassword !== password) {
       showError(confirmPasswordField, "Le password non corrispondono.");
     }
 
-    if (hasErrors) return; // Se ci sono errori, non invia la richiesta
+    if (hasErrors) return;
 
-    // Se i dati sono validi, invia la richiesta
     fetch("/api/users/reset-password", {
       method: "POST",
       headers: {
@@ -126,10 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
         successElement.textContent = message;
         form.appendChild(successElement);
 
-        // Reindirizzamento alla pagina di login
         setTimeout(() => {
           window.location.href = "/login.html";
-        }, 2000);
+        }, 1000);
       })
       .catch((error) => {
         console.error("Errore:", error);

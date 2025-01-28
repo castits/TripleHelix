@@ -2,7 +2,6 @@ let endpointFeedbacks = "/api/feedbacks";
 let feedbacks = [];
 let x = 0;
 
-// Fetch per ottenere il JSON
 fetch(endpointFeedbacks)
   .then((response) => {
     if (response.ok) {
@@ -14,21 +13,18 @@ fetch(endpointFeedbacks)
   .then((feedbackJSON) => {
     feedbacks = feedbackJSON;
     x = feedbacks.length;
-    showFeedbacks(x); // Mostra tutti i feedbacks
+    showFeedbacks(x);
   })
   .catch((error) => {
     console.log("Errore:", error);
   });
 
-// Seleziona il contenitore per la lista di feedbacks
 let listaFeedbacks = document.querySelector(".containerPrenotazione");
 
 function createFeedbackBox(feedback) {
-  // Crea un div per ogni feedback
   let div = document.createElement("div");
-  div.classList.add("prenotazione-box"); // Stesso stile di prenotazioni
+  div.classList.add("prenotazione-box");
 
-  // Crea e aggiungi gli elementi
   let laboratorio = document.createElement("p");
   laboratorio.appendChild(
     document.createTextNode(`Laboratorio: ${feedback.whichLab}`)
@@ -85,12 +81,10 @@ function showFeedbacks(num) {
   let h2NumFeedbacks = document.getElementById("feedbacks");
   h2NumFeedbacks.textContent = `Feedbacks: ${num}`;
 
-  // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaFeedbacks.firstChild) {
     listaFeedbacks.removeChild(listaFeedbacks.firstChild);
   }
 
-  // Itera su tutti i feedbacks e li aggiunge al DOM
   feedbacks.forEach((feedback) => {
     listaFeedbacks.appendChild(createFeedbackBox(feedback));
   });

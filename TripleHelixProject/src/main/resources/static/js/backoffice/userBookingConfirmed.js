@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
         userData.userEmail
-      )}&status=CONFIRMED`; // Stato "CONFIRMED" per prenotazioni confermate
+      )}&status=CONFIRMED`;
       const response = await fetch(endpointPrenotazioni);
       if (!response.ok) {
         throw new Error(`Errore HTTP! stato: ${response.status}`);
@@ -33,7 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
       const prenotazioni = await response.json();
       console.log("Prenotazioni confermate dell'utente:", prenotazioni);
       let nPrenotazioni = prenotazioni.length;
-      // Mostra le prenotazioni
       showPrenotazioni(prenotazioni, nPrenotazioni);
     } catch (error) {
       console.error(
@@ -43,7 +42,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Mappatura dei giorni e delle fasce orarie in italiano
   const giorniItaliano = {
     MONDAY: "Lunedì",
     TUESDAY: "Martedì",
@@ -60,7 +58,6 @@ window.addEventListener("DOMContentLoaded", () => {
     FULL_DAY: "Tutto il giorno",
   };
 
-  // Funzione per creare un elemento HTML per una prenotazione
   function createPrenotazioneBox(prenotazione) {
     const div = document.createElement("div");
     div.classList.add("prenotazione-box");
@@ -77,7 +74,6 @@ window.addEventListener("DOMContentLoaded", () => {
     );
     div.appendChild(dataAppuntamento);
 
-    // Aggiungi dettagli prenotazione
     const nome = document.createElement("p");
     nome.textContent = `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`;
     div.appendChild(nome);
@@ -97,7 +93,6 @@ window.addEventListener("DOMContentLoaded", () => {
     return div;
   }
 
-  // Funzione per mostrare tutte le prenotazioni
   function showPrenotazioni(prenotazioni, num) {
     const listaPrenotazione = document.querySelector(".containerPrenotazione");
     if (!listaPrenotazione) {
@@ -110,7 +105,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     h2NumPrenotazione.appendChild(numPrenotazione);
 
-    // Rimuove il contenuto precedente
     while (listaPrenotazione.firstChild) {
       listaPrenotazione.removeChild(listaPrenotazione.firstChild);
     }
@@ -122,12 +116,10 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Aggiunge ogni prenotazione al DOM
     prenotazioni.forEach((prenotazione) => {
       listaPrenotazione.appendChild(createPrenotazioneBox(prenotazione));
     });
   }
 
-  // Richiama fetchPrenotazioni al caricamento della pagina
   fetchPrenotazioni();
 });

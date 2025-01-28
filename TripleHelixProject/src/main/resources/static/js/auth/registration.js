@@ -8,16 +8,14 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Impedisce il comportamento di default del form
+      event.preventDefault();
 
-      // Pulisce i messaggi di errore precedenti
       const errorMessages = form.querySelectorAll(".error-message");
       errorMessages.forEach((error) => error.remove());
 
       const successMessage = form.querySelector(".success-message");
       if (successMessage) successMessage.remove();
 
-      // Ottieni i valori inseriti nei campi del form
       const userName = form.nome.value.trim();
       const userSurname = form.cognome.value.trim();
       const userEmail = form.email.value.trim();
@@ -27,7 +25,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       let hasErrors = false;
 
-      // Funzione per mostrare un messaggio di errore sotto un campo
       const showError = (field, message) => {
         hasErrors = true;
         const errorElement = document.createElement("span");
@@ -36,10 +33,8 @@ window.addEventListener("DOMContentLoaded", () => {
         field.parentNode.appendChild(errorElement);
       };
 
-      // Regex per validazione email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      // Validazione dei campi
       if (!userName) {
         showError(form.nome, "Il campo 'Nome' è obbligatorio.");
       }
@@ -74,10 +69,8 @@ window.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      // Se ci sono errori, interrompe l'esecuzione
       if (hasErrors) return;
 
-      // Se la validazione passa, invia i dati al server
       try {
         const response = await fetch("/pub/auth/register", {
           method: "POST",

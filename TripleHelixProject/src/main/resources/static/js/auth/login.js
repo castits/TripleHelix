@@ -3,9 +3,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Impedisce l'invio del form di default
+      event.preventDefault();
 
-      // Rimuove tutti i messaggi di errore precedenti
       const errorMessages = loginForm.querySelectorAll(".error-message");
       errorMessages.forEach((error) => error.remove());
 
@@ -14,7 +13,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       let hasErrors = false;
 
-      // Funzione per mostrare un messaggio di errore sotto un campo
       const showError = (field, message) => {
         hasErrors = true;
         const errorElement = document.createElement("span");
@@ -26,7 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
         field.parentNode.appendChild(errorElement);
       };
 
-      // Validazione dei campi
       if (!userEmail) {
         showError(
           document.getElementById("email"),
@@ -51,10 +48,8 @@ window.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      // Interrompe l'esecuzione se ci sono errori
       if (hasErrors) return;
 
-      // Se non ci sono errori, invia i dati al server
       try {
         const response = await fetch("/pub/auth/login", {
           method: "POST",
