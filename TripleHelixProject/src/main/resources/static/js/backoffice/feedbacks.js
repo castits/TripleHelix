@@ -83,7 +83,7 @@ function createFeedbackBox(feedback) {
 
 function showFeedbacks(num) {
   let h2NumFeedbacks = document.getElementById("feedbacks");
-  h2NumFeedbacks.textContent = `Feedbacks (${num})`;
+  h2NumFeedbacks.textContent = `Feedbacks: ${num}`;
 
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaFeedbacks.firstChild) {

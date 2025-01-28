@@ -37,7 +37,7 @@ fetch(endpointPrenotazioni)
     console.log("Errore:", error);
   });
 
-// // Seleziona il contenitore per la lista di prenotazioni
+// Seleziona il contenitore per la lista di prenotazioni
 let listaPrenotazione = document.querySelector(".containerPrenotazione");
 
 function createPrenotazioneBox(prenotazione) {
@@ -99,15 +99,57 @@ function createPrenotazioneBox(prenotazione) {
   );
   div.appendChild(fasciaOraria);
 
+  // Crea il bottone "Cancella"
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container");
+
+  let cancellaButton = document.createElement("button");
+  cancellaButton.textContent = "Cancella";
+  cancellaButton.type = "button";
+  cancellaButton.classList.add("cancella-button");
+  cancellaButton.addEventListener("click", () => handleRifiuta(prenotazione));
+
+  buttonContainer.appendChild(cancellaButton);
+  div.appendChild(buttonContainer);
+
   return div;
+}
+
+async function handleRifiuta(prenotazione) {
+  try {
+    const response = await fetch(
+      `/api/bookings/delete/${prenotazione.bookingId}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      prenotazioni = prenotazioni.filter(
+        (p) => p.bookingId !== prenotazione.bookingId
+      );
+      showPrenotazioni(prenotazioni.length); // Aggiorna il numero delle prenotazioni
+    } else {
+      console.error("Failed to delete booking");
+    }
+  } catch (error) {
+    console.error("Errore:", error);
+  }
 }
 
 function showPrenotazioni(num) {
   let h2NumRifiutate = document.getElementById("rifiutate");
+
+  // Rimuove il contatore precedente (se esiste)
+  let existingSpan = h2NumRifiutate.querySelector("span");
+  if (existingSpan) {
+    existingSpan.remove();
+  }
+
   let numRifiutate = document.createElement("span"); // Crea l'elemento <span>
   numRifiutate.textContent = " " + num;
 
   h2NumRifiutate.appendChild(numRifiutate);
+
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
     listaPrenotazione.removeChild(listaPrenotazione.firstChild);
