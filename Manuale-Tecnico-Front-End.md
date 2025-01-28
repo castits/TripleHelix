@@ -49,20 +49,28 @@ To enhance visibility and ranking on search engines, SEO best practices such as 
 │   └── svg
 │       ├── account.svg
 │       ├── arrow.svg
+│       ├── cancel.svg
 │       ├── carousel_arrow.svg
 │       ├── cascina.svg
+│       ├── check.svg
 │       ├── closure.svg
 │       ├── coloredClosure.svg
 │       ├── coloredHamburger.svg
+│       ├── confirmed.svg
+│       ├── delete_24dp_UNDEFINED_FILL0_wght400_GRAD0_opsz24.svg
 │       ├── double_arrow.svg
 │       ├── facebook.svg
+│       ├── feedback.svg
 │       ├── hamburger.svg
+│       ├── homepage.svg
 │       ├── instagram.svg
 │       ├── location.svg
 │       ├── logo.svg
 │       ├── logout.svg
 │       ├── mail.svg
+│       ├── open-backoffice.svg
 │       ├── phone.svg
+│       ├── waiting.svg
 │       └── youtube.svg
 ├── carousel-info
 │   ├── carousel1.html
@@ -88,6 +96,8 @@ To enhance visibility and ranking on search engines, SEO best practices such as 
 │   │   ├── bookingRefuse.js
 │   │   ├── bookingWaiting.js
 │   │   ├── feedbacks.js
+│   │   ├── userBookingConfirmed.js
+│   │   ├── userBookingRefused.js
 │   │   └── usersDashboard.js
 │   └── components
 │       ├── header.js
@@ -97,7 +107,8 @@ To enhance visibility and ranking on search engines, SEO best practices such as 
 │   │   └── form.css
 │   ├── backoffice
 │   │   ├── backoffice.css
-│   │   └── bookingWaiting.css
+│   │   ├── booking.css
+│   │   └── userBackoffice.css
 │   ├── components
 │   │   ├── footer.css
 │   │   ├── form-messages.css
@@ -123,6 +134,10 @@ To enhance visibility and ranking on search engines, SEO best practices such as 
 ├── package-lock.json
 ├── package.json
 ├── registration.html
+├── robot.txt
+├── sitemap.xml
+├── userDashboardConfirmed.html
+├── userDashboardRefused.html
 └── usersDashboard.html
 ```
 
@@ -165,7 +180,7 @@ To enhance visibility and ranking on search engines, SEO best practices such as 
 - Filters bookings based on their status (e.g., `PENDING`, `CONFIRMED`).
 - Allows admins to approve or reject bookings.
 - Users can make bookings through a dedicated form.
-- Users have a private area to view their confirmed and pending bookings.
+- Users have a private area to view their confirmed, refused and pending bookings.
 
 ---
 
