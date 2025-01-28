@@ -45,17 +45,6 @@ function createPrenotazioneBox(prenotazione) {
   let div = document.createElement("div");
   div.classList.add("prenotazione-box");
   div.classList.add("rifiutate");
-  let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(
-    document.createTextNode(
-      `${prenotazione.appointmentDate}  \|  ${
-        giorniItaliano[prenotazione.day] || prenotazione.day
-      }  \|  ${
-        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
-      }`
-    )
-  );
-  div.appendChild(dataAppuntamento);
 
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
