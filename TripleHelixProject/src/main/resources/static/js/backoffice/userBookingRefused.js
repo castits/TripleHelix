@@ -25,16 +25,13 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
         userData.userEmail
-      )}&status=PENDING`; // Stato "PENDING" per prenotazioni in attesa di conferma
+      )}&status=REJECTED`; // Stato "REJECTED" per prenotazioni rifiutate
       const response = await fetch(endpointPrenotazioni);
       if (!response.ok) {
         throw new Error(`Errore HTTP! stato: ${response.status}`);
       }
       const prenotazioni = await response.json();
-      console.log(
-        "Prenotazioni in attesa di conferma dell'utente:",
-        prenotazioni
-      );
+      console.log("Prenotazioni rifiutate dell'utente:", prenotazioni);
       let nPrenotazioni = prenotazioni.length;
       // Mostra le prenotazioni
       showPrenotazioni(prenotazioni, nPrenotazioni);
@@ -107,9 +104,9 @@ window.addEventListener("DOMContentLoaded", () => {
       console.error("Contenitore prenotazioni non trovato.");
       return;
     }
-    let h2NumPrenotazione = document.getElementById("inAttesa");
+    let h2NumPrenotazione = document.getElementById("rifiutate");
     let numPrenotazione = document.createElement("span"); // Crea l'elemento <span>
-    numPrenotazione.textContent = ": " + num;
+    numPrenotazione.textContent = " " + num;
 
     h2NumPrenotazione.appendChild(numPrenotazione);
 
@@ -120,8 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (prenotazioni.length === 0) {
       const nessunaPrenotazione = document.createElement("p");
-      nessunaPrenotazione.textContent =
-        "Nessuna prenotazione in attesa di conferma.";
+      nessunaPrenotazione.textContent = "Nessuna prenotazione rifiutata.";
       listaPrenotazione.appendChild(nessunaPrenotazione);
       return;
     }

@@ -37,7 +37,7 @@ fetch(endpointPrenotazioni)
     console.log("Errore:", error);
   });
 
-// // Seleziona il contenitore per la lista di prenotazioni
+// Seleziona il contenitore per la lista di prenotazioni
 let listaPrenotazione = document.querySelector(".containerPrenotazione");
 
 function createPrenotazioneBox(prenotazione) {
@@ -45,36 +45,111 @@ function createPrenotazioneBox(prenotazione) {
   let div = document.createElement("div");
   div.classList.add("prenotazione-box");
   div.classList.add("rifiutate");
-  let dataAppuntamento = document.createElement("p");
-  dataAppuntamento.appendChild(document.createTextNode(`${prenotazione.appointmentDate}  \|  ${giorniItaliano[prenotazione.day] || prenotazione.day}  \|  ${fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot}`));
-  div.appendChild(dataAppuntamento);
 
   // Crea e aggiungi gli elementi
   let nome = document.createElement("p");
-  nome.appendChild(document.createTextNode(`Referente: ${prenotazione.userName} ${prenotazione.userSurname}`));
+  nome.appendChild(
+    document.createTextNode(
+      `Referente: ${prenotazione.userName} ${prenotazione.userSurname}`
+    )
+  );
   div.appendChild(nome);
 
   let email = document.createElement("p");
-  email.appendChild(document.createTextNode(`Email: ${prenotazione.userEmail}`));
+  email.appendChild(
+    document.createTextNode(`Email: ${prenotazione.userEmail}`)
+  );
   div.appendChild(email);
 
   let istituto = document.createElement("p");
-  istituto.appendChild(document.createTextNode(`Istituto: ${prenotazione.institute}`));
+  istituto.appendChild(
+    document.createTextNode(`Istituto: ${prenotazione.institute}`)
+  );
   div.appendChild(istituto);
 
   let partecipanti = document.createElement("p");
-  partecipanti.appendChild(document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`));
+  partecipanti.appendChild(
+    document.createTextNode(`Partecipanti: ${prenotazione.participantQuantity}`)
+  );
   div.appendChild(partecipanti);
+
+  let dataAppuntamento = document.createElement("p");
+  dataAppuntamento.appendChild(
+    document.createTextNode(
+      `Data Appuntamento: ${prenotazione.appointmentDate}`
+    )
+  );
+  div.appendChild(dataAppuntamento);
+
+  let giorno = document.createElement("p");
+  giorno.appendChild(
+    document.createTextNode(
+      `Giorno: ${giorniItaliano[prenotazione.day] || prenotazione.day}`
+    )
+  );
+  div.appendChild(giorno);
+
+  let fasciaOraria = document.createElement("p");
+  fasciaOraria.appendChild(
+    document.createTextNode(
+      `Fascia Oraria: ${
+        fasceOrarieItaliano[prenotazione.timeSlot] || prenotazione.timeSlot
+      }`
+    )
+  );
+  div.appendChild(fasciaOraria);
+
+  // Crea il bottone "Cancella"
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container");
+
+  let cancellaButton = document.createElement("button");
+  cancellaButton.textContent = "Cancella";
+  cancellaButton.type = "button";
+  cancellaButton.classList.add("cancella-button");
+  cancellaButton.addEventListener("click", () => handleRifiuta(prenotazione));
+
+  buttonContainer.appendChild(cancellaButton);
+  div.appendChild(buttonContainer);
 
   return div;
 }
 
+async function handleRifiuta(prenotazione) {
+  try {
+    const response = await fetch(
+      `/api/bookings/delete/${prenotazione.bookingId}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      prenotazioni = prenotazioni.filter(
+        (p) => p.bookingId !== prenotazione.bookingId
+      );
+      showPrenotazioni(prenotazioni.length); // Aggiorna il numero delle prenotazioni
+    } else {
+      console.error("Failed to delete booking");
+    }
+  } catch (error) {
+    console.error("Errore:", error);
+  }
+}
+
 function showPrenotazioni(num) {
   let h2NumRifiutate = document.getElementById("rifiutate");
+
+  // Rimuove il contatore precedente (se esiste)
+  let existingSpan = h2NumRifiutate.querySelector("span");
+  if (existingSpan) {
+    existingSpan.remove();
+  }
+
   let numRifiutate = document.createElement("span"); // Crea l'elemento <span>
-  numRifiutate.textContent = num;
+  numRifiutate.textContent = " " + num;
 
   h2NumRifiutate.appendChild(numRifiutate);
+
   // Rimuove tutti i figli del contenitore in modo sicuro
   while (listaPrenotazione.firstChild) {
     listaPrenotazione.removeChild(listaPrenotazione.firstChild);
