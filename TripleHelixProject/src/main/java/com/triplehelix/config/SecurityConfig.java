@@ -39,19 +39,10 @@ public class SecurityConfig {
 	        		.requestMatchers("/api/bookings/").hasRole("ADMIN")
 	        		.requestMatchers("/api/users/create-admin/").hasRole("ADMIN")
 		        	.requestMatchers("/api/bookings/status?**",
-		        			"/api/bookings/update/**",
+		        			"/api/bookings/update**",
 		        			"/api/bookings/change-status**",
 		        			"/api/bookings/delete**").hasRole("ADMIN")
-		        	.requestMatchers("/api/feedbacks",
-		        			"/api/feedbacks/**").hasRole("ADMIN")
-	            /*.requestMatchers("/pub/auth/**",
-	            		"/**.html",
-	            		"/styles/**",
-	            		"/js/**",
-	            		"/assets/**",
-	            		"/carousel-info/**",
-	            		"/node_modules/**",
-	            		"/").permitAll()*/
+		        	.requestMatchers("/api/feedbacks/").hasRole("ADMIN")
 	            .anyRequest().permitAll()
 	        )
 	        .exceptionHandling()

@@ -72,6 +72,12 @@ main {
 .container {
   margin: 10px;
 }
+.container h2 {
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  padding: 0 20px;
+  text-align: center;
+}
 
 nav img {
   width: 50px;
@@ -236,6 +242,12 @@ main nav {
     height: 100vh;
     padding: 2rem 5rem;
   }
+
+  .container h2 {
+    font-weight: var(--font-weight-medium);
+    padding: 0 20px;
+    text-align: center;
+  }
 }
 /* Laptop Small*/
 @media screen and (min-width: 992px) {
@@ -269,6 +281,11 @@ main nav {
     align-items: center;
   }
 
+  #logo img {
+    width: 70px;
+    height: 70px;
+  }
+
   .container {
     width: 70vw;
     margin-left: 25vw;
@@ -277,8 +294,9 @@ main nav {
   }
 
   .container h2 {
-    font-size: 22px;
-    text-align: left;
+    font-size: 25px;
+    text-align: center;
+    font-weight: var(--font-weight-medium);
   }
 
   #nav-desktop {
@@ -290,11 +308,6 @@ main nav {
     content: none;
   }
 
-  #nav-desktop h2,
-  h2 {
-    font-size: 20px;
-    font-weight: var(--font-weight-bold);
-  }
   #nav-desktop h2 {
     margin: 5rem 0 10px 0;
   }

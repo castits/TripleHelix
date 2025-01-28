@@ -62,7 +62,7 @@ The API was built to allow interaction with the system’s core functionalities.
     - **Response**: A message that indicates if the registration went well.
       - **Status**: 201 Created: "User registered successfully!".
       - **Status**: 409 Conflict: "Email already in use!".
-      - **Status**: 500 Internal Server Errore: "Registration failed".
+      - **Status**: 500 Internal Server Error: "Registration failed".
 
 2. **POST /pub/auth/login**: Login new user.
   - **Request Body**:
@@ -73,10 +73,10 @@ The API was built to allow interaction with the system’s core functionalities.
     }
     ```
     - **Response**: A message that indicates if the login went well.
-      - **Status**: 200 OK: "User registered successfully!".
+      - **Status**: 200 OK: "Login successful".
       - **Status**: 403 Forbidden: "User is already logged in".
-      - **Status**: 401 Unauthorized: "User is already logged in".
-      - **Status**: 401 Unauthorized:"User not found or incorrect credentials".
+      - **Status**: 401 Unauthorized: "Incorrect credentials".
+      - **Status**: 401 Unauthorized: "User not found or incorrect credentials".
 
 3. **POST /pub/auth/logout**: Logout new user.
     - **Response**: A message that indicates if the logout went well.
@@ -127,10 +127,10 @@ The API was built to allow interaction with the system’s core functionalities.
       ```
       - **Status**: 401 Unauthorized: "User is not logged in".
 
-
 ### Booking Controller Endpoints
 
 1. **GET /api/bookings**: Fetches all bookings.
+  - **Authorization required**: ADMIN role
   - **Response**: List of booking objects.
     - **Status**: 200 OK.
     ```json
@@ -157,10 +157,12 @@ The API was built to allow interaction with the system’s core functionalities.
       "day": "FRIDAY"
     }
     ```
+
 2. **GET /api/bookings/status**: Retrieve bookings based on status.
   - **Authorization required**: ADMIN role
-  - **Query Parameter**: `status` (String) – Booking status (REFUSED, PENDING, CONFIRMED).
-  - **Response**: 
+  - **Query Parameter**:
+    - `status` (String) – Booking status (REFUSED, PENDING, CONFIRMED).
+  - **Response**: List of booking objects.
     - **Status**: 200 OK: List of bookings matching the status.<br>
     ```json
       Example request: "GET /api/bookings/status?status=PENDING"
@@ -181,11 +183,12 @@ The API was built to allow interaction with the system’s core functionalities.
     - **Status**: 400 Bad Request: "Invalid status value".
   
 3. **GET /api/bookings/user**: Fetches bookings associated with a user's email
-  - **Query Parameter**: `email` (string) – The user’s email address.
-  - **Response**:
-    - **Status**: 200 OK: List of bookings matching the status.<br>
+  - **Query Parameter**:
+    - `email` (string) – The user’s email address.
+  - **Response**: List of booking objects.
+    - **Status**: 200 OK: List of bookings matching the user's email.<br>
     ```json
-      Example request: "GET /api/bookings/user?email=user@example.com"
+      Example request: "GET /api/bookings/user?email=luca.rossi@example.com"
     ```
     ```json
     {
@@ -204,7 +207,7 @@ The API was built to allow interaction with the system’s core functionalities.
   - **Query Parameter**: 
     - `email` (string) – The user’s email address.
     - `status` (String) – Booking status (REFUSED, PENDING, CONFIRMED).
-  - **Response**: The created booking object.
+  - **Response**: List of booking objects.
     - **Status**: 200 OK: List of filtered bookings.<br>
     ```json
       Example request: "GET /api/bookings/user-status?email=user@example.com&status=CONFIRMED"
@@ -223,94 +226,150 @@ The API was built to allow interaction with the system’s core functionalities.
     }
     ```
     - **Status**: 400 Bad Request: Invalid status value.
-  
 
-
-
-- **POST /api/bookings/create**: Creates a new booking.
+5. **POST /api/bookings/create**: Creates a new booking.
   - **Request Body**:
     ```json
     {
-      "userRequest": {
-        "user": "userId",
-        "institute": "instituteId"
-      }
+        "institute": "ITS ICT",
+        "participantQuantity": 7,
+        "appointmentDate": "2025-01-17",
+        "timeSlot": "AFTERNOON",
+        "activity": "Visita",
+        "bookingInfoReq": "Ciao, questa è una prova"
     }
     ```
   - **Response**: The created booking object.
-  - **Status**: 201 CREATED.
+    - **Status**: 201 CREATED.
+
+6. **POST /api/bookings/update/{id}**: Updates a booking.
+  **Path Variable**:
+    - `id` (integer) – The ID of the booking
+  - **Request Body**:
+    ```json
+    {
+        "participantQuantity": 100,
+        "appointmentDate": "2024-01-05",
+        "timeSlot": "FULL_DAY"
+    }
+    ```
+  - **Response**: The updated booking object.
+    - **Status**: 200 OK: the updated booking.
+    - **Status**: 404 Not Found: if the booking is not present.
+    - **Status**: 400 Bad Request: if there is no updatable attribute in the body.
+
+7. **POST /api/bookings/change-status/{id}**: Changes a booking status.
+  - **Path Variable**:  
+    - `id` (integer) – The ID of the booking
+  - **Query Parameter**: 
+    - `status` (String) – The new booking status (REFUSED, PENDING, CONFIRMED).
+  - **Response**: A message.
+    - **Status**: 200 OK: "Status updated successfully".
+    - **Status**: 404 Not Found: if the booking is not present.
+    - **Status**: 400 Bad Request: if the status is not accepted.
+
+7. **POST /api/bookings/delete/{id}**: Deletes a booking.
+  - **Path Variable**:  
+    - `id` (integer) – The ID of the booking
+  - **Response**: A message.
+    - **Status**: 200 OK: "Booking deleted successfully".
+    - **Status**: 404 Not Found: if the booking is not present.
 
 ### Feedback Controller Endpoints
 
-- **GET /api/feedbacks**: Fetches all feedback records.
+1. **GET /api/feedbacks**: Fetches all feedback records.
   - **Response**: List of feedback objects.
-  - **Status**: 200 OK.
+    - **Status**: 200 OK: List of feedbacks.
   
-- **GET /api/feedbacks/{id}**: Fetches a specific feedback by ID.
-  - **Path Parameter**: `id` (integer) – The ID of the feedback.
-  - **Response**: Feedback object or 404 NOT FOUND if not found.
+2. **GET /api/feedbacks/{id}**: Fetches a specific feedback by ID.
+  - **Path Variable**:
+    - `id` (integer) – The ID of the feedback.
+  - **Response**:
+    - **Status**: 200 OK: The feedback found.
+    - **Status**: 404 NOT FOUND: if no feedback is found.
   
-- **POST /api/feedbacks**: Creates a new feedback.
-  - **Request Body**:
-    ```json
-    {
-      "comment": "User comment",
-      "rating": 4,
-      "bookingId": 123,
-      "date": "2025-01-08T10:30:00Z"
-    }
-    ```
+3. **POST /api/feedbacks/add**: Creates a new feedback.
   - **Response**: The created feedback object.
   - **Status**: 201 CREATED.
 
-- **PUT /api/feedbacks/{id}**: Updates an existing feedback.
-  - **Path Parameter**: `id` (integer) – The ID of the feedback.
-  - **Request Body**: Updated feedback fields.
-    ```json
-    {
-      "comment": "Updated comment",
-      "rating": 5,
-      "bookingId": 123,
-      "date": "2025-01-08T12:00:00Z"
-    }
-    ```
-  - **Response**: Updated feedback object or 404 NOT FOUND if not found.
-  - **Status**: 200 OK or 404 NOT FOUND.
-
-- **DELETE /api/feedbacks/{id}**: Deletes a feedback by ID.
-  - **Path Parameter**: `id` (integer).
-  - **Response**: No content.
-  - **Status**: 204 NO CONTENT or 404 NOT FOUND.
+4. **DELETE /api/feedbacks/{id}**: Deletes a feedback by ID.
+  - **Path Parameter**:
+   - `id` (integer) - The feedback ID.
+  - **Response**: A message.
+    - **Status**: 200 OK: "Feedback deleted successfully".
+    - **Status**: 404 NOT FOUND: if no feedback is found.
 
 ### Information Request Controller Endpoints
 
-- **GET /api/requests**: Fetches all user requests.
-  - **Response**: List of user request objects.
-  - **Status**: 200 OK.
-
-- **GET /api/requests/{id}**: Fetches a specific user request by ID.
-  - **Path Parameter**: `id` (integer).
-  - **Response**: User request object or 404 NOT FOUND.
-
-- **POST /api/requests**: Creates a new user request.
+- **POST /api/information-requests/send**: Send a information request.
   - **Request Body**:
     ```json
     {
-      "user": "userId",
-      "institute": "instituteId"
+      "userName": "Mario",
+      "userSurname": "Rossi",
+      "userEmail": "mario.rossi@gmail.com",
+      "userPhone": "1231231230",
+      "informationRequestText": "Ciao, voglio richiedere informazioni per una visita con la mia scuola"
     }
     ```
-  - **Response**: The created user request object.
-  - **Status**: 201 CREATED.
 
 ### User Controller Endpoints
+
+1. **POST /api/users/forgot-password**: Handle forgotten password requests.
+  - **Request Body**:
+    ```json
+    {
+      "email": "user@example.com"
+    }
+    ```
+  - **Response**:
+    - **Status**: 200 OK: "Password reset email sent".
+    - **Status**: 400 Bad Request: "Email is required".
+    - **Status**: 404 Not Found: "User not found".
+
+2. **POST /api/users/reset-password**: Handle password reset requests.
+  - **Request Body**:
+    ```json
+    {
+      "token": "reset-token",
+      "newPassword": "newSecurePassword123"
+    }
+    ```
+  - **Response**:
+    - **Status**: 200 OK: "Password updated successfully".
+    - **Status**: 400 Bad Request: "Token and new password are required".
+    - **Status**: 404 Not Found: "Invalid token".
+
+3. **GET /api/users/auth-role**: Get the role ID of the authenticated user.
+  - **Response**: The role ID.
+    - **Status**: 200 OK: Role ID of the authenticated user.
+    - **Status**: 401 Unauthorized: If no authenticated user is found.
+
+4. **DELETE /api/users/delete/{id}**: Delete a user by ID.
+  - **Path Variable**:
+    - `id` (integer) - The user ID to delete.
+  - **Response**:
+    - **Status**: 200 OK: "User deleted successfully".
+    - **Status**: 404 Not Found: If no user is found with the given ID.
+
+5. **POST /api/users/create-admin**: Create a new admin user.
+  - **Request Body**:
+    ```json
+    {
+      "userName": "Admin",
+      "userSurname": "User",
+      "userEmail": "admin@example.com",
+      "userPassword": "securePassword123"
+    }
+    ```
+  - **Authorization required**: ADMIN role.
+  - **Response**:
+    - **Status**: 201 Created: The newly created admin object.
+    - **Status**: 409 Conflict: "Email already in use!".
+
 ## Testing and Validation
 
 - **Thunder Client** was employed for manual testing of API endpoints.
 - **Postman** was also used to ensure comprehensive API testing, including automated collections and validation scripts.
 - JSON payloads were validated to ensure proper serialization/deserialization.
 - Edge cases and error handling were thoroughly tested.
-
-## Conclusion
-
-The backend of the Triple Helix Project represents a well-structured and efficiently implemented solution. Its modular design, combined with rigorous testing and adherence to best practices, ensures high performance and scalability.
