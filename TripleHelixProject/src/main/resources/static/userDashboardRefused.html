@@ -10,27 +10,21 @@
     <!-- Author of the site -->
     <meta name="author" content="Triple Helix" />
     <!-- Description of the site -->
-    <meta
-      name="description"
-      content="Pagina delle prenotazioni confermate lato utente"
-    />
+    <meta name="description" content="Pagina delle prenotazioni confermate lato utente" />
     <!-- Page title -->
     <title>Le mie prenotazioni confermate - Cascina Caccia</title>
     <link rel="icon" type="image/svg+xml" href="./assets/svg/logo.svg" />
     <!-- Link to Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <!-- Link to CSS stylesheets -->
     <!-- Reset CSS to standardize styles across browsers -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- Styles for the backoffice page -->
 
-    <link rel="stylesheet" href="./styles/backoffice/backoffice.css" />
+    <link rel="stylesheet" href="./styles/backoffice/userBackoffice.css" />
     <link rel="stylesheet" href="./styles/backoffice/booking.css" />
   </head>
 
@@ -43,30 +37,15 @@
     <!--*------------------------------*-->
     <header>
       <!-- Logo section -->
-      <a
-        aria-label="Logo di Sfera, rappresentante l'emblema del portale"
-        href="./index.html"
-      >
-        <img
-          src="./assets/svg/logo.svg"
-          alt="Logo di Sfera, rappresentante l'emblema del portale"
-          title="Logo di Sfera, rappresentante l'emblema del portale"
-        />
+      <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+        <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
       </a>
 
       <!-- Navigation menu -->
       <nav>
         <!-- Hamburger menu icon for mobile devices -->
-        <label
-          for="check"
-          class="checkbtn"
-          aria-label="Apri menu di navigazione"
-        >
-          <img
-            src="./assets/svg/hamburger.svg"
-            alt="Icona menu di navigazione"
-            id="hamburger"
-          />
+        <label for="check" class="checkbtn" aria-label="Apri menu di navigazione">
+          <img src="./assets/svg/hamburger.svg" alt="Icona menu di navigazione" id="hamburger" />
         </label>
         <input type="checkbox" id="check" />
 
@@ -75,41 +54,26 @@
           <ul>
             <!-- "Homepage" link -->
             <li class="mobileNavLink">
-              <a
-                class="scroll"
-                href="./index.html"
-                title="Homepage"
-                aria-label="Torna alla homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
             <!-- "Bookings pending" link -->
             <li class="mobileNavLink">
-              <a
-                href="./usersDashboard.html"
-                title="Prenotazioni in attesa"
-                aria-label="Vai alla pagina di prenotazioni in attesa"
-                >In attesa</a
-              >
+              <a href="./usersDashboard.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
             <!-- "Bookings confirmed" link -->
             <li class="mobileNavLink">
-              <a
-                href="./userDashboardConfirmed.html"
-                title="Prenotazioni confermate"
-                aria-label="Vai alla pagina di prenotazioni confermate"
-                >Confermate</a
-              >
+              <a href="./userDashboardConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
             <!-- "Bookings refused" link -->
             <li class="mobileNavLink">
-              <a
-                href="#"
-                title="Prenotazioni rifiutate"
-                aria-label="Vai alla pagina di prenotazioni rifiutate"
-                >Rifiutate</a
-              >
+              <a href="#" title="Prenotazioni rifiutate" aria-label="Vai alla pagina di prenotazioni rifiutate">Rifiutate</a>
+            </li>
+            <!-- Logout icon -->
+            <li class="mobileNavLink">
+              <a href="#" class="logout" title="Esci dal sistema" aria-label="Esci dal sistema">
+                <img src="./assets/svg/logout.svg" alt="icona logout" title="Logout" />
+              </a>
             </li>
           </ul>
         </div>
@@ -121,15 +85,8 @@
       <nav>
         <div id="nav-desktop">
           <div id="logo">
-            <a
-              aria-label="Logo di Sfera, rappresentante l'emblema del portale"
-              href="./index.html"
-            >
-              <img
-                src="./assets/svg/logo.svg"
-                alt="Logo di Sfera, rappresentante l'emblema del portale"
-                title="Logo di Sfera, rappresentante l'emblema del portale"
-              />
+            <a aria-label="Logo di Sfera, rappresentante l'emblema del portale" href="./index.html">
+              <img src="./assets/svg/logo.svg" alt="Logo di Sfera, rappresentante l'emblema del portale" title="Logo di Sfera, rappresentante l'emblema del portale" />
             </a>
           </div>
 
@@ -138,41 +95,20 @@
           <ul>
             <!-- "Homepage" link -->
             <li>
-              <a
-                class="scroll"
-                href="./index.html"
-                title="Homepage"
-                aria-label="Torna alla homepage"
-                >Homepage</a
-              >
+              <a class="scroll" href="./index.html" title="Homepage" aria-label="Torna alla homepage">Homepage</a>
             </li>
 
             <!-- "Bookings pending " link -->
             <li>
-              <a
-                href="./usersDashboard.html"
-                title="Prenotazioni in attesa"
-                aria-label="Vai alla pagina di prenotazioni in attesa"
-                >In attesa</a
-              >
+              <a href="./usersDashboard.html" title="Prenotazioni in attesa" aria-label="Vai alla pagina di prenotazioni in attesa">In attesa</a>
             </li>
             <!-- "Bookings confirmed" link -->
             <li>
-              <a
-                href="./userDashboardConfirmed.html"
-                title="Prenotazioni confermate"
-                aria-label="Vai alla pagina di prenotazioni confermate"
-                >Confermate</a
-              >
+              <a href="./userDashboardConfirmed.html" title="Prenotazioni confermate" aria-label="Vai alla pagina di prenotazioni confermate">Confermate</a>
             </li>
             <!-- "Bookings refused" link -->
             <li>
-              <a
-                href="#"
-                title="Prenotazioni rifiutate"
-                aria-label="Vai alla pagina di prenotazioni rifiutate"
-                >Rifiutate</a
-              >
+              <a href="#" title="Prenotazioni rifiutate" aria-label="Vai alla pagina di prenotazioni rifiutate">Rifiutate</a>
             </li>
           </ul>
         </div>
