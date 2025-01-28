@@ -42,16 +42,7 @@ public class SecurityConfig {
 		        			"/api/bookings/update**",
 		        			"/api/bookings/change-status**",
 		        			"/api/bookings/delete**").hasRole("ADMIN")
-		        	.requestMatchers("/api/feedbacks",
-		        			"/api/feedbacks/**").hasRole("ADMIN")
-	            /*.requestMatchers("/pub/auth/**",
-	            		"/**.html",
-	            		"/styles/**",
-	            		"/js/**",
-	            		"/assets/**",
-	            		"/carousel-info/**",
-	            		"/node_modules/**",
-	            		"/").permitAll()*/
+		        	.requestMatchers("/api/feedbacks/").hasRole("ADMIN")
 	            .anyRequest().permitAll()
 	        )
 	        .exceptionHandling()
