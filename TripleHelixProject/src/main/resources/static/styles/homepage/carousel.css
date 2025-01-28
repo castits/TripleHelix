@@ -26,15 +26,14 @@
 }
 
 #workshop {
-  margin: 0; /* Rimuove margini per il workshop */
+  margin: 0;
   position: relative;
 }
 
 #workshop h2 {
-  margin: 0 1.3rem 1.5rem; /* Distanza per il titolo del workshop */
+  margin: 0 1.3rem 1.5rem;
 }
 
-/* Contenitore per il carousel */
 .carousel-container {
   display: flex;
   overflow-x: scroll;
@@ -45,7 +44,6 @@
   width: calc(100% - 2.6rem);
 }
 
-/* Ogni elemento del carousel */
 .carousel-item {
   position: relative;
   flex-shrink: 0;
@@ -178,8 +176,6 @@
     #ff2f6c,
     #ed008c
   );
-
-  /* border: 1px solid var(--gray-light); */
 }
 
 /* Tablet */

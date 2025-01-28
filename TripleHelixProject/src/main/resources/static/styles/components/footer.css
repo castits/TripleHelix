@@ -26,19 +26,19 @@
 }
 
 footer {
-  background-color: var(--black); /* Colore di sfondo scuro per il footer */
+  background-color: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--white); /* Colore del testo bianco */
-  text-align: center; /* Allineamento del testo */
+  color: var(--white);
+  text-align: center;
   font-weight: var(--font-weight-regular);
 }
 
 footer div {
   font-size: 16px;
-  margin: 1rem 0; /* Distanza tra i div del footer */
+  margin: 1rem 0;
 }
 
 footer div:not(#footer-logo, #footer-socials) img {
@@ -60,18 +60,18 @@ footer div:not(#footer-logo, #footer-socials) img {
 }
 
 #footer-location {
-  margin: 0 0 1rem; /* Distanza per la sezione di localizzazione */
+  margin: 0 0 1rem;
 }
 
 #footer-email {
-  margin: 1rem 0 2.5rem; /* Distanza per l'email */
+  margin: 1rem 0 2.5rem;
 }
 
 #footer-socials {
   display: flex;
-  width: 50%; /* Occupa metà della larghezza del footer */
+  width: 50%;
   flex-direction: row;
-  justify-content: space-around; /* Spaziatura uniforme tra le icone social */
+  justify-content: space-around;
 }
 
 #footer-socials img {
@@ -80,8 +80,8 @@ footer div:not(#footer-logo, #footer-socials) img {
 }
 
 #footer-copyright {
-  font-size: 12px; /* Testo piccolo per il copyright */
-  margin: 0 0 2rem; /* Distanza dal resto del footer */
+  font-size: 12px;
+  margin: 0 0 2rem;
 }
 
 footer div p {
@@ -114,22 +114,7 @@ iframe {
   }
 }
 /* Laptop Small*/
-/* AGGIUSTAMI LORDINE VOGLIO I SOCIAL A SINISTRA PER */
 @media screen and (min-width: 992px) {
-  /* #footer-desktop {
-    display: flex;
-    flex-direction: row;
-  } */
-
-  /* #footer-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  #footer-social {
-  } */
   #footer-logo img {
     height: 50px;
   }
@@ -148,8 +133,8 @@ iframe {
     margin-bottom: 3rem;
   }
   #footer-copyright {
-    font-size: 14px; /* Testo piccolo per il copyright */
-    margin: 0 0 2rem; /* Distanza dal resto del footer */
+    font-size: 14px;
+    margin: 0 0 2rem;
   }
 }
 

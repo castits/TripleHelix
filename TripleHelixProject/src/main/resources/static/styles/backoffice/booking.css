@@ -49,7 +49,6 @@ body {
   padding: 0;
 }
 
-/* Contenitore principale */
 .containerPrenotazione {
   width: 100%;
   padding: var(--spacing-medium);
@@ -59,7 +58,6 @@ body {
   margin: 20px auto;
 }
 
-/* Box prenotazione */
 .prenotazione-box {
   background-color: var(--orange-light);
   margin: var(--spacing-medium) 0;
@@ -74,7 +72,6 @@ body {
   box-shadow: var(--box-shadow-hover);
 }
 
-/* Testo all'interno dei box */
 .prenotazione-box p {
   margin: 0 0 var(--spacing-small);
   color: var(--gray-dark);
@@ -107,7 +104,6 @@ button:hover {
   transform: scale(1.02);
 }
 
-/* Pulsante Accetta */
 .accetta-button {
   background-color: var(--orange);
   color: var(--white);
@@ -117,7 +113,6 @@ button:hover {
   background-color: var(--orange-hover);
 }
 
-/* Pulsante Rifiuta */
 .rifiuta-button {
   background-color: var(--fucsia);
   color: var(--white);
@@ -127,7 +122,6 @@ button:hover {
   background-color: var(--fucsia-hover);
 }
 
-/* Pulsante Cancella */
 .cancella-button {
   background-color: var(--gray-dark);
   color: var(--white);
@@ -137,13 +131,11 @@ button:hover {
   background-color: #505050;
 }
 
-/* Stato "cancellato" */
 .cancellate {
   opacity: 0.6;
   text-decoration: line-through;
 }
 
-/* Stato "confermato" */
 .confermate {
   border-left: 4px solid var(--orange);
   padding-left: var(--spacing-small);
