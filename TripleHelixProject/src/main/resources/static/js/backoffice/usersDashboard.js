@@ -23,9 +23,10 @@ window.addEventListener("DOMContentLoaded", () => {
         );
         return;
       }
-      const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
+      const endpointPrenotazioni = `/api/bookings/user-status?email=${encodeURIComponent(
         userData.userEmail
       )}&status=PENDING`;
+
       const response = await fetch(endpointPrenotazioni);
       if (!response.ok) {
         throw new Error(`Errore HTTP! stato: ${response.status}`);

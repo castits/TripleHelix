@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         );
         return;
       }
-      const endpointPrenotazioni = `/api/bookings/user?email=${encodeURIComponent(
+      const endpointPrenotazioni = `/api/bookings/user-status?email=${encodeURIComponent(
         userData.userEmail
       )}&status=CONFIRMED`;
       const response = await fetch(endpointPrenotazioni);
