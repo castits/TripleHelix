@@ -145,3 +145,89 @@ Accedendo all'**Area Personale**, puoi visualizzare tutte le tue **prenotazioni*
 ---
 
 Questo manuale ti guiderà passo dopo passo nell'utilizzo del sito di **Cascina Caccia**. Se hai bisogno di ulteriore assistenza, non esitare a contattarci tramite il modulo di contatto. Siamo qui per aiutarti!
+
+
+
+
+Estensioni da scaricare:
+- debugger for java
+- extension pack for java
+- gradle for java
+- Language Support for Java(TM) by Red Hat  v1.43.1 
+- maven for java
+- Project Manager for Java  v0.24.1 
+- spring boot dashboard
+- Spring Boot Extension Pack
+- Spring Boot Tools
+- Spring Initializr Java Support
+- Test Runner for Java
+- thymeleaf
+- database client
+
+Creare progetto:
+- ctrl + shift + p
+- > Spring Initializr
+- 3.5.3
+- java
+- com.cognome
+- nome_progetto
+- jar
+- 17
+- dipendenze:
+	- spring boot devtools
+	- thymeleaf
+	- spring web
+	- spring data jpa
+	- MySQL driver
+	- lombok
+
+Creare Database:
+- avviare xampp
+- aprire estensione vscode "database client"
+- cliccare su + "Add connection": Host = 127.0.0.1, Port = 3306, Username = root, Password = null
+- dalla connessione, clicca su + "New database" e mettere nome database (non cambiare default char set)
+- cliccare su tables > new table e creare le tabelle necessarie
+- aggiungere le foreign key: edit table > foreign key > +
+
+Configurazione application.properties:
+spring.application.name=calciatori
+
+spring.datasource.url=jdbc:mysql://localhost:3306/calciatori
+spring.datasource.username=root
+spring.datasource.password=
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+Progetto vero e proprio:
+- creare entità:
+	- attenzione alle annotazioni della classe:
+		@Entity
+		@Table(name = "allenatori")
+		@NoArgsConstructor
+		@Getter
+		@Setter
+	- annotazioni id: 
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+	- metodi per created_at e updated_at:
+		@PrePersist
+    		protected void onCreate() {
+       			createdAt = LocalDateTime.now();
+        		updatedAt = LocalDateTime.now();
+    		}
+
+    		@PreUpdate
+    		protected void onUpdate() {
+        		updatedAt = LocalDateTime.now();
+    		}
+
+- creare repos:
+	- annotazione @Repository
+	- JpaRepository<Classe, TipoId>
+- creare service (interfaccia service e classe serviceimpl):
+	- nell'interfaccia dichiarare soltanto i metodi (public non è necessario, basta mettere nome metodo e parametri)
+	- nella classe impl dichiarare con annotazione @Autowired il repo corrispondente e implementare i metodi
+- creare controller rest:
+	- annotazioni @RestController e @RequestMapping("/api/...")
+	- dichiarare @Autowired il service (non impl)
